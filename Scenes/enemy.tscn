@@ -5,7 +5,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ashq5"]
 size = Vector2(50, 50)
 
-[node name="Survivor" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
 
 [node name="BodySprite" type="Sprite2D" parent="."]
 self_modulate = Color(0.588235, 0.282353, 0.356863, 1)

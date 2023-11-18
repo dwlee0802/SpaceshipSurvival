@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://crk54pclkvhi"]
+[gd_scene load_steps=5 format=3 uid="uid://crk54pclkvhi"]
 
 [ext_resource type="Script" path="res://Scripts/survivor.gd" id="1_ag083"]
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="2_3n7u2"]
@@ -6,7 +6,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ashq5"]
 size = Vector2(50, 50)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rfjmd"]
+radius = 400.0
+
 [node name="Survivor" type="CharacterBody2D"]
+collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_ag083")
 
@@ -26,3 +30,15 @@ shape = SubResource("RectangleShape2D_ashq5")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 debug_enabled = true
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_rfjmd")
+
+[node name="AttackLine" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 1.0
+default_color = Color(1, 0, 0, 1)

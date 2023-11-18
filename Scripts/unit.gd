@@ -2,9 +2,10 @@ extends CharacterBody2D
 
 class_name Unit
 
-var health: int = 1
-
+@export var health: int = 1
 @export var speed: int = 300
+
+var attackTarget
 
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
 @onready var target_position: Vector2 = position
