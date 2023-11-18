@@ -14,7 +14,7 @@ var acc: float = 1
 func _physics_process(delta):
 	var dir = Vector2()
 	
-	nav.target_position = get_global_mouse_position()
+	nav.target_position = target_position
 	
 	dir = nav.get_next_path_position() - global_position
 	dir = dir.normalized()
