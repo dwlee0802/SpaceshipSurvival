@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://be6pcrbh62p80"]
+[gd_scene load_steps=6 format=3 uid="uid://be6pcrbh62p80"]
 
 [ext_resource type="Script" path="res://Scripts/interactable.gd" id="1_i626h"]
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="2_m5bu7"]
@@ -8,21 +8,42 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c6x3d"]
 size = Vector2(50, 50)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_q4c51"]
+radius = 45.0
+
 [node name="Interactable" type="StaticBody2D"]
 collision_layer = 4
 physics_material_override = SubResource("PhysicsMaterial_elui1")
 script = ExtResource("1_i626h")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0.580392, 0.360784, 0, 1)
+self_modulate = Color(0.415686, 0.415686, 0.415686, 1)
 scale = Vector2(50, 50)
 texture = ExtResource("2_m5bu7")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-self_modulate = Color(0.423529, 0.258824, 0, 1)
+self_modulate = Color(0, 0.792157, 0.917647, 1)
 position = Vector2(0, -13.5)
 scale = Vector2(50, 17)
 texture = ExtResource("2_m5bu7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_c6x3d")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_q4c51")
+
+[node name="FixTimeLabel" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -44.0
+offset_right = 20.0
+offset_bottom = -18.0
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1

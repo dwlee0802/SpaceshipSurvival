@@ -19,6 +19,7 @@ config/features=PackedStringArray("4.1", "GL Compatibility")
 2d_physics/layer_1="Survivor"
 2d_physics/layer_2="Enemy"
 2d_physics/layer_3="MapObjects"
+2d_physics/layer_4="Interaction"
 
 [rendering]
 

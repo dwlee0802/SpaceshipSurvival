@@ -11,8 +11,6 @@ static var weaponsDict
 
 @onready var attackTimer = $AttackTimer
 
-@export var stop: bool = false
-
 @onready var armSprite = $ArmSprite
 
 @onready var interactionArea = $InteractionArea
@@ -38,8 +36,7 @@ func parse_json(text):
 
 
 func _physics_process(delta):
-	if not stop:
-		super._physics_process(delta)
+	super._physics_process(delta)
 	
 	
 	# acquire attack targets
@@ -91,9 +88,8 @@ func _on_interaction_area_body_entered(body):
 				print("Added ", weaponsDict.Weapons[item.itemID].name, " to inventory.")
 				print("New inventory weight: ", inventoryWeight)
 				item.queue_free()
-				stop = true
+				
 			if item is Interactable:
 				print("interactable")
-				stop = true
 		
 		interacting = false

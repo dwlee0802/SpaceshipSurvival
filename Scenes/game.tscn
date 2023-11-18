@@ -25,6 +25,12 @@ script = ExtResource("6_pyyuj")
 
 [node name="Canvas" type="CanvasLayer" parent="Camera"]
 
+[node name="UnitUI" type="Control" parent="Camera/Canvas"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="InputManager" type="Node2D" parent="."]
 script = ExtResource("2_drscf")
 
@@ -55,3 +61,7 @@ position = Vector2(935, 324)
 
 [node name="Interactable" parent="." instance=ExtResource("8_i4dt2")]
 position = Vector2(728, 634)
+
+[node name="Enemy2" parent="." instance=ExtResource("5_gbw1q")]
+position = Vector2(1341, 594)
+health = 300

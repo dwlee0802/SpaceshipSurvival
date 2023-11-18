@@ -22,7 +22,7 @@ func _physics_process(delta):
 	velocity = velocity.lerp(dir * speed, 1)
 	
 	if (target_position - position).length() > 10:
-		var collider = move_and_collide(velocity * delta)
+		move_and_slide()
 	
 
 func ReceiveHit(amount):
