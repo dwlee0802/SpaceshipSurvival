@@ -13,7 +13,7 @@ func _unhandled_input(event):
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
 				dragging = true
-				drag_start = event.position
+				drag_start = get_global_mouse_position()
 				selectedUnits = []
 			if event.is_released():
 				dragging = false
@@ -23,11 +23,11 @@ func _unhandled_input(event):
 			
 		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 			for unit in selectedUnits:
-				unit.target_position = event.position
+				unit.target_position = get_global_mouse_position()
 		
 		
 	if dragging and event is InputEventMouseMotion:
-		DrawSelectionBox(drag_start, event.position)
+		DrawSelectionBox(drag_start, get_global_mouse_position())
 		selectionBox.visible = true
 			
 

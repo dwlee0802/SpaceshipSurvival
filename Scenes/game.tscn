@@ -18,6 +18,11 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(92, 61, 102, 291, 353, 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_e32sq")
 
+[node name="Camera" type="Camera2D" parent="."]
+script = ExtResource("6_pyyuj")
+
+[node name="Canvas" type="CanvasLayer" parent="Camera"]
+
 [node name="InputManager" type="Node2D" parent="."]
 script = ExtResource("2_drscf")
 
@@ -44,6 +49,3 @@ position = Vector2(383, 541)
 
 [node name="Survivor2" parent="." instance=ExtResource("4_16enx")]
 position = Vector2(1233, 676)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-script = ExtResource("6_pyyuj")

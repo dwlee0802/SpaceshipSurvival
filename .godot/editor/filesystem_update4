@@ -11,3 +11,5 @@ res://Scripts/InputManager.gd
 res://Scripts/game.gd
 res://Scenes/enemy.gd
 res://Scripts/camera.gd
+res://Scenes/placed_item.tscn
+res://Scenes/placed_item.gd

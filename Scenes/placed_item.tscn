@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0ywywvfjijmg"]
+
+[ext_resource type="Script" path="res://Scripts/placed_item.gd" id="1_76e7l"]
+[ext_resource type="Texture2D" uid="uid://bexkhiplgn4sy" path="res://Art/crowbar_placeholder.png" id="1_haa71"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ff65x"]
+size = Vector2(40, 40)
+
+[node name="Placed Item" type="StaticBody2D"]
+collision_layer = 0
+collision_mask = 0
+input_pickable = true
+script = ExtResource("1_76e7l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-2, -1)
+shape = SubResource("RectangleShape2D_ff65x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(-2, -0.999999)
+scale = Vector2(0.0615385, 0.0615385)
+texture = ExtResource("1_haa71")
