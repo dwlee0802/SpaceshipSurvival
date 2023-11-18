@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://be6pcrbh62p80"]
+
+[ext_resource type="Script" path="res://Scripts/interactable.gd" id="1_i626h"]
+[ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="2_m5bu7"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_elui1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c6x3d"]
+size = Vector2(50, 50)
+
+[node name="Interactable" type="StaticBody2D"]
+collision_layer = 4
+physics_material_override = SubResource("PhysicsMaterial_elui1")
+script = ExtResource("1_i626h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.580392, 0.360784, 0, 1)
+scale = Vector2(50, 50)
+texture = ExtResource("2_m5bu7")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+self_modulate = Color(0.423529, 0.258824, 0, 1)
+position = Vector2(0, -13.5)
+scale = Vector2(50, 17)
+texture = ExtResource("2_m5bu7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_c6x3d")

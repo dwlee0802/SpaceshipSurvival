@@ -1,3 +1,6 @@
 extends StaticBody2D
 
-var itemID: int = -1
+class_name PlacedItem
+
+
+@export var itemID: int = 1

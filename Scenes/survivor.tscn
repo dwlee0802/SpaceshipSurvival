@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://crk54pclkvhi"]
+[gd_scene load_steps=7 format=3 uid="uid://crk54pclkvhi"]
 
 [ext_resource type="Script" path="res://Scripts/survivor.gd" id="1_ag083"]
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="2_3n7u2"]
@@ -9,11 +9,14 @@ size = Vector2(50, 50)
 [sub_resource type="CircleShape2D" id="CircleShape2D_mh1ji"]
 radius = 600.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_rfjmd"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_pidx6"]
 radius = 200.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rfjmd"]
+radius = 50.0
+
 [node name="Survivor" type="CharacterBody2D"]
-collision_mask = 3
+collision_mask = 7
 motion_mode = 1
 script = ExtResource("1_ag083")
 
@@ -32,6 +35,7 @@ texture = ExtResource("2_3n7u2")
 shape = SubResource("RectangleShape2D_ashq5")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
 debug_enabled = true
 
 [node name="AttackArea" type="Area2D" parent="."]
@@ -52,8 +56,17 @@ wait_time = 0.2
 
 [node name="AuraArea" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AuraArea"]
-shape = SubResource("CircleShape2D_rfjmd")
+shape = SubResource("CircleShape2D_pidx6")
 debug_color = Color(0.682353, 0.494118, 0.290196, 0.419608)
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_rfjmd")
+debug_color = Color(1, 0, 0.188235, 0.419608)
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]

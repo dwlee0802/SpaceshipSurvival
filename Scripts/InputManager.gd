@@ -22,9 +22,25 @@ func _unhandled_input(event):
 				
 			
 		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
-			for unit in selectedUnits:
-				unit.target_position = get_global_mouse_position()
-		
+				
+			# Raytrace at mouse position and get tile
+			var space = get_viewport().world_2d.direct_space_state
+			var param = PhysicsPointQueryParameters2D.new()
+			param.position = get_global_mouse_position()
+			param.collision_mask = 4
+			var result = space.intersect_point(param)
+			
+			# No map opjects. Just move there directly
+			if len(result) == 0:
+				for unit in selectedUnits:
+					unit.target_position = get_global_mouse_position()
+			else:
+				print("selected map object")
+				for unit in selectedUnits:
+					unit.stop = false
+					unit.target_position = get_global_mouse_position()
+					unit.interacting = true
+				
 		
 	if dragging and event is InputEventMouseMotion:
 		DrawSelectionBox(drag_start, get_global_mouse_position())

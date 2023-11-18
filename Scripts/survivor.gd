@@ -11,6 +11,16 @@ static var weaponsDict
 
 @onready var attackTimer = $AttackTimer
 
+@export var stop: bool = false
+
+@onready var armSprite = $ArmSprite
+
+@onready var interactionArea = $InteractionArea
+var interacting: bool = false
+
+var inventory = []
+var inventoryWeight: int = 0
+var inventoryCapacity: int = 10
 
 func _ready():
 	# read in json files
@@ -28,7 +38,9 @@ func parse_json(text):
 
 
 func _physics_process(delta):
-	super._physics_process(delta)
+	if not stop:
+		super._physics_process(delta)
+	
 	
 	# acquire attack targets
 	var targets = attackArea.get_overlapping_bodies()
@@ -51,7 +63,7 @@ func _physics_process(delta):
 		
 		if attackTimer.is_stopped():
 			attackTimer.start()
-		
+	
 
 func Attack():
 	# deal damage
@@ -60,10 +72,28 @@ func Attack():
 	print("Delt ", str(amount), " damage!")
 	
 
-
 func EquipWeapon(weaponID):
 	equippedWeapon = weaponsDict.Weapons[weaponID]
 	equippedWeaponID = weaponID
 	print(weaponsDict.Weapons[equippedWeaponID].name)
 	attackTimer.wait_time = 1 / weaponsDict.Weapons[equippedWeaponID].AttacksPerSecond
 	get_node("AttackArea").get_node("CollisionShape2D").shape.set_radius(equippedWeapon.Range)
+
+
+func _on_interaction_area_body_entered(body):
+	if interacting:
+		var targets = interactionArea.get_overlapping_bodies()
+		print(len(targets))
+		for item in targets:
+			if item is PlacedItem:
+				inventory.append(item.itemID)
+				inventoryWeight += weaponsDict.Weapons[item.itemID].Weight
+				print("Added ", weaponsDict.Weapons[item.itemID].name, " to inventory.")
+				print("New inventory weight: ", inventoryWeight)
+				item.queue_free()
+				stop = true
+			if item is Interactable:
+				print("interactable")
+				stop = true
+		
+		interacting = false

@@ -7,7 +7,8 @@
 	  "Range": 50,
 	  "DamageMin": 50,
 	  "DamageMax": 100,
-	  "AttacksPerSecond": 2.5
+	  "AttacksPerSecond": 2.5,
+	  "Weight": 0
 	},
 	{
 	  "name": "Crowbar",
@@ -16,7 +17,8 @@
 	  "Range": 120,
 	  "DamageMin": 90,
 	  "DamageMax": 120,
-	  "AttacksPerSecond": 1.5
+	  "AttacksPerSecond": 1.5,
+	  "Weight": 5
 	},
 	{
 	  "name": "Handgun",
@@ -25,7 +27,8 @@
 	  "Range": 600,
 	  "DamageMin": 100,
 	  "DamageMax": 200,
-	  "AttacksPerSecond": 2
+	  "AttacksPerSecond": 2,
+	  "Weight": 4
 	}
   ]
 }

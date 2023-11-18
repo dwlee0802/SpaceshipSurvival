@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bj6ov38i406sf"]
+[gd_scene load_steps=11 format=3 uid="uid://bj6ov38i406sf"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e32sq"]
 [ext_resource type="Script" path="res://Scripts/InputManager.gd" id="2_drscf"]
@@ -6,14 +6,16 @@
 [ext_resource type="PackedScene" uid="uid://crk54pclkvhi" path="res://Scenes/survivor.tscn" id="4_16enx"]
 [ext_resource type="PackedScene" uid="uid://brrbmb154h7yh" path="res://Scenes/enemy.tscn" id="5_gbw1q"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="6_pyyuj"]
+[ext_resource type="PackedScene" uid="uid://d0ywywvfjijmg" path="res://Scenes/placed_item.tscn" id="7_322g2"]
+[ext_resource type="PackedScene" uid="uid://be6pcrbh62p80" path="res://Scenes/interactable.tscn" id="8_i4dt2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vbgc8"]
 size = Vector2(100, 100)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_8rrsn"]
-vertices = PackedVector2Array(768, 674, 967, 665, 857, 828, 682, 791, 709, 730, 720, 589, 666, 590, 672, 527, 1226, 606, 1329, 647, 1215, 805, 1052, 740, 1100, 612, 1114, 442, 1071, 525, 767, 500, 492, 599, 458, 688, 248, 589, 240, 426, 464, 430, 483, 528, 693, 343, 795, 251, 638, 238, 561, 338, 547, 280, 511, 44, 460, 304, 353, 320, 102, 291, 92, 61)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 0, 4, 6, 7), PackedInt32Array(8, 9, 10, 11, 12), PackedInt32Array(13, 8, 12, 14), PackedInt32Array(15, 13, 14, 5, 7), PackedInt32Array(16, 17, 18, 19, 20, 21), PackedInt32Array(16, 21, 7, 6), PackedInt32Array(15, 7, 22, 23), PackedInt32Array(24, 23, 22, 25, 26), PackedInt32Array(27, 24, 26, 28, 29, 30, 31)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(92, 61, 102, 291, 353, 320, 460, 304, 547, 280, 561, 338, 693, 343, 672, 527, 483, 528, 464, 430, 240, 426, 248, 589, 458, 688, 492, 599, 666, 590, 709, 730, 682, 791, 857, 828, 967, 665, 768, 674, 720, 589, 1071, 525, 1100, 612, 1052, 740, 1215, 805, 1329, 647, 1226, 606, 1114, 442, 767, 500, 795, 251, 638, 238, 511, 44)])
+vertices = PackedVector2Array(967, 665, 936, 977, 454, 991, 709, 730, 900, 593, 492, 599, 456, 850, 58, 775, -30, 396, 464, 430, 483, 528, 561, 338, 638, 238, 1194, -23, 1222, 157, 1160, 347, 1071, 525, 602, 453, 353, 320, -228, 223, -44, -189, 716, -129, 1568, 429, 1834, 721, 1648, 987, 1052, 740)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9, 10), PackedInt32Array(11, 12, 13, 14, 15, 16, 4, 17), PackedInt32Array(18, 19, 20, 21, 12, 11), PackedInt32Array(15, 22, 23, 24, 25, 16), PackedInt32Array(17, 4, 3, 5, 10)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-44, -189, -228, 223, 353, 320, 561, 338, 602, 453, 483, 528, 464, 430, -30, 396, 58, 775, 456, 850, 492, 599, 709, 730, 454, 991, 936, 977, 967, 665, 900, 593, 1071, 525, 1052, 740, 1648, 987, 1834, 721, 1568, 429, 1160, 347, 1222, 157, 1194, -23, 638, 238, 716, -129)])
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_e32sq")
@@ -42,8 +44,14 @@ shape = SubResource("RectangleShape2D_vbgc8")
 navigation_polygon = SubResource("NavigationPolygon_8rrsn")
 
 [node name="Survivor" parent="." instance=ExtResource("4_16enx")]
-position = Vector2(362, 219)
+position = Vector2(346, 141)
 
 [node name="Enemy" parent="." instance=ExtResource("5_gbw1q")]
 position = Vector2(397, 558)
 health = 300
+
+[node name="Placed Item" parent="." instance=ExtResource("7_322g2")]
+position = Vector2(935, 324)
+
+[node name="Interactable" parent="." instance=ExtResource("8_i4dt2")]
+position = Vector2(728, 634)
