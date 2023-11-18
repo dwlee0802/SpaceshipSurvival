@@ -3,7 +3,8 @@ extends "res://Scripts/unit.gd"
 @onready var attackArea = $AttackArea
 @onready var attackLine = $AttackLine
 
-var equippedWeapon: int = 0
+@export var equippedWeaponID: int = 2
+var equippedWeapon
 
 static var weaponsFilePath: String = "res://Data/Weapons.json"
 static var weaponsDict
@@ -20,6 +21,7 @@ func _ready():
 	
 	attackTimer.timeout.connect(Attack)
 	
+	EquipWeapon(equippedWeaponID)
 
 func parse_json(text):
 	return JSON.parse_string(text)
@@ -52,7 +54,16 @@ func _physics_process(delta):
 		
 
 func Attack():
-	print("Attack!")
-	
 	# deal damage
-	attackTarget.ReceiveHit(100)
+	var amount = randi_range(equippedWeapon.DamageMin, equippedWeapon.DamageMax)
+	attackTarget.ReceiveHit(amount)
+	print("Delt ", str(amount), " damage!")
+	
+
+
+func EquipWeapon(weaponID):
+	equippedWeapon = weaponsDict.Weapons[weaponID]
+	equippedWeaponID = weaponID
+	print(weaponsDict.Weapons[equippedWeaponID].name)
+	attackTimer.wait_time = 1 / weaponsDict.Weapons[equippedWeaponID].AttacksPerSecond
+	get_node("AttackArea").get_node("CollisionShape2D").shape.set_radius(equippedWeapon.Range)

@@ -8,5 +8,5 @@ func _process(delta):
 
 
 func OnDeath():
-	print("Dead! here")
+	print("Dead!")
 	queue_free()
