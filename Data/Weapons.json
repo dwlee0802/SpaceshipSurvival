@@ -1,0 +1,22 @@
+{
+  "Weapons": [
+	{
+	  "name": "Crowbar",
+	  "ID": 0,
+	  "Description": "The right tool for the job.",
+	  "Range": 150,
+	  "DamageMin": 90,
+	  "DamageMax": 120,
+	  "AttacksPerSecond": 1.5
+	},
+	{
+	  "name": "Handgun",
+	  "ID": 1,
+	  "Description": "A simple, reliable firearm for self defense.",
+	  "Range": 600,
+	  "DamageMin": 60,
+	  "DamageMax": 150,
+	  "AttacksPerSecond": 2
+	}
+  ]
+}

@@ -14,3 +14,5 @@ res://Scripts/camera.gd
 res://Scenes/placed_item.tscn
 res://Scenes/placed_item.gd
 res://Scripts/enemy.gd
+res://Data/companies.json
+res://Data/Weapons.json

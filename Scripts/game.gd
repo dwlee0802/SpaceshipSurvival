@@ -11,7 +11,7 @@ static var time: float = 0
 func _ready():
 	survivors.append($Survivor)
 	survivors.append($Survivor2)
-
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

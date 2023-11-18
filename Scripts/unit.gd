@@ -27,7 +27,9 @@ func _physics_process(delta):
 
 func ReceiveHit(amount):
 	health -= amount
-	OnDeath()
+	
+	if health <= 0:
+		OnDeath()
 
 
 func OnDeath():
