@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bj6ov38i406sf"]
+[gd_scene load_steps=9 format=3 uid="uid://bj6ov38i406sf"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e32sq"]
 [ext_resource type="Script" path="res://Scripts/InputManager.gd" id="2_drscf"]
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="3_gb5p3"]
 [ext_resource type="PackedScene" uid="uid://crk54pclkvhi" path="res://Scenes/survivor.tscn" id="4_16enx"]
 [ext_resource type="PackedScene" uid="uid://brrbmb154h7yh" path="res://Scenes/enemy.tscn" id="5_gbw1q"]
+[ext_resource type="Script" path="res://Scripts/camera.gd" id="6_pyyuj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vbgc8"]
 size = Vector2(100, 100)
@@ -43,3 +44,6 @@ position = Vector2(383, 541)
 
 [node name="Survivor2" parent="." instance=ExtResource("4_16enx")]
 position = Vector2(1233, 676)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("6_pyyuj")

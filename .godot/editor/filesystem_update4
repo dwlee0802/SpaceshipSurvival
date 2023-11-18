@@ -9,3 +9,5 @@ res://Scenes/enemy.tscn
 res://Scripts/survivor.gd
 res://Scripts/InputManager.gd
 res://Scripts/game.gd
+res://Scenes/enemy.gd
+res://Scripts/camera.gd

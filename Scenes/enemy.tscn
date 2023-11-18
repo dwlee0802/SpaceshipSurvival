@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://brrbmb154h7yh"]
+[gd_scene load_steps=4 format=3 uid="uid://brrbmb154h7yh"]
 
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_l4svj"]
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="2_gwmvf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ashq5"]
@@ -8,6 +9,7 @@ size = Vector2(50, 50)
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 3
+script = ExtResource("1_l4svj")
 
 [node name="BodySprite" type="Sprite2D" parent="."]
 self_modulate = Color(0.588235, 0.282353, 0.356863, 1)
