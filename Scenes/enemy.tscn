@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="2_gwmvf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ashq5"]
-size = Vector2(50, 50)
+size = Vector2(60, 60)
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 2
@@ -17,7 +17,6 @@ scale = Vector2(50, 50)
 texture = ExtResource("2_gwmvf")
 
 [node name="BodyCollisionShape" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_ashq5")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

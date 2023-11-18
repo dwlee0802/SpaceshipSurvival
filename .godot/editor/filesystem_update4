@@ -13,3 +13,4 @@ res://Scenes/enemy.gd
 res://Scripts/camera.gd
 res://Scenes/placed_item.tscn
 res://Scenes/placed_item.gd
+res://Scripts/enemy.gd
