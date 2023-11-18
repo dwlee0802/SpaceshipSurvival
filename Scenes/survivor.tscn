@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://crk54pclkvhi"]
+
+[ext_resource type="Script" path="res://Scripts/survivor.gd" id="1_ag083"]
+[ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="2_3n7u2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ashq5"]
+size = Vector2(50, 50)
+
+[node name="Survivor" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_ag083")
+
+[node name="BodySprite" type="Sprite2D" parent="."]
+self_modulate = Color(0.376471, 0.454902, 0.670588, 1)
+scale = Vector2(50, 50)
+texture = ExtResource("2_3n7u2")
+
+[node name="ArmSprite" type="Sprite2D" parent="."]
+self_modulate = Color(0.866667, 0.901961, 0.878431, 1)
+position = Vector2(29, -1)
+scale = Vector2(40, 10)
+texture = ExtResource("2_3n7u2")
+
+[node name="BodyCollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ashq5")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+target_desired_distance = 30.0
+radius = 16.0
+debug_enabled = true

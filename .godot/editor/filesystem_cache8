@@ -1,0 +1,14 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1700281314
+::res://Art/::1700279325
+single_white_pixel.png::CompressedTexture2D::2365311439370707766::1700279314::1700279314::1::::<><>::
+temp_enemy_sprite.png::CompressedTexture2D::2092858716892277479::1700279325::1700279325::1::::<><>::
+::res://Scenes/::1700281467
+game.tscn::PackedScene::3083005048417584829::1700280774::0::1::::<><>::res://Scripts/game.gd
+enemy.tscn::PackedScene::3614807687968687359::1700281449::0::1::::<><>::uid://8x1ll54gtflu::::res://Art/single_white_pixel.png
+InputManager.gd::GDScript::-1::1700281566::0::1::::<>Node2D<>::
+survivor.tscn::PackedScene::176134399295101002::1700281467::0::1::::<><>::res://Scripts/survivor.gd<>uid://8x1ll54gtflu::::res://Art/single_white_pixel.png
+::res://Scripts/::1700281467
+game.gd::GDScript::-1::1700278160::0::1::::Game<>Node2D<>::
+survivor.gd::GDScript::-1::1700281467::0::1::::<>CharacterBody2D<>::
+unit.gd::GDScript::-1::1700280295::0::1::::Unit<>CharacterBody2D<>::

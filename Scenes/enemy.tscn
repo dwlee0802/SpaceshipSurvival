@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://brrbmb154h7yh"]
+
+[ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="2_gwmvf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ashq5"]
+size = Vector2(50, 50)
+
+[node name="Survivor" type="CharacterBody2D"]
+
+[node name="BodySprite" type="Sprite2D" parent="."]
+self_modulate = Color(0.588235, 0.282353, 0.356863, 1)
+scale = Vector2(50, 50)
+texture = ExtResource("2_gwmvf")
+
+[node name="BodyCollisionShape" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_ashq5")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+target_desired_distance = 30.0
+radius = 16.0
+debug_enabled = true
