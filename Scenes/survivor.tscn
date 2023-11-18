@@ -10,7 +10,7 @@ size = Vector2(50, 50)
 radius = 600.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pidx6"]
-radius = 200.0
+radius = 150.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rfjmd"]
 radius = 50.0
@@ -32,6 +32,7 @@ scale = Vector2(40, 10)
 texture = ExtResource("2_3n7u2")
 
 [node name="BodyCollisionShape" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_ashq5")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
@@ -39,6 +40,7 @@ avoidance_enabled = true
 debug_enabled = true
 
 [node name="AttackArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -55,6 +57,7 @@ process_callback = 0
 wait_time = 0.2
 
 [node name="AuraArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AuraArea"]
@@ -62,6 +65,7 @@ shape = SubResource("CircleShape2D_pidx6")
 debug_color = Color(0.682353, 0.494118, 0.290196, 0.419608)
 
 [node name="InteractionArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 8
 collision_mask = 12
 

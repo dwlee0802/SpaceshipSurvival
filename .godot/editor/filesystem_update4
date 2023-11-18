@@ -10,3 +10,4 @@ res://Scenes/interactable.gd
 res://Scripts/interactable.gd
 res://Data/Weapons.json
 res://Scripts/unit.gd
+res://Scripts/enemy.gd

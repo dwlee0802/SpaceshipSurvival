@@ -1,5 +1,6 @@
 extends "res://Scripts/unit.gd"
 
+@onready var bodySprite = $BodySprite
 
 func _process(delta):
 	if attackTarget == null:
@@ -10,3 +11,7 @@ func _process(delta):
 func OnDeath():
 	print("Dead!")
 	queue_free()
+
+
+func ReceiveHit(amount):
+	super.ReceiveHit(amount)
