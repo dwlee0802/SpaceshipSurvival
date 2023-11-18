@@ -19,13 +19,11 @@ func _unhandled_input(event):
 				dragging = false
 				selectionBox.visible = false
 				selectedUnits = selectionBox.get_overlapping_bodies()
-				print(len(selectedUnits))
 				
 			
 		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 			for unit in selectedUnits:
 				unit.target_position = event.position
-				print(event.position)
 		
 		
 	if dragging and event is InputEventMouseMotion:
