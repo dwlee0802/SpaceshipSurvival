@@ -3,10 +3,12 @@ extends "res://Scripts/unit.gd"
 @onready var attackArea = $AttackArea
 @onready var attackLine = $AttackLine
 
-var equippedWeapon
+var equippedWeapon: int = 0
 
 static var weaponsFilePath: String = "res://Data/Weapons.json"
 static var weaponsDict
+
+@onready var attackTimer = $AttackTimer
 
 
 func _ready():
@@ -15,7 +17,9 @@ func _ready():
 
 	var content_as_text1 = file1.get_as_text()
 	weaponsDict = parse_json(content_as_text1)
-
+	
+	attackTimer.timeout.connect(Attack)
+	
 
 func parse_json(text):
 	return JSON.parse_string(text)
@@ -23,31 +27,32 @@ func parse_json(text):
 
 func _physics_process(delta):
 	super._physics_process(delta)
-	Attack()
-
-
-func Attack():
+	
+	# acquire attack targets
 	var targets = attackArea.get_overlapping_bodies()
 	
 	if len(targets) == 0:
 		attackLine.visible = false
-		return
-	
-	# find closest target
-	var minDist = 10000
-	var closest
-	
-	for item in targets:
-		var dist = position.distance_to(item.position)
-		if dist < minDist:
-			minDist = dist
-			closest = item
-	
-	attackTarget = closest
-	
-	# set attack line
-	attackLine.visible = true
-	attackLine.set_point_position(1, closest.position - position)
+		attackTimer.stop()
+	else:
+		# find closest target
+		var minDist = 10000
+		for item in targets:
+			var dist = position.distance_to(item.position)
+			if dist < minDist:
+				minDist = dist
+				attackTarget = item
+		
+		# set attack line
+		attackLine.visible = true
+		attackLine.set_point_position(1, attackTarget.position - position)
+		
+		if attackTimer.is_stopped():
+			attackTimer.start()
+		
+
+func Attack():
+	print("Attack!")
 	
 	# deal damage
 	attackTarget.ReceiveHit(100)

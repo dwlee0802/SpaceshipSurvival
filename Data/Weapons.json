@@ -1,6 +1,15 @@
 {
   "Weapons": [
 	{
+	  "name": "Fists",
+	  "ID": 0,
+	  "Description": "Desperate times call for desperate measures.",
+	  "Range": 50,
+	  "DamageMin": 50,
+	  "DamageMax": 100,
+	  "AttacksPerSecond": 2.5
+	},
+	{
 	  "name": "Crowbar",
 	  "ID": 0,
 	  "Description": "The right tool for the job.",
