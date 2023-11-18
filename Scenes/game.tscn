@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bj6ov38i406sf"]
+[gd_scene load_steps=9 format=3 uid="uid://bj6ov38i406sf"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e32sq"]
 [ext_resource type="Script" path="res://Scripts/InputManager.gd" id="2_drscf"]
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="3_gb5p3"]
 [ext_resource type="PackedScene" uid="uid://crk54pclkvhi" path="res://Scenes/survivor.tscn" id="4_16enx"]
+[ext_resource type="PackedScene" uid="uid://brrbmb154h7yh" path="res://Scenes/enemy.tscn" id="5_gbw1q"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="6_pyyuj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vbgc8"]
@@ -168,3 +169,29 @@ texture = ExtResource("3_gb5p3")
 navigation_polygon = SubResource("NavigationPolygon_tum4q")
 
 [node name="Survivor" parent="." instance=ExtResource("4_16enx")]
+position = Vector2(-5288, -7)
+
+[node name="Enemy" parent="." instance=ExtResource("5_gbw1q")]
+position = Vector2(-8683, -835)
+health = 400
+speed = 100
+
+[node name="Enemy2" parent="." instance=ExtResource("5_gbw1q")]
+position = Vector2(-8584, -278)
+health = 400
+speed = 100
+
+[node name="Enemy3" parent="." instance=ExtResource("5_gbw1q")]
+position = Vector2(-8836, -54)
+health = 400
+speed = 100
+
+[node name="Enemy4" parent="." instance=ExtResource("5_gbw1q")]
+position = Vector2(-8270, -700)
+health = 400
+speed = 100
+
+[node name="Enemy5" parent="." instance=ExtResource("5_gbw1q")]
+position = Vector2(-8683, -575)
+health = 400
+speed = 100
