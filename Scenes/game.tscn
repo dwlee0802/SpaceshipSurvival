@@ -195,3 +195,78 @@ speed = 100
 position = Vector2(-8683, -575)
 health = 400
 speed = 100
+
+[node name="Enemy6" parent="." instance=ExtResource("5_gbw1q")]
+position = Vector2(-9611, 81)
+health = 400
+speed = 100
+
+[node name="Enemy7" parent="." instance=ExtResource("5_gbw1q")]
+position = Vector2(-9512, 638)
+health = 400
+speed = 100
+
+[node name="Enemy8" parent="." instance=ExtResource("5_gbw1q")]
+position = Vector2(-9764, 862)
+health = 400
+speed = 100
+
+[node name="Enemy9" parent="." instance=ExtResource("5_gbw1q")]
+position = Vector2(-9198, 216)
+health = 400
+speed = 100
+
+[node name="Enemy10" parent="." instance=ExtResource("5_gbw1q")]
+position = Vector2(-9611, 341)
+health = 400
+speed = 100
+
+[node name="Enemy11" parent="." instance=ExtResource("5_gbw1q")]
+position = Vector2(-8287, -450)
+health = 400
+speed = 100
+
+[node name="Enemy12" parent="." instance=ExtResource("5_gbw1q")]
+position = Vector2(-8188, 107)
+health = 400
+speed = 100
+
+[node name="Enemy13" parent="." instance=ExtResource("5_gbw1q")]
+position = Vector2(-8440, 331)
+health = 400
+speed = 100
+
+[node name="Enemy14" parent="." instance=ExtResource("5_gbw1q")]
+position = Vector2(-7874, -315)
+health = 400
+speed = 100
+
+[node name="Enemy15" parent="." instance=ExtResource("5_gbw1q")]
+position = Vector2(-8287, -190)
+health = 400
+speed = 100
+
+[node name="Enemy16" parent="." instance=ExtResource("5_gbw1q")]
+position = Vector2(-9215, 466)
+health = 400
+speed = 100
+
+[node name="Enemy17" parent="." instance=ExtResource("5_gbw1q")]
+position = Vector2(-9116, 1023)
+health = 400
+speed = 100
+
+[node name="Enemy18" parent="." instance=ExtResource("5_gbw1q")]
+position = Vector2(-9368, 1247)
+health = 400
+speed = 100
+
+[node name="Enemy19" parent="." instance=ExtResource("5_gbw1q")]
+position = Vector2(-8802, 601)
+health = 400
+speed = 100
+
+[node name="Enemy20" parent="." instance=ExtResource("5_gbw1q")]
+position = Vector2(-9215, 726)
+health = 400
+speed = 100
