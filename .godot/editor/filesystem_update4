@@ -5,3 +5,7 @@ res://Scenes/survivor.tscn
 res://Scenes/placed_item.tscn
 res://Scenes/interactable.tscn
 res://Scripts/unit.gd
+res://Scenes/module.tscn
+res://Scenes/module.gd
+res://Scripts/module.gd
+res://Scripts/spaceship.gd

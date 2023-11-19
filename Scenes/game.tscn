@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bj6ov38i406sf"]
+[gd_scene load_steps=10 format=3 uid="uid://bj6ov38i406sf"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e32sq"]
 [ext_resource type="Script" path="res://Scripts/InputManager.gd" id="2_drscf"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://crk54pclkvhi" path="res://Scenes/survivor.tscn" id="4_16enx"]
 [ext_resource type="PackedScene" uid="uid://brrbmb154h7yh" path="res://Scenes/enemy.tscn" id="5_gbw1q"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="6_pyyuj"]
+[ext_resource type="PackedScene" uid="uid://dnmd6ufe4n8al" path="res://Scenes/module.tscn" id="7_08img"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vbgc8"]
 size = Vector2(100, 100)
@@ -280,3 +281,6 @@ position = Vector2(-9215, 726)
 motion_mode = 1
 health = 400
 speed = 100
+
+[node name="Module" parent="." instance=ExtResource("7_08img")]
+position = Vector2(1652, -28)

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnmd6ufe4n8al"]
+
+[ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="1_e583a"]
+[ext_resource type="Script" path="res://Scripts/module.gd" id="1_jygwm"]
+
+[node name="Module" type="Node2D"]
+script = ExtResource("1_jygwm")
+
+[node name="FloorSprite" type="Sprite2D" parent="."]
+scale = Vector2(1000, 1000)
+texture = ExtResource("1_e583a")
