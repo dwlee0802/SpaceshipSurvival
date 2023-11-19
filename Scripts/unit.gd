@@ -21,7 +21,7 @@ func _physics_process(delta):
 	
 	velocity = velocity.lerp(dir * speed, 1)
 	
-	if (target_position - position).length() > 10:
+	if nav.is_target_reachable() and (target_position - position).length() > 10:
 		move_and_slide()
 	
 

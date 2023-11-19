@@ -12,6 +12,7 @@ static var weaponsDict
 @onready var attackTimer = $AttackTimer
 
 @onready var armSprite = $ArmSprite
+@onready var muzzleFlashSprite = $ArmSprite/MuzzleFlash
 
 @onready var interactionArea = $InteractionArea
 var interacting: bool = false
@@ -37,7 +38,9 @@ func parse_json(text):
 
 func _physics_process(delta):
 	super._physics_process(delta)
+	PointArmAt(target_position)
 	
+	muzzleFlashSprite.visible = false
 	
 	# acquire attack targets
 	var targets = attackArea.get_overlapping_bodies()
@@ -57,6 +60,7 @@ func _physics_process(delta):
 		# set attack line
 		attackLine.visible = true
 		attackLine.set_point_position(1, attackTarget.position - position)
+		PointArmAt(attackTarget.position)
 		
 		if attackTimer.is_stopped():
 			attackTimer.start()
@@ -67,7 +71,7 @@ func Attack():
 	var amount = randi_range(equippedWeapon.DamageMin, equippedWeapon.DamageMax)
 	attackTarget.ReceiveHit(amount)
 	print("Delt ", str(amount), " damage!")
-	
+	muzzleFlashSprite.visible = true
 
 func EquipWeapon(weaponID):
 	equippedWeapon = weaponsDict.Weapons[weaponID]
@@ -93,3 +97,8 @@ func _on_interaction_area_body_entered(body):
 				print("interactable")
 		
 		interacting = false
+
+
+func PointArmAt(position):
+	# turn towards target
+	armSprite.rotation = global_position.angle_to_point(position)

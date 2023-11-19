@@ -1,7 +1,7 @@
-Label
-NavigationRegion2D
 Sprite2D
 Node2D
+Label
+NavigationRegion2D
 Control
 CollisionShape2D
 Area2D

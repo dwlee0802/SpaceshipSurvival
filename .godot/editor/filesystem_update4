@@ -1,13 +1,7 @@
-res://Scenes/interactable.tscn
-res://Scenes/placed_item.tscn
-res://Scenes/survivor.tscn
-res://Scripts/survivor.gd
 res://Scenes/game.tscn
+res://Scripts/survivor.gd
 res://Scenes/enemy.tscn
-res://Scripts/InputManager.gd
-res://Scripts/placed_item.gd
-res://Scenes/interactable.gd
-res://Scripts/interactable.gd
-res://Data/Weapons.json
+res://Scenes/survivor.tscn
+res://Scenes/placed_item.tscn
+res://Scenes/interactable.tscn
 res://Scripts/unit.gd
-res://Scripts/enemy.gd

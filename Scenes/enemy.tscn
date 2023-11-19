@@ -21,4 +21,3 @@ shape = SubResource("RectangleShape2D_ashq5")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 target_desired_distance = 30.0
 radius = 16.0
-debug_enabled = true
