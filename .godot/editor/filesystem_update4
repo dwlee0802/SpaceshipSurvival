@@ -6,3 +6,5 @@ res://Scripts/interactable.gd
 res://Scripts/spaceship.gd
 res://Scenes/survivor.tscn
 res://Scenes/enemy.tscn
+res://Scenes/game.tscn
+res://Scenes/placed_item.tscn

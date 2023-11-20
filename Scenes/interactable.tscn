@@ -29,7 +29,6 @@ scale = Vector2(1, 0.34)
 texture = ExtResource("2_m5bu7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_c6x3d")
 
 [node name="InteractionArea" type="Area2D" parent="."]
@@ -51,6 +50,7 @@ vertical_alignment = 1
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 self_modulate = Color(0.388235, 0.388235, 0.388235, 0.537255)
+show_behind_parent = true
 position = Vector2(0, 50)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_02k4d")
