@@ -2,10 +2,10 @@ extends Node
 
 var oxygenLevel: int = 100
 
-var lifeSupportUnit
-var nuclearReactor
-var infirmary
-var engineRoom
+var modules = []
+
+enum ModuleName {Nuclear_Reactor, Life_Support, Infirmary, Kitchen, Bridge, Engine_Room, Electricity_Room}
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

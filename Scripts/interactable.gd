@@ -3,7 +3,7 @@ extends StaticBody2D
 class_name Interactable
 
 # time needed to fix this object
-var neededToFix: float = 5
+var timeToFix: float = 5
 
 @onready var interactionArea = $InteractionArea
 @onready var fixTimeLabel = $FixTimeLabel
@@ -15,19 +15,19 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if neededToFix > 0:
+	if timeToFix > 0:
 		modulate = Color.RED
 		fixTimeLabel.visible = true
-		fixTimeLabel.text = str(int(neededToFix))
+		fixTimeLabel.text = str(int(timeToFix))
 	else:
 		modulate = Color.WHITE
 		fixTimeLabel.visible = false
 	
-	if neededToFix < 0:
-		neededToFix = 0
+	if timeToFix < 0:
+		timeToFix = 0
 
 
 func _physics_process(delta):
 	var items = interactionArea.get_overlapping_areas()
-	if neededToFix > 0 and len(items) > 0:
-		neededToFix -= delta
+	if timeToFix > 0 and len(items) > 0:
+		timeToFix -= delta

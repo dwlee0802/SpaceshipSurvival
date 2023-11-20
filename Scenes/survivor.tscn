@@ -88,4 +88,11 @@ position = Vector2(-59.077, 4.92308)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_5uyep")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.396078, 0.396078, 0.396078, 1)
+show_behind_parent = true
+position = Vector2(0, 23.5)
+scale = Vector2(0.320313, 0.0664063)
+texture = ExtResource("3_5uyep")
+
 [connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]

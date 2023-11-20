@@ -9,3 +9,5 @@ script = ExtResource("1_jygwm")
 [node name="FloorSprite" type="Sprite2D" parent="."]
 scale = Vector2(1000, 1000)
 texture = ExtResource("1_e583a")
+
+[node name="Interactables" type="Node2D" parent="."]
