@@ -8,3 +8,6 @@ res://Scenes/survivor.tscn
 res://Scenes/enemy.tscn
 res://Scenes/game.tscn
 res://Scenes/placed_item.tscn
+res://Scenes/spaceship.tscn
+res://Scripts/unit.gd
+res://Scripts/InputManager.gd

@@ -33,11 +33,11 @@ func _unhandled_input(event):
 			# No map opjects. Just move there directly
 			if len(result) == 0:
 				for unit in selectedUnits:
-					unit.target_position = get_global_mouse_position()
+					unit.ChangeTargetPosition( get_global_mouse_position())
 			else:
 				print("selected map object")
 				for unit in selectedUnits:
-					unit.target_position = get_global_mouse_position()
+					unit.ChangeTargetPosition( get_global_mouse_position())
 					unit.interacting = true
 				
 		

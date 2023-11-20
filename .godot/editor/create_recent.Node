@@ -1,13 +1,14 @@
+NavigationLink2D
+NavigationRegion2D
+Timer
 CollisionShape2D
 Sprite2D
 Node2D
 Label
-NavigationRegion2D
 Control
 Area2D
 NavigationObstacle2D
 StaticBody2D
-Timer
 Camera2D
 CanvasLayer
 Line2D

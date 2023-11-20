@@ -2,7 +2,7 @@ extends Node
 
 var oxygenLevel: int = 100
 
-var modules = []
+@export var modules = []
 
 enum ModuleName {Nuclear_Reactor, Life_Support, Infirmary, Kitchen, Bridge, Engine_Room, Electricity_Room}
 

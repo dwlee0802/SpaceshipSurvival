@@ -12,18 +12,23 @@ var attackTarget
 
 
 func _physics_process(delta):
+	if nav.is_navigation_finished():
+		return
+		
 	var dir = Vector2()
-	
-	nav.target_position = target_position
 	
 	dir = nav.get_next_path_position() - global_position
 	dir = dir.normalized()
 	
 	velocity = velocity.lerp(dir * speed, 1)
 	
-	if nav.is_target_reachable() and (target_position - position).length() > 10:
+	if nav.is_target_reachable():
 		move_and_slide()
-	
+
+
+func ChangeTargetPosition(pos):
+	nav.target_position = pos
+
 
 func ReceiveHit(amount):
 	health -= amount
