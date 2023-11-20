@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://be6pcrbh62p80" path="res://Scenes/interactable.tscn" id="3_6uw8u"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_o4uq1"]
-vertices = PackedVector2Array(535, -471, 521, 464, -448, 556, -456, -448)
+vertices = PackedVector2Array(494, -455, 480, 480, -450, 480, -456, -448)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-456, -448, -448, 556, 521, 464, 535, -471)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-456, -448, -450, 480, 480, 480, 494, -455)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2ujfi"]
 vertices = PackedVector2Array(466, -473, 475, 466, -477, 462, -455, -468)
@@ -50,3 +50,22 @@ position = Vector2(994, 998)
 navigation_polygon = SubResource("NavigationPolygon_2ujfi")
 
 [node name="ErrorUpdateTimer" type="Timer" parent="."]
+
+[node name="NavigationLink2D" type="NavigationLink2D" parent="."]
+start_position = Vector2(560, 4)
+end_position = Vector2(459, 2)
+
+[node name="NavigationLink2D2" type="NavigationLink2D" parent="."]
+position = Vector2(-11, 934)
+start_position = Vector2(560, 4)
+end_position = Vector2(459, 2)
+
+[node name="NavigationLink2D3" type="NavigationLink2D" parent="."]
+position = Vector2(-469, 453)
+start_position = Vector2(468, 101)
+end_position = Vector2(459, 2)
+
+[node name="NavigationLink2D4" type="NavigationLink2D" parent="."]
+position = Vector2(501, 444)
+start_position = Vector2(468, 101)
+end_position = Vector2(459, 2)
