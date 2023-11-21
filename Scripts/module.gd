@@ -19,13 +19,18 @@ var interactables = []
 func _ready():
 	for item in interactablesNode.get_children():
 		interactables.append(item)
+	
+	$ErrorTimer.timeout.connect(GenerateErrors)
+	$EnemySpawnTimer.timeout.connect(RollEnemySpawn)
 
 
 func RollEnemySpawn():
 	if randf() < respawnRate:
 		var newEnemy = enemyScene.instantiate()
-		add_child(newEnemy)
-		newEnemy.position = position + Vector2(randf_range(-100, 100), randf_range(-100, 100))
+		get_parent().get_parent().add_child(newEnemy)
+		Game.enemies.append(newEnemy)
+		newEnemy.health = 200
+		newEnemy.global_position = position + Vector2(randf_range(-100, 100), randf_range(-100, 100))
 
 
 func CheckOperational():
@@ -38,6 +43,6 @@ func CheckOperational():
 
 func GenerateErrors():
 	for item in interactables:
-		if randf() < errorRate:
-			item.timeToFix = randi_range(5, 20)
-		
+		if item.timeToFix <= 0:
+			if randf() < errorRate:
+				item.timeToFix = randi_range(5, 20)

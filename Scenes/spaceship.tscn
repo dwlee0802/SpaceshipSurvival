@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://5cam8m5nc2yc"]
+[gd_scene load_steps=7 format=3 uid="uid://5cam8m5nc2yc"]
 
 [ext_resource type="Script" path="res://Scripts/spaceship.gd" id="1_6uk50"]
 [ext_resource type="PackedScene" uid="uid://dnmd6ufe4n8al" path="res://Scenes/module.tscn" id="2_ikpy4"]
@@ -14,19 +14,26 @@ vertices = PackedVector2Array(466, -473, 475, 466, -477, 462, -455, -468)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-455, -468, -477, 462, 475, 466, 466, -473)])
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_hidr7"]
+vertices = PackedVector2Array(466, -473, 475, 466, -477, 462, -455, -468)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-455, -468, -477, 462, 475, 466, 466, -473)])
+
 [node name="Spaceship" type="Node2D"]
 script = ExtResource("1_6uk50")
 modules = [NodePath("Module"), NodePath("Module2"), NodePath("Module3"), NodePath("Module4")]
 
 [node name="Module" parent="." instance=ExtResource("2_ikpy4")]
+position = Vector2(-157, -89)
 
 [node name="Interactable" parent="Module" instance=ExtResource("3_6uw8u")]
+position = Vector2(-126, -156)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Module"]
 navigation_polygon = SubResource("NavigationPolygon_o4uq1")
 
 [node name="Module2" parent="." instance=ExtResource("2_ikpy4")]
-position = Vector2(994, -2)
+position = Vector2(958, -105)
 
 [node name="Interactable" parent="Module2" instance=ExtResource("3_6uw8u")]
 
@@ -34,7 +41,7 @@ position = Vector2(994, -2)
 navigation_polygon = SubResource("NavigationPolygon_2ujfi")
 
 [node name="Module3" parent="." instance=ExtResource("2_ikpy4")]
-position = Vector2(0, 998)
+position = Vector2(-155, 977)
 
 [node name="Interactable" parent="Module3" instance=ExtResource("3_6uw8u")]
 
@@ -42,30 +49,36 @@ position = Vector2(0, 998)
 navigation_polygon = SubResource("NavigationPolygon_2ujfi")
 
 [node name="Module4" parent="." instance=ExtResource("2_ikpy4")]
-position = Vector2(994, 998)
+position = Vector2(2024, -113)
 
 [node name="Interactable" parent="Module4" instance=ExtResource("3_6uw8u")]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Module4"]
 navigation_polygon = SubResource("NavigationPolygon_2ujfi")
 
-[node name="ErrorUpdateTimer" type="Timer" parent="."]
+[node name="Module5" parent="." instance=ExtResource("2_ikpy4")]
+position = Vector2(2018, -1159)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Module5"]
+navigation_polygon = SubResource("NavigationPolygon_hidr7")
+
+[node name="Interactable" parent="Module5" instance=ExtResource("3_6uw8u")]
 
 [node name="NavigationLink2D" type="NavigationLink2D" parent="."]
-start_position = Vector2(560, 4)
-end_position = Vector2(459, 2)
+start_position = Vector2(509, -69)
+end_position = Vector2(311, -60)
 
 [node name="NavigationLink2D2" type="NavigationLink2D" parent="."]
-position = Vector2(-11, 934)
-start_position = Vector2(560, 4)
+position = Vector2(945, -70)
+start_position = Vector2(627, 7)
 end_position = Vector2(459, 2)
 
 [node name="NavigationLink2D3" type="NavigationLink2D" parent="."]
 position = Vector2(-469, 453)
-start_position = Vector2(468, 101)
-end_position = Vector2(459, 2)
+start_position = Vector2(297, 66)
+end_position = Vector2(297, -81)
 
 [node name="NavigationLink2D4" type="NavigationLink2D" parent="."]
-position = Vector2(501, 444)
-start_position = Vector2(468, 101)
-end_position = Vector2(459, 2)
+position = Vector2(1552, -683)
+start_position = Vector2(468, 121)
+end_position = Vector2(464, -36)

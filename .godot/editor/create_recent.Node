@@ -1,13 +1,13 @@
+Timer
+NavigationObstacle2D
 NavigationLink2D
 NavigationRegion2D
-Timer
 CollisionShape2D
 Sprite2D
 Node2D
 Label
 Control
 Area2D
-NavigationObstacle2D
 StaticBody2D
 Camera2D
 CanvasLayer

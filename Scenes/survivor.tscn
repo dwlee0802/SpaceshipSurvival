@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ashq5"]
 size = Vector2(50, 50)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_mh1ji"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_dhbl6"]
 radius = 600.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pidx6"]
@@ -34,12 +34,11 @@ shape = SubResource("RectangleShape2D_ashq5")
 avoidance_enabled = true
 
 [node name="AttackArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-shape = SubResource("CircleShape2D_mh1ji")
+shape = SubResource("CircleShape2D_dhbl6")
 
 [node name="AttackLine" type="Line2D" parent="."]
 points = PackedVector2Array(0, 0, 0, 0)
@@ -87,5 +86,9 @@ self_modulate = Color(1, 0.819608, 0, 1)
 position = Vector2(-59.077, 4.92308)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_5uyep")
+
+[node name="AttackUpdateTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
 
 [connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]

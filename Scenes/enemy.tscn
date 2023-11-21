@@ -9,7 +9,11 @@ size = Vector2(60, 60)
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 3
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_l4svj")
+health = 100
+speed = 200
 
 [node name="BodySprite" type="Sprite2D" parent="."]
 scale = Vector2(50, 50)
@@ -19,5 +23,11 @@ texture = ExtResource("2_gwmvf")
 shape = SubResource("RectangleShape2D_ashq5")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-target_desired_distance = 30.0
-radius = 16.0
+debug_enabled = true
+
+[node name="NavUpdateTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="NavUpdateTimer" to="." method="_on_nav_update_timer_timeout"]

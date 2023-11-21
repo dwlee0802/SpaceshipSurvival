@@ -11,3 +11,10 @@ scale = Vector2(1000, 1000)
 texture = ExtResource("1_e583a")
 
 [node name="Interactables" type="Node2D" parent="."]
+
+[node name="ErrorTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+process_callback = 0
+autostart = true

@@ -31,6 +31,9 @@ func _ready():
 	attackTimer.timeout.connect(Attack)
 	
 	EquipWeapon(equippedWeaponID)
+	
+	$AttackUpdateTimer.timeout.connect(ScanForAttackTargets)
+
 
 func parse_json(text):
 	return JSON.parse_string(text)
@@ -38,12 +41,18 @@ func parse_json(text):
 
 func _physics_process(delta):
 	super._physics_process(delta)
-	PointArmAt(target_position)
-	
 	muzzleFlashSprite.visible = false
 	
+	if attackTarget != null:
+		PointArmAt(attackTarget.position)
+	
+	SetAttackLine()
+	
+	
+func ScanForAttackTargets():
 	# acquire attack targets
 	var targets = attackArea.get_overlapping_bodies()
+	attackTarget = null
 	
 	if len(targets) == 0:
 		attackLine.visible = false
@@ -57,14 +66,10 @@ func _physics_process(delta):
 				minDist = dist
 				attackTarget = item
 		
-		# set attack line
-		attackLine.visible = true
-		attackLine.set_point_position(1, attackTarget.position - position)
-		PointArmAt(attackTarget.position)
 		
 		if attackTimer.is_stopped():
 			attackTimer.start()
-	
+
 
 func Attack():
 	# deal damage
@@ -72,6 +77,7 @@ func Attack():
 	attackTarget.ReceiveHit(amount)
 	print("Delt ", str(amount), " damage!")
 	muzzleFlashSprite.visible = true
+
 
 func EquipWeapon(weaponID):
 	equippedWeapon = weaponsDict.Weapons[weaponID]
@@ -102,3 +108,18 @@ func _on_interaction_area_body_entered(body):
 func PointArmAt(position):
 	# turn towards target
 	armSprite.rotation = global_position.angle_to_point(position)
+	
+
+func SetAttackLine():
+	if attackTarget == null:
+		attackLine.visible = false
+	else:
+		# set attack line
+		attackLine.visible = true
+		attackLine.set_point_position(1, attackTarget.position - position)
+		PointArmAt(attackTarget.position)
+		
+		
+func ChangeTargetPosition(where):
+	super.ChangeTargetPosition(where)
+	PointArmAt(where)
