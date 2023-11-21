@@ -21,6 +21,7 @@ var inventory = []
 var inventoryWeight: int = 0
 var inventoryCapacity: int = 10
 
+
 func _ready():
 	# read in json files
 	var file1 = FileAccess.open(weaponsFilePath, FileAccess.READ)

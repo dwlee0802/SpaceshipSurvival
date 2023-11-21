@@ -10,10 +10,15 @@ var attackTarget
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
 @onready var target_position: Vector2 = position
 
+var isMoving: bool = false
+
 
 func _physics_process(delta):
 	if nav.is_navigation_finished():
+		isMoving = false
 		return
+	
+	isMoving = true
 		
 	var dir = Vector2()
 	

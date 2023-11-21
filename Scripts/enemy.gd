@@ -9,6 +9,9 @@ func _physics_process(delta):
 	if attackTarget == null:
 		attackTarget = Game.survivors.pick_random()
 	
+	if attackTarget.isMoving:
+		ChangeTargetPosition(attackTarget.position)
+		
 	super._physics_process(delta)
 	
 	if holder > 0:
