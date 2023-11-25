@@ -43,10 +43,10 @@ shape = SubResource("RectangleShape2D_vbgc8")
 [node name="Spaceship" parent="." instance=ExtResource("5_uopi8")]
 
 [node name="Module" parent="Spaceship" instance=ExtResource("6_ekfq2")]
-position = Vector2(-205, -202)
+position = Vector2(-8, 2)
 
 [node name="Survivor" parent="." instance=ExtResource("4_16enx")]
-position = Vector2(-251, 254)
+position = Vector2(736, -427)
 
 [node name="Survivor2" parent="." instance=ExtResource("4_16enx")]
-position = Vector2(-122, 216)
+position = Vector2(865, -465)
