@@ -14,8 +14,7 @@ static var weaponsDict
 @onready var armSprite = $ArmSprite
 @onready var muzzleFlashSprite = $ArmSprite/MuzzleFlash
 
-@onready var interactionArea = $InteractionArea
-var interacting: bool = false
+var interactionTarget
 
 var inventory = []
 var inventoryWeight: int = 0
@@ -48,6 +47,10 @@ func _physics_process(delta):
 		PointArmAt(attackTarget.position)
 	
 	SetAttackLine()
+	
+	if not isMoving and interactionTarget != null:
+		if interactionTarget.Fix(delta):
+			interactionTarget = null
 	
 	
 func ScanForAttackTargets():
@@ -86,24 +89,6 @@ func EquipWeapon(weaponID):
 	print(weaponsDict.Weapons[equippedWeaponID].name)
 	attackTimer.wait_time = 1 / weaponsDict.Weapons[equippedWeaponID].AttacksPerSecond
 	get_node("AttackArea").get_node("CollisionShape2D").shape.set_radius(equippedWeapon.Range)
-
-
-func _on_interaction_area_body_entered(body):
-	if interacting:
-		var targets = interactionArea.get_overlapping_bodies()
-		print(len(targets))
-		for item in targets:
-			if item is PlacedItem:
-				inventory.append(item.itemID)
-				inventoryWeight += weaponsDict.Weapons[item.itemID].Weight
-				print("Added ", weaponsDict.Weapons[item.itemID].name, " to inventory.")
-				print("New inventory weight: ", inventoryWeight)
-				item.queue_free()
-				
-			if item is Interactable:
-				print("interactable")
-		
-		interacting = false
 
 
 func PointArmAt(position):

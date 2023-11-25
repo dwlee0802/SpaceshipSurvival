@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://7co56rfrnp0b"]
+
+[ext_resource type="Script" path="res://Scripts/spawn_point.gd" id="1_sdlso"]
+[ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="2_ffouv"]
+
+[node name="SpawnPoint" type="Node2D"]
+script = ExtResource("1_sdlso")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0.333333, 0.203922, 1)
+scale = Vector2(50, 50)
+texture = ExtResource("2_ffouv")

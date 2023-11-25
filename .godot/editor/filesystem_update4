@@ -8,3 +8,9 @@ res://Scenes/module.tscn
 res://Scenes/enemy.tscn
 res://Scripts/unit.gd
 res://Scripts/enemy.gd
+res://Scenes/spawn_point.tscn
+res://Scripts/spawn_point.gd
+res://Scripts/module.gd
+res://Scripts/interactable.gd
+res://Scripts/InputManager.gd
+res://Scripts/spaceship.gd

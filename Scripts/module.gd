@@ -15,6 +15,8 @@ var isOperational: bool = true
 
 var interactables = []
 
+var spawnPoints = []
+
 
 func _ready():
 	for item in interactablesNode.get_children():

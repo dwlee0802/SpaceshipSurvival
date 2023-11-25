@@ -1,15 +1,11 @@
-extends Node
+extends Node2D
 
-var oxygenLevel: int = 100
-
-@export var modules = []
-
-enum ModuleName {Nuclear_Reactor, Life_Support, Infirmary, Kitchen, Bridge, Engine_Room, Electricity_Room}
+static var enemyScene = preload("res://Scenes/enemy.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

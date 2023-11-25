@@ -5,8 +5,9 @@ class_name Interactable
 # time needed to fix this object
 var timeToFix: float = 5
 
-@onready var interactionArea = $InteractionArea
+@onready var interactionPoint = $InteractionPoint
 @onready var fixTimeLabel = $FixTimeLabel
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,9 +26,11 @@ func _process(delta):
 	
 	if timeToFix < 0:
 		timeToFix = 0
+		
 
-
-func _physics_process(delta):
-	var items = interactionArea.get_overlapping_areas()
-	if timeToFix > 0 and len(items) > 0:
-		timeToFix -= delta
+func Fix(delta):
+	timeToFix -= delta
+	if timeToFix > 0:
+		return false
+	else:
+		return true
