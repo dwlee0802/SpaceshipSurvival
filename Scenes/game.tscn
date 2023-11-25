@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bj6ov38i406sf"]
+[gd_scene load_steps=11 format=3 uid="uid://bj6ov38i406sf"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e32sq"]
 [ext_resource type="Script" path="res://Scripts/InputManager.gd" id="2_drscf"]
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="3_gb5p3"]
 [ext_resource type="PackedScene" uid="uid://crk54pclkvhi" path="res://Scenes/survivor.tscn" id="4_16enx"]
+[ext_resource type="Texture2D" uid="uid://bexkhiplgn4sy" path="res://Art/crowbar_placeholder.png" id="4_rp8w6"]
 [ext_resource type="Texture2D" uid="uid://2j00antvhw4x" path="res://Art/circle-256.png" id="4_w3iw4"]
 [ext_resource type="PackedScene" uid="uid://5cam8m5nc2yc" path="res://Scenes/spaceship.tscn" id="5_uopi8"]
 [ext_resource type="PackedScene" uid="uid://dnmd6ufe4n8al" path="res://Scenes/module.tscn" id="6_ekfq2"]
@@ -230,13 +231,133 @@ offset_right = 105.0
 offset_bottom = 25.0
 texture = ExtResource("3_gb5p3")
 
+[node name="InformationButton" type="Button" parent="Camera/Canvas/UnitUI"]
+offset_left = -10.0
+offset_top = 4.0
+offset_right = 91.0
+offset_bottom = 35.0
+text = "Information"
+
+[node name="InventoryButton" type="Button" parent="Camera/Canvas/UnitUI"]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 4.0
+offset_right = 237.0
+offset_bottom = 35.0
+text = "Inventory 00/00"
+
+[node name="EquipmentUI" type="Control" parent="Camera/Canvas/UnitUI"]
+anchors_preset = 0
+offset_left = 356.0
+offset_top = 93.0
+offset_right = 396.0
+offset_bottom = 133.0
+
+[node name="Panel" type="Panel" parent="Camera/Canvas/UnitUI/EquipmentUI"]
+layout_mode = 0
+offset_right = 266.0
+offset_bottom = 118.0
+
+[node name="WeaponImage" type="TextureRect" parent="Camera/Canvas/UnitUI/EquipmentUI"]
+layout_mode = 0
+offset_right = 75.0
+offset_bottom = 78.0
+texture = ExtResource("4_rp8w6")
+expand_mode = 1
+
+[node name="SecondaryImage" type="TextureRect" parent="Camera/Canvas/UnitUI/EquipmentUI"]
+offset_left = 62.0
+offset_right = 107.0
+offset_bottom = 48.0
+texture = ExtResource("4_rp8w6")
+expand_mode = 1
+
+[node name="WeaponName" type="Label" parent="Camera/Canvas/UnitUI/EquipmentUI"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 89.0
+offset_right = 76.0
+offset_bottom = 115.0
+text = "Crowbar"
+
+[node name="WeaponStats" type="Control" parent="Camera/Canvas/UnitUI/EquipmentUI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DamageRange" type="Label" parent="Camera/Canvas/UnitUI/EquipmentUI/WeaponStats"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 4.0
+offset_right = 243.0
+offset_bottom = 30.0
+theme_override_font_sizes/font_size = 12
+text = "Damage: 00 - 00"
+
+[node name="AttackSpeed" type="Label" parent="Camera/Canvas/UnitUI/EquipmentUI/WeaponStats"]
+offset_left = 120.0
+offset_top = 24.0
+offset_right = 337.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 12
+text = "Attack Speed: 00 / s"
+
+[node name="Penetration" type="Label" parent="Camera/Canvas/UnitUI/EquipmentUI/WeaponStats"]
+offset_left = 121.0
+offset_top = 45.0
+offset_right = 338.0
+offset_bottom = 71.0
+theme_override_font_sizes/font_size = 12
+text = "Penetration: 00 %"
+
+[node name="AmmoConsumption" type="Label" parent="Camera/Canvas/UnitUI/EquipmentUI/WeaponStats"]
+offset_left = 121.0
+offset_top = 65.0
+offset_right = 338.0
+offset_bottom = 91.0
+theme_override_font_sizes/font_size = 12
+text = "Ammo Consumption: 00"
+
+[node name="InfoPanel" type="Control" parent="Camera/Canvas/UnitUI"]
+visible = false
+anchors_preset = 0
+offset_left = -9.0
+offset_top = -41.0
+offset_right = 31.0
+offset_bottom = -1.0
+
+[node name="Panel" type="Panel" parent="Camera/Canvas/UnitUI/InfoPanel"]
+layout_mode = 0
+offset_top = -196.0
+offset_right = 213.0
+offset_bottom = 40.0
+
+[node name="CombatBehavior" type="Control" parent="Camera/Canvas/UnitUI"]
+anchors_preset = 0
+offset_left = 353.0
+offset_top = 30.0
+offset_right = 393.0
+offset_bottom = 70.0
+
+[node name="MoveAndShoot" type="CheckButton" parent="Camera/Canvas/UnitUI/CombatBehavior"]
+layout_mode = 0
+offset_right = 44.0
+offset_bottom = 24.0
+text = "Move and Shoot"
+
+[node name="FireAtWill" type="CheckButton" parent="Camera/Canvas/UnitUI/CombatBehavior"]
+offset_top = 26.0
+offset_right = 131.0
+offset_bottom = 57.0
+text = "Fire At Will"
+
 [node name="ResourcesUI" type="Control" parent="Camera/Canvas"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 4.0
-offset_top = 8.0
-offset_right = 44.0
-offset_bottom = 48.0
+offset_left = 14.0
+offset_top = 123.0
+offset_right = 54.0
+offset_bottom = 163.0
 
 [node name="Panel" type="Panel" parent="Camera/Canvas/ResourcesUI"]
 self_modulate = Color(0, 0, 0, 1)
@@ -339,6 +460,117 @@ offset_top = 68.0
 offset_right = 791.0
 offset_bottom = 118.0
 texture = ExtResource("3_gb5p3")
+
+[node name="AlertsUI" type="Control" parent="Camera/Canvas"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1314.0
+offset_top = 149.0
+offset_right = 1354.0
+offset_bottom = 189.0
+
+[node name="OxygenAlert" type="TextureRect" parent="Camera/Canvas/AlertsUI"]
+self_modulate = Color(0, 1, 1, 1)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_w3iw4")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Camera/Canvas/AlertsUI/OxygenAlert"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = 6.0
+offset_right = 75.0
+offset_bottom = 32.0
+text = "Low Oxygen"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RadiationAlert" type="TextureRect" parent="Camera/Canvas/AlertsUI"]
+self_modulate = Color(0.666667, 1, 0.372549, 1)
+offset_top = 54.0
+offset_right = 40.0
+offset_bottom = 94.0
+texture = ExtResource("4_w3iw4")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Camera/Canvas/AlertsUI/RadiationAlert"]
+offset_left = -19.0
+offset_top = 6.0
+offset_right = 55.0
+offset_bottom = 32.0
+text = "Radiation"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LowTemperatureAlert" type="TextureRect" parent="Camera/Canvas/AlertsUI"]
+self_modulate = Color(0.4, 0.596078, 1, 1)
+offset_top = 109.0
+offset_right = 40.0
+offset_bottom = 149.0
+texture = ExtResource("4_w3iw4")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Camera/Canvas/AlertsUI/LowTemperatureAlert"]
+offset_left = -19.0
+offset_top = 6.0
+offset_right = 171.0
+offset_bottom = 32.0
+text = "Dangerous Temperature"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighTemperatureAlert2" type="TextureRect" parent="Camera/Canvas/AlertsUI"]
+self_modulate = Color(1, 0.372549, 0.305882, 1)
+offset_top = 109.0
+offset_right = 40.0
+offset_bottom = 149.0
+texture = ExtResource("4_w3iw4")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Camera/Canvas/AlertsUI/HighTemperatureAlert2"]
+offset_left = -19.0
+offset_top = 6.0
+offset_right = 171.0
+offset_bottom = 32.0
+text = "Dangerous Temperature"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FoodAlert" type="TextureRect" parent="Camera/Canvas/AlertsUI"]
+self_modulate = Color(1, 1, 0, 1)
+offset_top = 161.0
+offset_right = 40.0
+offset_bottom = 201.0
+texture = ExtResource("4_w3iw4")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Camera/Canvas/AlertsUI/FoodAlert"]
+offset_left = -19.0
+offset_top = 6.0
+offset_right = 55.0
+offset_bottom = 32.0
+text = "Low Food"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FireAlert" type="TextureRect" parent="Camera/Canvas/AlertsUI"]
+self_modulate = Color(1, 0, 0, 1)
+offset_top = 215.0
+offset_right = 40.0
+offset_bottom = 255.0
+texture = ExtResource("4_w3iw4")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Camera/Canvas/AlertsUI/FireAlert"]
+offset_left = -19.0
+offset_top = 6.0
+offset_right = 21.0
+offset_bottom = 32.0
+text = "Fire"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="InputManager" type="Node2D" parent="."]
 script = ExtResource("2_drscf")

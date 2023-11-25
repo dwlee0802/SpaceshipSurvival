@@ -1,8 +1,9 @@
+CheckButton
+Control
+Button
+Panel
 Label
 TextureRect
-Control
-Panel
-Button
 RayCast2D
 Sprite2D
 CollisionShape2D
