@@ -67,19 +67,16 @@ func _physics_process(delta):
 	super._physics_process(delta)
 	muzzleFlashSprite.visible = false
 	
-	if attackTarget != null:
-		PointArmAt(attackTarget.position)
-	
-	SetAttackLine()
-	
-	print(isMoving)
-	print(interactionTarget)
-	
 	if not isMoving and interactionTarget != null:
 		if interactionTarget.Fix(delta):
 			interactionTarget = null
 		else:
 			PointArmAt(interactionTarget.global_position)
+	
+	if attackTarget != null:
+		PointArmAt(attackTarget.position)
+	
+	SetAttackLine()
 	
 	
 func ScanForAttackTargets():

@@ -12,11 +12,11 @@ func _unhandled_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
-				Game.SetSelectionUI(false)
 				dragging = true
 				drag_start = get_global_mouse_position()
 				selectedUnits = []
 			if event.is_released():
+				Game.SetSelectionUI(false)
 				dragging = false
 				selectionBox.visible = false
 				selectedUnits = selectionBox.get_overlapping_bodies()
