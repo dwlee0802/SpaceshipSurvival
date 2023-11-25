@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://be6pcrbh62p80"]
+[gd_scene load_steps=6 format=3 uid="uid://be6pcrbh62p80"]
 
 [ext_resource type="Script" path="res://Scripts/interactable.gd" id="1_i626h"]
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="2_m5bu7"]
@@ -8,9 +8,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c6x3d"]
 size = Vector2(50, 50)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_45ycx"]
-radius = 110.454
 
 [node name="Interactable" type="StaticBody2D"]
 collision_layer = 4
@@ -42,16 +39,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="InteractionPoint" type="StaticBody2D" parent="."]
+[node name="InteractionPoint" type="Sprite2D" parent="."]
 position = Vector2(0, 53)
-scale = Vector2(1, 1)
-collision_layer = 8
-collision_mask = 0
-
-[node name="Sprite2D" type="Sprite2D" parent="InteractionPoint"]
 scale = Vector2(0.0859375, 0.0859375)
 texture = ExtResource("3_02k4d")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionPoint"]
-scale = Vector2(0.1, 0.1)
-shape = SubResource("CircleShape2D_45ycx")

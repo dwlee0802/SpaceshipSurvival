@@ -51,6 +51,8 @@ func _physics_process(delta):
 	if not isMoving and interactionTarget != null:
 		if interactionTarget.Fix(delta):
 			interactionTarget = null
+		else:
+			PointArmAt(interactionTarget.global_position)
 	
 	
 func ScanForAttackTargets():
