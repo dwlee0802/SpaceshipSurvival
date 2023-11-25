@@ -1,8 +1,12 @@
+TextureRect
+Control
+Label
+Panel
+Button
 RayCast2D
 Sprite2D
 CollisionShape2D
 Area2D
-Button
 StaticBody2D
 Node2D
 Timer
@@ -10,8 +14,6 @@ TileMap
 NavigationObstacle2D
 NavigationLink2D
 NavigationRegion2D
-Label
-Control
 Camera2D
 CanvasLayer
 Line2D

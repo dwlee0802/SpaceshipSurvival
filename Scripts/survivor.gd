@@ -68,11 +68,14 @@ func _physics_process(delta):
 	super._physics_process(delta)
 	muzzleFlashSprite.visible = false
 	
-	if not isMoving and interactionTarget != null:
+	if  (not isMoving) and (interactionTarget != null):
 		if interactionTarget.Fix(delta):
 			interactionTarget = null
 		else:
 			PointArmAt(interactionTarget.global_position)
+	
+	print(attackTarget)
+	print(attackRaycast.get_collider())
 	
 	if attackTarget != null:
 		attackRaycast.target_position = attackTarget.position - position
@@ -83,10 +86,12 @@ func _physics_process(delta):
 			SetAttackLine()
 		else:
 			attackTimer.stop()
+			attackLine.visible = false
 	else:
 		# line of sight blocked. cant attack
 		attackTimer.stop()
-	
+		attackLine.visible = false
+		
 	
 func ScanForAttackTargets():
 	# acquire attack targets
@@ -105,6 +110,7 @@ func ScanForAttackTargets():
 				minDist = dist
 				attackTarget = item
 		
+		attackRaycast.target_position = attackTarget.position - position
 
 func Attack():
 	# deal damage
