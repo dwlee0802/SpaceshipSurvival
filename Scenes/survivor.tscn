@@ -19,6 +19,7 @@ collision_mask = 23
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_ag083")
+speed = 150
 
 [node name="BodySprite" type="Sprite2D" parent="."]
 position = Vector2(-2.86102e-06, -10.5)

@@ -232,6 +232,7 @@ offset_bottom = 25.0
 texture = ExtResource("3_gb5p3")
 
 [node name="InformationButton" type="Button" parent="Camera/Canvas/UnitUI"]
+layout_mode = 0
 offset_left = -10.0
 offset_top = 4.0
 offset_right = 91.0
@@ -266,6 +267,7 @@ texture = ExtResource("4_rp8w6")
 expand_mode = 1
 
 [node name="SecondaryImage" type="TextureRect" parent="Camera/Canvas/UnitUI/EquipmentUI"]
+layout_mode = 0
 offset_left = 62.0
 offset_right = 107.0
 offset_bottom = 48.0
@@ -295,6 +297,7 @@ theme_override_font_sizes/font_size = 12
 text = "Damage: 00 - 00"
 
 [node name="AttackSpeed" type="Label" parent="Camera/Canvas/UnitUI/EquipmentUI/WeaponStats"]
+layout_mode = 0
 offset_left = 120.0
 offset_top = 24.0
 offset_right = 337.0
@@ -303,6 +306,7 @@ theme_override_font_sizes/font_size = 12
 text = "Attack Speed: 00 / s"
 
 [node name="Penetration" type="Label" parent="Camera/Canvas/UnitUI/EquipmentUI/WeaponStats"]
+layout_mode = 0
 offset_left = 121.0
 offset_top = 45.0
 offset_right = 338.0
@@ -311,6 +315,7 @@ theme_override_font_sizes/font_size = 12
 text = "Penetration: 00 %"
 
 [node name="AmmoConsumption" type="Label" parent="Camera/Canvas/UnitUI/EquipmentUI/WeaponStats"]
+layout_mode = 0
 offset_left = 121.0
 offset_top = 65.0
 offset_right = 338.0
@@ -346,6 +351,7 @@ offset_bottom = 24.0
 text = "Move and Shoot"
 
 [node name="FireAtWill" type="CheckButton" parent="Camera/Canvas/UnitUI/CombatBehavior"]
+layout_mode = 0
 offset_top = 26.0
 offset_right = 131.0
 offset_bottom = 57.0
@@ -489,6 +495,7 @@ vertical_alignment = 1
 
 [node name="RadiationAlert" type="TextureRect" parent="Camera/Canvas/AlertsUI"]
 self_modulate = Color(0.666667, 1, 0.372549, 1)
+layout_mode = 0
 offset_top = 54.0
 offset_right = 40.0
 offset_bottom = 94.0
@@ -496,6 +503,7 @@ texture = ExtResource("4_w3iw4")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="Camera/Canvas/AlertsUI/RadiationAlert"]
+layout_mode = 0
 offset_left = -19.0
 offset_top = 6.0
 offset_right = 55.0
@@ -506,6 +514,7 @@ vertical_alignment = 1
 
 [node name="LowTemperatureAlert" type="TextureRect" parent="Camera/Canvas/AlertsUI"]
 self_modulate = Color(0.4, 0.596078, 1, 1)
+layout_mode = 0
 offset_top = 109.0
 offset_right = 40.0
 offset_bottom = 149.0
@@ -513,6 +522,7 @@ texture = ExtResource("4_w3iw4")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="Camera/Canvas/AlertsUI/LowTemperatureAlert"]
+layout_mode = 0
 offset_left = -19.0
 offset_top = 6.0
 offset_right = 171.0
@@ -523,6 +533,7 @@ vertical_alignment = 1
 
 [node name="HighTemperatureAlert2" type="TextureRect" parent="Camera/Canvas/AlertsUI"]
 self_modulate = Color(1, 0.372549, 0.305882, 1)
+layout_mode = 0
 offset_top = 109.0
 offset_right = 40.0
 offset_bottom = 149.0
@@ -530,6 +541,7 @@ texture = ExtResource("4_w3iw4")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="Camera/Canvas/AlertsUI/HighTemperatureAlert2"]
+layout_mode = 0
 offset_left = -19.0
 offset_top = 6.0
 offset_right = 171.0
@@ -540,6 +552,7 @@ vertical_alignment = 1
 
 [node name="FoodAlert" type="TextureRect" parent="Camera/Canvas/AlertsUI"]
 self_modulate = Color(1, 1, 0, 1)
+layout_mode = 0
 offset_top = 161.0
 offset_right = 40.0
 offset_bottom = 201.0
@@ -547,6 +560,7 @@ texture = ExtResource("4_w3iw4")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="Camera/Canvas/AlertsUI/FoodAlert"]
+layout_mode = 0
 offset_left = -19.0
 offset_top = 6.0
 offset_right = 55.0
@@ -557,6 +571,7 @@ vertical_alignment = 1
 
 [node name="FireAlert" type="TextureRect" parent="Camera/Canvas/AlertsUI"]
 self_modulate = Color(1, 0, 0, 1)
+layout_mode = 0
 offset_top = 215.0
 offset_right = 40.0
 offset_bottom = 255.0
@@ -564,6 +579,7 @@ texture = ExtResource("4_w3iw4")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="Camera/Canvas/AlertsUI/FireAlert"]
+layout_mode = 0
 offset_left = -19.0
 offset_top = 6.0
 offset_right = 21.0
@@ -596,4 +612,7 @@ position = Vector2(-8, 2)
 position = Vector2(-1134, -176)
 
 [node name="Survivor" parent="." instance=ExtResource("4_16enx")]
-position = Vector2(736, -427)
+position = Vector2(203, 192)
+
+[node name="Survivor2" parent="." instance=ExtResource("4_16enx")]
+position = Vector2(196, -187)

@@ -9,7 +9,7 @@ static var errorRate: float = 0.1
 @onready var interactablesNode = $Interactables
 
 # each module may spawn an enemy every 1 second. The probability is determined by respawnRate
-static var respawnRate: float = 0.2
+static var respawnRate: float = 0.5
 
 var isOperational: bool = true
 
