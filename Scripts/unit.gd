@@ -17,24 +17,21 @@ var attackTarget
 @onready var navRaycast4 = $NavigationRaycasts/RayCast2D4
 @onready var navRaycast5 = $NavigationRaycasts/RayCast2D5
 
-@onready var navUpdateTimer = $NavigationUpdateTimer
-
 var isMoving: bool = false
+
+var STOP_DIST = 5
 
 
 func _physics_process(delta):
 	if isMoving:
 		if CheckDirectPath():
-			if position.distance_to(target_position) < 5:
+			if position.distance_to(target_position) < STOP_DIST:
 				isMoving = false
 				return
 				
-			print("path clear")
 			velocity = position.direction_to(target_position) * speed
 			move_and_slide()
 		else:
-			print("nav")
-			
 			if nav.is_navigation_finished():
 				isMoving = false
 				return
@@ -61,9 +58,9 @@ func OnDeath():
 	print("Dead!")
 	
 	
-func CheckDirectPath():
-	var dir = position.direction_to(target_position)
-	var dist = position.distance_to(target_position)
+func CheckDirectPath(pos = target_position):
+	var dir = position.direction_to(pos)
+	var dist = position.distance_to(pos)
 	
 	navRaycast.target_position = dir * dist
 	navRaycast2.target_position = dir * dist

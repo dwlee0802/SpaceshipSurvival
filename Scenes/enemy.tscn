@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="2_gwmvf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ashq5"]
-size = Vector2(60, 60)
+size = Vector2(50, 50)
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 2
@@ -23,11 +23,30 @@ shape = SubResource("RectangleShape2D_ashq5")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_max_distance = 10.0
+path_postprocessing = 1
 debug_enabled = true
 
 [node name="NavUpdateTimer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-autostart = true
+
+[node name="NavigationRaycasts" type="Node2D" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="NavigationRaycasts"]
+collision_mask = 16
+
+[node name="RayCast2D2" type="RayCast2D" parent="NavigationRaycasts"]
+position = Vector2(0, 25)
+collision_mask = 16
+
+[node name="RayCast2D3" type="RayCast2D" parent="NavigationRaycasts"]
+position = Vector2(0, -25)
+collision_mask = 16
+
+[node name="RayCast2D4" type="RayCast2D" parent="NavigationRaycasts"]
+position = Vector2(-25, 0)
+collision_mask = 16
+
+[node name="RayCast2D5" type="RayCast2D" parent="NavigationRaycasts"]
+position = Vector2(25, 0)
+collision_mask = 16
 
 [connection signal="timeout" from="NavUpdateTimer" to="." method="_on_nav_update_timer_timeout"]

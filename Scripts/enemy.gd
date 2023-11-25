@@ -2,15 +2,26 @@ extends "res://Scripts/unit.gd"
 
 @onready var bodySprite = $BodySprite
 
+@onready var navUpdateTimer = $NavUpdateTimer
+
 var holder: float = 0
 
+
+func _ready():
+	STOP_DIST = 60
 
 func _physics_process(delta):
 	if attackTarget == null:
 		attackTarget = Game.survivors.pick_random()
 	
-	if attackTarget.isMoving:
-		ChangeTargetPosition(attackTarget.position)
+	ChangeTargetPosition(attackTarget.position)
+	
+	if CheckDirectPath(attackTarget.position):
+		# update target position realtime
+		navUpdateTimer.stop()
+	else:
+		# if not, pathfinding.
+		navUpdateTimer.start()
 		
 	super._physics_process(delta)
 	

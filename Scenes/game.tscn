@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bj6ov38i406sf"]
+[gd_scene load_steps=9 format=3 uid="uid://bj6ov38i406sf"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e32sq"]
 [ext_resource type="Script" path="res://Scripts/InputManager.gd" id="2_drscf"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://crk54pclkvhi" path="res://Scenes/survivor.tscn" id="4_16enx"]
 [ext_resource type="PackedScene" uid="uid://5cam8m5nc2yc" path="res://Scenes/spaceship.tscn" id="5_uopi8"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="6_pyyuj"]
+[ext_resource type="PackedScene" uid="uid://brrbmb154h7yh" path="res://Scenes/enemy.tscn" id="7_ti8k6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vbgc8"]
 size = Vector2(100, 100)
@@ -42,4 +43,12 @@ shape = SubResource("RectangleShape2D_vbgc8")
 [node name="Spaceship" parent="." instance=ExtResource("5_uopi8")]
 
 [node name="Survivor" parent="." instance=ExtResource("4_16enx")]
-position = Vector2(246, 232)
+position = Vector2(-251, 254)
+
+[node name="Enemy" parent="." instance=ExtResource("7_ti8k6")]
+position = Vector2(864, -430)
+health = 1000
+
+[node name="Enemy2" parent="." instance=ExtResource("7_ti8k6")]
+position = Vector2(696, -462)
+health = 1000

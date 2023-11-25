@@ -7,3 +7,4 @@ res://Scenes/interactable.tscn
 res://Scenes/module.tscn
 res://Scenes/enemy.tscn
 res://Scripts/unit.gd
+res://Scripts/enemy.gd
