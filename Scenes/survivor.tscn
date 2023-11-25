@@ -33,7 +33,6 @@ path_postprocessing = 1
 avoidance_enabled = true
 
 [node name="AttackArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -86,21 +85,26 @@ autostart = true
 visible = false
 
 [node name="RayCast2D" type="RayCast2D" parent="NavigationRaycasts"]
+visible = false
 collision_mask = 16
 
 [node name="RayCast2D2" type="RayCast2D" parent="NavigationRaycasts"]
+visible = false
 position = Vector2(0, 25)
 collision_mask = 16
 
 [node name="RayCast2D3" type="RayCast2D" parent="NavigationRaycasts"]
+visible = false
 position = Vector2(0, -25)
 collision_mask = 16
 
 [node name="RayCast2D4" type="RayCast2D" parent="NavigationRaycasts"]
+visible = false
 position = Vector2(-25, 0)
 collision_mask = 16
 
 [node name="RayCast2D5" type="RayCast2D" parent="NavigationRaycasts"]
+visible = false
 position = Vector2(25, 0)
 collision_mask = 16
 
@@ -118,3 +122,7 @@ rotation = -1.33021
 scale = Vector2(129.755, 135.723)
 skew = 1.11183
 texture = ExtResource("2_3n7u2")
+
+[node name="AttackRaycast" type="RayCast2D" parent="."]
+target_position = Vector2(205, -1)
+collision_mask = 16

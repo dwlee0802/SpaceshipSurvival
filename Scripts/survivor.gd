@@ -9,6 +9,7 @@ static var weaponsFilePath: String = "res://Data/Weapons.json"
 static var weaponsDict
 
 @onready var attackTimer = $AttackTimer
+@onready var attackRaycast = $AttackRaycast
 
 @onready var armSprite = $ArmSprite
 @onready var muzzleFlashSprite = $ArmSprite/MuzzleFlash
@@ -74,37 +75,44 @@ func _physics_process(delta):
 			PointArmAt(interactionTarget.global_position)
 	
 	if attackTarget != null:
-		PointArmAt(attackTarget.position)
-	
-	SetAttackLine()
+		attackRaycast.target_position = attackTarget.position - position
+		if attackRaycast.get_collider() == null:
+			if attackTimer.is_stopped():
+				attackTimer.start()
+			PointArmAt(attackTarget.position)
+			SetAttackLine()
+		else:
+			attackTimer.stop()
+	else:
+		# line of sight blocked. cant attack
+		attackTimer.stop()
 	
 	
 func ScanForAttackTargets():
 	# acquire attack targets
 	var targets = attackArea.get_overlapping_bodies()
 	attackTarget = null
-	
+			
 	if len(targets) == 0:
 		attackLine.visible = false
-		attackTimer.stop()
 	else:
 		# find closest target
 		var minDist = 10000
 		for item in targets:
+			# only consider those within line of sight
 			var dist = position.distance_to(item.position)
 			if dist < minDist:
 				minDist = dist
 				attackTarget = item
 		
-		
-		if attackTimer.is_stopped():
-			attackTimer.start()
-
 
 func Attack():
 	# deal damage
 	var amount = randi_range(equippedWeapon.DamageMin, equippedWeapon.DamageMax)
-	attackTarget.ReceiveHit(amount)
+	if is_instance_valid(attackTarget):
+		attackTarget.ReceiveHit(amount)
+	else:
+		attackTarget = null
 	print("Delt ", str(amount), " damage!")
 	muzzleFlashSprite.visible = true
 
