@@ -1,10 +1,12 @@
 Timer
+Node2D
+RayCast2D
+TileMap
 NavigationObstacle2D
 NavigationLink2D
 NavigationRegion2D
 CollisionShape2D
 Sprite2D
-Node2D
 Label
 Control
 Area2D

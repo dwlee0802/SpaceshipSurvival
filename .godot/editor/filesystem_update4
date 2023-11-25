@@ -1,14 +1,9 @@
-res://Scenes/game.tscn
+res://Scenes/spaceship.tscn
 res://Scripts/survivor.gd
-res://Scenes/enemy.tscn
+res://Scenes/game.tscn
 res://Scenes/survivor.tscn
 res://Scenes/placed_item.tscn
 res://Scenes/interactable.tscn
 res://Scenes/module.tscn
-res://Scenes/spaceship.tscn
-res://Scripts/spaceship.gd
-res://Scripts/module.gd
-res://Scripts/enemy.gd
+res://Scenes/enemy.tscn
 res://Scripts/unit.gd
-res://Scripts/InputManager.gd
-res://Scripts/game.gd
