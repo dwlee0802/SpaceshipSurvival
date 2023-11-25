@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://crk54pclkvhi"]
+[gd_scene load_steps=8 format=3 uid="uid://crk54pclkvhi"]
 
 [ext_resource type="Script" path="res://Scripts/survivor.gd" id="1_ag083"]
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="2_3n7u2"]
+[ext_resource type="Texture2D" uid="uid://bphgupljd61uk" path="res://Art/ump45_temp_sprite.png" id="2_10b6v"]
 [ext_resource type="Texture2D" uid="uid://2j00antvhw4x" path="res://Art/circle-256.png" id="3_5uyep"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ashq5"]
@@ -20,12 +21,11 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_ag083")
 
 [node name="BodySprite" type="Sprite2D" parent="."]
-self_modulate = Color(0.376471, 0.454902, 0.670588, 1)
-scale = Vector2(50, 50)
-texture = ExtResource("2_3n7u2")
+position = Vector2(-2.86102e-06, -10.5)
+scale = Vector2(0.322581, 0.349754)
+texture = ExtResource("2_10b6v")
 
 [node name="BodyCollisionShape" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_ashq5")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

@@ -14,3 +14,4 @@ res://Scripts/module.gd
 res://Scripts/interactable.gd
 res://Scripts/InputManager.gd
 res://Scripts/spaceship.gd
+res://Scripts/placed_item.gd
