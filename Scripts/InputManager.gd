@@ -12,6 +12,7 @@ func _unhandled_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
+				Game.SetSelectionUI(false)
 				dragging = true
 				drag_start = get_global_mouse_position()
 				selectedUnits = []
@@ -19,7 +20,9 @@ func _unhandled_input(event):
 				dragging = false
 				selectionBox.visible = false
 				selectedUnits = selectionBox.get_overlapping_bodies()
-				
+				selectionBox.get_node("CollisionShape2D").disabled = true
+				for item in selectedUnits:
+					item.ShowSelectionUI()
 			
 		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 				
@@ -45,6 +48,7 @@ func _unhandled_input(event):
 				
 		
 	if dragging and event is InputEventMouseMotion:
+		selectionBox.get_node("CollisionShape2D").disabled = false
 		DrawSelectionBox(drag_start, get_global_mouse_position())
 		selectionBox.visible = true
 			

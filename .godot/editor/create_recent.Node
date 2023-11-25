@@ -1,7 +1,8 @@
-Button
 Sprite2D
-StaticBody2D
 CollisionShape2D
+Area2D
+Button
+StaticBody2D
 Node2D
 Timer
 RayCast2D
@@ -11,7 +12,6 @@ NavigationLink2D
 NavigationRegion2D
 Label
 Control
-Area2D
 Camera2D
 CanvasLayer
 Line2D

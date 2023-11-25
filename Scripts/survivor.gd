@@ -3,8 +3,7 @@ extends "res://Scripts/unit.gd"
 @onready var attackArea = $AttackArea
 @onready var attackLine = $AttackLine
 
-@export var equippedWeaponID: int = 2
-var equippedWeapon
+@onready var selectionCircle = $SelectionCircle
 
 static var weaponsFilePath: String = "res://Data/Weapons.json"
 static var weaponsDict
@@ -19,6 +18,31 @@ var interactionTarget
 var inventory = []
 var inventoryWeight: int = 0
 var inventoryCapacity: int = 10
+
+
+# unit stats
+
+# modifies reload time
+var reloadSpeed: float = 1
+
+# oxygen level in body. Starts to lose health when it reaches zero
+var oxygen: int = 100
+
+# how well this person can hit targets with a ranged weapon
+# added with weapon accuracy to get total accuracy
+var accuracy: float = 0.5
+
+# how strong this person is. Affects melee damage and inventory capacity
+var strength
+
+# how much damage is reduced when this unit is hit.
+var defense: float = 0
+
+
+# equipment slots
+
+@export var equippedWeaponID: int = 2
+var equippedWeapon
 
 
 func _ready():
@@ -47,6 +71,9 @@ func _physics_process(delta):
 		PointArmAt(attackTarget.position)
 	
 	SetAttackLine()
+	
+	print(isMoving)
+	print(interactionTarget)
 	
 	if not isMoving and interactionTarget != null:
 		if interactionTarget.Fix(delta):
@@ -106,6 +133,10 @@ func SetAttackLine():
 		attackLine.visible = true
 		attackLine.set_point_position(1, attackTarget.position - position)
 		PointArmAt(attackTarget.position)
+
+
+func ShowSelectionUI(val = true):
+	selectionCircle.visible = val
 		
 		
 func ChangeTargetPosition(where):

@@ -103,3 +103,18 @@ collision_mask = 16
 [node name="RayCast2D5" type="RayCast2D" parent="NavigationRaycasts"]
 position = Vector2(25, 0)
 collision_mask = 16
+
+[node name="SelectionCircle" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(0, 1, 0, 0.27451)
+position = Vector2(6.55651e-07, 25)
+scale = Vector2(0.234375, 0.0546875)
+texture = ExtResource("3_5uyep")
+
+[node name="SelectionArrow" type="Sprite2D" parent="SelectionCircle"]
+self_modulate = Color(0, 1, 0, 0.329412)
+position = Vector2(6.99361e-06, -1462.86)
+rotation = -1.33021
+scale = Vector2(129.755, 135.723)
+skew = 1.11183
+texture = ExtResource("2_3n7u2")
