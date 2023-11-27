@@ -128,3 +128,7 @@ texture = ExtResource("2_3n7u2")
 [node name="AttackRaycast" type="RayCast2D" parent="."]
 target_position = Vector2(205, -1)
 collision_mask = 16
+
+[node name="OxygenTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="OxygenTimer" to="." method="_on_oxygen_timer_timeout"]

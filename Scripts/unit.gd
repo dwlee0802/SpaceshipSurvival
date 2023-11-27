@@ -3,6 +3,7 @@ extends CharacterBody2D
 class_name Unit
 
 @export var health: int = 100
+@export var maxHealth: int = 100
 @export var speed: int = 100
 
 var attackTarget

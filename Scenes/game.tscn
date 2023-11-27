@@ -585,6 +585,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Title" type="Label" parent="Camera/Canvas/SpaceshipStatusUI/TemperatureLevel"]
+layout_mode = 0
 offset_left = -49.0
 offset_top = 8.0
 offset_right = 10.0

@@ -8,13 +8,20 @@ var drag_start = Vector2.ZERO
 @onready var selectionBox = $SelectionBox
 
 
+func _process(delta):
+	if len(selectedUnits) == 1:
+		UserInterfaceManager.ToggleUnitUI(true)
+		UserInterfaceManager.UpdateUnitUI(selectedUnits[0])
+	else:
+		UserInterfaceManager.ToggleUnitUI(false)
+
+
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
 				dragging = true
 				drag_start = get_global_mouse_position()
-				selectedUnits = []
 			if event.is_released():
 				Game.SetSelectionUI(false)
 				dragging = false

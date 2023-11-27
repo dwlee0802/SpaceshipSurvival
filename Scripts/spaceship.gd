@@ -1,5 +1,7 @@
 extends Node
 
+class_name Spaceship
+
 # Oxygen level of the ship.
 # Affects how much oxygen is gained per breath
 # Might change this to module specific levels in the future
@@ -9,7 +11,7 @@ static var oxygenLevel: int = 100
 # temperature level of the ship
 # body temperature of survivors slowly change towards ship temperature
 # if too high or low, speed and accuracy is decreased and HP is slowly reduced
-static var temperature: int = 25
+static var temperature: float = 24
 
 # food stock of the survivors
 # food is consumed periodically
@@ -52,8 +54,12 @@ func _on_travel_timer_timeout():
 
 
 func _on_temperature_timer_timeout():
-	pass # Replace with function body.
+	temperature -= 0.1
+	
+	UserInterfaceManager.UpdateSpaceshipStatusUI(oxygenLevel, temperature)
 
 
 func _on_oxygen_timer_timeout():
-	pass # Replace with function body.
+	oxygenLevel -= 1
+	
+	UserInterfaceManager.UpdateSpaceshipStatusUI(oxygenLevel, temperature)

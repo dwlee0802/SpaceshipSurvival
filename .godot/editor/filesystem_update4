@@ -1,7 +1,6 @@
 res://Scenes/spaceship.tscn
 res://Scripts/survivor.gd
 res://Scripts/spaceship.gd
-res://Scripts/UserInterfaceManager.gd
 res://Scenes/game.tscn
 res://Scenes/survivor.tscn
 res://Scenes/placed_item.tscn
@@ -9,3 +8,6 @@ res://Scenes/interactable.tscn
 res://Scenes/module.tscn
 res://Scenes/enemy.tscn
 res://Scenes/spawn_point.tscn
+res://Scripts/UserInterfaceManager.gd
+res://Scripts/unit.gd
+res://Scripts/InputManager.gd

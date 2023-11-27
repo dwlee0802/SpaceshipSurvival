@@ -42,7 +42,11 @@ wait_time = 0.1
 autostart = true
 
 [node name="TemperatureTimer" type="Timer" parent="."]
+autostart = true
 
 [node name="OxygenTimer" type="Timer" parent="."]
+autostart = true
 
 [connection signal="timeout" from="TravelTimer" to="." method="_on_travel_timer_timeout"]
+[connection signal="timeout" from="TemperatureTimer" to="." method="_on_temperature_timer_timeout"]
+[connection signal="timeout" from="OxygenTimer" to="." method="_on_oxygen_timer_timeout"]

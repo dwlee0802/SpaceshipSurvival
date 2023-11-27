@@ -27,7 +27,7 @@ var inventoryCapacity: int = 10
 var reloadSpeed: float = 1
 
 # oxygen level in body. Starts to lose health when it reaches zero
-var oxygen: int = 100
+var oxygen: float = 100
 
 # how well this person can hit targets with a ranged weapon
 # added with weapon accuracy to get total accuracy
@@ -63,6 +63,10 @@ func _ready():
 func parse_json(text):
 	return JSON.parse_string(text)
 
+
+func _process(delta):
+	oxygen -= delta
+	
 
 func _physics_process(delta):
 	super._physics_process(delta)
@@ -150,3 +154,13 @@ func ShowSelectionUI(val = true):
 func ChangeTargetPosition(where):
 	super.ChangeTargetPosition(where)
 	PointArmAt(where)
+
+
+func _on_oxygen_timer_timeout():
+	oxygen += 5 * Spaceship.oxygenLevel / 100
+	
+	if oxygen < 0:
+		oxygen = 0
+	
+	if oxygen == 0:
+		print("suffocating!")
