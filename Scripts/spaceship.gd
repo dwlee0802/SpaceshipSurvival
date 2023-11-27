@@ -6,7 +6,7 @@ class_name Spaceship
 # Affects how much oxygen is gained per breath
 # Might change this to module specific levels in the future
 # if a unit reaches zero oxygen, they take HP damage
-static var oxygenLevel: int = 100
+static var oxygenLevel: int = 0
 
 # temperature level of the ship
 # body temperature of survivors slowly change towards ship temperature
@@ -61,5 +61,8 @@ func _on_temperature_timer_timeout():
 
 func _on_oxygen_timer_timeout():
 	oxygenLevel -= 1
+	
+	if oxygenLevel < 0:
+		oxygenLevel = 0
 	
 	UserInterfaceManager.UpdateSpaceshipStatusUI(oxygenLevel, temperature)

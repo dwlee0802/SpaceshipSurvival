@@ -27,7 +27,7 @@ var inventoryCapacity: int = 10
 var reloadSpeed: float = 1
 
 # oxygen level in body. Starts to lose health when it reaches zero
-var oxygen: float = 100
+var oxygen: float = 10
 
 var bodyTemperature: float = 36.5
 
@@ -76,9 +76,14 @@ func _process(delta):
 	if oxygen == 0:
 		health -= delta
 		
+	print(health)
 	sleep -= delta
 	
 	nutrition -= delta
+	if nutrition < 0:
+		nutrition = 0
+	if nutrition == 0:
+		health -= delta
 
 func _physics_process(delta):
 	super._physics_process(delta)
@@ -177,9 +182,6 @@ func _on_oxygen_timer_timeout():
 	if oxygen > 100:
 		oxygen = 100
 	
-	if oxygen == 0:
-		print("suffocating!")
-
 
 func _on_temperature_timer_timeout():
 	var diff = (bodyTemperature - 36.5 ) - (Spaceship.temperature - 25)
