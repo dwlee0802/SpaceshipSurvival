@@ -74,9 +74,6 @@ func _physics_process(delta):
 		else:
 			PointArmAt(interactionTarget.global_position)
 	
-	print(attackTarget)
-	print(attackRaycast.get_collider())
-	
 	if attackTarget != null:
 		attackRaycast.target_position = attackTarget.position - position
 		if attackRaycast.get_collider() == null:

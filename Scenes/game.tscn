@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bj6ov38i406sf"]
+[gd_scene load_steps=15 format=3 uid="uid://bj6ov38i406sf"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e32sq"]
 [ext_resource type="Script" path="res://Scripts/InputManager.gd" id="2_drscf"]
+[ext_resource type="Script" path="res://Scripts/UserInterfaceManager.gd" id="3_apgpy"]
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="3_gb5p3"]
 [ext_resource type="PackedScene" uid="uid://crk54pclkvhi" path="res://Scenes/survivor.tscn" id="4_16enx"]
 [ext_resource type="Texture2D" uid="uid://bexkhiplgn4sy" path="res://Art/crowbar_placeholder.png" id="4_rp8w6"]
@@ -9,6 +10,31 @@
 [ext_resource type="PackedScene" uid="uid://5cam8m5nc2yc" path="res://Scenes/spaceship.tscn" id="5_uopi8"]
 [ext_resource type="PackedScene" uid="uid://dnmd6ufe4n8al" path="res://Scenes/module.tscn" id="6_ekfq2"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="6_pyyuj"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_haal1"]
+
+[sub_resource type="Animation" id="Animation_ahy6d"]
+resource_name = "spaceship_flame_animation"
+length = 0.5
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpaceshipInnerFlame:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(3, 2), Vector2(3, 1), Vector2(3, 2), Vector2(3, 3), Vector2(3, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pr1aw"]
+_data = {
+"spaceship_flame_animation": SubResource("Animation_ahy6d")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vbgc8"]
 size = Vector2(100, 100)
@@ -21,6 +47,7 @@ position = Vector2(818, -503)
 script = ExtResource("6_pyyuj")
 
 [node name="Canvas" type="CanvasLayer" parent="Camera"]
+script = ExtResource("3_apgpy")
 
 [node name="UnitUI" type="Control" parent="Camera/Canvas"]
 layout_mode = 3
@@ -387,37 +414,74 @@ offset_right = 125.0
 offset_bottom = 55.0
 text = "Ammo: 000/200"
 
-[node name="VoyageProgressUI" type="Control" parent="Camera/Canvas"]
+[node name="TravelProgressUI" type="Control" parent="Camera/Canvas"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 257.0
+offset_left = 199.0
 offset_top = 22.0
-offset_right = 297.0
+offset_right = 239.0
 offset_bottom = 62.0
 
-[node name="Background" type="TextureRect" parent="Camera/Canvas/VoyageProgressUI"]
+[node name="Background" type="TextureRect" parent="Camera/Canvas/TravelProgressUI"]
 self_modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_right = 914.0
-offset_bottom = 15.0
+offset_right = 1000.0
+offset_bottom = 16.0
 texture = ExtResource("3_gb5p3")
 
-[node name="ProgressBar" type="TextureRect" parent="Camera/Canvas/VoyageProgressUI"]
-self_modulate = Color(0.27451, 0.623529, 1, 1)
+[node name="ProgressBar" type="TextureRect" parent="Camera/Canvas/TravelProgressUI"]
+self_modulate = Color(0, 0.752941, 0.45098, 1)
 layout_mode = 0
+offset_top = 1.0
 offset_right = 123.0
 offset_bottom = 15.0
 texture = ExtResource("3_gb5p3")
 
-[node name="SpaceshipIcon" type="TextureRect" parent="Camera/Canvas/VoyageProgressUI"]
-self_modulate = Color(0.101961, 0.337255, 1, 1)
+[node name="SpaceshipIcon" type="TextureRect" parent="Camera/Canvas/TravelProgressUI"]
+self_modulate = Color(0.72549, 0.760784, 1, 1)
 layout_mode = 0
 offset_left = 115.0
-offset_top = -2.0
+offset_top = -1.0
 offset_right = 135.0
 offset_bottom = 17.0
+texture = SubResource("PlaceholderTexture2D_haal1")
+expand_mode = 1
+
+[node name="ProgressPercentLabel" type="Label" parent="Camera/Canvas/TravelProgressUI/SpaceshipIcon"]
+layout_mode = 0
+offset_left = -14.0
+offset_top = 17.0
+offset_right = 41.0
+offset_bottom = 43.0
+text = "00.00%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpaceshipFlame" type="TextureRect" parent="Camera/Canvas/TravelProgressUI/SpaceshipIcon"]
+self_modulate = Color(0.658824, 0, 0, 1)
+layout_mode = 0
+offset_left = -20.0
+offset_top = 3.0
+offset_bottom = 15.0
 texture = ExtResource("4_w3iw4")
 expand_mode = 1
+
+[node name="SpaceshipInnerFlame" type="TextureRect" parent="Camera/Canvas/TravelProgressUI/SpaceshipIcon/SpaceshipFlame"]
+self_modulate = Color(1, 1, 0.568627, 1)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 19.0
+offset_bottom = 11.0
+texture = ExtResource("4_w3iw4")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera/Canvas/TravelProgressUI/SpaceshipIcon/SpaceshipFlame"]
+autoplay = "spaceship_flame_animation"
+speed_scale = 4.0
+libraries = {
+"": SubResource("AnimationLibrary_pr1aw")
+}
 
 [node name="UnitPanelsUI" type="Control" parent="Camera/Canvas"]
 layout_mode = 3
@@ -615,4 +679,4 @@ position = Vector2(-1134, -176)
 position = Vector2(203, 192)
 
 [node name="Survivor2" parent="." instance=ExtResource("4_16enx")]
-position = Vector2(196, -187)
+position = Vector2(196, -188)
