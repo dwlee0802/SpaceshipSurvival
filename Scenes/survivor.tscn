@@ -130,8 +130,11 @@ target_position = Vector2(205, -1)
 collision_mask = 16
 
 [node name="OxygenTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
 
 [node name="TemperatureTimer" type="Timer" parent="."]
+autostart = true
 
 [connection signal="timeout" from="OxygenTimer" to="." method="_on_oxygen_timer_timeout"]
 [connection signal="timeout" from="TemperatureTimer" to="." method="_on_temperature_timer_timeout"]

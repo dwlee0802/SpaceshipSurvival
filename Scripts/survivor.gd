@@ -29,8 +29,9 @@ var reloadSpeed: float = 1
 # oxygen level in body. Starts to lose health when it reaches zero
 var oxygen: float = 100
 
-# oxygen level in body. Starts to lose health when it reaches zero
 var bodyTemperature: float = 36.5
+
+var nutrition: float = 100
 
 # how well this person can hit targets with a ranged weapon
 # added with weapon accuracy to get total accuracy
@@ -42,6 +43,7 @@ var strength
 # how much damage is reduced when this unit is hit.
 var defense: float = 0
 
+var sleep: float = 600
 
 # equipment slots
 
@@ -68,8 +70,15 @@ func parse_json(text):
 
 
 func _process(delta):
-	oxygen -= delta
+	oxygen -= delta * 2
+	if oxygen < 0:
+		oxygen = 0
+	if oxygen == 0:
+		health -= delta
+		
+	sleep -= delta
 	
+	nutrition -= delta
 
 func _physics_process(delta):
 	super._physics_process(delta)
@@ -160,10 +169,22 @@ func ChangeTargetPosition(where):
 
 
 func _on_oxygen_timer_timeout():
-	oxygen += 5 * Spaceship.oxygenLevel / 100
+	oxygen += 4 * Spaceship.oxygenLevel / 100
 	
 	if oxygen < 0:
 		oxygen = 0
 	
+	if oxygen > 100:
+		oxygen = 100
+	
 	if oxygen == 0:
 		print("suffocating!")
+
+
+func _on_temperature_timer_timeout():
+	var diff = (bodyTemperature - 36.5 ) - (Spaceship.temperature - 25)
+	
+	if diff > 0:
+		bodyTemperature -= 0.5
+	else:
+		bodyTemperature += 0.5
