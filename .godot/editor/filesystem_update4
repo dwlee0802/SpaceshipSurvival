@@ -15,3 +15,6 @@ res://Scripts/nuclear_reactor.gd
 res://Scripts/interactable.gd
 res://Scripts/enemy.gd
 res://Scripts/unit.gd
+res://damage_popup.gd
+res://Scenes/damage_popup.tscn
+res://Scripts/game.gd

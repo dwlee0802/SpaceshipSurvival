@@ -8,12 +8,15 @@ static var enemies = []
 
 static var time: float = 0
 
+static var damagePopup = preload("res://Scenes/damage_popup.tscn")
+
+static var gameScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	survivors.append($Survivor)
 	survivors.append($Survivor2)
-	
+	gameScene = self
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -32,3 +35,11 @@ static func UpdateEnemyTargetPosition():
 static func SetSelectionUI(value):
 	for item in survivors:
 		item.ShowSelectionUI(value)
+
+
+static func MakeDamagePopup(where, amount, color = Color.DARK_RED):
+	var newPopup = damagePopup.instantiate()
+	newPopup.position = where
+	newPopup.modulate = color
+	newPopup.get_node("Label").text = "[center][b]" + str(amount) + "[/b][/center]"
+	gameScene.add_child(newPopup)

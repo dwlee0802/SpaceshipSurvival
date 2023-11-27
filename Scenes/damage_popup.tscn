@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://di5s1adu3grkj"]
+
+[ext_resource type="Script" path="res://damage_popup.gd" id="1_vpw3r"]
+
+[sub_resource type="Animation" id="Animation_douct"]
+resource_name = "damage_popup_anim"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jefui"]
+_data = {
+"damage_popup_anim": SubResource("Animation_douct")
+}
+
+[node name="DamagePopup" type="Marker2D"]
+
+[node name="Label" type="RichTextLabel" parent="."]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+bbcode_enabled = true
+text = "[center][b]100[/b][/center]"
+script = ExtResource("1_vpw3r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "damage_popup_anim"
+libraries = {
+"": SubResource("AnimationLibrary_jefui")
+}

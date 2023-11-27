@@ -23,6 +23,7 @@ var isMoving: bool = false
 var STOP_DIST = 5
 
 
+
 func _physics_process(delta):
 	if health <= 0:
 		OnDeath()
@@ -53,7 +54,7 @@ func ChangeTargetPosition(pos):
 
 func ReceiveHit(amount):
 	health -= amount
-
+	Game.MakeDamagePopup(position, amount)
 
 func OnDeath():
 	print("Dead!")
