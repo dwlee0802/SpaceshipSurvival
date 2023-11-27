@@ -10,6 +10,8 @@ static var healthBar
 
 static var oxygenBar
 
+static var temperatureBar
+
 static var BAR_LENGTH = 200
 
 static var unitUI
@@ -20,6 +22,7 @@ func _ready():
 	spaceshipStatusUI = $SpaceshipStatusUI
 	healthBar = $UnitUI/HealthBar/TextureRect
 	oxygenBar = $UnitUI/OxygenBar/TextureRect
+	temperatureBar = $UnitUI/TemperatureBar/TextureRect
 	unitUI = $UnitUI
 
 
@@ -47,6 +50,7 @@ static func UpdateSpaceshipStatusUI(oxygen, temp):
 static func UpdateUnitUI(unit):
 	healthBar.size.x = unit.health / unit.maxHealth * BAR_LENGTH
 	oxygenBar.size.x = unit.oxygen / 100 * BAR_LENGTH
+	temperatureBar.size.x = unit.bodyTemperature / 50 * BAR_LENGTH
 
 
 static func ToggleUnitUI(val):

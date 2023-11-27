@@ -29,6 +29,9 @@ var reloadSpeed: float = 1
 # oxygen level in body. Starts to lose health when it reaches zero
 var oxygen: float = 100
 
+# oxygen level in body. Starts to lose health when it reaches zero
+var bodyTemperature: float = 36.5
+
 # how well this person can hit targets with a ranged weapon
 # added with weapon accuracy to get total accuracy
 var accuracy: float = 0.5
