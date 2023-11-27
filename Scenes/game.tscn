@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bj6ov38i406sf"]
+[gd_scene load_steps=14 format=3 uid="uid://bj6ov38i406sf"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e32sq"]
 [ext_resource type="Script" path="res://Scripts/InputManager.gd" id="2_drscf"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://bexkhiplgn4sy" path="res://Art/crowbar_placeholder.png" id="4_rp8w6"]
 [ext_resource type="Texture2D" uid="uid://2j00antvhw4x" path="res://Art/circle-256.png" id="4_w3iw4"]
 [ext_resource type="PackedScene" uid="uid://5cam8m5nc2yc" path="res://Scenes/spaceship.tscn" id="5_uopi8"]
-[ext_resource type="PackedScene" uid="uid://dnmd6ufe4n8al" path="res://Scenes/module.tscn" id="6_ekfq2"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="6_pyyuj"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_haal1"]
@@ -657,12 +656,6 @@ texture = ExtResource("3_gb5p3")
 shape = SubResource("RectangleShape2D_vbgc8")
 
 [node name="Spaceship" parent="." instance=ExtResource("5_uopi8")]
-
-[node name="Module" parent="Spaceship" instance=ExtResource("6_ekfq2")]
-position = Vector2(-8, 2)
-
-[node name="Module2" parent="Spaceship" instance=ExtResource("6_ekfq2")]
-position = Vector2(-1134, -176)
 
 [node name="Survivor" parent="." instance=ExtResource("4_16enx")]
 position = Vector2(203, 192)

@@ -6,7 +6,7 @@ class_name Spaceship
 # Affects how much oxygen is gained per breath
 # Might change this to module specific levels in the future
 # if a unit reaches zero oxygen, they take HP damage
-static var oxygenLevel: int = 0
+static var oxygenLevel: int = 100
 
 # temperature level of the ship
 # body temperature of survivors slowly change towards ship temperature
@@ -25,16 +25,17 @@ static var shipSpeed: int = 10
 static var distanceTraveled: int = 0
 static var DISTANCE_TO_DESTINATION: int = 36000
 
-@export var modules = []
+@export var modules = {}
 
-enum ModuleName {Nuclear_Reactor, Life_Support, Infirmary, Kitchen, Bridge, Engine_Room, Electricity_Room}
+enum ModuleName {Nuclear_Reactor, Oxygen_Generator, Temperature_Control, Infirmary, Kitchen, Bridge, Engine_Room, Electricity_Room}
 
 signal destination_reached
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	modules[ModuleName.Oxygen_Generator] = $Modules/OxygenGenerator
+	modules[ModuleName.Temperature_Control] = $Modules/TemperatureControl
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -54,15 +55,24 @@ func _on_travel_timer_timeout():
 
 
 func _on_temperature_timer_timeout():
-	temperature -= 0.1
+	if not modules[ModuleName.Temperature_Control].isOperational:
+		temperature -= 0.1
+	elif temperature < 25:
+		temperature += 0.1
+	
 	
 	UserInterfaceManager.UpdateSpaceshipStatusUI(oxygenLevel, temperature)
 
 
 func _on_oxygen_timer_timeout():
-	oxygenLevel -= 1
+	if not modules[ModuleName.Oxygen_Generator].isOperational:
+		oxygenLevel -= 1
+	else:
+		oxygenLevel += 1
 	
 	if oxygenLevel < 0:
 		oxygenLevel = 0
+	if oxygenLevel > 100:
+		oxygenLevel = 100
 	
 	UserInterfaceManager.UpdateSpaceshipStatusUI(oxygenLevel, temperature)

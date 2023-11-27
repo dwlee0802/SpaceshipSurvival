@@ -11,3 +11,4 @@ res://Scenes/spawn_point.tscn
 res://Scripts/UserInterfaceManager.gd
 res://Scripts/unit.gd
 res://Scripts/InputManager.gd
+res://Scripts/module.gd

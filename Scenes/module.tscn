@@ -10,6 +10,7 @@ size = Vector2(636, 327)
 script = ExtResource("1_jygwm")
 
 [node name="ErrorTimer" type="Timer" parent="."]
+wait_time = 30.0
 autostart = true
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]

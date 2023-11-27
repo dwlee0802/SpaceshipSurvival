@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://5cam8m5nc2yc"]
+[gd_scene load_steps=7 format=3 uid="uid://5cam8m5nc2yc"]
 
 [ext_resource type="Script" path="res://Scripts/spaceship.gd" id="1_6uk50"]
 [ext_resource type="Texture2D" uid="uid://dj066sixgm20c" path="res://Art/tilemap_grayscale_packed.png" id="2_usmpp"]
+[ext_resource type="PackedScene" uid="uid://dnmd6ufe4n8al" path="res://Scenes/module.tscn" id="3_vg3u6"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_7syge"]
 vertices = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
@@ -29,7 +30,6 @@ sources/0 = SubResource("TileSetAtlasSource_ngw0p")
 
 [node name="Spaceship" type="Node2D"]
 script = ExtResource("1_6uk50")
-modules = [NodePath(""), NodePath(""), NodePath(""), NodePath("")]
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -46,6 +46,13 @@ autostart = true
 
 [node name="OxygenTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="Modules" type="Node2D" parent="."]
+
+[node name="OxygenGenerator" parent="Modules" instance=ExtResource("3_vg3u6")]
+position = Vector2(-1119, -82)
+
+[node name="TemperatureControl" parent="Modules" instance=ExtResource("3_vg3u6")]
 
 [connection signal="timeout" from="TravelTimer" to="." method="_on_travel_timer_timeout"]
 [connection signal="timeout" from="TemperatureTimer" to="." method="_on_temperature_timer_timeout"]

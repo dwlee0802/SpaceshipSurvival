@@ -4,7 +4,7 @@ class_name Module
 
 static var enemyScene = preload("res://Scenes/enemy.tscn")
 
-static var errorRate: float = 0.1
+static var errorRate: float = 0.5
 
 @onready var interactablesNode = $Interactables
 
@@ -26,13 +26,17 @@ func _ready():
 	$EnemySpawnTimer.timeout.connect(RollEnemySpawn)
 
 
+func _process(delta):
+	isOperational = CheckOperational()
+	
+	
 func RollEnemySpawn():
 	if randf() < respawnRate:
 		var newEnemy = enemyScene.instantiate()
 		get_parent().get_parent().add_child(newEnemy)
 		Game.enemies.append(newEnemy)
 		newEnemy.health = 200
-		newEnemy.global_position = position + Vector2(randf_range(-100, 100), randf_range(-100, 100))
+		newEnemy.global_position = position + Vector2(randf_range(-200, 200), randf_range(-200, 200))
 
 
 func CheckOperational():

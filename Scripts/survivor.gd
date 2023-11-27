@@ -27,7 +27,7 @@ var inventoryCapacity: int = 10
 var reloadSpeed: float = 1
 
 # oxygen level in body. Starts to lose health when it reaches zero
-var oxygen: float = 10
+var oxygen: float = 100
 
 var bodyTemperature: float = 36.5
 
@@ -76,7 +76,6 @@ func _process(delta):
 	if oxygen == 0:
 		health -= delta
 		
-	print(health)
 	sleep -= delta
 	
 	nutrition -= delta
@@ -173,8 +172,13 @@ func ChangeTargetPosition(where):
 	PointArmAt(where)
 
 
+func OnDeath():
+	queue_free()
+	print("survivor dead!")
+	
+
 func _on_oxygen_timer_timeout():
-	oxygen += 4 * Spaceship.oxygenLevel / 100
+	oxygen += 10 * Spaceship.oxygenLevel / 100
 	
 	if oxygen < 0:
 		oxygen = 0

@@ -23,6 +23,10 @@ var isMoving: bool = false
 var STOP_DIST = 5
 
 
+func _process(delta):
+	if health <= 0:
+		OnDeath()
+
 func _physics_process(delta):
 	if isMoving:
 		if CheckDirectPath():
@@ -50,9 +54,6 @@ func ChangeTargetPosition(pos):
 
 func ReceiveHit(amount):
 	health -= amount
-	
-	if health <= 0:
-		OnDeath()
 
 
 func OnDeath():
