@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://chut4u6e4lyka"]
+
+[ext_resource type="Script" path="res://Scripts/nuclear_reactor.gd" id="1_mwexp"]
+[ext_resource type="PackedScene" uid="uid://be6pcrbh62p80" path="res://Scenes/interactable.tscn" id="2_xtx01"]
+[ext_resource type="Texture2D" uid="uid://2j00antvhw4x" path="res://Art/circle-256.png" id="3_k7pw5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vaq16"]
+size = Vector2(636, 327)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r5d18"]
+radius = 50.0
+
+[node name="NuclearReactor" type="Node2D"]
+script = ExtResource("1_mwexp")
+
+[node name="ErrorTimer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+process_callback = 0
+autostart = true
+
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="Interactable" parent="Interactables" instance=ExtResource("2_xtx01")]
+
+[node name="ModuleArea" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ModuleArea"]
+position = Vector2(-1, 1.5)
+shape = SubResource("RectangleShape2D_vaq16")
+debug_color = Color(0.545098, 0.494118, 0.733333, 0.419608)
+
+[node name="RadiationArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RadiationArea"]
+shape = SubResource("CircleShape2D_r5d18")
+
+[node name="Sprite2D" type="Sprite2D" parent="RadiationArea"]
+self_modulate = Color(0.470588, 0.92549, 0.486275, 0.266667)
+texture_filter = 1
+position = Vector2(4.76837e-07, 8.34465e-07)
+scale = Vector2(0.078125, 0.078125)
+texture = ExtResource("3_k7pw5")
+
+[node name="RadiationDamageTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="RadiationDamageTimer" to="." method="_on_radiation_damage_timer_timeout"]

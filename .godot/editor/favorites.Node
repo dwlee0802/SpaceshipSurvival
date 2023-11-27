@@ -3,3 +3,4 @@ Sprite2D
 Label
 Timer
 AnimationPlayer
+Area2D

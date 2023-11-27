@@ -26,7 +26,7 @@ func _ready():
 	$EnemySpawnTimer.timeout.connect(RollEnemySpawn)
 
 
-func _process(delta):
+func _process(_delta):
 	isOperational = CheckOperational()
 	
 	

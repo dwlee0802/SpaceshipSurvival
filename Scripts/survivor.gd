@@ -50,6 +50,7 @@ var sleep: float = 600
 @export var equippedWeaponID: int = 2
 var equippedWeapon
 
+var isDead: bool = false
 
 func _ready():
 	# read in json files
@@ -70,6 +71,9 @@ func parse_json(text):
 
 
 func _process(delta):
+	if isDead:
+		return
+		
 	oxygen -= delta * 2
 	if oxygen < 0:
 		oxygen = 0
@@ -85,6 +89,9 @@ func _process(delta):
 		health -= delta
 
 func _physics_process(delta):
+	if isDead:
+		return
+		
 	super._physics_process(delta)
 	muzzleFlashSprite.visible = false
 	
@@ -173,7 +180,10 @@ func ChangeTargetPosition(where):
 
 
 func OnDeath():
-	queue_free()
+	if isDead:
+		return
+		
+	isDead = true
 	print("survivor dead!")
 	
 

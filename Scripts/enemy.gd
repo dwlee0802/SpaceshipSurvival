@@ -11,7 +11,7 @@ func _ready():
 	STOP_DIST = 60
 
 func _physics_process(delta):
-	if attackTarget == null:
+	if attackTarget == null or not is_instance_valid(attackTarget) or attackTarget.isDead:
 		attackTarget = Game.survivors.pick_random()
 	
 	ChangeTargetPosition(attackTarget.position)
