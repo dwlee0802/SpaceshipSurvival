@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://di5s1adu3grkj"]
 
-[ext_resource type="Script" path="res://damage_popup.gd" id="1_vpw3r"]
+[ext_resource type="Script" path="res://Scripts/damage_popup.gd" id="1_5aj2g"]
 
 [sub_resource type="Animation" id="Animation_douct"]
 resource_name = "damage_popup_anim"
@@ -56,7 +56,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 bbcode_enabled = true
 text = "[center][b]100[/b][/center]"
-script = ExtResource("1_vpw3r")
+script = ExtResource("1_5aj2g")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "damage_popup_anim"

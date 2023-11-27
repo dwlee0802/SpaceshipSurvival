@@ -1,10 +1,10 @@
+Timer
 AnimationPlayer
 RichTextLabel
 Marker2D
 Sprite2D
 MeshInstance2D
 Polygon2D
-Timer
 CollisionShape2D
 Area2D
 Node2D

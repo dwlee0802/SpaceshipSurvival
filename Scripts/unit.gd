@@ -22,12 +22,13 @@ var isMoving: bool = false
 
 var STOP_DIST = 5
 
+var radiationDamageTimeHolder = 2
 
 
 func _physics_process(delta):
 	if health <= 0:
 		OnDeath()
-		
+	
 	if isMoving:
 		if CheckDirectPath():
 			if position.distance_to(target_position) < STOP_DIST:
@@ -54,7 +55,11 @@ func ChangeTargetPosition(pos):
 
 func ReceiveHit(amount):
 	health -= amount
-	Game.MakeDamagePopup(position, amount)
+	if amount > 0:
+		Game.MakeDamagePopup(position, amount)
+	else:
+		Game.MakeDamagePopup(position, amount, Color.LIME_GREEN)
+
 
 func OnDeath():
 	print("Dead!")
