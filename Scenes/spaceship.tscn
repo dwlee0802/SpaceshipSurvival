@@ -41,4 +41,8 @@ layer_0/tile_data = PackedInt32Array(-196612, 327680, 3, -131076, 327680, 3, -65
 wait_time = 0.1
 autostart = true
 
+[node name="TemperatureTimer" type="Timer" parent="."]
+
+[node name="OxygenTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="TravelTimer" to="." method="_on_travel_timer_timeout"]

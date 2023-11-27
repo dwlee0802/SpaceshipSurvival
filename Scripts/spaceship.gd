@@ -49,3 +49,11 @@ func _on_travel_timer_timeout():
 	
 	if distanceTraveled == DISTANCE_TO_DESTINATION:
 		emit_signal("destination_reached")
+
+
+func _on_temperature_timer_timeout():
+	pass # Replace with function body.
+
+
+func _on_oxygen_timer_timeout():
+	pass # Replace with function body.
