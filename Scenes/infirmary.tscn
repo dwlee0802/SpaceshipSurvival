@@ -1,11 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://chut4u6e4lyka"]
+[gd_scene load_steps=4 format=3 uid="uid://chut4u6e4lyka"]
 
 [ext_resource type="Script" path="res://Scripts/infirmary.gd" id="1_mgwp1"]
 [ext_resource type="PackedScene" uid="uid://be6pcrbh62p80" path="res://Scenes/interactable.tscn" id="2_xtx01"]
 [ext_resource type="PackedScene" uid="uid://7co56rfrnp0b" path="res://Scenes/spawn_point.tscn" id="3_m3ktn"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vaq16"]
-size = Vector2(636, 327)
 
 [node name="Infirmary" type="Node2D"]
 script = ExtResource("1_mgwp1")
@@ -21,15 +18,6 @@ autostart = true
 [node name="Interactables" type="Node2D" parent="."]
 
 [node name="Interactable" parent="Interactables" instance=ExtResource("2_xtx01")]
-
-[node name="ModuleArea" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ModuleArea"]
-position = Vector2(-1, 1.5)
-shape = SubResource("RectangleShape2D_vaq16")
-debug_color = Color(0.545098, 0.494118, 0.733333, 0.419608)
 
 [node name="HealTimer" type="Timer" parent="."]
 process_callback = 0

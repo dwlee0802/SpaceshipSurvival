@@ -1,7 +1,5 @@
 extends Module
 
-@onready var moduleArea = $ModuleArea
-
 
 func _on_heal_timer_timeout():
 	if not isOperational:

@@ -7,6 +7,7 @@ static var enemyScene = preload("res://Scenes/enemy.tscn")
 static var errorRate: float = 0.5
 
 @onready var interactablesNode = $Interactables
+@onready var moduleArea = $ModuleArea
 
 # each module may spawn an enemy every 1 second. The probability is determined by respawnRate
 static var respawnRate: float = 0.5
@@ -36,7 +37,7 @@ func RollEnemySpawn():
 		get_parent().get_parent().add_child(newEnemy)
 		Game.enemies.append(newEnemy)
 		newEnemy.health = 200
-		newEnemy.global_position = position + Vector2(randf_range(-200, 200), randf_range(-200, 200))
+		newEnemy.global_position = RandomLocationInsideArea()
 
 
 func CheckOperational():
@@ -52,3 +53,12 @@ func GenerateErrors():
 		if item.timeToFix <= 0:
 			if randf() < errorRate:
 				item.timeToFix = randi_range(5, 20)
+
+
+func RandomLocationInsideArea():
+	var size = moduleArea.get_node("CollisionShape2D").shape.get_size()
+	var width = size.x
+	var height = size.y
+	
+	return position + Vector2(randf_range(-width/2, width/2), randf_range(-height/2, height/2))
+	

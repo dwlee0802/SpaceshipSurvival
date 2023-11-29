@@ -42,9 +42,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(modules[ModuleName.Nuclear_Reactor].name)
-	print(modules[ModuleName.Nuclear_Reactor].radiationArea.shape.radius)
-
+	pass
 
 func _on_travel_timer_timeout():
 	distanceTraveled += shipSpeed

@@ -1,12 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://jyq0yd0540h7"]
+[gd_scene load_steps=6 format=3 uid="uid://jyq0yd0540h7"]
 
 [ext_resource type="Script" path="res://Scripts/nuclear_reactor.gd" id="1_mwexp"]
 [ext_resource type="PackedScene" uid="uid://be6pcrbh62p80" path="res://Scenes/interactable.tscn" id="2_xtx01"]
 [ext_resource type="Texture2D" uid="uid://2j00antvhw4x" path="res://Art/circle-256.png" id="3_k7pw5"]
 [ext_resource type="PackedScene" uid="uid://7co56rfrnp0b" path="res://Scenes/spawn_point.tscn" id="4_q5x1s"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vaq16"]
-size = Vector2(636, 327)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r5d18"]
 radius = 50.0
@@ -25,15 +22,6 @@ autostart = true
 [node name="Interactables" type="Node2D" parent="."]
 
 [node name="Interactable" parent="Interactables" instance=ExtResource("2_xtx01")]
-
-[node name="ModuleArea" type="Area2D" parent="."]
-collision_layer = 32
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ModuleArea"]
-position = Vector2(-1, 1.5)
-shape = SubResource("RectangleShape2D_vaq16")
-debug_color = Color(0.545098, 0.494118, 0.733333, 0.419608)
 
 [node name="RadiationArea" type="Area2D" parent="."]
 collision_layer = 0
