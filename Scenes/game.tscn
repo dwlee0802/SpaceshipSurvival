@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bj6ov38i406sf"]
+[gd_scene load_steps=15 format=3 uid="uid://bj6ov38i406sf"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e32sq"]
 [ext_resource type="Script" path="res://Scripts/InputManager.gd" id="2_drscf"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://2j00antvhw4x" path="res://Art/circle-256.png" id="4_w3iw4"]
 [ext_resource type="PackedScene" uid="uid://5cam8m5nc2yc" path="res://Scenes/spaceship.tscn" id="5_uopi8"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="6_pyyuj"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_k1ai1"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_haal1"]
 
@@ -263,15 +265,28 @@ offset_left = -10.0
 offset_top = 4.0
 offset_right = 91.0
 offset_bottom = 35.0
+toggle_mode = true
+button_group = SubResource("ButtonGroup_k1ai1")
 text = "Information"
 
 [node name="InventoryButton" type="Button" parent="Camera/Canvas/UnitUI"]
 layout_mode = 0
-offset_left = 107.0
+offset_left = 96.0
 offset_top = 4.0
-offset_right = 237.0
+offset_right = 226.0
 offset_bottom = 35.0
+toggle_mode = true
+button_group = SubResource("ButtonGroup_k1ai1")
 text = "Inventory 00/00"
+
+[node name="EquipmentButton" type="Button" parent="Camera/Canvas/UnitUI"]
+offset_left = 231.0
+offset_top = 4.0
+offset_right = 341.0
+offset_bottom = 35.0
+toggle_mode = true
+button_group = SubResource("ButtonGroup_k1ai1")
+text = "Equipment"
 
 [node name="EquipmentUI" type="Control" parent="Camera/Canvas/UnitUI"]
 anchors_preset = 0
@@ -350,18 +365,29 @@ theme_override_font_sizes/font_size = 12
 text = "Ammo Consumption: 00"
 
 [node name="InfoPanel" type="Control" parent="Camera/Canvas/UnitUI"]
-visible = false
 anchors_preset = 0
 offset_left = -9.0
 offset_top = -41.0
 offset_right = 31.0
 offset_bottom = -1.0
 
-[node name="Panel" type="Panel" parent="Camera/Canvas/UnitUI/InfoPanel"]
+[node name="Background" type="Panel" parent="Camera/Canvas/UnitUI/InfoPanel"]
 layout_mode = 0
 offset_top = -196.0
 offset_right = 213.0
 offset_bottom = 40.0
+
+[node name="ItemList" type="ItemList" parent="Camera/Canvas/UnitUI/InfoPanel"]
+layout_mode = 0
+offset_top = -191.0
+offset_right = 209.0
+offset_bottom = 40.0
+item_count = 5
+item_0/text = "asdf"
+item_1/text = "asdf"
+item_2/text = "asdf"
+item_3/text = "asdf"
+item_4/text = "asdf"
 
 [node name="CombatBehavior" type="Control" parent="Camera/Canvas/UnitUI"]
 anchors_preset = 0
@@ -665,5 +691,8 @@ position = Vector2(-119, -900)
 [node name="Survivor2" parent="." instance=ExtResource("4_16enx")]
 position = Vector2(196, -188)
 
+[connection signal="pressed" from="Camera/Canvas/UnitUI/InformationButton" to="Camera/Canvas" method="_on_unit_info_button_pressed" binds= [0]]
+[connection signal="pressed" from="Camera/Canvas/UnitUI/InventoryButton" to="Camera/Canvas" method="_on_unit_info_button_pressed" binds= [1]]
+[connection signal="pressed" from="Camera/Canvas/UnitUI/EquipmentButton" to="Camera/Canvas" method="_on_unit_info_button_pressed" binds= [2]]
 [connection signal="toggled" from="Camera/Canvas/UnitUI/CombatBehavior/MoveAndShoot" to="InputManager" method="_on_move_and_shoot_toggled"]
 [connection signal="toggled" from="Camera/Canvas/UnitUI/CombatBehavior/FireAtWill" to="InputManager" method="_on_fire_at_will_toggled"]

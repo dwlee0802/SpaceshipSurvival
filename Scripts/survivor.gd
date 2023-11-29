@@ -16,7 +16,15 @@ static var weaponsDict
 
 var interactionTarget
 
+# Holds the itemIDs that the player has in its inventory
 var inventory = []
+var inventoryEquipped = []
+
+# Holds the itemIDs of equipped gear
+# 0: Head slot, 1: Body slot, 2: primary weapon slot, 3: secondary weapon slot
+# -1 itemID means slot is empty
+var equipmentSlots = []
+
 var inventoryWeight: int = 0
 var inventoryCapacity: int = 10
 

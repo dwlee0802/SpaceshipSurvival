@@ -63,3 +63,7 @@ static func UpdateUnitUI(unit):
 
 static func ToggleUnitUI(val):
 	unitUI.visible = val
+
+
+func _on_unit_info_button_pressed(extra_arg_0):
+	print("pressed ", extra_arg_0)
