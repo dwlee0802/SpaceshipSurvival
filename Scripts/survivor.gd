@@ -52,6 +52,12 @@ var equippedWeapon
 
 var isDead: bool = false
 
+
+# Combat Behavior
+var moveAndShoot: bool = true
+var fireAtWill: bool = true
+
+
 func _ready():
 	# read in json files
 	var file1 = FileAccess.open(weaponsFilePath, FileAccess.READ)
@@ -101,20 +107,21 @@ func _physics_process(delta):
 		else:
 			PointArmAt(interactionTarget.global_position)
 	
-	if attackTarget != null:
-		attackRaycast.target_position = attackTarget.position - position
-		if attackRaycast.get_collider() == null:
-			if attackTimer.is_stopped():
-				attackTimer.start()
-			PointArmAt(attackTarget.position)
-			SetAttackLine()
+	if fireAtWill:
+		if attackTarget != null and (moveAndShoot or (not moveAndShoot and not isMoving)):
+			attackRaycast.target_position = attackTarget.position - position
+			if attackRaycast.get_collider() == null:
+				if attackTimer.is_stopped():
+					attackTimer.start()
+				PointArmAt(attackTarget.position)
+				SetAttackLine()
+			else:
+				attackTimer.stop()
+				attackLine.visible = false
 		else:
+			# line of sight blocked. cant attack
 			attackTimer.stop()
 			attackLine.visible = false
-	else:
-		# line of sight blocked. cant attack
-		attackTimer.stop()
-		attackLine.visible = false
 		
 	
 func ScanForAttackTargets():

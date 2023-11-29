@@ -74,3 +74,15 @@ func DrawSelectionBox(start, end):
 	var area = selectionBox.get_node("CollisionShape2D")
 	area.shape.size = Vector2(width, height)
 	
+
+
+func _on_move_and_shoot_toggled(button_pressed):
+	if len(selectedUnits) > 0:
+		for unit in selectedUnits:
+			unit.moveAndShoot = button_pressed
+
+
+func _on_fire_at_will_toggled(button_pressed):
+	if len(selectedUnits) > 0:
+		for unit in selectedUnits:
+			unit.fireAtWill = button_pressed

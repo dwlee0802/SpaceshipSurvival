@@ -14,3 +14,4 @@ res://Scripts/module.gd
 res://Scripts/infirmary.gd
 res://Scripts/spaceship.gd
 res://Scripts/unit.gd
+res://Scripts/InputManager.gd
