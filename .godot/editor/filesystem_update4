@@ -16,3 +16,4 @@ res://Scripts/spaceship.gd
 res://Scripts/unit.gd
 res://Scripts/InputManager.gd
 res://Scripts/UserInterfaceManager.gd
+res://Scripts/camera.gd

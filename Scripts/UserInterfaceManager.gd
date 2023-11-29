@@ -67,3 +67,7 @@ static func ToggleUnitUI(val):
 
 func _on_unit_info_button_pressed(extra_arg_0):
 	print("pressed ", extra_arg_0)
+
+
+func _on_inventory_list_item_clicked(index, at_position, mouse_button_index):
+	pass # Replace with function body.

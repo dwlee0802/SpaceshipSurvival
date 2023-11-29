@@ -374,20 +374,26 @@ offset_bottom = -1.0
 [node name="Background" type="Panel" parent="Camera/Canvas/UnitUI/InfoPanel"]
 layout_mode = 0
 offset_top = -196.0
-offset_right = 213.0
+offset_right = 161.0
 offset_bottom = 40.0
 
 [node name="ItemList" type="ItemList" parent="Camera/Canvas/UnitUI/InfoPanel"]
 layout_mode = 0
 offset_top = -191.0
-offset_right = 209.0
+offset_right = 158.0
 offset_bottom = 40.0
-item_count = 5
-item_0/text = "asdf"
+allow_rmb_select = true
+item_count = 10
+item_0/text = "Handgun"
 item_1/text = "asdf"
 item_2/text = "asdf"
 item_3/text = "asdf"
 item_4/text = "asdf"
+item_5/text = "sadfsadf"
+item_6/text = "asdfa"
+item_7/text = "asdf"
+item_8/text = "asdfasd"
+item_9/text = "dsafasdf"
 
 [node name="CombatBehavior" type="Control" parent="Camera/Canvas/UnitUI"]
 anchors_preset = 0
@@ -694,5 +700,6 @@ position = Vector2(196, -188)
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InformationButton" to="Camera/Canvas" method="_on_unit_info_button_pressed" binds= [0]]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InventoryButton" to="Camera/Canvas" method="_on_unit_info_button_pressed" binds= [1]]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/EquipmentButton" to="Camera/Canvas" method="_on_unit_info_button_pressed" binds= [2]]
+[connection signal="item_clicked" from="Camera/Canvas/UnitUI/InfoPanel/ItemList" to="Camera/Canvas" method="_on_inventory_list_item_clicked"]
 [connection signal="toggled" from="Camera/Canvas/UnitUI/CombatBehavior/MoveAndShoot" to="InputManager" method="_on_move_and_shoot_toggled"]
 [connection signal="toggled" from="Camera/Canvas/UnitUI/CombatBehavior/FireAtWill" to="InputManager" method="_on_fire_at_will_toggled"]
