@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Scripts/spaceship.gd" id="1_6uk50"]
 [ext_resource type="Texture2D" uid="uid://dj066sixgm20c" path="res://Art/tilemap_grayscale_packed.png" id="2_usmpp"]
 [ext_resource type="PackedScene" uid="uid://dnmd6ufe4n8al" path="res://Scenes/module.tscn" id="3_vg3u6"]
-[ext_resource type="PackedScene" uid="uid://chut4u6e4lyka" path="res://Scenes/nuclear_reactor.tscn" id="4_c0l2y"]
-[ext_resource type="PackedScene" uid="uid://chut4u6e4lyka" path="res://Scenes/infirmary.tscn" id="5_hg7fb"]
+[ext_resource type="PackedScene" uid="uid://jyq0yd0540h7" path="res://Scenes/nuclear_reactor.tscn" id="4_c0l2y"]
+[ext_resource type="PackedScene" uid="uid://chut4u6e4lyka" path="res://Scenes/infirmary.tscn" id="5_fnlxo"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_7syge"]
 vertices = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
@@ -57,10 +57,10 @@ position = Vector2(-1119, -82)
 [node name="TemperatureControl" parent="Modules" instance=ExtResource("3_vg3u6")]
 position = Vector2(849, -423)
 
-[node name="Infirmary" parent="Modules" instance=ExtResource("5_hg7fb")]
-position = Vector2(-95, -901)
-
 [node name="NuclearReactor" parent="Modules" instance=ExtResource("4_c0l2y")]
+
+[node name="Infirmary" parent="Modules" instance=ExtResource("5_fnlxo")]
+position = Vector2(-100, -889)
 
 [connection signal="timeout" from="TravelTimer" to="." method="_on_travel_timer_timeout"]
 [connection signal="timeout" from="TemperatureTimer" to="." method="_on_temperature_timer_timeout"]

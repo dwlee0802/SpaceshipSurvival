@@ -3,7 +3,7 @@ extends Module
 @onready var radiationArea = $RadiationArea/CollisionShape2D
 @onready var radiationSprite = $RadiationArea/Sprite2D
 
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if not isOperational:

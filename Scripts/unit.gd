@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 class_name Unit
 
-@export var health: float = 100
+@export var health: float = 50
 @export var maxHealth: int = 100
 @export var speed: int = 100
 
@@ -58,6 +58,7 @@ func ReceiveHit(amount):
 	if amount > 0:
 		Game.MakeDamagePopup(position, amount)
 	else:
+		amount *= -1
 		Game.MakeDamagePopup(position, amount, Color.LIME_GREEN)
 
 
