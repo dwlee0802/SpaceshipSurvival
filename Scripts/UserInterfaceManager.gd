@@ -82,15 +82,25 @@ static func UpdateUnitInventory(inventory):
 	itemList.clear()
 	
 	for item in inventory:
-		itemList.add_item(str(item))
+		var index = itemList.add_item(item.data.name)
+		itemList.set_item_tooltip(index, str(item))
 	
 	
 static func ToggleUnitUI(val):
 	unitUI.visible = val
 
 
-static func ToggleUnitInfoPanel():
-	if infoPanelButton.button_pressed or inventoryPanelButton.button_pressed or equipmentPanelButton.button_pressed:
-		infoPanel.visible = true
+static func ToggleUnitInfoPanel(unit):
+	infoPanel.visible = true
+	if infoPanelButton.button_pressed:
+		pass
+	elif inventoryPanelButton.button_pressed:
+		UpdateUnitInventory(unit.inventory)
+	elif equipmentPanelButton.button_pressed:
+		pass
 	else:
 		infoPanel.visible = false
+		
+
+static func ShowContextMenu():
+	pass

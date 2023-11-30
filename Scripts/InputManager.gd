@@ -75,7 +75,6 @@ func DrawSelectionBox(start, end):
 	area.shape.size = Vector2(width, height)
 	
 
-
 func _on_move_and_shoot_toggled(button_pressed):
 	if len(selectedUnits) > 0:
 		for unit in selectedUnits:
@@ -90,8 +89,9 @@ func _on_fire_at_will_toggled(button_pressed):
 
 func _on_item_list_item_clicked(index, at_position, mouse_button_index):
 	if mouse_button_index == MOUSE_BUTTON_RIGHT:
-		print("Pressed " + str(index) + " which has item type of: " + str(selectedUnits[0].inventory[index]))
+		print("Pressed " + str(index) + " which has item type of: " + str(selectedUnits[0].inventory[index].type))
 
 
 func _on_information_button_pressed():
-	UserInterfaceManager.ToggleUnitInfoPanel()
+	if len(selectedUnits) > 0:
+		UserInterfaceManager.ToggleUnitInfoPanel(selectedUnits[0])

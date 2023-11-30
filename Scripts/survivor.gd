@@ -5,8 +5,8 @@ extends "res://Scripts/unit.gd"
 
 @onready var selectionCircle = $SelectionCircle
 
-static var weaponsFilePath: String = "res://Data/Weapons.json"
-static var weaponsDict
+static var itemsFilePath: String = "res://Data/Items.json"
+static var itemsDict
 
 @onready var attackTimer = $AttackTimer
 @onready var attackRaycast = $AttackRaycast
@@ -17,7 +17,7 @@ static var weaponsDict
 var interactionTarget
 
 # Holds the itemIDs that the player has in its inventory
-var inventory = [1, 2]
+var inventory = []
 var inventoryEquipped = []
 
 # Holds the itemIDs of equipped gear
@@ -53,10 +53,8 @@ var defense: float = 0
 
 var sleep: float = 600
 
-# equipment slots
 
-@export var equippedWeaponID: int = 2
-var equippedWeapon
+var equippedWeapon: Item = null
 
 var isDead: bool = false
 
@@ -68,16 +66,20 @@ var fireAtWill: bool = true
 
 func _ready():
 	# read in json files
-	var file1 = FileAccess.open(weaponsFilePath, FileAccess.READ)
+	var file1 = FileAccess.open(itemsFilePath, FileAccess.READ)
 
 	var content_as_text1 = file1.get_as_text()
-	weaponsDict = parse_json(content_as_text1)
+	itemsDict = parse_json(content_as_text1)
+	Item.itemDict = itemsDict
 	
 	attackTimer.timeout.connect(Attack)
 	
-	EquipWeapon(equippedWeaponID)
+	EquipWeapon(Item.new(1, 1))
 	
 	$AttackUpdateTimer.timeout.connect(ScanForAttackTargets)
+	
+	# test. add crowbar to inventory
+	AddItem(0, 0)
 
 
 func parse_json(text):
@@ -153,7 +155,7 @@ func ScanForAttackTargets():
 
 func Attack():
 	# deal damage
-	var amount = randi_range(equippedWeapon.DamageMin, equippedWeapon.DamageMax)
+	var amount = randi_range(equippedWeapon.data.DamageMin, equippedWeapon.data.DamageMax)
 	if is_instance_valid(attackTarget):
 		attackTarget.ReceiveHit(amount)
 	else:
@@ -162,12 +164,13 @@ func Attack():
 	muzzleFlashSprite.visible = true
 
 
-func EquipWeapon(weaponID):
-	equippedWeapon = weaponsDict.Weapons[weaponID]
-	equippedWeaponID = weaponID
-	print(weaponsDict.Weapons[equippedWeaponID].name)
-	attackTimer.wait_time = 1 / weaponsDict.Weapons[equippedWeaponID].AttacksPerSecond
-	get_node("AttackArea").get_node("CollisionShape2D").shape.set_radius(equippedWeapon.Range)
+func EquipWeapon(weapon: Item):
+	equippedWeapon = weapon
+		
+	print(equippedWeapon.data.name)
+	
+	attackTimer.wait_time = 1 / equippedWeapon.data.AttacksPerSecond
+	get_node("AttackArea").get_node("CollisionShape2D").shape.set_radius(equippedWeapon.data.Range)
 
 
 func PointArmAt(position):
@@ -219,3 +222,38 @@ func _on_temperature_timer_timeout():
 		bodyTemperature -= 0.5
 	else:
 		bodyTemperature += 0.5
+		
+		
+func AddItem(type, id):
+	inventory.append(Item.new(type, id))
+
+
+func RemoveItem(type, id):
+	var index = inventory.find(Item.new(type, id))
+	inventory.remove_at(index)
+	return inventory[index]
+	
+		
+class Item:
+	var type: int = -1
+	var data
+	static var itemDict
+	
+	func _init(_type, _id):
+		type = _type
+		
+		if type == 0:
+			data = itemDict.Melee[_id]
+		elif type == 1:
+			data = itemDict.Range[_id]
+		elif type == 2:
+			data = itemDict.Head[_id]
+		elif type == 3:
+			data = itemDict.Body[_id]
+		elif type == 4:
+			data = itemDict.Consumable[_id]
+	
+	func _to_string():
+		var output = data.name + "\n"
+		output += "Type: " + str(type) + "\nID: " + str(data.ID)
+		return output

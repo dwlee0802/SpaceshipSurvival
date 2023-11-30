@@ -1,34 +1,82 @@
 {
-  "Items": [
+  "Melee": [
 	{
 	  "name": "Crowbar",
-	  "ID": 1,
+	  "ID": 0,
 	  "Description": "The right tool for the job.",
 	  "Range": 120,
 	  "DamageMin": 90,
 	  "DamageMax": 120,
-	  "AttacksPerSecond": 1.5,
+	  "AttacksPerSecond": 1,
 	  "Weight": 5
 	},
 	{
+	  "name": "Fire Axe",
+	  "ID": 1,
+	  "Description": "Good for obstacles of all kinds.",
+	  "Range": 120,
+	  "DamageMin": 90,
+	  "DamageMax": 120,
+	  "AttacksPerSecond": 1,
+	  "Weight": 5
+	}
+  ],
+  "Range": [
+	{
 	  "name": "Handgun",
-	  "ID": 2,
-	  "Description": "A simple, reliable firearm for self defense.",
-	  "Range": 600,
-	  "DamageMin": 100,
+	  "ID": 0,
+	  "Description": "Trusty sidearm.",
+	  "Range": 300,
+	  "DamageMin": 50,
 	  "DamageMax": 200,
-	  "AttacksPerSecond": 2,
-	  "Weight": 4
+	  "AttacksPerSecond": 1.5,
+	  "Weight": 5,
+	  "AmmoPerShot": 1
 	},
 	{
-	  "name": "Helmet",
-	  "ID": 3,
-	  "Description": "Protective headgear.",
-	  "Range": 0,
-	  "DamageMin": 0,
-	  "DamageMax": 0,
-	  "AttacksPerSecond": 0,
-	  "Weight": 0
+	  "name": "Submachine Gun",
+	  "ID": 1,
+	  "Description": "Good balance between firepower and speed.",
+	  "Range": 400,
+	  "DamageMin": 50,
+	  "DamageMax": 100,
+	  "AttacksPerSecond": 3,
+	  "Weight": 5,
+	  "AmmoPerShot": 2
+	}
+  ],
+  "Head": [
+	{
+	  "name": "Steel Helmet",
+	  "ID": 0,
+	  "Description": "Simple protective headgear.",
+	  "Weight": 4,
+	  "Defense": 0.1
+	},
+	{
+	  "name": "Recon Helmet",
+	  "ID": 1,
+	  "Description": "Advanced equipment reserved for elite soldiers.",
+	  "Weight": 3,
+	  "Defense": 0.25
+	}
+  ],
+  "Body": [
+	{
+	  "name": "Bulletproof Vest",
+	  "ID": 0,
+	  "Description": "Good for stopping bullets and more.",
+	  "Weight": 5,
+	  "Defense": 0.4
+	}
+  ],
+  "Consumable": [
+	{
+	  "name": "Bandage",
+	  "ID": 0,
+	  "Description": "First aid.",
+	  "Weight": 5,
+	  "Heal": 0.2
 	}
   ]
 }
