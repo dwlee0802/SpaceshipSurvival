@@ -1,0 +1,34 @@
+{
+  "Items": [
+	{
+	  "name": "Crowbar",
+	  "ID": 1,
+	  "Description": "The right tool for the job.",
+	  "Range": 120,
+	  "DamageMin": 90,
+	  "DamageMax": 120,
+	  "AttacksPerSecond": 1.5,
+	  "Weight": 5
+	},
+	{
+	  "name": "Handgun",
+	  "ID": 2,
+	  "Description": "A simple, reliable firearm for self defense.",
+	  "Range": 600,
+	  "DamageMin": 100,
+	  "DamageMax": 200,
+	  "AttacksPerSecond": 2,
+	  "Weight": 4
+	},
+	{
+	  "name": "Helmet",
+	  "ID": 3,
+	  "Description": "Protective headgear.",
+	  "Range": 0,
+	  "DamageMin": 0,
+	  "DamageMax": 0,
+	  "AttacksPerSecond": 0,
+	  "Weight": 0
+	}
+  ]
+}

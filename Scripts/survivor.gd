@@ -17,7 +17,7 @@ static var weaponsDict
 var interactionTarget
 
 # Holds the itemIDs that the player has in its inventory
-var inventory = []
+var inventory = [1, 2]
 var inventoryEquipped = []
 
 # Holds the itemIDs of equipped gear

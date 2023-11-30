@@ -20,6 +20,17 @@ static var BAR_LENGTH = 200
 
 static var unitUI
 
+static var infoPanel
+
+static var infoPanelButton
+static var inventoryPanelButton
+static var equipmentPanelButton
+
+static var itemList
+
+static var inventoryContextMenu
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	travelProgressUI = $TravelProgressUI
@@ -30,7 +41,13 @@ func _ready():
 	sleepBar = $UnitUI/SleepBar/TextureRect
 	nutritionBar = $UnitUI/NutritionBar/TextureRect
 	unitUI = $UnitUI
-
+	itemList = $UnitUI/InfoPanel/ItemList
+	inventoryContextMenu = $UnitUI/InfoPanel/ContextMenu
+	infoPanel = $UnitUI/InfoPanel
+	infoPanelButton = $UnitUI/InformationButton
+	inventoryPanelButton = $UnitUI/InventoryButton
+	equipmentPanelButton = $UnitUI/EquipmentButton
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -61,13 +78,19 @@ static func UpdateUnitUI(unit):
 	nutritionBar.size.x = unit.nutrition / 100 * BAR_LENGTH
 
 
+static func UpdateUnitInventory(inventory):
+	itemList.clear()
+	
+	for item in inventory:
+		itemList.add_item(str(item))
+	
+	
 static func ToggleUnitUI(val):
 	unitUI.visible = val
 
 
-func _on_unit_info_button_pressed(extra_arg_0):
-	print("pressed ", extra_arg_0)
-
-
-func _on_inventory_list_item_clicked(index, at_position, mouse_button_index):
-	pass # Replace with function body.
+static func ToggleUnitInfoPanel():
+	if infoPanelButton.button_pressed or inventoryPanelButton.button_pressed or equipmentPanelButton.button_pressed:
+		infoPanel.visible = true
+	else:
+		infoPanel.visible = false
