@@ -90,8 +90,12 @@ func _on_fire_at_will_toggled(button_pressed):
 func _on_item_list_item_clicked(index, at_position, mouse_button_index):
 	if mouse_button_index == MOUSE_BUTTON_RIGHT:
 		print("Pressed " + str(index) + " which has item type of: " + str(selectedUnits[0].inventory[index].type))
-
+	if mouse_button_index == MOUSE_BUTTON_LEFT:
+		UserInterfaceManager.CheckContextMenuVisibility()
+		UserInterfaceManager.ModifyContextMenuByItem(selectedUnits[0].inventory[index])
+		
 
 func _on_information_button_pressed():
 	if len(selectedUnits) > 0:
 		UserInterfaceManager.ToggleUnitInfoPanel(selectedUnits[0])
+

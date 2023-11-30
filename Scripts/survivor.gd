@@ -80,6 +80,10 @@ func _ready():
 	
 	# test. add crowbar to inventory
 	AddItem(0, 0)
+	AddItem(0, 1)
+	AddItem(1, 0)
+	AddItem(1, 1)
+	AddItem(4, 0)
 
 
 func parse_json(text):

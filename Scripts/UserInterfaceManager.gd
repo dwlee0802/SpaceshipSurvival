@@ -26,7 +26,7 @@ static var infoPanelButton
 static var inventoryPanelButton
 static var equipmentPanelButton
 
-static var itemList
+static var itemList: ItemList
 
 static var inventoryContextMenu
 
@@ -101,6 +101,21 @@ static func ToggleUnitInfoPanel(unit):
 	else:
 		infoPanel.visible = false
 		
+		
+static func CheckContextMenuVisibility():
+	if itemList.is_anything_selected():
+		inventoryContextMenu.visible = true
+	else:
+		inventoryContextMenu.visible = false
+		
+		
+static func ModifyContextMenuByItem(item):
+	# show different buttons if item is consumable
+	if item.type == 4:
+		inventoryContextMenu.get_node("EquipButton").visible = false
+		inventoryContextMenu.get_node("ConsumeButton").visible = true
+	else:
+		inventoryContextMenu.get_node("EquipButton").visible = true
+		inventoryContextMenu.get_node("ConsumeButton").visible = false
+		
 
-static func ShowContextMenu():
-	pass

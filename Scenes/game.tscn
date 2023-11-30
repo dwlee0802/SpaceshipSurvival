@@ -367,7 +367,6 @@ theme_override_font_sizes/font_size = 12
 text = "Ammo Consumption: 00"
 
 [node name="InfoPanel" type="Control" parent="Camera/Canvas/UnitUI"]
-visible = false
 anchors_preset = 0
 offset_left = -9.0
 offset_top = -41.0
@@ -394,10 +393,9 @@ item_9/text = "dsafasdf"
 
 [node name="ContextMenu" type="Control" parent="Camera/Canvas/UnitUI/InfoPanel"]
 anchors_preset = 0
-offset_left = 160.0
-offset_top = -190.0
-offset_right = 289.0
-offset_bottom = -158.0
+offset_top = -225.0
+offset_right = 129.0
+offset_bottom = -193.0
 
 [node name="Panel" type="Panel" parent="Camera/Canvas/UnitUI/InfoPanel/ContextMenu"]
 layout_mode = 0
