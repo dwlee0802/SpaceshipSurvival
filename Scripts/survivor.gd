@@ -8,6 +8,8 @@ extends "res://Scripts/unit.gd"
 static var itemsFilePath: String = "res://Data/Items.json"
 static var itemsDict
 
+enum ItemType {Melee, Range, Head, Body, Consumable}
+
 @onready var attackTimer = $AttackTimer
 @onready var attackRaycast = $AttackRaycast
 
@@ -18,12 +20,12 @@ var interactionTarget
 
 # Holds the itemIDs that the player has in its inventory
 var inventory = []
-var inventoryEquipped = []
 
-# Holds the itemIDs of equipped gear
+# Holds the index inside inventory of equipped gear
 # 0: Head slot, 1: Body slot, 2: primary weapon slot, 3: secondary weapon slot
 # -1 itemID means slot is empty
-var equipmentSlots = []
+var equipmentSlots = [-1, -1, -1, -1, -1]
+enum SlotType {Head, Body, Primary, Secondary}
 
 var inventoryWeight: int = 0
 var inventoryCapacity: int = 10
@@ -53,9 +55,6 @@ var defense: float = 0
 
 var sleep: float = 600
 
-
-var equippedWeapon: Item = null
-
 var isDead: bool = false
 
 
@@ -74,7 +73,8 @@ func _ready():
 	
 	attackTimer.timeout.connect(Attack)
 	
-	EquipWeapon(Item.new(1, 1))
+	EquipNewItem(Item.new(1, 1), SlotType.Primary)
+	UpdateStats()
 	
 	$AttackUpdateTimer.timeout.connect(ScanForAttackTargets)
 	
@@ -159,7 +159,8 @@ func ScanForAttackTargets():
 
 func Attack():
 	# deal damage
-	var amount = randi_range(equippedWeapon.data.DamageMin, equippedWeapon.data.DamageMax)
+	var primary = inventory[equipmentSlots[SlotType.Primary]]
+	var amount = randi_range(primary.data.DamageMin, primary.data.DamageMax)
 	if is_instance_valid(attackTarget):
 		attackTarget.ReceiveHit(amount)
 	else:
@@ -168,13 +169,20 @@ func Attack():
 	muzzleFlashSprite.visible = true
 
 
-func EquipWeapon(weapon: Item):
-	equippedWeapon = weapon
-		
-	print(equippedWeapon.data.name)
+# takes in where, which slot to put item into, and what, which is the index of the item being moved inside inventory.
+func EquipItemFromInventory(what: int, where: int):
+	equipmentSlots[where] = what
 	
-	attackTimer.wait_time = 1 / equippedWeapon.data.AttacksPerSecond
-	get_node("AttackArea").get_node("CollisionShape2D").shape.set_radius(equippedWeapon.data.Range)
+
+func EquipNewItem(item: Item, where: int):
+	inventory.append(item)
+	equipmentSlots[where] = inventory.find(item)
+
+
+func UpdateStats():
+	var primary = inventory[equipmentSlots[SlotType.Primary]]
+	attackTimer.wait_time = 1 / primary.data.AttacksPerSecond
+	get_node("AttackArea").get_node("CollisionShape2D").shape.set_radius(primary.data.Range)
 
 
 func PointArmAt(position):

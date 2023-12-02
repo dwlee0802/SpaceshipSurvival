@@ -78,13 +78,22 @@ static func UpdateUnitUI(unit):
 	nutritionBar.size.x = unit.nutrition / 100 * BAR_LENGTH
 
 
-static func UpdateUnitInventory(inventory):
+static func UpdateUnitInventory(unit):
+	var inventory = unit.inventory
+	
 	itemList.clear()
 	
-	for item in inventory:
+	for i in len(inventory):
+		var item = inventory[i]
+		var itemName: String = item.data.name
 		var index = itemList.add_item(item.data.name)
 		itemList.set_item_tooltip(index, str(item))
 	
+	for i in unit.equipmentSlots:
+		if i >= 0:
+			var text = itemList.get_item_text(i)
+			itemList.set_item_text(i, text + " (E)")
+		
 	
 static func ToggleUnitUI(val):
 	unitUI.visible = val
@@ -95,7 +104,7 @@ static func ToggleUnitInfoPanel(unit):
 	if infoPanelButton.button_pressed:
 		pass
 	elif inventoryPanelButton.button_pressed:
-		UpdateUnitInventory(unit.inventory)
+		UpdateUnitInventory(unit)
 	elif equipmentPanelButton.button_pressed:
 		pass
 	else:
@@ -117,5 +126,4 @@ static func ModifyContextMenuByItem(item):
 	else:
 		inventoryContextMenu.get_node("EquipButton").visible = true
 		inventoryContextMenu.get_node("ConsumeButton").visible = false
-		
 
