@@ -10,7 +10,7 @@ static var errorRate: float = 0.5
 @onready var moduleArea = $ModuleArea
 
 # each module may spawn an enemy every 1 second. The probability is determined by respawnRate
-static var respawnRate: float = 0.5
+static var respawnRate: float = 0.1
 
 var isOperational: bool = true
 

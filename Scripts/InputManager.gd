@@ -101,3 +101,23 @@ func _on_information_button_pressed():
 func _on_equip_button_pressed():
 	var selectedItemIndex: int = UserInterfaceManager.itemList.get_selected_items()[0]
 	
+	var itemType = selectedUnits[0].inventory[selectedItemIndex].type
+	
+	var slotType
+	
+	# equip weapon
+	if itemType == ItemType.Melee or itemType == ItemType.Ranged:
+		slotType = SlotType.Primary
+	
+	# equip armor
+	if itemType == ItemType.Head:
+		slotType = SlotType.Head
+	if itemType == ItemType.Body:
+		slotType = SlotType.Body
+	
+	selectedUnits[0].equipmentSlots[slotType] = selectedItemIndex
+	selectedUnits[0].UpdateStats()
+	
+	UserInterfaceManager.UpdateUnitUI(selectedUnits[0])
+	
+	

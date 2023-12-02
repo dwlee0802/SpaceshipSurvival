@@ -8,8 +8,6 @@ extends "res://Scripts/unit.gd"
 static var itemsFilePath: String = "res://Data/Items.json"
 static var itemsDict
 
-enum ItemType {Melee, Range, Head, Body, Consumable}
-
 @onready var attackTimer = $AttackTimer
 @onready var attackRaycast = $AttackRaycast
 
@@ -25,7 +23,6 @@ var inventory = []
 # 0: Head slot, 1: Body slot, 2: primary weapon slot, 3: secondary weapon slot
 # -1 itemID means slot is empty
 var equipmentSlots = [-1, -1, -1, -1, -1]
-enum SlotType {Head, Body, Primary, Secondary}
 
 var inventoryWeight: int = 0
 var inventoryCapacity: int = 10
@@ -91,6 +88,7 @@ func parse_json(text):
 
 
 func _process(delta):
+	print(get_node("AttackArea/CollisionShape2D").shape.get_instance_id())
 	if isDead:
 		return
 		
