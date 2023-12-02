@@ -22,12 +22,10 @@ shape = SubResource("RectangleShape2D_ff65x")
 
 [node name="BackgroundSprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(0.658824, 0.670588, 0, 0.388235)
-z_index = -11
 scale = Vector2(50, 50)
 texture = ExtResource("2_gygfq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = -10
 position = Vector2(2.14577e-06, -7.15256e-07)
 scale = Vector2(0.0769231, 0.0769231)
 texture = ExtResource("1_haa71")

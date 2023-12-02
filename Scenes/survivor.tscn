@@ -18,7 +18,7 @@ resource_local_to_scene = true
 radius = 150.0
 
 [node name="Survivor" type="CharacterBody2D"]
-collision_mask = 23
+collision_mask = 19
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_ag083")

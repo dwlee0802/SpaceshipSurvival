@@ -1,5 +1,7 @@
 extends "res://Scripts/unit.gd"
 
+class_name Survivor
+
 @onready var attackArea = $AttackArea
 @onready var attackLine = $AttackLine
 
@@ -60,6 +62,9 @@ var moveAndShoot: bool = true
 var fireAtWill: bool = true
 
 
+signal update_unit_ui
+
+
 func _ready():
 	# read in json files
 	var file1 = FileAccess.open(itemsFilePath, FileAccess.READ)
@@ -88,7 +93,6 @@ func parse_json(text):
 
 
 func _process(delta):
-	print(get_node("AttackArea/CollisionShape2D").shape.get_instance_id())
 	if isDead:
 		return
 		
@@ -114,10 +118,19 @@ func _physics_process(delta):
 	muzzleFlashSprite.visible = false
 	
 	if  (not isMoving) and (interactionTarget != null):
-		if interactionTarget.Fix(delta):
+		if interactionTarget is Interactable:
+			if interactionTarget.Fix(delta):
+				interactionTarget = null
+			else:
+				PointArmAt(interactionTarget.global_position)
+		if interactionTarget is PlacedItem:
+			# pick up item
+			print(interactionTarget)
+			AddItem(interactionTarget.itemType, interactionTarget.itemID)
+			interactionTarget.queue_free()
 			interactionTarget = null
-		else:
-			PointArmAt(interactionTarget.global_position)
+			emit_signal("update_unit_ui")
+			
 	
 	if fireAtWill:
 		if attackTarget != null and (moveAndShoot or (not moveAndShoot and not isMoving)):
@@ -242,7 +255,24 @@ func RemoveItem(type, id):
 	var index = inventory.find(Item.new(type, id))
 	inventory.remove_at(index)
 	return inventory[index]
-	
+
+
+static func ReturnItemDictByType(num):
+	if num == 0:
+		return itemsDict.Melee
+	if num == 1:
+		return itemsDict.Ranged
+	if num == 2:
+		return itemsDict.Head
+	if num == 3:
+		return itemsDict.Body
+	if num == 4:
+		return itemsDict.Consumable
+		
+
+static func ReturnItemData(type, id):
+	return ReturnItemDictByType(type)[id]
+		
 		
 class Item:
 	var type: int = -1
@@ -255,7 +285,7 @@ class Item:
 		if type == 0:
 			data = itemDict.Melee[_id]
 		elif type == 1:
-			data = itemDict.Range[_id]
+			data = itemDict.Ranged[_id]
 		elif type == 2:
 			data = itemDict.Head[_id]
 		elif type == 3:

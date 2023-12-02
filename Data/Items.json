@@ -21,7 +21,7 @@
 	  "Weight": 5
 	}
   ],
-  "Range": [
+  "Ranged": [
 	{
 	  "name": "Handgun",
 	  "ID": 0,

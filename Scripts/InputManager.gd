@@ -30,6 +30,7 @@ func _unhandled_input(event):
 				selectionBox.get_node("CollisionShape2D").disabled = true
 				for item in selectedUnits:
 					item.ShowSelectionUI()
+				selectedUnits[0].update_unit_ui.connect(UpdateUnitUI)
 			
 		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 				
@@ -46,9 +47,13 @@ func _unhandled_input(event):
 					unit.ChangeTargetPosition( get_global_mouse_position() )
 					unit.interactionTarget = null
 			else:
-				print("selected map object")
 				for unit in selectedUnits:
-					unit.ChangeTargetPosition( result[0].collider.interactionPoint.global_position )
+					if result[0].collider is Interactable:
+						unit.ChangeTargetPosition( result[0].collider.interactionPoint.global_position )
+						print("selected interactable")
+					if result[0].collider is PlacedItem:
+						unit.ChangeTargetPosition( result[0].collider.global_position )
+						print("selected item")
 					unit.interactionTarget = result[0].collider
 					
 			Game.UpdateEnemyTargetPosition()
@@ -119,5 +124,9 @@ func _on_equip_button_pressed():
 	selectedUnits[0].UpdateStats()
 	
 	UserInterfaceManager.UpdateUnitUI(selectedUnits[0])
+	UserInterfaceManager.UpdateUnitInventory(selectedUnits[0])
 	
 	
+func UpdateUnitUI():
+	UserInterfaceManager.UpdateUnitUI(selectedUnits[0])
+	UserInterfaceManager.UpdateUnitInventory(selectedUnits[0])
