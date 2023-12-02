@@ -765,20 +765,20 @@ shape = SubResource("RectangleShape2D_vbgc8")
 z_index = -1
 
 [node name="Survivor" parent="." instance=ExtResource("4_16enx")]
-position = Vector2(-119, -900)
+position = Vector2(41, -183)
 
 [node name="Survivor2" parent="." instance=ExtResource("4_16enx")]
 position = Vector2(196, -188)
 
-[node name="headgear" parent="." instance=ExtResource("10_vqgar")]
-position = Vector2(-40, 121)
+[node name="Placed Item" parent="." instance=ExtResource("10_vqgar")]
+position = Vector2(-129, 186)
 itemType = 2
-itemID = 0
+itemID = 3
 
-[node name="bodyarmor" parent="." instance=ExtResource("10_vqgar")]
-position = Vector2(-144, 126)
+[node name="Placed Item2" parent="." instance=ExtResource("10_vqgar")]
+position = Vector2(-40, 183)
 itemType = 3
-itemID = 0
+itemID = 1
 
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InformationButton" to="InputManager" method="_on_information_button_pressed"]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InventoryButton" to="InputManager" method="_on_information_button_pressed"]

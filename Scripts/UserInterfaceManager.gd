@@ -67,13 +67,13 @@ func _process(delta):
 
 
 # change scale x of progress bar based on progress
-static func UpdateTravelProgressUI(cur, max):
+static func UpdateTravelProgressUI(cur, maxVal):
 	var maxSize = travelProgressUI.get_node("Background").size.x
 	
-	travelProgressUI.get_node("ProgressBar").size.x = maxSize * cur / max
-	travelProgressUI.get_node("SpaceshipIcon").position.x = maxSize * cur / max - 2
+	travelProgressUI.get_node("ProgressBar").size.x = maxSize * cur / maxVal
+	travelProgressUI.get_node("SpaceshipIcon").position.x = maxSize * cur / maxVal - 2
 	
-	travelProgressUI.get_node("SpaceshipIcon/ProgressPercentLabel").text = str(int(float(cur)/max * 100)) + "%"
+	travelProgressUI.get_node("SpaceshipIcon/ProgressPercentLabel").text = str(int(float(cur)/maxVal * 100)) + "%"
 
 
 # change ship status UI info
@@ -105,7 +105,6 @@ static func UpdateUnitInventory(unit):
 	
 	for i in len(inventory):
 		var item = inventory[i]
-		var itemName: String = item.data.name
 		var index = itemList.add_item(item.data.name)
 		itemList.set_item_tooltip(index, str(item))
 	

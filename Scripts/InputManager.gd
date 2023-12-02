@@ -127,7 +127,7 @@ func _on_equip_button_pressed():
 	if itemType == ItemType.Body:
 		slotType = SlotType.Body
 	
-	selectedUnits[0].equipmentSlots[slotType] = selectedItemIndex
+	selectedUnits[0].EquipItemFromInventory(selectedItemIndex, slotType)
 	selectedUnits[0].UpdateStats()
 	
 	UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])

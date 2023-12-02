@@ -6,7 +6,7 @@ class_name Spaceship
 # Affects how much oxygen is gained per breath
 # Might change this to module specific levels in the future
 # if a unit reaches zero oxygen, they take HP damage
-static var oxygenLevel: int = 100
+static var oxygenLevel: int = 50
 
 # temperature level of the ship
 # body temperature of survivors slowly change towards ship temperature

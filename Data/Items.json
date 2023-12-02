@@ -102,7 +102,8 @@
 	  "description": "Advanced equipment reserved for elite soldiers.",
 	  "weight": 3,
 	  "defense": 0.3,
-	  "oxygenGeneration": 0
+	  "oxygenGeneration": 1,
+	  "radiationDefense": 0.1
 	},
 	{
 	  "name": "Oxygen Mask",
@@ -110,7 +111,17 @@
 	  "description": "Allows the wearer to breathe in oxygen absent environments.",
 	  "weight": 2,
 	  "defense": 0.1,
-	  "oxygenGeneration": 10
+	  "oxygenGeneration": 10,
+	  "radiationDefense": 0.1
+	},
+	{
+	  "name": "Hazmat Mask",
+	  "ID": 3,
+	  "description": "Good for stopping bullets and more.",
+	  "weight": 5,
+	  "defense": 0.3,
+	  "oxygenGeneration": 2,
+	  "radiationDefense": 0.3
 	}
   ],
   "Body": [
@@ -119,7 +130,16 @@
 	  "ID": 0,
 	  "description": "Good for stopping bullets and more.",
 	  "weight": 5,
-	  "defense": 0.3
+	  "defense": 0.3,
+	  "radiationDefense": 0
+	},
+	{
+	  "name": "Hazmat Suit",
+	  "ID": 1,
+	  "description": "Good for stopping bullets and more.",
+	  "weight": 5,
+	  "defense": 0.3,
+	  "radiationDefense": 0.7
 	}
   ],
   "Consumable": [

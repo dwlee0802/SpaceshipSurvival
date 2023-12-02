@@ -184,7 +184,6 @@ func Attack():
 		muzzleFlashSprite.visible = true
 		noAmmoLabel.visible = false
 	else:
-		print("Not enough ammo!")
 		noAmmoLabel.visible = true
 
 
@@ -217,11 +216,14 @@ func UpdateStats():
 		get_node("AttackArea").get_node("CollisionShape2D").shape.set_radius(primary.data.range)
 	
 	defense = 0
+	radiationDefense = 0
 	if head != null:
 		defense += head.data.defense
+		radiationDefense += head.data.radiationDefense
 	
 	if body != null:
 		defense += body.data.defense
+		radiationDefense += body.data.radiationDefense
 	
 	inventoryCapacity = strength * 2
 
@@ -233,9 +235,9 @@ func UpdateStats():
 	else:
 		speedModifier = 1
 
-func PointArmAt(position):
+func PointArmAt(pos):
 	# turn towards target
-	armSprite.rotation = global_position.angle_to_point(position)
+	armSprite.rotation = global_position.angle_to_point(pos)
 	
 
 func SetAttackLine():
@@ -289,18 +291,19 @@ func _on_temperature_timer_timeout():
 		
 func AddItem(type, id):
 	inventory.append(Item.new(type, id))
-	inventoryWeight += ReturnItemData(type, id).weight
+	inventoryWeight += Survivor.ReturnItemData(type, id).weight
 	UpdateStats()
 	
 	
 func RemoveByIndex(index):
 	var item = inventory[index]
-	inventory.remove_at(index)
 	var num = equipmentSlots.find(index)
 	if num > -1:
 		equipmentSlots[num] = -1
 	
+	inventory.remove_at(index)
 	inventoryWeight -= item.data.weight
+	
 	UpdateStats()
 	
 	return item
@@ -361,15 +364,15 @@ class Item:
 	func _init(_type, _id):
 		type = _type
 		
-		if type == 0:
+		if type == ItemType.Melee:
 			data = itemDict.Melee[_id]
-		elif type == 1:
+		elif type == ItemType.Ranged:
 			data = itemDict.Ranged[_id]
-		elif type == 2:
+		elif type == ItemType.Head:
 			data = itemDict.Head[_id]
-		elif type == 3:
+		elif type == ItemType.Body:
 			data = itemDict.Body[_id]
-		elif type == 4:
+		elif type == ItemType.Consumable:
 			data = itemDict.Consumable[_id]
 	
 	func _to_string():

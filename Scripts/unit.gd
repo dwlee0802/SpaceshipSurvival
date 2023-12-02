@@ -8,6 +8,7 @@ class_name Unit
 var speedModifier: float = 1
 # how much damage is reduced when this unit is hit.
 @export var defense: float = 0
+@export var radiationDefense: float = 0
 
 var attackTarget
 
@@ -45,7 +46,6 @@ func _physics_process(delta):
 				isMoving = false
 				return
 				
-			var dir = Vector2()
 			velocity = position.direction_to(nav.get_next_path_position()) * speed * speedModifier
 			move_and_slide()
 
@@ -58,12 +58,16 @@ func ChangeTargetPosition(pos):
 
 func ReceiveHit(amount, penetration = 0, isRadiationDamage = false):
 	print("Init: ", amount)
+	var endDefense
 	if not isRadiationDamage:
-		var endDefense = defense - penetration
+		endDefense = defense - penetration
 		if endDefense < 0:
 			endDefense = 0
-		print("Eff. Defense: ", endDefense)
-		amount = int(amount * (1 - endDefense))
+	else:
+		endDefense = radiationDefense
+		
+	print("Eff. Defense: ", endDefense)
+	amount = int(amount * (1 - endDefense))
 	
 	print("Eff. Damage: ", amount)
 	health -= amount
