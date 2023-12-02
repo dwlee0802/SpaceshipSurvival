@@ -29,7 +29,6 @@ func _process(delta):
 	
 	if count <= 0:
 		print("Game Over!")
-		
 
 
 static func UpdateEnemyTargetPosition():

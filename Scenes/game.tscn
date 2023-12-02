@@ -763,6 +763,7 @@ texture = ExtResource("3_gb5p3")
 shape = SubResource("RectangleShape2D_vbgc8")
 
 [node name="Spaceship" parent="." instance=ExtResource("5_uopi8")]
+z_index = -1
 
 [node name="Survivor" parent="." instance=ExtResource("4_16enx")]
 position = Vector2(-119, -900)
@@ -786,5 +787,6 @@ itemID = 0
 [connection signal="item_clicked" from="Camera/Canvas/UnitUI/InfoPanel/ItemList" to="InputManager" method="_on_item_list_item_clicked"]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InfoPanel/ContextMenu/EquipButton" to="InputManager" method="_on_equip_button_pressed"]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InfoPanel/ContextMenu/UnequipButton" to="InputManager" method="_on_unequip_button_pressed"]
+[connection signal="pressed" from="Camera/Canvas/UnitUI/InfoPanel/ContextMenu/DropButton" to="InputManager" method="_on_drop_button_pressed"]
 [connection signal="toggled" from="Camera/Canvas/UnitUI/CombatBehavior/MoveAndShoot" to="InputManager" method="_on_move_and_shoot_toggled"]
 [connection signal="toggled" from="Camera/Canvas/UnitUI/CombatBehavior/FireAtWill" to="InputManager" method="_on_fire_at_will_toggled"]

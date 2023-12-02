@@ -285,13 +285,19 @@ func AddItem(type, id):
 	inventoryWeight += ReturnItemData(type, id).weight
 	UpdateStats()
 	
-
-func RemoveItem(type, id):
-	var index = inventory.find(Item.new(type, id))
+	
+func RemoveByIndex(index):
+	var item = inventory[index]
 	inventory.remove_at(index)
-	inventoryWeight -= ReturnItemData(type, id).weight
+	var num = equipmentSlots.find(index)
+	if num > -1:
+		equipmentSlots[num] = -1
+	
+	inventoryWeight -= item.data.weight
 	UpdateStats()
-	return inventory[index]
+	
+	return item
+		
 
 
 func _to_string():

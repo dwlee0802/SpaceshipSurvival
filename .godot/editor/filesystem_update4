@@ -14,3 +14,4 @@ res://Scripts/InputManager.gd
 res://Scripts/game.gd
 res://Scripts/unit.gd
 res://Data/Items.json
+res://Scripts/placed_item.gd

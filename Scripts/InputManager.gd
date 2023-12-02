@@ -2,6 +2,8 @@ extends Node2D
 
 var selectedUnits = []
 
+var placedItem = preload("res://Scenes/placed_item.tscn")
+
 var dragging: bool = false
 var drag_start = Vector2.ZERO
 
@@ -154,4 +156,17 @@ func _on_unequip_button_pressed():
 	
 	selectedUnits[0].UpdateStats()
 	
+	UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])
+
+
+func _on_drop_button_pressed():
+	var selectedItemIndex: int = UserInterfaceManager.itemList.get_selected_items()[0]
+	var newItem = placedItem.instantiate()
+	var removed = selectedUnits[0].RemoveByIndex(selectedItemIndex)
+	newItem.itemType = removed.type
+	newItem.itemID = removed.data.ID
+	newItem.position = selectedUnits[0].position
+	add_sibling(newItem)
+	
+	selectedUnits[0].UpdateStats()
 	UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])
