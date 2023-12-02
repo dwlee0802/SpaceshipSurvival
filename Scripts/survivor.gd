@@ -26,8 +26,11 @@ var inventory = []
 # -1 itemID means slot is empty
 var equipmentSlots = [-1, -1, -1, -1, -1]
 
+# how heavy the items this unit is carrying is
+# heavier the load, the slower the unit can move
+# if weight exceeds capacity, speed is reduced
 var inventoryWeight: int = 0
-var inventoryCapacity: int = 10
+var inventoryCapacity: int = 20
 
 
 # unit stats
@@ -187,6 +190,7 @@ func EquipNewItem(item: Item, where: int):
 	inventory.append(item)
 	equipmentSlots[where] = inventory.find(item)
 	inventoryWeight += item.data.weight
+	UpdateStats()
 
 
 func UpdateStats():
@@ -213,6 +217,13 @@ func UpdateStats():
 	
 	inventoryCapacity = strength * 2
 
+	# modify speed based on inventory weight
+	if inventoryWeight > inventoryCapacity:
+		speedModifier = 1 - (inventoryWeight - inventoryCapacity) / float(inventoryCapacity)
+		if speedModifier < 0:
+			speedModifier = 0
+	else:
+		speedModifier = 1
 
 func PointArmAt(position):
 	# turn towards target
@@ -268,19 +279,21 @@ func _on_temperature_timer_timeout():
 func AddItem(type, id):
 	inventory.append(Item.new(type, id))
 	inventoryWeight += ReturnItemData(type, id).weight
+	UpdateStats()
 	
 
 func RemoveItem(type, id):
 	var index = inventory.find(Item.new(type, id))
 	inventory.remove_at(index)
 	inventoryWeight -= ReturnItemData(type, id).weight
+	UpdateStats()
 	return inventory[index]
 
 
 func _to_string():
 	var output: String = "Survivor Info\n"
 	output += "HP: " + str(health) + " / " + str(maxHealth) + "\n"
-	output += "Speed: " + str(speed) + "\n"
+	output += "Speed: " + str(speed * speedModifier) + "\n"
 	output += "Defense: " + str(defense * 100) + "%\n"
 	
 	return output

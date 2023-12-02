@@ -17,10 +17,18 @@ func _ready():
 	survivors.append($Survivor)
 	survivors.append($Survivor2)
 	gameScene = self
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	var count = len(survivors)
+	for i in count:
+		if survivors[i].isDead:
+			count -= 1
+	
+	if count <= 0:
+		print("Game Over!")
+		
 
 
 static func UpdateEnemyTargetPosition():

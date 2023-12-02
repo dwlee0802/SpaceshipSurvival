@@ -5,6 +5,7 @@ class_name Unit
 @export var health: float = 50
 @export var maxHealth: int = 100
 @export var speed: int = 100
+var speedModifier: float = 1
 
 var attackTarget
 
@@ -35,7 +36,7 @@ func _physics_process(delta):
 				isMoving = false
 				return
 				
-			velocity = position.direction_to(target_position) * speed
+			velocity = position.direction_to(target_position) * speed * speedModifier
 			move_and_slide()
 		else:
 			if nav.is_navigation_finished():
@@ -43,7 +44,7 @@ func _physics_process(delta):
 				return
 				
 			var dir = Vector2()
-			velocity = position.direction_to(nav.get_next_path_position()) * speed
+			velocity = position.direction_to(nav.get_next_path_position()) * speed * speedModifier
 			move_and_slide()
 
 

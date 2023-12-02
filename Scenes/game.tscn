@@ -452,6 +452,7 @@ sadfsdaf"
 
 [node name="UnitEquipmentLabel" type="Label" parent="Camera/Canvas/UnitUI/InfoPanel"]
 visible = false
+layout_mode = 0
 offset_top = -189.0
 offset_right = 237.0
 offset_bottom = 44.0

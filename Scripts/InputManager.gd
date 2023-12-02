@@ -30,7 +30,9 @@ func _unhandled_input(event):
 				selectedUnits = selectionBox.get_overlapping_bodies()
 				selectionBox.get_node("CollisionShape2D").disabled = true
 				if len(selectedUnits) > 0:
-					selectedUnits[0].update_unit_ui.connect(UpdateUnitUI)
+					if not selectedUnits[0].update_unit_ui.is_connected(UpdateUnitUI):
+						selectedUnits[0].update_unit_ui.connect(UpdateUnitUI)
+						
 					UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])
 				for item in selectedUnits:
 					item.ShowSelectionUI()

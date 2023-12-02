@@ -11,3 +11,5 @@ res://Scenes/infirmary.tscn
 res://Scripts/UserInterfaceManager.gd
 res://Scripts/survivor.gd
 res://Scripts/InputManager.gd
+res://Scripts/game.gd
+res://Scripts/unit.gd
