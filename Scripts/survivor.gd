@@ -85,6 +85,7 @@ func _ready():
 	AddItem(0, 1)
 	AddItem(1, 0)
 	AddItem(1, 1)
+	AddItem(1, 2)
 	AddItem(4, 0)
 
 
@@ -93,7 +94,6 @@ func parse_json(text):
 
 
 func _process(delta):
-	print(defense)
 	if isDead:
 		return
 		

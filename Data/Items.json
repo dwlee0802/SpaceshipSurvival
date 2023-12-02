@@ -43,6 +43,17 @@
 	  "attacksPerSecond": 3,
 	  "weight": 5,
 	  "ammoPerShot": 2
+	},
+	{
+	  "name": "Auto rifle",
+	  "ID": 2,
+	  "description": "Slow but powerful firepower for mid to long ranges.",
+	  "range": 800,
+	  "damageMin": 100,
+	  "damageMax": 250,
+	  "attacksPerSecond": 1,
+	  "weight": 5,
+	  "ammoPerShot": 3
 	}
   ],
   "Head": [
