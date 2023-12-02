@@ -139,5 +139,15 @@ autostart = true
 [node name="TemperatureTimer" type="Timer" parent="."]
 autostart = true
 
+[node name="NoAmmoLabel" type="Label" parent="."]
+visible = false
+self_modulate = Color(1, 0, 0, 1)
+offset_left = -22.0
+offset_top = -57.0
+offset_right = 56.0
+offset_bottom = -34.0
+theme_override_font_sizes/font_size = 9
+text = "No Ammo"
+
 [connection signal="timeout" from="OxygenTimer" to="." method="_on_oxygen_timer_timeout"]
 [connection signal="timeout" from="TemperatureTimer" to="." method="_on_temperature_timer_timeout"]

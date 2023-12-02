@@ -1,12 +1,12 @@
 Label
-Panel
 CollisionShape2D
+Area2D
+Panel
 Polygon2D
 Button
 Control
 ItemList
 ScrollContainer
-Area2D
 Sprite2D
 Timer
 AnimationPlayer

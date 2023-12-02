@@ -34,6 +34,10 @@ static var unitInfoLabel
 
 static var unitEquipmentLabel
 
+static var foodStockLabel
+
+static var ammoStockLabel
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -53,7 +57,9 @@ func _ready():
 	equipmentPanelButton = $UnitUI/EquipmentButton
 	unitInfoLabel = infoPanel.get_node("UnitInfoLabel")
 	unitEquipmentLabel = infoPanel.get_node("UnitEquipmentLabel")
-
+	foodStockLabel = $ResourcesUI/FoodStockLabel
+	ammoStockLabel = $ResourcesUI/AmmoStockLabel
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -163,3 +169,6 @@ static func ModifyContextMenuByItem(index, unit):
 			
 		inventoryContextMenu.get_node("ConsumeButton").visible = false
 
+
+static func UpdateAmmoStockLabel(amount):
+	ammoStockLabel.text = "Ammo: " + str(amount)

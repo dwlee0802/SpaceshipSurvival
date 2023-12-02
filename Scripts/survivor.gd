@@ -16,6 +16,8 @@ static var itemsDict
 @onready var armSprite = $ArmSprite
 @onready var muzzleFlashSprite = $ArmSprite/MuzzleFlash
 
+@onready var noAmmoLabel = $NoAmmoLabel
+
 var interactionTarget
 
 # Holds the itemIDs that the player has in its inventory
@@ -172,13 +174,18 @@ func Attack():
 	var primary = Item.new(0,2)
 	if equipmentSlots[SlotType.Primary] >= 0:
 		primary= inventory[equipmentSlots[SlotType.Primary]]
-	var amount = randi_range(primary.data.damageMin, primary.data.damageMax)
-	if is_instance_valid(attackTarget):
-		attackTarget.ReceiveHit(amount, primary.data.penetration)
+	if Spaceship.ConsumeAmmo(primary.data.ammoPerShot):
+		var amount = randi_range(primary.data.damageMin, primary.data.damageMax)
+		if is_instance_valid(attackTarget):
+			attackTarget.ReceiveHit(amount, primary.data.penetration)
+		else:
+			attackTarget = null
+		print("Delt ", str(amount), " damage!")
+		muzzleFlashSprite.visible = true
+		noAmmoLabel.visible = false
 	else:
-		attackTarget = null
-	print("Delt ", str(amount), " damage!")
-	muzzleFlashSprite.visible = true
+		print("Not enough ammo!")
+		noAmmoLabel.visible = true
 
 
 # takes in where, which slot to put item into, and what, which is the index of the item being moved inside inventory.
