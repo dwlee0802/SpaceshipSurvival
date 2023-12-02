@@ -18,4 +18,4 @@ func _physics_process(delta):
 func _on_radiation_damage_timer_timeout():
 	var results = radiationArea.get_parent().get_overlapping_bodies()
 	for item in results:
-		item.ReceiveHit(randi_range(5, 15))
+		item.ReceiveHit(randi_range(5, 15), 0, true)

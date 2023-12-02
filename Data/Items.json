@@ -8,7 +8,9 @@
 	  "damageMin": 90,
 	  "damageMax": 120,
 	  "attacksPerSecond": 4,
-	  "weight": 5
+	  "weight": 5,
+	  "penetration": 0.6,
+	  "accuracy": 0.90
 	},
 	{
 	  "name": "Fire Axe",
@@ -18,7 +20,9 @@
 	  "damageMin": 90,
 	  "damageMax": 120,
 	  "attacksPerSecond": 3,
-	  "weight": 5
+	  "weight": 5,
+	  "penetration": 0.8,
+	  "accuracy": 0.85
 	},
 	{
 	  "name": "Fists",
@@ -28,7 +32,9 @@
 	  "damageMin": 50,
 	  "damageMax": 80,
 	  "attacksPerSecond": 2,
-	  "weight": 0
+	  "weight": 0,
+	  "penetration": 0,
+	  "accuracy": 0.75
 	}
   ],
   "Ranged": [
@@ -41,7 +47,11 @@
 	  "damageMax": 200,
 	  "attacksPerSecond": 1.5,
 	  "weight": 5,
-	  "ammoPerShot": 1
+	  "ammoPerShot": 1,
+	  "penetration": 0.1,
+	  "accuracy": 0.5,
+	  "reloadTime": 3,
+	  "magSize": 8
 	},
 	{
 	  "name": "Submachine Gun",
@@ -52,18 +62,26 @@
 	  "damageMax": 100,
 	  "attacksPerSecond": 3,
 	  "weight": 5,
-	  "ammoPerShot": 2
+	  "ammoPerShot": 2,
+	  "penetration": 0.2,
+	  "accuracy": 0.4,
+	  "reloadTime": 5,
+	  "magSize": 20
 	},
 	{
 	  "name": "Auto rifle",
 	  "ID": 2,
 	  "description": "Slow but powerful firepower for mid to long ranges.",
 	  "range": 800,
-	  "damageMin": 100,
+	  "damageMin": 150,
 	  "damageMax": 250,
 	  "attacksPerSecond": 1,
 	  "weight": 5,
-	  "ammoPerShot": 3
+	  "ammoPerShot": 3,
+	  "penetration": 0.3,
+	  "accuracy": 0.6,
+	  "reloadTime": 6,
+	  "magSize": 10
 	}
   ],
   "Head": [

@@ -56,10 +56,19 @@ func ChangeTargetPosition(pos):
 	nav.target_position = target_position
 
 
-func ReceiveHit(amount, isRadiationDamage = false):
+func ReceiveHit(amount, penetration = 0, isRadiationDamage = false):
+	print("Init: ", amount)
 	if not isRadiationDamage:
-		amount = amount * (1 - defense)
+		var endDefense = defense - penetration
+		if endDefense < 0:
+			endDefense = 0
+		print("Eff. Defense: ", endDefense)
+		amount = int(amount * (1 - endDefense))
+	
+	print("Eff. Damage: ", amount)
 	health -= amount
+	
+	
 	if amount > 0:
 		Game.MakeDamagePopup(position, amount)
 	else:

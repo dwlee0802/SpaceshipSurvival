@@ -9,6 +9,9 @@ var holder: float = 0
 
 func _ready():
 	STOP_DIST = 60
+	
+	defense = 0.5
+	
 
 func _physics_process(delta):
 	if attackTarget == null or not is_instance_valid(attackTarget) or attackTarget.isDead:
@@ -38,8 +41,8 @@ func OnDeath():
 	queue_free()
 
 
-func ReceiveHit(amount):
-	super.ReceiveHit(amount)
+func ReceiveHit(amount, penetration = 0, isRadiationDamage = false):
+	super.ReceiveHit(amount, penetration, isRadiationDamage)
 	holder = 0.1
 
 

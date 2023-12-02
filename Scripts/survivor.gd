@@ -174,7 +174,7 @@ func Attack():
 		primary= inventory[equipmentSlots[SlotType.Primary]]
 	var amount = randi_range(primary.data.damageMin, primary.data.damageMax)
 	if is_instance_valid(attackTarget):
-		attackTarget.ReceiveHit(amount)
+		attackTarget.ReceiveHit(amount, primary.data.penetration)
 	else:
 		attackTarget = null
 	print("Delt ", str(amount), " damage!")
