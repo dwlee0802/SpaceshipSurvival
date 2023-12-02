@@ -78,6 +78,9 @@ static func UpdateUnitUI(unit):
 	nutritionBar.size.x = unit.nutrition / 100 * BAR_LENGTH
 
 
+static func UpdateUnitInfo():
+	pass
+	
 static func UpdateUnitInventory(unit):
 	var inventory = unit.inventory
 	
@@ -102,11 +105,12 @@ static func ToggleUnitUI(val):
 static func ToggleUnitInfoPanel(unit):
 	infoPanel.visible = true
 	if infoPanelButton.button_pressed:
-		pass
+		itemList.visible = false
 	elif inventoryPanelButton.button_pressed:
+		itemList.visible = true
 		UpdateUnitInventory(unit)
 	elif equipmentPanelButton.button_pressed:
-		pass
+		itemList.visible = false
 	else:
 		infoPanel.visible = false
 		

@@ -368,7 +368,6 @@ theme_override_font_sizes/font_size = 12
 text = "Ammo Consumption: 00"
 
 [node name="InfoPanel" type="Control" parent="Camera/Canvas/UnitUI"]
-visible = false
 anchors_preset = 0
 offset_left = -9.0
 offset_top = -41.0
