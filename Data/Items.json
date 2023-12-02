@@ -90,14 +90,24 @@
 	  "ID": 0,
 	  "description": "Simple protective headgear.",
 	  "weight": 4,
-	  "defense": 0.1
+	  "defense": 0.2,
+	  "oxygenGeneration": 0
 	},
 	{
 	  "name": "Recon Helmet",
 	  "ID": 1,
 	  "description": "Advanced equipment reserved for elite soldiers.",
 	  "weight": 3,
-	  "defense": 0.25
+	  "defense": 0.3,
+	  "oxygenGeneration": 0
+	},
+	{
+	  "name": "Oxygen Mask",
+	  "ID": 2,
+	  "description": "Allows the wearer to breathe in oxygen absent environments.",
+	  "weight": 2,
+	  "defense": 0.1,
+	  "oxygenGeneration": 10
 	}
   ],
   "Body": [
