@@ -32,6 +32,7 @@ navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_ngw0p")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xct10"]
+resource_local_to_scene = true
 size = Vector2(500, 703)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0k3am"]

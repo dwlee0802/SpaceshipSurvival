@@ -31,6 +31,7 @@ func _unhandled_input(event):
 				for item in selectedUnits:
 					item.ShowSelectionUI()
 					selectedUnits[0].update_unit_ui.connect(UpdateUnitUI)
+				UpdateUnitUI()
 			
 		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 				

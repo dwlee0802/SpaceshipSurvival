@@ -8,6 +8,7 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_elui1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c6x3d"]
+resource_local_to_scene = true
 size = Vector2(50, 69)
 
 [node name="Interactable" type="StaticBody2D"]
