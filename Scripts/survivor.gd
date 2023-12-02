@@ -47,7 +47,8 @@ var nutrition: float = 100
 var accuracy: float = 0.5
 
 # how strong this person is. Affects melee damage and inventory capacity
-var strength
+# 2 inventory cap for 1 strength
+var strength: int = 10
 
 # how much damage is reduced when this unit is hit.
 var defense: float = 0
@@ -60,7 +61,6 @@ var isDead: bool = false
 # Combat Behavior
 var moveAndShoot: bool = true
 var fireAtWill: bool = true
-
 
 signal update_unit_ui
 
@@ -82,11 +82,7 @@ func _ready():
 	
 	# test. add crowbar to inventory
 	AddItem(0, 0)
-	AddItem(0, 1)
-	AddItem(1, 0)
-	AddItem(1, 1)
 	AddItem(1, 2)
-	AddItem(4, 0)
 
 
 func parse_json(text):
@@ -169,6 +165,7 @@ func ScanForAttackTargets():
 		
 		attackRaycast.target_position = attackTarget.position - position
 
+
 func Attack():
 	# deal damage
 	var primary = inventory[equipmentSlots[SlotType.Primary]]
@@ -189,6 +186,7 @@ func EquipItemFromInventory(what: int, where: int):
 func EquipNewItem(item: Item, where: int):
 	inventory.append(item)
 	equipmentSlots[where] = inventory.find(item)
+	inventoryWeight += item.data.weight
 
 
 func UpdateStats():
@@ -213,6 +211,7 @@ func UpdateStats():
 	if body != null:
 		defense += body.data.defense
 	
+	inventoryCapacity = strength * 2
 
 
 func PointArmAt(position):
@@ -268,13 +267,24 @@ func _on_temperature_timer_timeout():
 		
 func AddItem(type, id):
 	inventory.append(Item.new(type, id))
-
+	inventoryWeight += ReturnItemData(type, id).weight
+	
 
 func RemoveItem(type, id):
 	var index = inventory.find(Item.new(type, id))
 	inventory.remove_at(index)
+	inventoryWeight -= ReturnItemData(type, id).weight
 	return inventory[index]
 
+
+func _to_string():
+	var output: String = "Survivor Info\n"
+	output += "HP: " + str(health) + " / " + str(maxHealth) + "\n"
+	output += "Speed: " + str(speed) + "\n"
+	output += "Defense: " + str(defense * 100) + "%\n"
+	
+	return output
+	
 
 static func ReturnItemDictByType(num):
 	if num == 0:
@@ -291,7 +301,7 @@ static func ReturnItemDictByType(num):
 
 static func ReturnItemData(type, id):
 	return ReturnItemDictByType(type)[id]
-		
+	
 		
 class Item:
 	var type: int = -1

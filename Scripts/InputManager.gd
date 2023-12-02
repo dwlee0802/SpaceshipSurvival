@@ -11,7 +11,8 @@ var drag_start = Vector2.ZERO
 func _process(delta):
 	if len(selectedUnits) == 1:
 		UserInterfaceManager.ToggleUnitUI(true)
-		UserInterfaceManager.UpdateUnitUI(selectedUnits[0])
+		UserInterfaceManager.UpdateUnitBarUI(selectedUnits[0])
+		UserInterfaceManager.UpdateUnitInfoUI(selectedUnits[0])
 	else:
 		UserInterfaceManager.ToggleUnitUI(false)
 
@@ -28,10 +29,12 @@ func _unhandled_input(event):
 				selectionBox.visible = false
 				selectedUnits = selectionBox.get_overlapping_bodies()
 				selectionBox.get_node("CollisionShape2D").disabled = true
+				if len(selectedUnits) > 0:
+					selectedUnits[0].update_unit_ui.connect(UpdateUnitUI)
 				for item in selectedUnits:
 					item.ShowSelectionUI()
-					selectedUnits[0].update_unit_ui.connect(UpdateUnitUI)
-					UpdateUnitUI()
+					
+				UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])
 			
 		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 				
@@ -101,7 +104,7 @@ func _on_item_list_item_clicked(index, at_position, mouse_button_index):
 
 func _on_information_button_pressed():
 	if len(selectedUnits) > 0:
-		UserInterfaceManager.ToggleUnitInfoPanel(selectedUnits[0])
+		UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])
 
 
 func _on_equip_button_pressed():
@@ -124,10 +127,8 @@ func _on_equip_button_pressed():
 	selectedUnits[0].equipmentSlots[slotType] = selectedItemIndex
 	selectedUnits[0].UpdateStats()
 	
-	UserInterfaceManager.UpdateUnitUI(selectedUnits[0])
-	UserInterfaceManager.UpdateUnitInventory(selectedUnits[0])
+	UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])
 	
 	
 func UpdateUnitUI():
-	UserInterfaceManager.UpdateUnitUI(selectedUnits[0])
-	UserInterfaceManager.UpdateUnitInventory(selectedUnits[0])
+	UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])

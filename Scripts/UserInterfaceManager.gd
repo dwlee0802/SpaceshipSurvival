@@ -30,6 +30,8 @@ static var itemList: ItemList
 
 static var inventoryContextMenu
 
+static var unitInfoLabel
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -47,7 +49,7 @@ func _ready():
 	infoPanelButton = $UnitUI/InformationButton
 	inventoryPanelButton = $UnitUI/InventoryButton
 	equipmentPanelButton = $UnitUI/EquipmentButton
-	
+	unitInfoLabel = infoPanel.get_node("UnitInfoLabel")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -70,7 +72,7 @@ static func UpdateSpaceshipStatusUI(oxygen, temp):
 	spaceshipStatusUI.get_node("TemperatureLevel/Label").text = str(temp) + "C"
 	
 	
-static func UpdateUnitUI(unit):
+static func UpdateUnitBarUI(unit):
 	healthBar.size.x = unit.health / unit.maxHealth * BAR_LENGTH
 	oxygenBar.size.x = unit.oxygen / 100 * BAR_LENGTH
 	temperatureBar.size.x = unit.bodyTemperature / 50 * BAR_LENGTH
@@ -78,8 +80,9 @@ static func UpdateUnitUI(unit):
 	nutritionBar.size.x = unit.nutrition / 100 * BAR_LENGTH
 
 
-static func UpdateUnitInfo():
-	pass
+static func UpdateUnitInfoUI(unit):
+	unitInfoLabel.text = str(unit)
+	
 	
 static func UpdateUnitInventory(unit):
 	var inventory = unit.inventory
@@ -96,21 +99,31 @@ static func UpdateUnitInventory(unit):
 		if i >= 0:
 			var text = itemList.get_item_text(i)
 			itemList.set_item_text(i, text + " (E)")
-		
-	
+
+
+# toggles the entire unit ui element
 static func ToggleUnitUI(val):
 	unitUI.visible = val
 
 
-static func ToggleUnitInfoPanel(unit):
+# updates the unit info panel. switches to right panel and updates its data
+static func UpdateUnitInfoPanel(unit):
 	infoPanel.visible = true
+	itemList.visible = false
+	inventoryContextMenu.visible = false
+	unitInfoLabel.visible = false
+	
+	# update inventory weight
+	inventoryPanelButton.text = "Inventory " + str(unit.inventoryWeight) + "/" + str(unit.inventoryCapacity)
+	
 	if infoPanelButton.button_pressed:
-		itemList.visible = false
+		UpdateUnitInfoUI(unit)
+		unitInfoLabel.visible = true
 	elif inventoryPanelButton.button_pressed:
 		itemList.visible = true
 		UpdateUnitInventory(unit)
 	elif equipmentPanelButton.button_pressed:
-		itemList.visible = false
+		pass
 	else:
 		infoPanel.visible = false
 		

@@ -1,6 +1,5 @@
-res://Scenes/game.tscn
-res://Scripts/UserInterfaceManager.gd
 res://Scenes/survivor.tscn
+res://Scenes/game.tscn
 res://Scenes/placed_item.tscn
 res://Scenes/interactable.tscn
 res://Scenes/module.tscn
@@ -9,6 +8,6 @@ res://Scenes/enemy.tscn
 res://Scenes/spawn_point.tscn
 res://Scenes/nuclear_reactor.tscn
 res://Scenes/infirmary.tscn
-res://Scripts/InputManager.gd
+res://Scripts/UserInterfaceManager.gd
 res://Scripts/survivor.gd
-res://Data/Items.json
+res://Scripts/InputManager.gd

@@ -92,12 +92,11 @@ position = Vector2(4.5, 2.5)
 shape = SubResource("RectangleShape2D_8sibo")
 
 [node name="Infirmary" parent="Modules" instance=ExtResource("5_fnlxo")]
-position = Vector2(-92, -848)
+position = Vector2(-97, -897)
 
 [node name="ModuleArea" type="Area2D" parent="Modules/Infirmary"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Modules/Infirmary/ModuleArea"]
-position = Vector2(-6, -53.5)
 shape = SubResource("RectangleShape2D_bm3v1")
 
 [connection signal="timeout" from="TravelTimer" to="." method="_on_travel_timer_timeout"]
