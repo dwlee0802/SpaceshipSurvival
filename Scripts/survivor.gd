@@ -286,6 +286,26 @@ func _to_string():
 	return output
 	
 
+func PrintEquipmentStatus():
+	var output: String = "Equipment\n"
+	if equipmentSlots[SlotType.Primary] >= 0:
+		output += "Primary Weapon: " + inventory[equipmentSlots[SlotType.Primary]].data.name + "\n"
+	else:
+		output += "Primary Weapon: None" + "\n"
+		
+	if equipmentSlots[SlotType.Head] >= 0:
+		output += "Head: " + inventory[equipmentSlots[SlotType.Head]].data.name + "\n"
+	else:
+		output += "Head: None" + "\n"
+		
+	if equipmentSlots[SlotType.Body] >= 0:
+		output += "Body: " + inventory[equipmentSlots[SlotType.Body]].data.name + "\n"
+	else:
+		output += "Body: None" + "\n"
+		
+	return output
+	
+
 static func ReturnItemDictByType(num):
 	if num == 0:
 		return itemsDict.Melee

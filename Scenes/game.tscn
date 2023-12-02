@@ -450,6 +450,22 @@ f
 sadf
 sadfsdaf"
 
+[node name="UnitEquipmentLabel" type="Label" parent="Camera/Canvas/UnitUI/InfoPanel"]
+visible = false
+offset_top = -189.0
+offset_right = 237.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 14
+text = "asdfsdaf
+sdafsdaf
+sdafsdaf
+sdafsda
+fsda
+fsda
+f
+sadf
+sadfsdaf"
+
 [node name="CombatBehavior" type="Control" parent="Camera/Canvas/UnitUI"]
 anchors_preset = 0
 offset_left = 353.0

@@ -32,6 +32,8 @@ static var inventoryContextMenu
 
 static var unitInfoLabel
 
+static var unitEquipmentLabel
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -50,6 +52,8 @@ func _ready():
 	inventoryPanelButton = $UnitUI/InventoryButton
 	equipmentPanelButton = $UnitUI/EquipmentButton
 	unitInfoLabel = infoPanel.get_node("UnitInfoLabel")
+	unitEquipmentLabel = infoPanel.get_node("UnitEquipmentLabel")
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -84,6 +88,10 @@ static func UpdateUnitInfoUI(unit):
 	unitInfoLabel.text = str(unit)
 	
 	
+static func UpdateUnitEquipmentInfoUI(unit):
+	unitEquipmentLabel.text = unit.PrintEquipmentStatus()
+	
+	
 static func UpdateUnitInventory(unit):
 	var inventory = unit.inventory
 	
@@ -112,6 +120,7 @@ static func UpdateUnitInfoPanel(unit):
 	itemList.visible = false
 	inventoryContextMenu.visible = false
 	unitInfoLabel.visible = false
+	unitEquipmentLabel.visible = false
 	
 	# update inventory weight
 	inventoryPanelButton.text = "Inventory " + str(unit.inventoryWeight) + "/" + str(unit.inventoryCapacity)
@@ -123,7 +132,8 @@ static func UpdateUnitInfoPanel(unit):
 		itemList.visible = true
 		UpdateUnitInventory(unit)
 	elif equipmentPanelButton.button_pressed:
-		pass
+		UpdateUnitEquipmentInfoUI(unit)
+		unitEquipmentLabel.visible = true
 	else:
 		infoPanel.visible = false
 		
