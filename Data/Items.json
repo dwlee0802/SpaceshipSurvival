@@ -94,7 +94,9 @@
 	  "description": "Simple protective headgear.",
 	  "weight": 4,
 	  "defense": 0.2,
-	  "oxygenGeneration": 0
+	  "oxygenGeneration": 0,
+	  "radiationDefense": 0.1,
+	  "insulation": 0.1
 	},
 	{
 	  "name": "Recon Helmet",
@@ -103,7 +105,8 @@
 	  "weight": 3,
 	  "defense": 0.3,
 	  "oxygenGeneration": 1,
-	  "radiationDefense": 0.1
+	  "radiationDefense": 0.1,
+	  "insulation": 0.1
 	},
 	{
 	  "name": "Oxygen Mask",
@@ -112,7 +115,8 @@
 	  "weight": 2,
 	  "defense": 0.1,
 	  "oxygenGeneration": 10,
-	  "radiationDefense": 0.1
+	  "radiationDefense": 0.1,
+	  "insulation": 0.1
 	},
 	{
 	  "name": "Hazmat Mask",
@@ -121,7 +125,8 @@
 	  "weight": 5,
 	  "defense": 0.3,
 	  "oxygenGeneration": 2,
-	  "radiationDefense": 0.3
+	  "radiationDefense": 0.3,
+	  "insulation": 0.1
 	}
   ],
   "Body": [
@@ -131,7 +136,8 @@
 	  "description": "Good for stopping bullets and more.",
 	  "weight": 5,
 	  "defense": 0.3,
-	  "radiationDefense": 0
+	  "radiationDefense": 0,
+	  "insulation": 0.1
 	},
 	{
 	  "name": "Hazmat Suit",
@@ -139,7 +145,8 @@
 	  "description": "Good for stopping bullets and more.",
 	  "weight": 5,
 	  "defense": 0.3,
-	  "radiationDefense": 0.7
+	  "radiationDefense": 0.7,
+	  "insulation": 0.1
 	}
   ],
   "Consumable": [

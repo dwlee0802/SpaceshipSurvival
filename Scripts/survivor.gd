@@ -95,7 +95,7 @@ func _process(delta):
 	if isDead:
 		return
 		
-	oxygen -= delta * 2
+	oxygen -= delta * 3
 	if oxygen < 0:
 		oxygen = 0
 	if oxygen == 0:
@@ -108,6 +108,27 @@ func _process(delta):
 		nutrition = 0
 	if nutrition == 0:
 		health -= delta
+	
+	# high fever
+	if bodyTemperature >= 42:
+		health -= delta * 2
+	# moderate fever
+	elif bodyTemperature >= 40:
+		health -= delta * 0.5
+	# mild fever
+	elif bodyTemperature >= 38:
+		pass
+	
+	# Severe Hypothermia
+	if bodyTemperature <= 28:
+		health -= delta * 2
+	# moderate Hypothermia
+	elif bodyTemperature <= 32:
+		health -= delta * 0.5
+	# mild Hypothermia
+	elif bodyTemperature <= 34:
+		pass
+	
 
 func _physics_process(delta):
 	if isDead:
@@ -284,9 +305,9 @@ func _on_temperature_timer_timeout():
 	var diff = (bodyTemperature - 36.5 ) - (Spaceship.temperature - 25)
 	
 	if diff > 0:
-		bodyTemperature -= 0.5
+		bodyTemperature -= 0.1
 	else:
-		bodyTemperature += 0.5
+		bodyTemperature += 0.1
 		
 		
 func AddItem(type, id):
@@ -315,6 +336,8 @@ func _to_string():
 	output += "HP: " + str(int(health)) + " / " + str(maxHealth) + "\n"
 	output += "Speed: " + str(speed * speedModifier) + "\n"
 	output += "Defense: " + str(defense * 100) + "%\n"
+	output += "Oxygen: " + str(int(oxygen * 100) / 100) + "%\n"
+	output += "Body Temperature: " + str(bodyTemperature) + "C\n"
 	
 	return output
 	
