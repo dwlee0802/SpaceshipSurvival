@@ -170,3 +170,7 @@ func _on_drop_button_pressed():
 	
 	selectedUnits[0].UpdateStats()
 	UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])
+
+
+func _on_consume_button_pressed():
+	pass # Replace with function body.

@@ -53,9 +53,6 @@ var accuracy: float = 0.5
 # 2 inventory cap for 1 strength
 var strength: int = 10
 
-# how much damage is reduced when this unit is hit.
-var defense: float = 0
-
 var sleep: float = 600
 
 var isDead: bool = false
@@ -302,7 +299,7 @@ func RemoveByIndex(index):
 
 func _to_string():
 	var output: String = "Survivor Info\n"
-	output += "HP: " + str(health) + " / " + str(maxHealth) + "\n"
+	output += "HP: " + str(int(health)) + " / " + str(maxHealth) + "\n"
 	output += "Speed: " + str(speed * speedModifier) + "\n"
 	output += "Defense: " + str(defense * 100) + "%\n"
 	

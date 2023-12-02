@@ -427,7 +427,6 @@ theme_override_font_sizes/font_size = 14
 text = "Drop"
 
 [node name="ConsumeButton" type="Button" parent="Camera/Canvas/UnitUI/InfoPanel/ContextMenu"]
-visible = false
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
@@ -788,5 +787,6 @@ itemID = 0
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InfoPanel/ContextMenu/EquipButton" to="InputManager" method="_on_equip_button_pressed"]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InfoPanel/ContextMenu/UnequipButton" to="InputManager" method="_on_unequip_button_pressed"]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InfoPanel/ContextMenu/DropButton" to="InputManager" method="_on_drop_button_pressed"]
+[connection signal="pressed" from="Camera/Canvas/UnitUI/InfoPanel/ContextMenu/ConsumeButton" to="InputManager" method="_on_consume_button_pressed"]
 [connection signal="toggled" from="Camera/Canvas/UnitUI/CombatBehavior/MoveAndShoot" to="InputManager" method="_on_move_and_shoot_toggled"]
 [connection signal="toggled" from="Camera/Canvas/UnitUI/CombatBehavior/FireAtWill" to="InputManager" method="_on_fire_at_will_toggled"]

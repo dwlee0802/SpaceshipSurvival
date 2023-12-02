@@ -6,6 +6,8 @@ class_name Unit
 @export var maxHealth: int = 100
 @export var speed: int = 100
 var speedModifier: float = 1
+# how much damage is reduced when this unit is hit.
+@export var defense: float = 0
 
 var attackTarget
 
@@ -54,7 +56,9 @@ func ChangeTargetPosition(pos):
 	nav.target_position = target_position
 
 
-func ReceiveHit(amount):
+func ReceiveHit(amount, isRadiationDamage = false):
+	if not isRadiationDamage:
+		amount = amount * (1 - defense)
 	health -= amount
 	if amount > 0:
 		Game.MakeDamagePopup(position, amount)
