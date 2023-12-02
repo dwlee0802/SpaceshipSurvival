@@ -93,6 +93,7 @@ func parse_json(text):
 
 
 func _process(delta):
+	print(defense)
 	if isDead:
 		return
 		
@@ -171,7 +172,7 @@ func ScanForAttackTargets():
 func Attack():
 	# deal damage
 	var primary = inventory[equipmentSlots[SlotType.Primary]]
-	var amount = randi_range(primary.data.DamageMin, primary.data.DamageMax)
+	var amount = randi_range(primary.data.damageMin, primary.data.damageMax)
 	if is_instance_valid(attackTarget):
 		attackTarget.ReceiveHit(amount)
 	else:
@@ -191,9 +192,27 @@ func EquipNewItem(item: Item, where: int):
 
 
 func UpdateStats():
-	var primary = inventory[equipmentSlots[SlotType.Primary]]
-	attackTimer.wait_time = 1 / primary.data.AttacksPerSecond
-	get_node("AttackArea").get_node("CollisionShape2D").shape.set_radius(primary.data.Range)
+	var primary = null
+	if equipmentSlots[SlotType.Primary] >= 0:
+		primary = inventory[equipmentSlots[SlotType.Primary]]
+	var head = null
+	if equipmentSlots[SlotType.Head] >= 0:
+		head = inventory[equipmentSlots[SlotType.Head]]
+	var body = null
+	if equipmentSlots[SlotType.Body] >= 0:
+		body = inventory[equipmentSlots[SlotType.Body]]
+		
+	if primary != null:
+		attackTimer.wait_time = 1 / primary.data.attacksPerSecond
+		get_node("AttackArea").get_node("CollisionShape2D").shape.set_radius(primary.data.range)
+	
+	defense = 0
+	if head != null:
+		defense += head.data.defense
+	
+	if body != null:
+		defense += body.data.defense
+	
 
 
 func PointArmAt(position):

@@ -30,7 +30,7 @@ func _unhandled_input(event):
 				selectionBox.get_node("CollisionShape2D").disabled = true
 				for item in selectedUnits:
 					item.ShowSelectionUI()
-				selectedUnits[0].update_unit_ui.connect(UpdateUnitUI)
+					selectedUnits[0].update_unit_ui.connect(UpdateUnitUI)
 			
 		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 				

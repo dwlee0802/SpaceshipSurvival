@@ -3,80 +3,80 @@
 	{
 	  "name": "Crowbar",
 	  "ID": 0,
-	  "Description": "The right tool for the job.",
-	  "Range": 120,
-	  "DamageMin": 90,
-	  "DamageMax": 120,
-	  "AttacksPerSecond": 1,
-	  "Weight": 5
+	  "description": "The right tool for the job.",
+	  "range": 120,
+	  "damageMin": 90,
+	  "damageMax": 120,
+	  "attacksPerSecond": 1,
+	  "weight": 5
 	},
 	{
 	  "name": "Fire Axe",
 	  "ID": 1,
-	  "Description": "Good for obstacles of all kinds.",
-	  "Range": 120,
-	  "DamageMin": 90,
-	  "DamageMax": 120,
-	  "AttacksPerSecond": 1,
-	  "Weight": 5
+	  "description": "Good for obstacles of all kinds.",
+	  "range": 120,
+	  "damageMin": 90,
+	  "damageMax": 120,
+	  "attacksPerSecond": 1,
+	  "weight": 5
 	}
   ],
   "Ranged": [
 	{
 	  "name": "Handgun",
 	  "ID": 0,
-	  "Description": "Trusty sidearm.",
-	  "Range": 300,
-	  "DamageMin": 50,
-	  "DamageMax": 200,
-	  "AttacksPerSecond": 1.5,
-	  "Weight": 5,
-	  "AmmoPerShot": 1
+	  "description": "Trusty sidearm.",
+	  "range": 300,
+	  "damageMin": 50,
+	  "damageMax": 200,
+	  "attacksPerSecond": 1.5,
+	  "weight": 5,
+	  "ammoPerShot": 1
 	},
 	{
 	  "name": "Submachine Gun",
 	  "ID": 1,
-	  "Description": "Good balance between firepower and speed.",
-	  "Range": 400,
-	  "DamageMin": 50,
-	  "DamageMax": 100,
-	  "AttacksPerSecond": 3,
-	  "Weight": 5,
-	  "AmmoPerShot": 2
+	  "description": "Good balance between firepower and speed.",
+	  "range": 400,
+	  "damageMin": 50,
+	  "damageMax": 100,
+	  "attacksPerSecond": 3,
+	  "weight": 5,
+	  "ammoPerShot": 2
 	}
   ],
   "Head": [
 	{
 	  "name": "Steel Helmet",
 	  "ID": 0,
-	  "Description": "Simple protective headgear.",
-	  "Weight": 4,
-	  "Defense": 0.1
+	  "description": "Simple protective headgear.",
+	  "weight": 4,
+	  "defense": 0.1
 	},
 	{
 	  "name": "Recon Helmet",
 	  "ID": 1,
-	  "Description": "Advanced equipment reserved for elite soldiers.",
-	  "Weight": 3,
-	  "Defense": 0.25
+	  "description": "Advanced equipment reserved for elite soldiers.",
+	  "weight": 3,
+	  "defense": 0.25
 	}
   ],
   "Body": [
 	{
 	  "name": "Bulletproof Vest",
 	  "ID": 0,
-	  "Description": "Good for stopping bullets and more.",
-	  "Weight": 5,
-	  "Defense": 0.4
+	  "description": "Good for stopping bullets and more.",
+	  "weight": 5,
+	  "defense": 0.3
 	}
   ],
   "Consumable": [
 	{
 	  "name": "Bandage",
 	  "ID": 0,
-	  "Description": "First aid.",
-	  "Weight": 5,
-	  "Heal": 0.2
+	  "description": "First aid.",
+	  "weight": 5,
+	  "heal": 0.2
 	}
   ]
 }
