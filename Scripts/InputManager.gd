@@ -100,7 +100,7 @@ func _on_fire_at_will_toggled(button_pressed):
 func _on_item_list_item_clicked(index, at_position, mouse_button_index):
 	if mouse_button_index == MOUSE_BUTTON_LEFT:
 		UserInterfaceManager.CheckContextMenuVisibility()
-		UserInterfaceManager.ModifyContextMenuByItem(selectedUnits[0].inventory[index])
+		UserInterfaceManager.ModifyContextMenuByItem(index, selectedUnits[0])
 		
 
 func _on_information_button_pressed():
@@ -132,4 +132,26 @@ func _on_equip_button_pressed():
 	
 	
 func UpdateUnitUI():
+	UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])
+
+
+func _on_unequip_button_pressed():
+	var selectedItemIndex: int = UserInterfaceManager.itemList.get_selected_items()[0]
+	var itemType = selectedUnits[0].inventory[selectedItemIndex].type
+	var slotType
+	
+	# equip weapon
+	if itemType == ItemType.Melee or itemType == ItemType.Ranged:
+		slotType = SlotType.Primary
+	
+	# equip armor
+	if itemType == ItemType.Head:
+		slotType = SlotType.Head
+	if itemType == ItemType.Body:
+		slotType = SlotType.Body
+
+	selectedUnits[0].equipmentSlots[slotType] = -1
+	
+	selectedUnits[0].UpdateStats()
+	
 	UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])

@@ -145,12 +145,21 @@ static func CheckContextMenuVisibility():
 		inventoryContextMenu.visible = false
 		
 		
-static func ModifyContextMenuByItem(item):
+static func ModifyContextMenuByItem(index, unit):
+	var item = unit.inventory[index]
+	
 	# show different buttons if item is consumable
 	if item.type == 4:
 		inventoryContextMenu.get_node("EquipButton").visible = false
 		inventoryContextMenu.get_node("ConsumeButton").visible = true
 	else:
-		inventoryContextMenu.get_node("EquipButton").visible = true
+		# check if selected is equipped or not
+		if index in unit.equipmentSlots:
+			inventoryContextMenu.get_node("EquipButton").visible = false
+			inventoryContextMenu.get_node("UnequipButton").visible = true
+		else:
+			inventoryContextMenu.get_node("EquipButton").visible = true
+			inventoryContextMenu.get_node("UnequipButton").visible = false
+			
 		inventoryContextMenu.get_node("ConsumeButton").visible = false
 

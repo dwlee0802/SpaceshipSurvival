@@ -171,7 +171,10 @@ func ScanForAttackTargets():
 
 func Attack():
 	# deal damage
-	var primary = inventory[equipmentSlots[SlotType.Primary]]
+	# default weapon fists
+	var primary = Item.new(0,2)
+	if equipmentSlots[SlotType.Primary] >= 0:
+		primary= inventory[equipmentSlots[SlotType.Primary]]
 	var amount = randi_range(primary.data.damageMin, primary.data.damageMax)
 	if is_instance_valid(attackTarget):
 		attackTarget.ReceiveHit(amount)
@@ -194,7 +197,8 @@ func EquipNewItem(item: Item, where: int):
 
 
 func UpdateStats():
-	var primary = null
+	# equip fists as default
+	var primary = Item.new(0,2)
 	if equipmentSlots[SlotType.Primary] >= 0:
 		primary = inventory[equipmentSlots[SlotType.Primary]]
 	var head = null
