@@ -20,6 +20,8 @@ static var itemsDict
 
 var interactionTarget
 
+var interactionContainer
+
 # Holds the itemIDs that the player has in its inventory
 var inventory = []
 
@@ -83,8 +85,8 @@ func _ready():
 	$AttackUpdateTimer.timeout.connect(ScanForAttackTargets)
 	
 	# test. add crowbar to inventory
-	AddItem(0, 0)
-	AddItem(1, 2)
+	AddItemByIndex(0, 0)
+	AddItemByIndex(1, 2)
 
 
 func parse_json(text):
@@ -146,8 +148,12 @@ func _physics_process(delta):
 		if interactionTarget is PlacedItem:
 			# pick up item
 			print(interactionTarget)
-			AddItem(interactionTarget.itemType, interactionTarget.itemID)
+			AddItemByIndex(interactionTarget.itemType, interactionTarget.itemID)
 			interactionTarget.queue_free()
+			interactionTarget = null
+			emit_signal("update_unit_ui")
+		if interactionTarget is ItemContainer:
+			interactionContainer = interactionTarget
 			interactionTarget = null
 			emit_signal("update_unit_ui")
 			
@@ -278,6 +284,7 @@ func ShowSelectionUI(val = true):
 func ChangeTargetPosition(where):
 	super.ChangeTargetPosition(where)
 	PointArmAt(where)
+	interactionContainer = null
 
 
 func OnDeath():
@@ -310,14 +317,22 @@ func _on_temperature_timer_timeout():
 		bodyTemperature += 0.1
 		
 		
-func AddItem(type, id):
+func AddItemByIndex(type, id):
 	inventory.append(Item.new(type, id))
 	inventoryWeight += Survivor.ReturnItemData(type, id).weight
+	UpdateStats()
+
+
+func AddItem(item: Item):
+	inventory.append(item)
+	inventoryWeight += item.data.weight
 	UpdateStats()
 	
 	
 func RemoveByIndex(index):
 	var item = inventory[index]
+	
+	# unequip if it is equipped
 	var num = equipmentSlots.find(index)
 	if num > -1:
 		equipmentSlots[num] = -1
@@ -347,7 +362,7 @@ func PrintEquipmentStatus():
 	if equipmentSlots[SlotType.Primary] >= 0:
 		output += "Primary Weapon: " + inventory[equipmentSlots[SlotType.Primary]].data.name + "\n"
 	else:
-		output += "Primary Weapon: None" + "\n"
+		output += "Primary: None" + "\n"
 		
 	if equipmentSlots[SlotType.Head] >= 0:
 		output += "Head: " + inventory[equipmentSlots[SlotType.Head]].data.name + "\n"
@@ -378,7 +393,7 @@ static func ReturnItemDictByType(num):
 static func ReturnItemData(type, id):
 	return ReturnItemDictByType(type)[id]
 	
-		
+"""
 class Item:
 	var type: int = -1
 	var data
@@ -402,3 +417,4 @@ class Item:
 		var output = data.name + "\n"
 		output += "Type: " + str(type) + "\nID: " + str(data.ID)
 		return output
+"""

@@ -38,6 +38,8 @@ static var foodStockLabel
 
 static var ammoStockLabel
 
+static var containerUI
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -59,6 +61,7 @@ func _ready():
 	unitEquipmentLabel = infoPanel.get_node("UnitEquipmentLabel")
 	foodStockLabel = $ResourcesUI/FoodStockLabel
 	ammoStockLabel = $ResourcesUI/AmmoStockLabel
+	containerUI = $UnitUI/ContainerUI
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -112,6 +115,22 @@ static func UpdateUnitInventory(unit):
 		if i >= 0:
 			var text = itemList.get_item_text(i)
 			itemList.set_item_text(i, text + " (E)")
+	
+	# update container ui
+	if unit.interactionContainer != null:
+		containerUI.visible = true
+		
+		var containerList = containerUI.get_node("ItemList")
+		
+		containerList.clear()
+		
+		for i in len(unit.interactionContainer.contents):
+			var item = unit.interactionContainer.contents[i]
+			var index = containerList.add_item(item.data.name)
+			containerList.set_item_tooltip(index, str(item))
+			
+		var container = unit.interactionContainer
+		containerUI.get_node("Label").text = "Container " + str(container.weight) + "/" + str(container.capacity)
 
 
 # toggles the entire unit ui element
@@ -126,6 +145,7 @@ static func UpdateUnitInfoPanel(unit):
 	inventoryContextMenu.visible = false
 	unitInfoLabel.visible = false
 	unitEquipmentLabel.visible = false
+	containerUI.visible = false
 	
 	# update inventory weight
 	inventoryPanelButton.text = "Inventory " + str(unit.inventoryWeight) + "/" + str(unit.inventoryCapacity)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bj6ov38i406sf"]
+[gd_scene load_steps=17 format=3 uid="uid://bj6ov38i406sf"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e32sq"]
 [ext_resource type="Script" path="res://Scripts/InputManager.gd" id="2_drscf"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://5cam8m5nc2yc" path="res://Scenes/spaceship.tscn" id="5_uopi8"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="6_pyyuj"]
 [ext_resource type="PackedScene" uid="uid://d0ywywvfjijmg" path="res://Scenes/placed_item.tscn" id="10_vqgar"]
+[ext_resource type="PackedScene" uid="uid://dbjf2k6mniw07" path="res://Scenes/item_container.tscn" id="11_thwdp"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_k1ai1"]
 allow_unpress = true
@@ -484,8 +485,9 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_top = -191.0
 offset_right = 149.0
-offset_bottom = 40.0
+offset_bottom = 15.0
 theme_override_font_sizes/font_size = 13
+select_mode = 1
 allow_search = false
 item_count = 1
 item_0/text = "Handgun"
@@ -498,6 +500,7 @@ offset_right = 78.0
 offset_bottom = -193.0
 
 [node name="Panel" type="Panel" parent="Camera/Canvas/UnitUI/ContainerUI/ContextMenu"]
+layout_mode = 0
 offset_left = -44.0
 offset_right = 48.0
 offset_bottom = 30.0
@@ -553,6 +556,14 @@ fsda
 f
 sadf
 sadfsdaf"
+
+[node name="Label" type="Label" parent="Camera/Canvas/UnitUI/ContainerUI"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 16.0
+offset_right = 79.0
+offset_bottom = 39.0
+text = "Container 00/00"
 
 [node name="CombatBehavior" type="Control" parent="Camera/Canvas/UnitUI"]
 anchors_preset = 0
@@ -867,6 +878,9 @@ position = Vector2(-40, 183)
 itemType = 3
 itemID = 1
 
+[node name="Container" parent="." instance=ExtResource("11_thwdp")]
+position = Vector2(-167, -99)
+
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InformationButton" to="InputManager" method="_on_information_button_pressed"]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InventoryButton" to="InputManager" method="_on_information_button_pressed"]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/EquipmentButton" to="InputManager" method="_on_information_button_pressed"]
@@ -875,5 +889,7 @@ itemID = 1
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InfoPanel/ContextMenu/UnequipButton" to="InputManager" method="_on_unequip_button_pressed"]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InfoPanel/ContextMenu/DropButton" to="InputManager" method="_on_drop_button_pressed"]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InfoPanel/ContextMenu/ConsumeButton" to="InputManager" method="_on_consume_button_pressed"]
+[connection signal="pressed" from="Camera/Canvas/UnitUI/ContainerUI/ContextMenu/TakeButton" to="InputManager" method="_on_take_button_pressed" binds= [true]]
+[connection signal="pressed" from="Camera/Canvas/UnitUI/ContainerUI/ContextMenu/PutInButton" to="InputManager" method="_on_take_button_pressed" binds= [false]]
 [connection signal="toggled" from="Camera/Canvas/UnitUI/CombatBehavior/MoveAndShoot" to="InputManager" method="_on_move_and_shoot_toggled"]
 [connection signal="toggled" from="Camera/Canvas/UnitUI/CombatBehavior/FireAtWill" to="InputManager" method="_on_fire_at_will_toggled"]

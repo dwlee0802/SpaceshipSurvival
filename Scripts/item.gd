@@ -1,5 +1,7 @@
 extends Node
 
+class_name Item
+
 var type: int = -1
 var data
 static var itemDict

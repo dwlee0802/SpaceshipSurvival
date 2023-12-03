@@ -1,15 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://dbjf2k6mniw07"]
 
-[ext_resource type="Script" path="res://Scenes/container.gd" id="1_rl0yo"]
+[ext_resource type="Script" path="res://Scripts/item_container.gd" id="1_dm6mc"]
 [ext_resource type="Texture2D" uid="uid://b1v3tf1le4m6x" path="res://Art/container_temp_sprite.png" id="2_1m6e3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ff7ft"]
 size = Vector2(100, 50)
 
-[node name="Container" type="StaticBody2D"]
+[node name="ItemContainer" type="StaticBody2D"]
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("1_rl0yo")
+script = ExtResource("1_dm6mc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(3.8147e-06, -3.69549e-06)
@@ -17,7 +17,6 @@ scale = Vector2(0.293255, 0.251256)
 texture = ExtResource("2_1m6e3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_ff7ft")
 
 [node name="InteractionPoint" type="Marker2D" parent="."]

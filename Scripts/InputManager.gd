@@ -53,6 +53,7 @@ func _unhandled_input(event):
 				for unit in selectedUnits:
 					unit.ChangeTargetPosition( get_global_mouse_position() )
 					unit.interactionTarget = null
+					unit.interactionContainer = null
 			else:
 				for unit in selectedUnits:
 					if result[0].collider is Interactable:
@@ -61,7 +62,12 @@ func _unhandled_input(event):
 					if result[0].collider is PlacedItem:
 						unit.ChangeTargetPosition( result[0].collider.global_position )
 						print("selected item")
+					if result[0].collider is ItemContainer:
+						unit.ChangeTargetPosition( result[0].collider.interactionPoint.global_position )
+						
 					unit.interactionTarget = result[0].collider
+			
+			UpdateUnitUI()
 					
 			Game.UpdateEnemyTargetPosition()
 				
@@ -134,7 +140,8 @@ func _on_equip_button_pressed():
 	
 	
 func UpdateUnitUI():
-	UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])
+	if len(selectedUnits) > 0:
+		UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])
 
 
 func _on_unequip_button_pressed():
@@ -174,3 +181,34 @@ func _on_drop_button_pressed():
 
 func _on_consume_button_pressed():
 	pass # Replace with function body.
+
+
+func _on_take_button_pressed(isTake):
+	if len(selectedUnits) < 1:
+		return
+	if selectedUnits[0].interactionContainer == null:
+		return
+		
+		
+	if isTake:
+		var containerItemList = UserInterfaceManager.containerUI.get_node("ItemList")
+		if len(containerItemList.get_selected_items()) == 0:
+			print("nothing selected!")
+			return
+		var itemContainer = selectedUnits[0].interactionContainer
+		var index: int = containerItemList.get_selected_items()[0]
+		selectedUnits[0].AddItem(itemContainer.RemoveItemByIndex(index))
+	else:
+		var selectedItemIndex = UserInterfaceManager.itemList.get_selected_items()
+		if len(selectedItemIndex) == 0:
+			print("nothing selected!")
+			return
+		var itemContainer = selectedUnits[0].interactionContainer
+		if itemContainer.AddItem(selectedUnits[0].inventory[selectedItemIndex[0]]):
+			selectedUnits[0].RemoveByIndex(selectedItemIndex[0])
+		else:
+			print("Cannot put because container is full!")
+		
+
+	selectedUnits[0].UpdateStats()
+	UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])
