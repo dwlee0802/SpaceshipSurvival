@@ -30,7 +30,6 @@ func _process(_delta):
 
 func Fix(delta):
 	timeToFix -= delta
-	print("fixing!")
 	if timeToFix > 0:
 		return false
 	else:

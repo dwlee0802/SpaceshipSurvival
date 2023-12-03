@@ -32,6 +32,8 @@ func _process(_delta):
 	
 	
 func RollEnemySpawn():
+#turn it off for now
+	return
 	if randf() < respawnRate:
 		var newEnemy = enemyScene.instantiate()
 		get_parent().get_parent().add_child(newEnemy)

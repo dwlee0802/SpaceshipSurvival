@@ -47,7 +47,7 @@ size = Vector2(100, 100)
 script = ExtResource("1_e32sq")
 
 [node name="Camera" type="Camera2D" parent="."]
-position = Vector2(818, -503)
+position = Vector2(-3420, 2)
 script = ExtResource("6_pyyuj")
 
 [node name="Canvas" type="CanvasLayer" parent="Camera"]
@@ -863,10 +863,10 @@ shape = SubResource("RectangleShape2D_vbgc8")
 z_index = -1
 
 [node name="Survivor" parent="." instance=ExtResource("4_16enx")]
-position = Vector2(41, -183)
+position = Vector2(-3750, 25)
 
 [node name="Survivor2" parent="." instance=ExtResource("4_16enx")]
-position = Vector2(196, -188)
+position = Vector2(-3595, 20)
 
 [node name="Placed Item" parent="." instance=ExtResource("10_vqgar")]
 position = Vector2(-129, 186)

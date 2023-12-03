@@ -1,8 +1,4 @@
-res://Scenes/interactable.tscn
-res://Scenes/container.tscn
-res://Scenes/container.gd
 res://Scenes/spaceship.tscn
-res://Scripts/item.gd
 res://Scenes/game.tscn
 res://Scenes/survivor.tscn
 res://Scenes/placed_item.tscn
@@ -11,8 +7,8 @@ res://Scenes/enemy.tscn
 res://Scenes/spawn_point.tscn
 res://Scenes/nuclear_reactor.tscn
 res://Scenes/infirmary.tscn
-res://Scripts/survivor.gd
-res://Scripts/InputManager.gd
 res://Scenes/item_container.tscn
-res://Scripts/UserInterfaceManager.gd
-res://Scripts/item_container.gd
+res://Scenes/interactable.tscn
+res://Scripts/spaceship.gd
+res://Scripts/module.gd
+res://Scripts/interactable.gd

@@ -43,7 +43,7 @@ func _ready():
 	modules[ModuleName.Oxygen_Generator] = $Modules/OxygenGenerator
 	modules[ModuleName.Temperature_Control] = $Modules/TemperatureControl
 	modules[ModuleName.Nuclear_Reactor] = $Modules/NuclearReactor
-	modules[ModuleName.Infirmary] = $Modules/Infirmary
+	#modules[ModuleName.Infirmary] = $Modules/Infirmary
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
