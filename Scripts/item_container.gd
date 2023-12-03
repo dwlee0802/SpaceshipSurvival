@@ -9,12 +9,23 @@ var capacity: int = 20
 
 @onready var interactionPoint = $InteractionPoint
 
+@export var randomizeContent: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	AddItem(Item.new(0,0))
-	AddItem(Item.new(1,0))
-	AddItem(Item.new(2,0))
+	if randomizeContent:
+		var count = randi_range(1,4)
+		for i in range(count):
+			# pick item type
+			var itemType = randi_range(0, 4)
+			if itemType == 0:
+				AddItem(Item.new(itemType, randi_range(0, 1)))
+			if itemType == 1:
+				AddItem(Item.new(itemType, randi_range(0, 1)))
+			if itemType == 2:
+				AddItem(Item.new(itemType, randi_range(0, 1)))
+			if itemType == 3:
+				AddItem(Item.new(itemType, randi_range(0, 1)))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

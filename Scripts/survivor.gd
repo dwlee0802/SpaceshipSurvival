@@ -76,6 +76,7 @@ func _ready():
 	var content_as_text1 = file1.get_as_text()
 	itemsDict = parse_json(content_as_text1)
 	Item.itemDict = itemsDict
+	print(Item.itemDict)
 	
 	attackTimer.timeout.connect(Attack)
 	
