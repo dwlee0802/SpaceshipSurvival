@@ -297,7 +297,7 @@ func OnDeath():
 
 # simulates breathing in
 func _on_oxygen_timer_timeout():
-	oxygen += 10 * Spaceship.oxygenLevel / 100
+	oxygen += 10 * Spaceship.oxygenLevel / 100.0
 	if equipmentSlots[SlotType.Head] >= 0:
 		oxygen += inventory[equipmentSlots[SlotType.Head]].data.oxygenGeneration
 	

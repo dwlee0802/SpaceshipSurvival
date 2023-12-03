@@ -6,12 +6,12 @@ class_name Spaceship
 # Affects how much oxygen is gained per breath
 # Might change this to module specific levels in the future
 # if a unit reaches zero oxygen, they take HP damage
-static var oxygenLevel: int = 50
+static var oxygenLevel: int = 100
 
 # temperature level of the ship
 # body temperature of survivors slowly change towards ship temperature
 # if too high or low, speed and accuracy is decreased and HP is slowly reduced
-static var temperature: float = 40
+static var temperature: float = 25
 
 # food stock of the survivors
 # food is consumed periodically
@@ -22,7 +22,7 @@ static var foodStock: int = 0
 # ammo is consumed when using ranged weapons
 # more powerful weapons consume more ammo
 # can't use ranged weapons if ammo is zero
-static var ammoStock: int = 15
+static var ammoStock: int = 1500
 
 # the travel speed of the ship
 # calculated based on the number of operational thrusters

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dnmd6ufe4n8al" path="res://Scenes/module.tscn" id="3_vg3u6"]
 [ext_resource type="PackedScene" uid="uid://jyq0yd0540h7" path="res://Scenes/nuclear_reactor.tscn" id="4_c0l2y"]
 [ext_resource type="PackedScene" uid="uid://be6pcrbh62p80" path="res://Scenes/interactable.tscn" id="4_vuwvc"]
+[ext_resource type="PackedScene" uid="uid://7co56rfrnp0b" path="res://Scenes/spawn_point.tscn" id="5_ew3pq"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_0be61"]
 tile_data = PackedInt32Array(65536, 458752, 3, 131072, 327680, 3, 196608, 327680, 3, 262144, 327680, 3, 327680, 458752, 3, 1, 458752, 3, 65537, 458752, 3, 131073, 327680, 3, 196609, 327680, 3, 262145, 327680, 3, 327681, 458752, 3, 393217, 458752, 3, 458753, 458752, 3, 524289, 458752, 3, 2, 327680, 3, 65538, 327680, 3, 131074, 327680, 3, 196610, 327680, 3, 262146, 327680, 3, 327682, 327680, 3, 393218, 327680, 3, 458754, 327680, 3, 524290, 458752, 3, 3, 327680, 3, 65539, 327680, 3, 131075, 327680, 3, 196611, 327680, 3, 262147, 327680, 3, 327683, 327680, 3, 393219, 327680, 3, 458755, 327680, 3, 524291, 458752, 3, 4, 327680, 3, 65540, 327680, 3, 131076, 327680, 3, 196612, 327680, 3, 262148, 327680, 3, 327684, 327680, 3, 393220, 327680, 3, 458756, 327680, 3, 524292, 458752, 3, 5, 327680, 3, 65541, 327680, 3, 131077, 327680, 3, 196613, 327680, 3, 262149, 327680, 3, 327685, 327680, 3, 393221, 327680, 3, 458757, 327680, 3, 524293, 458752, 3, 6, 327680, 3, 65542, 327680, 3, 131078, 327680, 3, 196614, 327680, 3, 262150, 327680, 3, 327686, 327680, 3, 393222, 327680, 3, 458758, 327680, 3, 524294, 458752, 3, 7, 327680, 3, 65543, 327680, 3, 131079, 327680, 3, 196615, 327680, 3, 262151, 327680, 3, 327687, 327680, 3, 393223, 327680, 3, 458759, 327680, 3, 524295, 458752, 3, 8, 327680, 3, 65544, 327680, 3, 131080, 327680, 3, 196616, 327680, 3, 262152, 327680, 3, 327688, 327680, 3, 393224, 327680, 3, 458760, 327680, 3, 524296, 458752, 3, 9, 327680, 3, 65545, 327680, 3, 131081, 327680, 3, 196617, 327680, 3, 262153, 327680, 3, 327689, 327680, 3, 393225, 327680, 3, 458761, 327680, 3, 524297, 458752, 3, 10, 327680, 3, 65546, 327680, 3, 131082, 327680, 3, 196618, 327680, 3, 262154, 327680, 3, 327690, 327680, 3, 393226, 327680, 3, 458762, 327680, 3, 524298, 458752, 3, 11, 327680, 3, 65547, 327680, 3, 131083, 327680, 3, 196619, 327680, 3, 262155, 327680, 3, 327691, 327680, 3, 393227, 327680, 3, 458763, 327680, 3, 524299, 458752, 3, 12, 327680, 3, 65548, 327680, 3, 131084, 327680, 3, 196620, 327680, 3, 262156, 327680, 3, 327692, 327680, 3, 393228, 327680, 3, 458764, 327680, 3, 524300, 458752, 3, 13, 327680, 3, 65549, 327680, 3, 131085, 327680, 3, 196621, 327680, 3, 262157, 327680, 3, 327693, 327680, 3, 393229, 327680, 3, 458765, 327680, 3, 524301, 458752, 3, 14, 458752, 3, 65550, 458752, 3, 131086, 327680, 3, 196622, 327680, 3, 262158, 458752, 3, 327694, 458752, 3, 393230, 458752, 3, 458766, 458752, 3, 524302, 458752, 3, 65551, 458752, 3, 131087, 327680, 3, 196623, 327680, 3, 262159, 458752, 3)
@@ -81,9 +82,6 @@ pattern_9 = SubResource("TileMapPattern_l8g8u")
 pattern_10 = SubResource("TileMapPattern_gpnj0")
 pattern_11 = SubResource("TileMapPattern_o6y48")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6nmju"]
-size = Vector2(806, 804)
-
 [node name="Spaceship" type="Node2D"]
 script = ExtResource("1_6uk50")
 
@@ -116,11 +114,19 @@ position = Vector2(-280, 13)
 [node name="Interactable2" parent="Modules/NuclearReactor/Interactables" instance=ExtResource("4_vuwvc")]
 position = Vector2(285, 13)
 
-[node name="ModuleArea" type="Area2D" parent="Modules/NuclearReactor"]
+[node name="SpawnPoints" type="Node2D" parent="Modules/NuclearReactor"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Modules/NuclearReactor/ModuleArea"]
-position = Vector2(1, -2)
-shape = SubResource("RectangleShape2D_6nmju")
+[node name="SpawnPoint" parent="Modules/NuclearReactor/SpawnPoints" instance=ExtResource("5_ew3pq")]
+position = Vector2(-397, -402)
+
+[node name="SpawnPoint2" parent="Modules/NuclearReactor/SpawnPoints" instance=ExtResource("5_ew3pq")]
+position = Vector2(390, 393)
+
+[node name="SpawnPoint3" parent="Modules/NuclearReactor/SpawnPoints" instance=ExtResource("5_ew3pq")]
+position = Vector2(-386, 393)
+
+[node name="SpawnPoint4" parent="Modules/NuclearReactor/SpawnPoints" instance=ExtResource("5_ew3pq")]
+position = Vector2(388, -395)
 
 [node name="NuclearReactor2" parent="Modules" instance=ExtResource("4_c0l2y")]
 position = Vector2(-3599, 606)
@@ -133,11 +139,19 @@ position = Vector2(-280, 13)
 [node name="Interactable2" parent="Modules/NuclearReactor2/Interactables" instance=ExtResource("4_vuwvc")]
 position = Vector2(285, 13)
 
-[node name="ModuleArea" type="Area2D" parent="Modules/NuclearReactor2"]
+[node name="SpawnPoints" type="Node2D" parent="Modules/NuclearReactor2"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Modules/NuclearReactor2/ModuleArea"]
-position = Vector2(1, -2)
-shape = SubResource("RectangleShape2D_6nmju")
+[node name="SpawnPoint" parent="Modules/NuclearReactor2/SpawnPoints" instance=ExtResource("5_ew3pq")]
+position = Vector2(-397, -402)
+
+[node name="SpawnPoint2" parent="Modules/NuclearReactor2/SpawnPoints" instance=ExtResource("5_ew3pq")]
+position = Vector2(390, 393)
+
+[node name="SpawnPoint3" parent="Modules/NuclearReactor2/SpawnPoints" instance=ExtResource("5_ew3pq")]
+position = Vector2(-386, 393)
+
+[node name="SpawnPoint4" parent="Modules/NuclearReactor2/SpawnPoints" instance=ExtResource("5_ew3pq")]
+position = Vector2(388, -395)
 
 [node name="OxygenGenerator" parent="Modules" instance=ExtResource("3_vg3u6")]
 position = Vector2(-6901, -644)
@@ -147,11 +161,10 @@ position = Vector2(-6901, -644)
 [node name="Interactable" parent="Modules/OxygenGenerator/Interactables" instance=ExtResource("4_vuwvc")]
 position = Vector2(285, 13)
 
-[node name="ModuleArea" type="Area2D" parent="Modules/OxygenGenerator"]
+[node name="SpawnPoints" type="Node2D" parent="Modules/OxygenGenerator"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Modules/OxygenGenerator/ModuleArea"]
-position = Vector2(1, -2)
-shape = SubResource("RectangleShape2D_6nmju")
+[node name="SpawnPoint" parent="Modules/OxygenGenerator/SpawnPoints" instance=ExtResource("5_ew3pq")]
+position = Vector2(-545, -404)
 
 [node name="TemperatureControl" parent="Modules" instance=ExtResource("3_vg3u6")]
 position = Vector2(-6905, 616)
@@ -161,11 +174,11 @@ position = Vector2(-6905, 616)
 [node name="Interactable" parent="Modules/TemperatureControl/Interactables" instance=ExtResource("4_vuwvc")]
 position = Vector2(285, 13)
 
-[node name="ModuleArea" type="Area2D" parent="Modules/TemperatureControl"]
+[node name="SpawnPoints" type="Node2D" parent="Modules/TemperatureControl"]
+position = Vector2(-7, 37)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Modules/TemperatureControl/ModuleArea"]
-position = Vector2(1, -2)
-shape = SubResource("RectangleShape2D_6nmju")
+[node name="SpawnPoint" parent="Modules/TemperatureControl/SpawnPoints" instance=ExtResource("5_ew3pq")]
+position = Vector2(-545, -404)
 
 [node name="NuclearReactor3" parent="Modules" instance=ExtResource("4_c0l2y")]
 position = Vector2(-8449, 2)
@@ -178,11 +191,19 @@ position = Vector2(-324, 321)
 [node name="Interactable2" parent="Modules/NuclearReactor3/Interactables" instance=ExtResource("4_vuwvc")]
 position = Vector2(327, -326)
 
-[node name="ModuleArea" type="Area2D" parent="Modules/NuclearReactor3"]
+[node name="SpawnPoints" type="Node2D" parent="Modules/NuclearReactor3"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Modules/NuclearReactor3/ModuleArea"]
-position = Vector2(1, -2)
-shape = SubResource("RectangleShape2D_6nmju")
+[node name="SpawnPoint" parent="Modules/NuclearReactor3/SpawnPoints" instance=ExtResource("5_ew3pq")]
+position = Vector2(-716, -692)
+
+[node name="SpawnPoint2" parent="Modules/NuclearReactor3/SpawnPoints" instance=ExtResource("5_ew3pq")]
+position = Vector2(680, 662)
+
+[node name="SpawnPoint3" parent="Modules/NuclearReactor3/SpawnPoints" instance=ExtResource("5_ew3pq")]
+position = Vector2(-719, 662)
+
+[node name="SpawnPoint4" parent="Modules/NuclearReactor3/SpawnPoints" instance=ExtResource("5_ew3pq")]
+position = Vector2(683, -695)
 
 [connection signal="timeout" from="TravelTimer" to="." method="_on_travel_timer_timeout"]
 [connection signal="timeout" from="TemperatureTimer" to="." method="_on_temperature_timer_timeout"]

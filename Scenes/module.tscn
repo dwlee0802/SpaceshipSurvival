@@ -1,19 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnmd6ufe4n8al"]
+[gd_scene load_steps=2 format=3 uid="uid://dnmd6ufe4n8al"]
 
 [ext_resource type="Script" path="res://Scripts/module.gd" id="1_jygwm"]
-[ext_resource type="PackedScene" uid="uid://7co56rfrnp0b" path="res://Scenes/spawn_point.tscn" id="3_d0ik2"]
 
 [node name="Module" type="Node2D"]
 script = ExtResource("1_jygwm")
 
 [node name="ErrorTimer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 60.0
 autostart = true
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 process_callback = 0
+wait_time = 5.0
 autostart = true
-
-[node name="SpawnPoint" parent="." instance=ExtResource("3_d0ik2")]
-visible = false
-position = Vector2(176, -1)

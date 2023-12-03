@@ -12,3 +12,4 @@ res://Scenes/interactable.tscn
 res://Scripts/spaceship.gd
 res://Scripts/module.gd
 res://Scripts/interactable.gd
+res://Scripts/survivor.gd
