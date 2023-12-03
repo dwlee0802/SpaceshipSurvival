@@ -75,7 +75,7 @@ func _on_oxygen_timer_timeout():
 	if not modules[ModuleName.Oxygen_Generator].isOperational:
 		oxygenLevel -= 1
 	else:
-		oxygenLevel += 1
+		oxygenLevel += 2
 	
 	if oxygenLevel < 0:
 		oxygenLevel = 0
