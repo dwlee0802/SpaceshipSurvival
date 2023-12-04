@@ -21,6 +21,7 @@ static var itemsDict
 @onready var noAmmoLabel = $NoAmmoLabel
 
 @onready var destinationMarker = $DestinationCircle
+@onready var attackTargetMarker = $AttackTargetUI
 
 var interactionTarget
 
@@ -146,6 +147,12 @@ func _physics_process(delta):
 	else:
 		destinationMarker.visible = true
 		destinationMarker.position = target_position - position
+	
+	if attackTarget != null and not attackTimer.is_stopped():
+		attackTargetMarker.visible = true
+		attackTargetMarker.global_position = attackTarget.global_position
+	else:
+		attackTargetMarker.visible = false
 		
 	if  (not isMoving) and (interactionTarget != null):
 		if interactionTarget is Interactable:
@@ -199,6 +206,10 @@ func ScanForAttackTargets():
 			if dist < minDist:
 				minDist = dist
 				attackTarget = item
+				var text = "Hit Chance: " + str(int(endAccuracy * 100 - attackTarget.evasion * 100)) + "\n"
+				text += "ACC: " + str(int(endAccuracy * 100)) + "\n"
+				text += "EVA: " + str(int(attackTarget.evasion * 100)) + "\n"
+				attackTargetMarker.get_node("Label").text = text
 		
 		attackRaycast.target_position = attackTarget.position - position
 
