@@ -40,6 +40,8 @@ static var ammoStockLabel
 
 static var containerUI
 
+static var spaceshipOverviewUI
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -62,6 +64,7 @@ func _ready():
 	foodStockLabel = $ResourcesUI/FoodStockLabel
 	ammoStockLabel = $ResourcesUI/AmmoStockLabel
 	containerUI = $UnitUI/ContainerUI
+	spaceshipOverviewUI = $SpaceshipOverviewUI
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -191,3 +194,11 @@ static func ModifyContextMenuByItem(index, unit):
 
 static func UpdateAmmoStockLabel(amount):
 	ammoStockLabel.text = "Ammo: " + str(amount)
+	
+	
+static func UpdateSpaceshipOverviewUI(val = true):
+	if val:
+		spaceshipOverviewUI.visible = true
+		spaceshipOverviewUI.get_node("ModuleStatus").text = Game.spaceship.PrintModuleStatus()
+	else:
+		spaceshipOverviewUI.visible = false

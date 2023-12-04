@@ -844,6 +844,38 @@ text = "Fire"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="SpaceshipOverviewUI" type="Control" parent="Camera/Canvas"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 135.0
+offset_top = 87.0
+offset_right = 135.0
+offset_bottom = 87.0
+
+[node name="Background" type="Panel" parent="Camera/Canvas/SpaceshipOverviewUI"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 14.0
+offset_right = 1086.0
+offset_bottom = 599.0
+
+[node name="ModuleStatus" type="Label" parent="Camera/Canvas/SpaceshipOverviewUI"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 38.0
+offset_right = 435.0
+offset_bottom = 448.0
+text = "Modules:
+Nuclear Reactor 1: Normal
+Nuclear Reactor 2: Normal
+Nuclear Reactor 3: Normal
+Infirmary: Normal
+Oxygen Generator: Normal
+Temperature Control: Normal
+
+"
+
 [node name="InputManager" type="Node2D" parent="."]
 script = ExtResource("2_drscf")
 

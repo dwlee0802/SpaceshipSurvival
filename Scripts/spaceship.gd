@@ -97,3 +97,16 @@ static func ConsumeAmmo(amount):
 		
 	UserInterfaceManager.UpdateAmmoStockLabel(amount)
 	return true
+	
+
+func PrintModuleStatus():
+	var output = "Modules\n"
+	
+	for module in get_node("Modules").get_children():
+		output += module.name + ": "
+		if module.isOperational:
+			output += "Normal\n"
+		else:
+			output += "ERROR!\n"
+	
+	return output

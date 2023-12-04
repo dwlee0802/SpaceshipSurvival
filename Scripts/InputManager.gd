@@ -71,20 +71,29 @@ func _unhandled_input(event):
 					
 			Game.UpdateEnemyTargetPosition()
 		
-	if event is InputEventKey and event.pressed:
-		# pan camera to survivors
-		if event.keycode == KEY_1:
-			if len(Game.survivors) >= 1:
-				SelectSingleUnit(Game.survivors[0])
-		if event.keycode == KEY_2:
-			if len(Game.survivors) >= 2:
-				SelectSingleUnit(Game.survivors[1])
-		if event.keycode == KEY_3:
-			if len(Game.survivors) >= 2:
-				SelectSingleUnit(Game.survivors[2])
-		if event.keycode == KEY_4:
-			if len(Game.survivors) >= 3:
-				SelectSingleUnit(Game.survivors[3])
+	if event is InputEventKey:
+		if event.pressed:
+			# pan camera to survivors
+			if event.keycode == KEY_1:
+				if len(Game.survivors) >= 1:
+					SelectSingleUnit(Game.survivors[0])
+			if event.keycode == KEY_2:
+				if len(Game.survivors) >= 2:
+					SelectSingleUnit(Game.survivors[1])
+			if event.keycode == KEY_3:
+				if len(Game.survivors) >= 2:
+					SelectSingleUnit(Game.survivors[2])
+			if event.keycode == KEY_4:
+				if len(Game.survivors) >= 3:
+					SelectSingleUnit(Game.survivors[3])
+			
+			# show spaceship overview UI
+			if event.keycode == KEY_TAB:
+				UserInterfaceManager.UpdateSpaceshipOverviewUI()
+		else:
+			# show spaceship overview UI
+			if event.keycode == KEY_TAB:
+				UserInterfaceManager.UpdateSpaceshipOverviewUI(false)
 		
 	if dragging and event is InputEventMouseMotion:
 		selectionBox.get_node("CollisionShape2D").disabled = false

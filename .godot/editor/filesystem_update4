@@ -13,3 +13,6 @@ res://Scenes/infirmary.tscn
 res://Scenes/item_container.tscn
 res://Scenes/interactable.tscn
 res://Scripts/InputManager.gd
+res://Scripts/spaceship.gd
+res://Scripts/UserInterfaceManager.gd
+res://Scripts/game.gd

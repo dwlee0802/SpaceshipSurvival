@@ -1,14 +1,14 @@
+Label
+Panel
+Control
 Timer
 Node2D
 CollisionShape2D
 Area2D
-Label
 StaticBody2D
 Marker2D
 Sprite2D
-Panel
 Polygon2D
 Button
-Control
 ItemList
 ScrollContainer

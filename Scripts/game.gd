@@ -12,13 +12,16 @@ static var damagePopup = preload("res://Scenes/damage_popup.tscn")
 
 static var gameScene
 
+static var spaceship
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	survivors.append($Survivor)
 	survivors.append($Survivor2)
 	gameScene = self
-	
+	spaceship = $Spaceship
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
