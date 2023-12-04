@@ -16,3 +16,5 @@ res://Scripts/InputManager.gd
 res://Scripts/spaceship.gd
 res://Scripts/UserInterfaceManager.gd
 res://Scripts/game.gd
+res://Scripts/survivor.gd
+res://Scripts/placed_item.gd

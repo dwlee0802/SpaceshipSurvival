@@ -18,6 +18,8 @@ static var itemsDict
 
 @onready var noAmmoLabel = $NoAmmoLabel
 
+@onready var destinationMarker = $DestinationCircle
+
 var interactionTarget
 
 var interactionContainer
@@ -76,7 +78,6 @@ func _ready():
 	var content_as_text1 = file1.get_as_text()
 	itemsDict = parse_json(content_as_text1)
 	Item.itemDict = itemsDict
-	print(Item.itemDict)
 	
 	attackTimer.timeout.connect(Attack)
 	
@@ -88,7 +89,9 @@ func _ready():
 	# test. add crowbar to inventory
 	AddItemByIndex(0, 0)
 	AddItemByIndex(1, 2)
-
+	
+	destinationMarker.get_node("Label").text = name
+	
 
 func parse_json(text):
 	return JSON.parse_string(text)
@@ -140,6 +143,12 @@ func _physics_process(delta):
 	super._physics_process(delta)
 	muzzleFlashSprite.visible = false
 	
+	if not isMoving:
+		destinationMarker.visible = false
+	else:
+		destinationMarker.visible = true
+		destinationMarker.position = target_position - position
+		
 	if  (not isMoving) and (interactionTarget != null):
 		if interactionTarget is Interactable:
 			if interactionTarget.Fix(delta):
@@ -175,7 +184,7 @@ func _physics_process(delta):
 			attackTimer.stop()
 			attackLine.visible = false
 		
-	
+		
 func ScanForAttackTargets():
 	# acquire attack targets
 	var targets = attackArea.get_overlapping_bodies()
@@ -286,7 +295,7 @@ func ChangeTargetPosition(where):
 	super.ChangeTargetPosition(where)
 	PointArmAt(where)
 	interactionContainer = null
-
+	
 
 func OnDeath():
 	if isDead:

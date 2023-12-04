@@ -1,4 +1,5 @@
 Label
+Sprite2D
 Panel
 Control
 Timer
@@ -7,7 +8,6 @@ CollisionShape2D
 Area2D
 StaticBody2D
 Marker2D
-Sprite2D
 Polygon2D
 Button
 ItemList

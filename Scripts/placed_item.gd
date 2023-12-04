@@ -7,8 +7,6 @@ class_name PlacedItem
 
 
 func _ready():
-	print(position)
-	
 	if itemType < 0 or itemID < 0:
 		queue_free()
 		print("Error. Item type and ID can't be negative.")

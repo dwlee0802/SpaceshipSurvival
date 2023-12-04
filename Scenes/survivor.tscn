@@ -149,5 +149,23 @@ offset_bottom = -34.0
 theme_override_font_sizes/font_size = 9
 text = "No Ammo"
 
+[node name="DestinationCircle" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0.929412, 0.278431, 1)
+show_behind_parent = true
+position = Vector2(141, 37)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_5uyep")
+
+[node name="Label" type="Label" parent="DestinationCircle"]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = -150.0
+offset_top = -50.0
+offset_right = 160.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 60
+text = "Survivor 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="timeout" from="OxygenTimer" to="." method="_on_oxygen_timer_timeout"]
 [connection signal="timeout" from="TemperatureTimer" to="." method="_on_temperature_timer_timeout"]
