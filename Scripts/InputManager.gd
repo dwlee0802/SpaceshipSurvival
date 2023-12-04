@@ -90,6 +90,13 @@ func _unhandled_input(event):
 			# show spaceship overview UI
 			if event.keycode == KEY_TAB:
 				UserInterfaceManager.UpdateSpaceshipOverviewUI()
+				
+			# pause button
+			if event.keycode == KEY_SPACE:
+				if Engine.time_scale == 0:
+					Engine.time_scale = 1
+				else:
+					Engine.time_scale = 0
 		else:
 			# show spaceship overview UI
 			if event.keycode == KEY_TAB:
