@@ -150,6 +150,7 @@ theme_override_font_sizes/font_size = 9
 text = "No Ammo"
 
 [node name="DestinationCircle" type="Sprite2D" parent="."]
+visible = false
 self_modulate = Color(0, 0.929412, 0.278431, 1)
 show_behind_parent = true
 position = Vector2(141, 37)

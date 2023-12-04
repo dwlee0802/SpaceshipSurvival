@@ -9,6 +9,10 @@ var speedModifier: float = 1
 # how much damage is reduced when this unit is hit.
 @export var defense: float = 0
 @export var radiationDefense: float = 0
+@export var evasion: float = 0
+# how well this person can hit targets with a ranged weapon
+# added with weapon accuracy to get total accuracy
+@export var accuracy: float = 0
 
 var attackTarget
 
@@ -56,7 +60,16 @@ func ChangeTargetPosition(pos):
 	nav.target_position = target_position
 
 
-func ReceiveHit(amount, penetration = 0, isRadiationDamage = false):
+func ReceiveHit(amount, penetration = 0, accuracy = 0, isRadiationDamage = false):
+	# accuracy check
+	var endAccuracy = accuracy - evasion
+	if endAccuracy < 0:
+		endAccuracy = 0
+	
+	if randf() <= endAccuracy:
+		Game.MakeDamagePopup(position, 0)
+		return
+		
 	print("Init: ", amount)
 	var endDefense
 	if not isRadiationDamage:

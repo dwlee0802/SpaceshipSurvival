@@ -18,3 +18,5 @@ res://Scripts/UserInterfaceManager.gd
 res://Scripts/game.gd
 res://Scripts/survivor.gd
 res://Scripts/placed_item.gd
+res://Scripts/unit.gd
+res://Scripts/enemy.gd

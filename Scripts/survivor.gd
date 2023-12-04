@@ -2,6 +2,8 @@ extends "res://Scripts/unit.gd"
 
 class_name Survivor
 
+var endAccuracy: float = 0
+
 @onready var attackArea = $AttackArea
 @onready var attackLine = $AttackLine
 
@@ -50,10 +52,6 @@ var oxygen: float = 100
 var bodyTemperature: float = 36.5
 
 var nutrition: float = 100
-
-# how well this person can hit targets with a ranged weapon
-# added with weapon accuracy to get total accuracy
-var accuracy: float = 0.5
 
 # how strong this person is. Affects melee damage and inventory capacity
 # 2 inventory cap for 1 strength
@@ -214,7 +212,7 @@ func Attack():
 	if Spaceship.ConsumeAmmo(primary.data.ammoPerShot):
 		var amount = randi_range(primary.data.damageMin, primary.data.damageMax)
 		if is_instance_valid(attackTarget):
-			attackTarget.ReceiveHit(amount, primary.data.penetration)
+			attackTarget.ReceiveHit(amount, primary.data.penetration, endAccuracy)
 		else:
 			attackTarget = null
 		print("Delt ", str(amount), " damage!")
@@ -247,10 +245,11 @@ func UpdateStats():
 	var body = null
 	if equipmentSlots[SlotType.Body] >= 0:
 		body = inventory[equipmentSlots[SlotType.Body]]
-		
+	
 	if primary != null:
 		attackTimer.wait_time = 1 / primary.data.attacksPerSecond
 		get_node("AttackArea").get_node("CollisionShape2D").shape.set_radius(primary.data.range)
+		endAccuracy = accuracy + primary.data.accuracy
 	
 	defense = 0
 	radiationDefense = 0

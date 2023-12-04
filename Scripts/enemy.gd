@@ -10,6 +10,8 @@ func _ready():
 	
 	defense = 0.5
 	
+	evasion = 0.1
+	
 
 func _physics_process(delta):
 	if attackTarget == null or attackTarget.isDead:
@@ -32,8 +34,8 @@ func OnDeath():
 	queue_free()
 
 
-func ReceiveHit(amount, penetration = 0, isRadiationDamage = false):
-	super.ReceiveHit(amount, penetration, isRadiationDamage)
+func ReceiveHit(amount, penetration = 0, accuracy = 0, isRadiationDamage = false):
+	super.ReceiveHit(amount, penetration, accuracy, isRadiationDamage)
 
 
 func _on_nav_update_timer_timeout():

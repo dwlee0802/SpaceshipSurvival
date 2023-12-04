@@ -52,5 +52,9 @@ static func MakeDamagePopup(where, amount, color = Color.DARK_RED):
 	var newPopup = damagePopup.instantiate()
 	newPopup.position = where
 	newPopup.modulate = color
-	newPopup.get_node("Label").text = "[center][b]" + str(amount) + "[/b][/center]"
+	if amount != 0:
+		newPopup.get_node("Label").text = "[center][b]" + str(amount) + "[/b][/center]"
+	else:
+		newPopup.get_node("Label").text = "[center][b]" + "MISS" + "[/b][/center]"
+		
 	gameScene.add_child(newPopup)

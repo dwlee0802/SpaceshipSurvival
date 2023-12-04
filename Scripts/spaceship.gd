@@ -27,7 +27,7 @@ static var ammoStock: int = 1500
 # the travel speed of the ship
 # calculated based on the number of operational thrusters
 # added every second to distance traveled. When it reaches a certain amount, the player wins
-static var shipSpeed: int = 10
+static var shipSpeed: int = 1
 static var distanceTraveled: int = 0
 static var DISTANCE_TO_DESTINATION: int = 36000
 
