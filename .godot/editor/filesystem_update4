@@ -12,3 +12,4 @@ res://Scenes/nuclear_reactor.tscn
 res://Scenes/infirmary.tscn
 res://Scenes/item_container.tscn
 res://Scenes/interactable.tscn
+res://Scripts/InputManager.gd

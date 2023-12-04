@@ -70,7 +70,21 @@ func _unhandled_input(event):
 			UpdateUnitUI()
 					
 			Game.UpdateEnemyTargetPosition()
-				
+		
+	if event is InputEventKey and event.pressed:
+		# pan camera to survivors
+		if event.keycode == KEY_1:
+			if len(Game.survivors) >= 1:
+				SelectSingleUnit(Game.survivors[0])
+		if event.keycode == KEY_2:
+			if len(Game.survivors) >= 2:
+				SelectSingleUnit(Game.survivors[1])
+		if event.keycode == KEY_3:
+			if len(Game.survivors) >= 2:
+				SelectSingleUnit(Game.survivors[2])
+		if event.keycode == KEY_4:
+			if len(Game.survivors) >= 3:
+				SelectSingleUnit(Game.survivors[3])
 		
 	if dragging and event is InputEventMouseMotion:
 		selectionBox.get_node("CollisionShape2D").disabled = false
@@ -142,6 +156,16 @@ func _on_equip_button_pressed():
 func UpdateUnitUI():
 	if len(selectedUnits) > 0:
 		UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])
+
+
+func SelectSingleUnit(unit):
+	Game.SetSelectionUI(false)
+	selectedUnits = []
+	selectedUnits.append(unit)
+	unit.ShowSelectionUI()
+	if not unit.update_unit_ui.is_connected(UpdateUnitUI):
+		unit.update_unit_ui.connect(UpdateUnitUI)
+	UserInterfaceManager.UpdateUnitInfoPanel(unit)
 
 
 func _on_unequip_button_pressed():

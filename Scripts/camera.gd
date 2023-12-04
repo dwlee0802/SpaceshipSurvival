@@ -56,7 +56,20 @@ func _unhandled_input(event):
 			position += Vector2(-tileSize * 4, 0)
 		if event.keycode == KEY_D:
 			position += Vector2(tileSize * 4, 0)
-			
+		
+		# pan camera to survivors
+		if event.keycode == KEY_1:
+			if len(Game.survivors) >= 1:
+				position = Game.survivors[0].position
+		if event.keycode == KEY_2:
+			if len(Game.survivors) >= 2:
+				position = Game.survivors[1].position
+		if event.keycode == KEY_3:
+			if len(Game.survivors) >= 2:
+				position = Game.survivors[2].position
+		if event.keycode == KEY_4:
+			if len(Game.survivors) >= 3:
+				position = Game.survivors[3].position
 
 		
 func ShakeScreen(intensity, duration):
