@@ -1,7 +1,10 @@
+res://Scenes/module.tscn
+res://Scripts/module.gd
+res://Scripts/infirmary.gd
 res://Scenes/game.tscn
+res://Scripts/camera.gd
 res://Scenes/survivor.tscn
 res://Scenes/placed_item.tscn
-res://Scenes/module.tscn
 res://Scenes/spaceship.tscn
 res://Scenes/enemy.tscn
 res://Scenes/spawn_point.tscn
@@ -9,8 +12,3 @@ res://Scenes/nuclear_reactor.tscn
 res://Scenes/infirmary.tscn
 res://Scenes/item_container.tscn
 res://Scenes/interactable.tscn
-res://Scripts/item_container.gd
-res://Scripts/enemy.gd
-res://Scripts/interactable.gd
-res://Scripts/nuclear_reactor.gd
-res://Scripts/camera.gd

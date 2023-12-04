@@ -14,6 +14,9 @@ var shake_strength: float = 0
 
 var tileSize = 30
 
+var screenDragging: bool = false
+var screenDragStart
+var screenDragOffset
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,6 +28,11 @@ func _ready():
 func _process(delta):
 	shake_strength = lerp(shake_strength, 0.0, SHAKE_DECAY_RATE * delta)
 	offset = get_noise_offset(delta)
+	
+	# mouse wheel button dragging
+	if screenDragging:
+		position = screenDragOffset + screenDragStart - get_local_mouse_position()
+
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
@@ -32,6 +40,13 @@ func _unhandled_input(event):
 			zoom = zoom * 1.2
 		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
 			zoom = zoom * 0.8
+		if event.button_index == MOUSE_BUTTON_MIDDLE and event.pressed:
+			screenDragging = true
+			screenDragStart = position
+			screenDragOffset = get_local_mouse_position()
+		else:
+			screenDragging = false
+			
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_W:
 			position += Vector2(0, -tileSize * 4)
@@ -41,6 +56,7 @@ func _unhandled_input(event):
 			position += Vector2(-tileSize * 4, 0)
 		if event.keycode == KEY_D:
 			position += Vector2(tileSize * 4, 0)
+			
 
 		
 func ShakeScreen(intensity, duration):
