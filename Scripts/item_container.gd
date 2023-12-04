@@ -13,6 +13,15 @@ var capacity: int = 20
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	pass
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func FillContentsRandomly():
 	if randomizeContent:
 		var count = randi_range(1,4)
 		for i in range(count):
@@ -26,11 +35,6 @@ func _ready():
 				AddItem(Item.new(itemType, randi_range(0, 1)))
 			if itemType == 3:
 				AddItem(Item.new(itemType, randi_range(0, 1)))
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 
 func AddItem(item: Item):
@@ -52,3 +56,7 @@ func UpdateWeight():
 	weight = 0
 	for item in contents:
 		weight += item.data.weight
+
+
+func _on_timer_timeout():
+	FillContentsRandomly()

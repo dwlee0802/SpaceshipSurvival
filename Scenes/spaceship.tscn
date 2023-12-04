@@ -209,72 +209,58 @@ position = Vector2(683, -695)
 [node name="Containers" type="Node2D" parent="."]
 
 [node name="ItemContainer" parent="Containers" instance=ExtResource("7_24hc6")]
-process_priority = 0
 position = Vector2(-1550, -975)
 randomizeContent = true
 
 [node name="ItemContainer2" parent="Containers" instance=ExtResource("7_24hc6")]
-process_priority = 0
 position = Vector2(-752, -973)
 randomizeContent = true
 
 [node name="ItemContainer3" parent="Containers" instance=ExtResource("7_24hc6")]
-process_priority = 0
 position = Vector2(-1550, -670)
 randomizeContent = true
 
 [node name="ItemContainer4" parent="Containers" instance=ExtResource("7_24hc6")]
-process_priority = 0
 position = Vector2(-1548, -373)
 randomizeContent = true
 
 [node name="ItemContainer5" parent="Containers" instance=ExtResource("7_24hc6")]
-process_priority = 0
 position = Vector2(-752, -674)
 randomizeContent = true
 
 [node name="ItemContainer6" parent="Containers" instance=ExtResource("7_24hc6")]
-process_priority = 0
 position = Vector2(-752, -373)
 randomizeContent = true
 
 [node name="ItemContainer7" parent="Containers" instance=ExtResource("7_24hc6")]
-process_priority = 0
 position = Vector2(-1550, 180)
 randomizeContent = true
 
 [node name="ItemContainer8" parent="Containers" instance=ExtResource("7_24hc6")]
-process_priority = 0
 position = Vector2(-752, 182)
 randomizeContent = true
 
 [node name="ItemContainer9" parent="Containers" instance=ExtResource("7_24hc6")]
-process_priority = 0
 position = Vector2(-1550, 485)
 randomizeContent = true
 
 [node name="ItemContainer10" parent="Containers" instance=ExtResource("7_24hc6")]
-process_priority = 0
 position = Vector2(-1548, 782)
 randomizeContent = true
 
 [node name="ItemContainer11" parent="Containers" instance=ExtResource("7_24hc6")]
-process_priority = 0
 position = Vector2(-752, 481)
 randomizeContent = true
 
 [node name="ItemContainer12" parent="Containers" instance=ExtResource("7_24hc6")]
-process_priority = 0
 position = Vector2(-752, 782)
 randomizeContent = true
 
 [node name="ItemContainer13" parent="Containers" instance=ExtResource("7_24hc6")]
-process_priority = 0
 position = Vector2(-3600, 877)
 randomizeContent = true
 
 [node name="ItemContainer14" parent="Containers" instance=ExtResource("7_24hc6")]
-process_priority = 0
 position = Vector2(-3602, -1024)
 randomizeContent = true
 

@@ -3,7 +3,7 @@ extends StaticBody2D
 class_name Interactable
 
 # time needed to fix this object
-var timeToFix: float = 5
+var timeToFix: float = 0
 
 @onready var interactionPoint = $InteractionPoint
 @onready var fixTimeLabel = $FixTimeLabel

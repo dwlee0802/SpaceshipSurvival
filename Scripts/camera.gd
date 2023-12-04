@@ -14,6 +14,7 @@ var shake_strength: float = 0
 
 var tileSize = 30
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	noise.frequency = 2

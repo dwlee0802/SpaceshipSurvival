@@ -21,3 +21,9 @@ shape = SubResource("RectangleShape2D_ff7ft")
 
 [node name="InteractionPoint" type="Marker2D" parent="."]
 position = Vector2(0, 45)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
