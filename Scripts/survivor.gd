@@ -332,12 +332,9 @@ func _on_oxygen_timer_timeout():
 	
 
 func _on_temperature_timer_timeout():
-	var diff = (bodyTemperature - 36.5 ) - (Spaceship.temperature - 25)
+	var diff = Spaceship.temperature - bodyTemperature
 	
-	if diff > 0:
-		bodyTemperature -= 0.1
-	else:
-		bodyTemperature += 0.1
+	bodyTemperature += 0.01 * diff
 		
 		
 func _on_nutrition_timer_timeout():

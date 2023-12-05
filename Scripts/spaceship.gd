@@ -11,7 +11,7 @@ static var oxygenLevel: int = 100
 # temperature level of the ship
 # body temperature of survivors slowly change towards ship temperature
 # if too high or low, speed and accuracy is decreased and HP is slowly reduced
-static var temperature: float = 25
+static var temperature: float = 40
 
 # food stock of the survivors
 # food is consumed periodically
