@@ -5,12 +5,17 @@ extends "res://Scripts/unit.gd"
 @onready var navUpdateTimer = $NavUpdateTimer
 
 
+
 func _ready():
+	super._ready()
+	
 	STOP_DIST = 60
 	
 	defense = 0.5
 	
 	evasion = 0.1
+	
+	overviewMarker.self_modulate = Color.DARK_ORANGE
 	
 
 func _physics_process(delta):
@@ -30,6 +35,7 @@ func _physics_process(delta):
 
 
 func OnDeath():
+	super.OnDeath()
 	print("Dead!")
 	queue_free()
 

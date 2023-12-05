@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://doc2uwqobjbon"]
+
+[node name="EngineRoom" type="Node2D"]
+
+[node name="ErrorTimer" type="Timer" parent="."]
+wait_time = 120.0
+autostart = true
+
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 5.0
+autostart = true

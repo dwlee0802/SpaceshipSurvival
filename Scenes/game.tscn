@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bj6ov38i406sf"]
+[gd_scene load_steps=16 format=3 uid="uid://bj6ov38i406sf"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e32sq"]
 [ext_resource type="Script" path="res://Scripts/InputManager.gd" id="2_drscf"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://2j00antvhw4x" path="res://Art/circle-256.png" id="4_w3iw4"]
 [ext_resource type="PackedScene" uid="uid://5cam8m5nc2yc" path="res://Scenes/spaceship.tscn" id="5_uopi8"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="6_pyyuj"]
+[ext_resource type="Texture2D" uid="uid://ddgm7rgp5c517" path="res://Art/spaceship_image.png" id="7_7g08s"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_k1ai1"]
 allow_unpress = true
@@ -45,7 +46,7 @@ size = Vector2(100, 100)
 script = ExtResource("1_e32sq")
 
 [node name="Camera" type="Camera2D" parent="."]
-position = Vector2(-3420, 2)
+position = Vector2(1673, 1029)
 script = ExtResource("6_pyyuj")
 
 [node name="Canvas" type="CanvasLayer" parent="Camera"]
@@ -843,7 +844,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="SpaceshipOverviewUI" type="Control" parent="Camera/Canvas"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 135.0
@@ -874,6 +874,17 @@ Temperature Control: Normal
 
 "
 
+[node name="SpaceshipOverviewPanel" type="TextureRect" parent="Camera/Canvas/SpaceshipOverviewUI"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 293.0
+offset_top = 53.0
+offset_right = 1423.0
+offset_bottom = 806.0
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(34, -5)
+texture = ExtResource("7_7g08s")
+
 [node name="InputManager" type="Node2D" parent="."]
 script = ExtResource("2_drscf")
 
@@ -893,10 +904,10 @@ shape = SubResource("RectangleShape2D_vbgc8")
 z_index = -1
 
 [node name="Survivor" parent="." instance=ExtResource("4_16enx")]
-position = Vector2(451, 39)
+position = Vector2(1370, 1001)
 
 [node name="Survivor2" parent="." instance=ExtResource("4_16enx")]
-position = Vector2(606, 34)
+position = Vector2(1848, 1025)
 
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InformationButton" to="InputManager" method="_on_information_button_pressed"]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InventoryButton" to="InputManager" method="_on_information_button_pressed"]

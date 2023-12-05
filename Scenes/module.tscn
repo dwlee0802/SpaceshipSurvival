@@ -6,7 +6,7 @@
 script = ExtResource("1_jygwm")
 
 [node name="ErrorTimer" type="Timer" parent="."]
-wait_time = 120.0
+wait_time = 10.0
 autostart = true
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]

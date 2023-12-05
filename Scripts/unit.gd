@@ -32,8 +32,15 @@ var STOP_DIST = 5
 
 var radiationDamageTimeHolder = 2
 
+var overviewMarker
+
+func _ready():
+	overviewMarker = UserInterfaceManager.MakeMarkerOnSpaceshipOverview()
+
 
 func _physics_process(delta):
+	overviewMarker.position = position / 5.80708
+	overviewMarker.visible = true
 	if health <= 0:
 		OnDeath()
 	
@@ -95,6 +102,7 @@ func ReceiveHit(amount, penetration = 0, accuracy = 0, isRadiationDamage = false
 
 func OnDeath():
 	print("Dead!")
+	overviewMarker.queue_free()
 	
 	
 func CheckDirectPath(pos = target_position):

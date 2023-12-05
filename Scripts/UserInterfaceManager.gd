@@ -42,6 +42,9 @@ static var containerUI
 
 static var spaceshipOverviewUI
 
+static var spaceshipOverviewPanel
+static var overviewMarker = preload("res://Scenes/overview_marker.tscn")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -65,12 +68,8 @@ func _ready():
 	ammoStockLabel = $ResourcesUI/AmmoStockLabel
 	containerUI = $UnitUI/ContainerUI
 	spaceshipOverviewUI = $SpaceshipOverviewUI
+	spaceshipOverviewPanel = $SpaceshipOverviewUI/SpaceshipOverviewPanel
 	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 
 # change scale x of progress bar based on progress
 static func UpdateTravelProgressUI(cur, maxVal):
@@ -202,3 +201,12 @@ static func UpdateSpaceshipOverviewUI(val = true):
 		spaceshipOverviewUI.get_node("ModuleStatus").text = Game.spaceship.PrintModuleStatus()
 	else:
 		spaceshipOverviewUI.visible = false
+
+static func UpdateSpaceshipOverviewText():
+	spaceshipOverviewUI.get_node("ModuleStatus").text = Game.spaceship.PrintModuleStatus()
+
+# instantiate a marker and return it to the caller
+static func MakeMarkerOnSpaceshipOverview():
+	var newMarker = overviewMarker.instantiate()
+	spaceshipOverviewPanel.add_child(newMarker)
+	return newMarker

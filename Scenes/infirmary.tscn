@@ -1,8 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://chut4u6e4lyka"]
+[gd_scene load_steps=2 format=3 uid="uid://chut4u6e4lyka"]
 
 [ext_resource type="Script" path="res://Scripts/infirmary.gd" id="1_mgwp1"]
-[ext_resource type="PackedScene" uid="uid://be6pcrbh62p80" path="res://Scenes/interactable.tscn" id="2_xtx01"]
-[ext_resource type="PackedScene" uid="uid://7co56rfrnp0b" path="res://Scenes/spawn_point.tscn" id="3_m3ktn"]
 
 [node name="Infirmary" type="Node2D"]
 script = ExtResource("1_mgwp1")
@@ -15,16 +13,9 @@ autostart = true
 process_callback = 0
 autostart = true
 
-[node name="Interactables" type="Node2D" parent="."]
-
-[node name="Interactable" parent="Interactables" instance=ExtResource("2_xtx01")]
-
 [node name="HealTimer" type="Timer" parent="."]
 process_callback = 0
 wait_time = 2.0
 autostart = true
-
-[node name="SpawnPoint" parent="." instance=ExtResource("3_m3ktn")]
-position = Vector2(176, -1)
 
 [connection signal="timeout" from="HealTimer" to="." method="_on_heal_timer_timeout"]

@@ -71,6 +71,7 @@ signal update_unit_ui
 
 
 func _ready():
+	super._ready()
 	# read in json files
 	var file1 = FileAccess.open(itemsFilePath, FileAccess.READ)
 
@@ -90,6 +91,8 @@ func _ready():
 	AddItemByIndex(1, 2)
 	
 	destinationMarker.get_node("Label").text = name
+	
+	overviewMarker.self_modulate = Color.GREEN
 	
 
 func parse_json(text):

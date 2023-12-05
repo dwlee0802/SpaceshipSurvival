@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://gcq0vcislsqo"]
+
+[ext_resource type="Texture2D" uid="uid://2j00antvhw4x" path="res://Art/circle-256.png" id="1_kyd1m"]
+
+[node name="SurvivorMarker" type="TextureRect"]
+visible = false
+self_modulate = Color(0, 1, 0, 1)
+offset_right = 25.0
+offset_bottom = 25.0
+texture = ExtResource("1_kyd1m")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 25.0
+offset_bottom = 25.0
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 1

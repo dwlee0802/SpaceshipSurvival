@@ -18,6 +18,8 @@ var interactables = []
 
 var spawnPoints = []
 
+var overviewMarker
+
 
 func _ready():
 	for item in interactablesNode.get_children():
@@ -29,11 +31,21 @@ func _ready():
 	
 	$ErrorTimer.timeout.connect(GenerateErrors)
 	$EnemySpawnTimer.timeout.connect(RollEnemySpawn)
+	overviewMarker = UserInterfaceManager.MakeMarkerOnSpaceshipOverview()
+	overviewMarker.self_modulate = Color.RED
+	overviewMarker.position = global_position / 5.80708
+	overviewMarker.get_node("Label").text = "!"
+	overviewMarker.visible = false
 
 
 func _process(_delta):
 	isOperational = CheckOperational()
 	
+	# update overview UI if something changed
+	if overviewMarker.visible == isOperational:
+		overviewMarker.visible = not isOperational
+		UserInterfaceManager.UpdateSpaceshipOverviewText()
+		
 	
 func RollEnemySpawn():
 	if randf() < respawnRate:
