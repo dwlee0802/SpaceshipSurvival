@@ -14,3 +14,5 @@ res://Scripts/unit.gd
 res://Scripts/InputManager.gd
 res://Scripts/UserInterfaceManager.gd
 res://Scripts/infirmary.gd
+res://Scenes/engine_room.gd
+res://Scripts/enemy.gd

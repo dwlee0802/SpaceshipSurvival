@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://doc2uwqobjbon"]
+[gd_scene load_steps=2 format=3 uid="uid://doc2uwqobjbon"]
+
+[ext_resource type="Script" path="res://Scenes/engine_room.gd" id="1_gbmvh"]
 
 [node name="EngineRoom" type="Node2D"]
+script = ExtResource("1_gbmvh")
 
 [node name="ErrorTimer" type="Timer" parent="."]
 wait_time = 120.0

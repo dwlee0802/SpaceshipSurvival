@@ -75,7 +75,7 @@ func ReceiveHit(amount, penetration = 0, accuracy = 0, isRadiationDamage = false
 	
 	if randf() <= endAccuracy:
 		Game.MakeDamagePopup(position, 0)
-		return
+		return false
 		
 	print("Init: ", amount)
 	var endDefense
@@ -99,6 +99,8 @@ func ReceiveHit(amount, penetration = 0, accuracy = 0, isRadiationDamage = false
 		amount *= -1
 		Game.MakeDamagePopup(position, amount, Color.LIME_GREEN)
 
+	return true
+	
 
 func OnDeath():
 	print("Dead!")

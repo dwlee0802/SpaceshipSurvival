@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://brrbmb154h7yh"]
+[gd_scene load_steps=5 format=3 uid="uid://brrbmb154h7yh"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_l4svj"]
 [ext_resource type="Texture2D" uid="uid://ct6hupidc3mfx" path="res://Art/enemy_temp_sprite.jpg" id="2_nph33"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ashq5"]
 size = Vector2(40, 40)
+
+[sub_resource type="Gradient" id="Gradient_6p3i1"]
+offsets = PackedFloat32Array(0.00662249, 0.761589, 1)
+colors = PackedColorArray(0.900709, 0.900709, 0.900709, 1, 0.901961, 0.901961, 0.901961, 1, 0.901961, 0.901961, 0.901961, 0)
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 2
@@ -26,9 +30,9 @@ shape = SubResource("RectangleShape2D_ashq5")
 path_postprocessing = 1
 
 [node name="NavUpdateTimer" type="Timer" parent="."]
+process_callback = 0
 
 [node name="NavigationRaycasts" type="Node2D" parent="."]
-visible = false
 
 [node name="RayCast2D" type="RayCast2D" parent="NavigationRaycasts"]
 collision_mask = 16
@@ -48,5 +52,23 @@ collision_mask = 16
 [node name="RayCast2D5" type="RayCast2D" parent="NavigationRaycasts"]
 position = Vector2(25, 0)
 collision_mask = 16
+
+[node name="HitParticleEffect" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 10
+lifetime = 1.4
+one_shot = true
+speed_scale = 8.0
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 60.0
+scale_amount_min = 5.0
+scale_amount_max = 10.0
+color = Color(0, 1, 0, 1)
+color_ramp = SubResource("Gradient_6p3i1")
 
 [connection signal="timeout" from="NavUpdateTimer" to="." method="_on_nav_update_timer_timeout"]
