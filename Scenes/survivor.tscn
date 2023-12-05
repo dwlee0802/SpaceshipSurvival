@@ -35,12 +35,14 @@ shape = SubResource("RectangleShape2D_nmrp8")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_postprocessing = 1
 avoidance_enabled = true
+debug_enabled = true
 
 [node name="AttackArea" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(0, -51)
 shape = SubResource("CircleShape2D_4duku")
 
 [node name="AttackLine" type="Line2D" parent="."]
@@ -190,6 +192,21 @@ vertical_alignment = 1
 [node name="NutritionTimer" type="Timer" parent="."]
 wait_time = 30.0
 autostart = true
+
+[node name="HealthBar" type="Node2D" parent="."]
+position = Vector2(-25, -52)
+
+[node name="BackgroundBar" type="TextureRect" parent="HealthBar"]
+self_modulate = Color(0, 0, 0, 1)
+offset_right = 50.0
+offset_bottom = 4.0
+texture = ExtResource("2_3n7u2")
+
+[node name="HealthBar" type="TextureRect" parent="HealthBar"]
+self_modulate = Color(1, 0, 0, 1)
+offset_right = 50.0
+offset_bottom = 4.0
+texture = ExtResource("2_3n7u2")
 
 [connection signal="timeout" from="OxygenTimer" to="." method="_on_oxygen_timer_timeout"]
 [connection signal="timeout" from="TemperatureTimer" to="." method="_on_temperature_timer_timeout"]

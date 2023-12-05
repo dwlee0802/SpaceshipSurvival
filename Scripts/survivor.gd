@@ -135,6 +135,8 @@ func _process(delta):
 	elif bodyTemperature <= 34:
 		pass
 	
+	UpdateHealthBar()
+	
 
 func _physics_process(delta):
 	if isDead:

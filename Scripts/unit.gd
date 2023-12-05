@@ -26,6 +26,8 @@ var attackTarget
 @onready var navRaycast4 = $NavigationRaycasts/RayCast2D4
 @onready var navRaycast5 = $NavigationRaycasts/RayCast2D5
 
+@onready var healthBar = $HealthBar/HealthBar
+
 var isMoving: bool = false
 
 var STOP_DIST = 5
@@ -36,6 +38,7 @@ var overviewMarker
 
 @onready var animationPlayer = $AnimationPlayer
 
+var healthBarSize = 50
 
 func _ready():
 	overviewMarker = UserInterfaceManager.MakeMarkerOnSpaceshipOverview()
@@ -70,6 +73,10 @@ func ChangeTargetPosition(pos):
 	nav.target_position = target_position
 
 
+func UpdateHealthBar():
+	healthBar.size.x = health/maxHealth * healthBarSize
+
+
 func ReceiveHit(amount, pene: float = 0, acc: float = 0, isRadiationDamage = false):
 	# accuracy check
 	var endAccuracy = acc - evasion
@@ -100,7 +107,8 @@ func ReceiveHit(amount, pene: float = 0, acc: float = 0, isRadiationDamage = fal
 	
 	print("Left HP: " + str(health))
 	Game.MakeDamagePopup(position, amount)
-
+	
+	UpdateHealthBar()
 	return true
 
 
@@ -110,7 +118,8 @@ func HealHealth(amount):
 		health = maxHealth
 	
 	Game.MakeDamagePopup(position, amount, Color.LIME_GREEN)
-
+	UpdateHealthBar()
+	
 
 func OnDeath():
 	print("Dead!")

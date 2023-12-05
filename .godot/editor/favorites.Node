@@ -4,3 +4,4 @@ Label
 Timer
 AnimationPlayer
 Area2D
+Node2D

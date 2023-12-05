@@ -17,3 +17,4 @@ res://Scripts/unit.gd
 res://Scripts/InputManager.gd
 res://Data/Skills.json
 res://Scripts/camera.gd
+res://Scripts/module.gd

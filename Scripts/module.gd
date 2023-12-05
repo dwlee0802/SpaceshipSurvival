@@ -53,6 +53,7 @@ func RollEnemySpawn():
 		get_parent().get_parent().add_child(newEnemy)
 		Game.enemies.append(newEnemy)
 		newEnemy.health = 200
+		newEnemy.maxHealth = 200
 		newEnemy.global_position = spawnPoints.pick_random().global_position
 
 
