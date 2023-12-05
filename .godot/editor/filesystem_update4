@@ -13,3 +13,4 @@ res://Scenes/overview_marker.tscn
 res://Scripts/unit.gd
 res://Scripts/InputManager.gd
 res://Scripts/UserInterfaceManager.gd
+res://Scripts/infirmary.gd
