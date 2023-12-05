@@ -98,15 +98,18 @@ func ReceiveHit(amount, pene: float = 0, acc: float = 0, isRadiationDamage = fal
 	print("Eff. Damage: ", amount)
 	health -= amount
 	
-	
-	if amount > 0:
-		Game.MakeDamagePopup(position, amount)
-	else:
-		amount *= -1
-		Game.MakeDamagePopup(position, amount, Color.LIME_GREEN)
+	Game.MakeDamagePopup(position, amount)
 
 	return true
+
+
+func HealHealth(amount):
+	health += amount
+	if health > maxHealth:
+		health = maxHealth
 	
+	Game.MakeDamagePopup(position, amount, Color.LIME_GREEN)
+
 
 func OnDeath():
 	print("Dead!")

@@ -81,14 +81,9 @@ func _ready():
 	
 	attackTimer.timeout.connect(Attack)
 	
-	EquipNewItem(Item.new(1, 1), SlotType.Primary)
 	UpdateStats()
 	
 	$AttackUpdateTimer.timeout.connect(ScanForAttackTargets)
-	
-	# test. add crowbar to inventory
-	AddItemByIndex(0, 0)
-	AddItemByIndex(1, 2)
 	
 	destinationMarker.get_node("Label").text = name
 	

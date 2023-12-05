@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bj6ov38i406sf"]
+[gd_scene load_steps=16 format=3 uid="uid://bj6ov38i406sf"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e32sq"]
 [ext_resource type="Script" path="res://Scripts/InputManager.gd" id="2_drscf"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://5cam8m5nc2yc" path="res://Scenes/spaceship.tscn" id="5_uopi8"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="6_pyyuj"]
 [ext_resource type="Texture2D" uid="uid://ddgm7rgp5c517" path="res://Art/spaceship_image.png" id="7_7g08s"]
-[ext_resource type="PackedScene" uid="uid://dbjf2k6mniw07" path="res://Scenes/item_container.tscn" id="11_d1yom"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_k1ai1"]
 allow_unpress = true
@@ -910,10 +909,6 @@ position = Vector2(1370, 1001)
 
 [node name="Survivor2" parent="." instance=ExtResource("4_16enx")]
 position = Vector2(1848, 1025)
-
-[node name="ItemContainer" parent="." instance=ExtResource("11_d1yom")]
-position = Vector2(1603, 795)
-randomizeContent = true
 
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InformationButton" to="InputManager" method="_on_information_button_pressed"]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InventoryButton" to="InputManager" method="_on_information_button_pressed"]

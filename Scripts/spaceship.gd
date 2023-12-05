@@ -16,15 +16,15 @@ static var temperature: float = 25
 # food stock of the survivors
 # food is consumed periodically
 # if nutrition is zero, speed is reduced and lose HP
-static var foodStock: int = 200
-static var maxFoodStock: int = 200
+static var foodStock: int = 0
+static var maxFoodStock: int = 0
 
 # ammo stock of the survivors
 # ammo is consumed when using ranged weapons
 # more powerful weapons consume more ammo
 # can't use ranged weapons if ammo is zero
-static var ammoStock: int = 1500
-static var maxAmmoStock: int = 1500
+static var ammoStock: int = 0
+static var maxAmmoStock: int = 0
 
 # the travel speed of the ship
 # calculated based on the number of operational thrusters

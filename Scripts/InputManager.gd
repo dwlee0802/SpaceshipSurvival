@@ -221,8 +221,19 @@ func _on_drop_button_pressed():
 
 
 func _on_consume_button_pressed():
-	pass # Replace with function body.
-
+	var selectedItemIndex: int = UserInterfaceManager.itemList.get_selected_items()[0]
+	var data = selectedUnits[0].inventory[selectedItemIndex].data
+	
+	Spaceship.ConsumeAmmo( -data.ammo)
+	Spaceship.ConsumeFood( -data.food)
+	
+	selectedUnits[0].HealHealth(data.heal * selectedUnits[0].maxHealth)
+	
+	selectedUnits[0].RemoveByIndex(selectedItemIndex)
+	
+	selectedUnits[0].UpdateStats()
+	UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])
+	
 
 func _on_take_button_pressed(isTake):
 	if len(selectedUnits) < 1:

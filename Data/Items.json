@@ -1,8 +1,21 @@
 {
   "Melee": [
 	{
-	  "name": "Crowbar",
+	  "name": "Fists",
 	  "ID": 0,
+	  "description": "The weapon we are all born with.",
+	  "range": 80,
+	  "damageMin": 50,
+	  "damageMax": 80,
+	  "ammoPerShot": 0,
+	  "attacksPerSecond": 2,
+	  "weight": 0,
+	  "penetration": 0,
+	  "accuracy": 0.75
+	},
+	{
+	  "name": "Crowbar",
+	  "ID": 1,
 	  "description": "The right tool for the job.",
 	  "range": 100,
 	  "damageMin": 90,
@@ -15,7 +28,7 @@
 	},
 	{
 	  "name": "Fire Axe",
-	  "ID": 1,
+	  "ID": 2,
 	  "description": "Good for obstacles of all kinds.",
 	  "range": 120,
 	  "damageMin": 90,
@@ -25,19 +38,6 @@
 	  "weight": 5,
 	  "penetration": 0.8,
 	  "accuracy": 0.85
-	},
-	{
-	  "name": "Fists",
-	  "ID": 2,
-	  "description": "The weapon we are all born with.",
-	  "range": 80,
-	  "damageMin": 50,
-	  "damageMax": 80,
-	  "ammoPerShot": 0,
-	  "attacksPerSecond": 2,
-	  "weight": 0,
-	  "penetration": 0,
-	  "accuracy": 0.75
 	}
   ],
   "Ranged": [
@@ -52,7 +52,7 @@
 	  "weight": 5,
 	  "ammoPerShot": 1,
 	  "penetration": 0.1,
-	  "accuracy": 0.7,
+	  "accuracy": 0.8,
 	  "reloadTime": 3,
 	  "magSize": 8
 	},
@@ -60,14 +60,14 @@
 	  "name": "Submachine Gun",
 	  "ID": 1,
 	  "description": "Good balance between firepower and speed.",
-	  "range": 400,
+	  "range": 450,
 	  "damageMin": 50,
 	  "damageMax": 100,
 	  "attacksPerSecond": 3,
 	  "weight": 5,
 	  "ammoPerShot": 2,
 	  "penetration": 0.2,
-	  "accuracy": 0.7,
+	  "accuracy": 0.8,
 	  "reloadTime": 5,
 	  "magSize": 20
 	},
@@ -82,7 +82,7 @@
 	  "weight": 5,
 	  "ammoPerShot": 3,
 	  "penetration": 0.3,
-	  "accuracy": 0.8,
+	  "accuracy": 0.9,
 	  "reloadTime": 6,
 	  "magSize": 10
 	}
@@ -156,8 +156,8 @@
 	  "description": "First aid.",
 	  "weight": 1,
 	  "heal": 0.2,
-	  "Food": 0,
-	  "Ammo": 0
+	  "food": 0,
+	  "ammo": 0
 	},
 	{
 	  "name": "Combat ration",
@@ -165,8 +165,8 @@
 	  "description": "A meal for soldiers.",
 	  "weight": 2,
 	  "heal": 0,
-	  "Food": 10,
-	  "Ammo": 0
+	  "food": 10,
+	  "ammo": 0
 	},
 	{
 	  "name": "Ammo Box",
@@ -174,8 +174,8 @@
 	  "description": "Box full of ammo.",
 	  "weight": 4,
 	  "heal": 0,
-	  "Food": 0,
-	  "Ammo": 100
+	  "food": 0,
+	  "ammo": 100
 	},
   ]
 }
