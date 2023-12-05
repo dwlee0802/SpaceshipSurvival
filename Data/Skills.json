@@ -1,0 +1,40 @@
+{
+ 	"Buff": [
+		{
+			"name": "Quickshot",
+			"ID": 0,
+			"description": "Boosts attack speed for a duration of time.",
+			"cooldown": 10,
+			"duration": 5,
+			"attakSpeed": 0.2,
+			"speed": 0
+		},
+		{
+			"name": "Sprint",
+			"ID": 1,
+			"description": "Boosts movement speed for a duration of time.",
+			"cooldown": 10,
+			"duration": 5,
+			"attakSpeed": 0,
+			"speed": 0.2
+		},
+		{
+			"name": "Bull's Eye",
+			"ID": 2,
+			"description": "Deal maximum possible damage of weapon for duration.",
+			"cooldown": 20,
+			"duration": 3,
+			"attakSpeed": 0,
+			"speed": 0
+		},
+		{
+			"name": "CQC",
+			"ID": 3,
+			"description": "Increase melee combat efficiency. Deal twice damage with melee weapons.",
+			"cooldown": 15,
+			"duration": 5,
+			"attakSpeed": 0,
+			"speed": 0
+		},
+	]
+}

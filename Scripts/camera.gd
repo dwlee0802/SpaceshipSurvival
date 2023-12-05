@@ -1,5 +1,7 @@
 extends Camera2D
 
+class_name Camera
+
 var noise = FastNoiseLite.new()
 
 var noise_i: float = 0.0
@@ -18,11 +20,14 @@ var screenDragging: bool = false
 var screenDragStart
 var screenDragOffset
 
+static var cam
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	noise.frequency = 2
 	noise.fractal_octaves = 3
-	
+	cam = self
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -56,7 +61,7 @@ func _unhandled_input(event):
 			position += Vector2(-tileSize * 4, 0)
 		if event.keycode == KEY_D:
 			position += Vector2(tileSize * 4, 0)
-		
+			
 		# pan camera to survivors
 		if event.keycode == KEY_1:
 			if len(Game.survivors) >= 1:
@@ -84,3 +89,4 @@ func get_noise_offset(delta: float):
 		noise.get_noise_2d(1, noise_i) * shake_strength,
 		noise.get_noise_2d(100, noise_i) * shake_strength
 	)
+

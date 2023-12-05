@@ -15,3 +15,5 @@ res://Scripts/game.gd
 res://Scripts/enemy.gd
 res://Scripts/unit.gd
 res://Scripts/InputManager.gd
+res://Data/Skills.json
+res://Scripts/camera.gd

@@ -39,7 +39,6 @@ script = ExtResource("1_l4svj")
 
 [node name="BodySprite" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-10, 0)
 scale = Vector2(0.5, 0.504854)
 texture = ExtResource("2_nph33")
 

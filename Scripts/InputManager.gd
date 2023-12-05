@@ -7,6 +7,8 @@ var placedItem = preload("res://Scenes/placed_item.tscn")
 var dragging: bool = false
 var drag_start = Vector2.ZERO
 
+var lockOn: bool = false
+
 @onready var selectionBox = $SelectionBox
 
 
@@ -18,6 +20,9 @@ func _process(delta):
 	else:
 		UserInterfaceManager.ToggleUnitUI(false)
 	
+	if lockOn:
+		if len(selectedUnits) > 0:
+			Camera.cam.position = selectedUnits[0].position
 	
 
 func _unhandled_input(event):
@@ -98,6 +103,9 @@ func _unhandled_input(event):
 					Engine.time_scale = 1
 				else:
 					Engine.time_scale = 0
+					
+			if event.keycode == KEY_Y:
+				lockOn = not lockOn
 		else:
 			# show spaceship overview UI
 			if event.keycode == KEY_TAB:
