@@ -11,6 +11,13 @@ var capacity: int = 20
 
 @export var randomizeContent: bool = false
 
+@export var spawnAmmo: bool = false
+@export var spawnFood: bool = false
+@export var spawnWeapons: bool = false
+@export var spawnArmor: bool = false
+@export var spawnConsumables: bool = false
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass

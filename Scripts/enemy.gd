@@ -23,6 +23,9 @@ func _ready():
 # if there is a direct path to target, update target position in realtime
 # else, update it every second
 func _physics_process(delta):
+	if health <= 0:
+		OnDeath()
+		
 	if attackTarget == null or attackTarget.isDead:
 		attackTarget = Game.survivors.pick_random()
 	
@@ -45,8 +48,6 @@ func _physics_process(delta):
 	overviewMarker.position = position / 5.80708
 	overviewMarker.visible = true
 	
-	if health <= 0:
-		OnDeath()
 
 
 func OnDeath():
@@ -60,8 +61,6 @@ func ReceiveHit(amount, penetration: float = 0, accuracy: float = 0, isRadiation
 	if super.ReceiveHit(amount, penetration, accuracy, isRadiationDamage):
 		hitParticleEffect.emitting = true
 		animationPlayer.play("hit_animation")
-	else:
-		animationPlayer.play("dodged_animation")
 
 
 func _on_nav_update_timer_timeout():

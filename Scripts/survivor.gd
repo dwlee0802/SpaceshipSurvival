@@ -67,6 +67,9 @@ var isDead: bool = false
 var moveAndShoot: bool = true
 var fireAtWill: bool = true
 
+# survivors join the player's team by being rescued.
+var needsRescue: bool = true
+
 signal update_unit_ui
 
 
@@ -356,7 +359,7 @@ func AddItem(item: Item):
 func RemoveByIndex(index):
 	var item = inventory[index]
 	
-	# unequip if it is equipped
+	# find equipped slot number
 	var num = equipmentSlots.find(index)
 	if num > -1:
 		equipmentSlots[num] = -1
@@ -364,6 +367,11 @@ func RemoveByIndex(index):
 	inventory.remove_at(index)
 	inventoryWeight -= item.data.weight
 	
+	# change index of slots that come later in inventory
+	for i in len(equipmentSlots):
+		if equipmentSlots[i] > index:
+			equipmentSlots[i] -= 1
+			
 	UpdateStats()
 	
 	return item

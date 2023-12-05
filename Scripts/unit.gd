@@ -98,6 +98,7 @@ func ReceiveHit(amount, pene: float = 0, acc: float = 0, isRadiationDamage = fal
 	print("Eff. Damage: ", amount)
 	health -= amount
 	
+	print("Left HP: " + str(health))
 	Game.MakeDamagePopup(position, amount)
 
 	return true

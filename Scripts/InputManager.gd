@@ -231,7 +231,6 @@ func _on_consume_button_pressed():
 	
 	selectedUnits[0].RemoveByIndex(selectedItemIndex)
 	
-	selectedUnits[0].UpdateStats()
 	UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])
 	
 
