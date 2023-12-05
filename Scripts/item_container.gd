@@ -28,13 +28,15 @@ func FillContentsRandomly():
 			# pick item type
 			var itemType = randi_range(0, 4)
 			if itemType == 0:
-				AddItem(Item.new(itemType, randi_range(0, 1)))
+				AddItem(Item.new(itemType, randi_range(1, len(Item.itemDict.Melee) - 1)))
 			if itemType == 1:
-				AddItem(Item.new(itemType, randi_range(0, 1)))
+				AddItem(Item.new(itemType, randi_range(0, len(Item.itemDict.Ranged) - 1)))
 			if itemType == 2:
-				AddItem(Item.new(itemType, randi_range(0, 1)))
+				AddItem(Item.new(itemType, randi_range(0, len(Item.itemDict.Head) - 1)))
 			if itemType == 3:
-				AddItem(Item.new(itemType, randi_range(0, 1)))
+				AddItem(Item.new(itemType, randi_range(0, len(Item.itemDict.Body) - 1)))
+			if itemType == 4:
+				AddItem(Item.new(itemType, randi_range(0, len(Item.itemDict.Consumable) - 1)))
 
 
 func AddItem(item: Item):

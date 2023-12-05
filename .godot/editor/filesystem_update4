@@ -16,3 +16,4 @@ res://Scripts/nuclear_reactor.gd
 res://Scenes/death_particle_effect.tscn
 res://Scripts/unit.gd
 res://Scripts/survivor.gd
+res://Scripts/item_container.gd
