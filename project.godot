@@ -19,6 +19,13 @@ config/features=PackedStringArray("4.2", "GL Compatibility")
 window/size/viewport_width=1366
 window/size/viewport_height=768
 
+[input]
+
+ui_focus_next={
+"deadzone": 0.5,
+"events": []
+}
+
 [layer_names]
 
 2d_physics/layer_1="Survivor"

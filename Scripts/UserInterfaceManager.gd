@@ -83,7 +83,13 @@ static func UpdateTravelProgressUI(cur, maxVal):
 
 # change ship status UI info
 static func UpdateSpaceshipStatusUI(oxygen, temp):
-	spaceshipStatusUI.get_node("OxygenLevel/Label").text = str(oxygen) + "%"
+	var oxygenLabel = spaceshipStatusUI.get_node("OxygenLevel/Label")
+	oxygenLabel.text = str(oxygen) + "%"
+	if oxygen < 50:
+		oxygenLabel.self_modulate = Color.RED
+	else:
+		oxygenLabel.self_modulate = Color.WHITE
+		
 	spaceshipStatusUI.get_node("TemperatureLevel/Label").text = str(temp) + "C"
 	
 	
@@ -192,7 +198,11 @@ static func ModifyContextMenuByItem(index, unit):
 
 
 static func UpdateAmmoStockLabel(amount):
-	ammoStockLabel.text = "Ammo: " + str(amount)
+	ammoStockLabel.text = "Ammo: " + str(amount) + "/" + str(Spaceship.maxAmmoStock)
+	
+	
+static func UpdateFoodStockLabel(amount):
+	foodStockLabel.text = "Food: " + str(amount) + "/" + str(Spaceship.maxFoodStock)
 	
 	
 static func UpdateSpaceshipOverviewUI(val = true):

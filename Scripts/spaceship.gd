@@ -16,13 +16,15 @@ static var temperature: float = 25
 # food stock of the survivors
 # food is consumed periodically
 # if nutrition is zero, speed is reduced and lose HP
-static var foodStock: int = 0
+static var foodStock: int = 200
+static var maxFoodStock: int = 200
 
 # ammo stock of the survivors
 # ammo is consumed when using ranged weapons
 # more powerful weapons consume more ammo
 # can't use ranged weapons if ammo is zero
 static var ammoStock: int = 1500
+static var maxAmmoStock: int = 1500
 
 # the travel speed of the ship
 # calculated based on the number of operational thrusters
@@ -49,6 +51,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	UserInterfaceManager.UpdateAmmoStockLabel(ammoStock)
+	UserInterfaceManager.UpdateFoodStockLabel(foodStock)
 
 func _on_travel_timer_timeout():
 	distanceTraveled += shipSpeed
@@ -66,7 +69,6 @@ func _on_temperature_timer_timeout():
 		temperature -= 0.1
 	elif temperature < 25:
 		temperature += 0.1
-	
 	
 	UserInterfaceManager.UpdateSpaceshipStatusUI(oxygenLevel, temperature)
 
@@ -87,7 +89,7 @@ func _on_oxygen_timer_timeout():
 
 static func ConsumeAmmo(amount):
 	if amount > ammoStock:
-		UserInterfaceManager.UpdateAmmoStockLabel(amount)
+		UserInterfaceManager.UpdateAmmoStockLabel(ammoStock)
 		return false
 	else:
 		ammoStock -= amount
@@ -95,9 +97,23 @@ static func ConsumeAmmo(amount):
 	if ammoStock < 0:
 		ammoStock = 0
 		
-	UserInterfaceManager.UpdateAmmoStockLabel(amount)
+	UserInterfaceManager.UpdateAmmoStockLabel(ammoStock)
 	return true
+
+
+static func ConsumeFood(amount):
+	if amount > foodStock:
+		UserInterfaceManager.UpdateFoodStockLabel(foodStock)
+		return false
+	else:
+		foodStock -= amount
 	
+	if foodStock < 0:
+		foodStock = 0
+		
+	UserInterfaceManager.UpdateFoodStockLabel(foodStock)
+	return true
+
 
 func PrintModuleStatus():
 	var output = "Modules\n"

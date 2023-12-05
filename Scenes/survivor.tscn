@@ -187,5 +187,10 @@ ACC: 00
 EVA: 00"
 vertical_alignment = 1
 
+[node name="NutritionTimer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
 [connection signal="timeout" from="OxygenTimer" to="." method="_on_oxygen_timer_timeout"]
 [connection signal="timeout" from="TemperatureTimer" to="." method="_on_temperature_timer_timeout"]
+[connection signal="timeout" from="NutritionTimer" to="." method="_on_nutrition_timer_timeout"]
