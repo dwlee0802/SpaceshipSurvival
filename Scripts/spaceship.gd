@@ -39,17 +39,20 @@ enum ModuleName {Nuclear_Reactor, Oxygen_Generator, Temperature_Control, Infirma
 
 signal destination_reached
 
+static var spaceship
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	spaceship = self
 	modules[ModuleName.Oxygen_Generator] = $Modules/OxygenGenerator
 	modules[ModuleName.Temperature_Control] = $Modules/TemperatureControl
 	modules[ModuleName.Nuclear_Reactor] = $Modules/NuclearReactor
 	#modules[ModuleName.Infirmary] = $Modules/Infirmary
-
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	Game.UpdateStockMax()
 	UserInterfaceManager.UpdateAmmoStockLabel(ammoStock)
 	UserInterfaceManager.UpdateFoodStockLabel(foodStock)
 
@@ -115,10 +118,10 @@ static func ConsumeFood(amount):
 	return true
 
 
-func PrintModuleStatus():
+static func PrintModuleStatus():
 	var output = "Modules\n"
 	
-	for module in get_node("Modules").get_children():
+	for module in Spaceship.spaceship.get_node("Modules").get_children():
 		output += module.name + ": "
 		if module.isOperational:
 			output += "Normal\n"

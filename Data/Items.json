@@ -154,8 +154,28 @@
 	  "name": "Bandage",
 	  "ID": 0,
 	  "description": "First aid.",
-	  "weight": 5,
-	  "heal": 0.2
-	}
+	  "weight": 1,
+	  "heal": 0.2,
+	  "Food": 0,
+	  "Ammo": 0
+	},
+	{
+	  "name": "Combat ration",
+	  "ID": 1,
+	  "description": "A meal for soldiers.",
+	  "weight": 2,
+	  "heal": 0,
+	  "Food": 10,
+	  "Ammo": 0
+	},
+	{
+	  "name": "Ammo Box",
+	  "ID": 2,
+	  "description": "Box full of ammo.",
+	  "weight": 4,
+	  "heal": 0,
+	  "Food": 0,
+	  "Ammo": 100
+	},
   ]
 }

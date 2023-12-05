@@ -46,7 +46,7 @@ size = Vector2(100, 100)
 script = ExtResource("1_e32sq")
 
 [node name="Camera" type="Camera2D" parent="."]
-position = Vector2(1673, 1029)
+position = Vector2(1633, 1009)
 script = ExtResource("6_pyyuj")
 
 [node name="Canvas" type="CanvasLayer" parent="Camera"]

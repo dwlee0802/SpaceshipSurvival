@@ -52,12 +52,16 @@ func _physics_process(delta):
 func OnDeath():
 	super.OnDeath()
 	print("Dead!")
+	Game.MakeEnemyDeathEffect(global_position)
 	queue_free()
 
 
-func ReceiveHit(amount, penetration = 0, accuracy = 0, isRadiationDamage = false):
+func ReceiveHit(amount, penetration: float = 0, accuracy: float = 0, isRadiationDamage = false):
 	if super.ReceiveHit(amount, penetration, accuracy, isRadiationDamage):
 		hitParticleEffect.emitting = true
+		animationPlayer.play("hit_animation")
+	else:
+		animationPlayer.play("dodged_animation")
 
 
 func _on_nav_update_timer_timeout():

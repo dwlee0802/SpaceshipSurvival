@@ -9,11 +9,14 @@ static var enemies = []
 static var time: float = 0
 
 static var damagePopup = preload("res://Scenes/damage_popup.tscn")
+static var deathEffect = preload("res://Scenes/death_particle_effect.tscn")
 
 static var gameScene
 
 static var spaceship
 
+const AMMO_PER_STR: int = 200
+const FOOD_PER_STR: int = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -58,3 +61,19 @@ static func MakeDamagePopup(where, amount, color = Color.DARK_RED):
 		newPopup.get_node("Label").text = "[center][b]" + "MISS" + "[/b][/center]"
 		
 	gameScene.add_child(newPopup)
+
+
+static func MakeEnemyDeathEffect(where):
+	var thing = deathEffect.instantiate()
+	thing.global_position = where
+	thing.emitting = true
+	gameScene.add_child(thing)
+	
+
+static func UpdateStockMax():
+	Spaceship.maxAmmoStock = 0
+	Spaceship.maxFoodStock = 0
+	
+	for item in survivors:
+		Spaceship.maxAmmoStock += item.strength * AMMO_PER_STR
+		Spaceship.maxFoodStock += item.strength * FOOD_PER_STR

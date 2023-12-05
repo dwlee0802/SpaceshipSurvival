@@ -10,7 +10,7 @@ func _physics_process(delta):
 		radiationArea.shape.radius += delta * 2
 	else:
 		if radiationArea.shape.radius > 1:
-			radiationArea.shape.radius - 1
+			radiationArea.shape.radius -= 1
 
 	radiationSprite.scale.x = radiationArea.shape.radius / 256 * 2
 	radiationSprite.scale.y = radiationArea.shape.radius / 256 * 2

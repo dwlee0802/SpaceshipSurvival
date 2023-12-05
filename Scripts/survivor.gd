@@ -229,7 +229,7 @@ func Attack():
 			attackTarget.ReceiveHit(amount, primary.data.penetration, endAccuracy)
 		else:
 			attackTarget = null
-		print("Delt ", str(amount), " damage!")
+		#print("Delt ", str(amount), " damage!")
 		muzzleFlashSprite.visible = true
 		noAmmoLabel.visible = false
 	else:

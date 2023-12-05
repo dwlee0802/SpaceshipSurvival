@@ -34,6 +34,9 @@ var radiationDamageTimeHolder = 2
 
 var overviewMarker
 
+@onready var animationPlayer = $AnimationPlayer
+
+
 func _ready():
 	overviewMarker = UserInterfaceManager.MakeMarkerOnSpaceshipOverview()
 
@@ -67,20 +70,23 @@ func ChangeTargetPosition(pos):
 	nav.target_position = target_position
 
 
-func ReceiveHit(amount, penetration = 0, accuracy = 0, isRadiationDamage = false):
+func ReceiveHit(amount, pene: float = 0, acc: float = 0, isRadiationDamage = false):
 	# accuracy check
-	var endAccuracy = accuracy - evasion
+	var endAccuracy = acc - evasion
 	if endAccuracy < 0:
 		endAccuracy = 0
 	
-	if randf() <= endAccuracy:
+	var rng = randf()
+	if rng > endAccuracy:
+		print(endAccuracy)
+		print(rng)
 		Game.MakeDamagePopup(position, 0)
 		return false
 		
 	print("Init: ", amount)
 	var endDefense
 	if not isRadiationDamage:
-		endDefense = defense - penetration
+		endDefense = defense - pene
 		if endDefense < 0:
 			endDefense = 0
 	else:
