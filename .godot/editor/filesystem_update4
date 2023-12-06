@@ -14,3 +14,5 @@ res://Scenes/infirmary.tscn
 res://Scenes/engine_room.tscn
 res://Scenes/overview_marker.tscn
 res://Scenes/module.tscn
+res://Scripts/unit.gd
+res://Data/Items.json

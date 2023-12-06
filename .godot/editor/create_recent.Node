@@ -1,3 +1,4 @@
+RigidBody2D
 Node2D
 TextureRect
 AnimationPlayer
@@ -11,4 +12,3 @@ Panel
 Control
 StaticBody2D
 Marker2D
-Polygon2D

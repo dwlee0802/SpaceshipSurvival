@@ -177,5 +177,14 @@
 	  "food": 0,
 	  "ammo": 100
 	},
+	{
+	  "name": "Coffee",
+	  "ID": 3,
+	  "description": "A drink that keeps you awake.",
+	  "weight": 4,
+	  "heal": 0,
+	  "food": 1,
+	  "ammo": 0
+	},
   ]
 }
