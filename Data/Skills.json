@@ -35,6 +35,18 @@
 			"duration": 5,
 			"attakSpeed": 0,
 			"speed": 0
-		},
+		}
+	],
+	"Active": [
+		{
+			"name": "Grenade",
+			"ID": 3,
+			"description": "Increase melee combat efficiency. Deal twice damage with melee weapons.",
+			"cooldown": 15,
+			"duration": 5,
+			"attakSpeed": 0,
+			"speed": 0
+		}
 	]
 }
+

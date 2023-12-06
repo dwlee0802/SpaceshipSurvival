@@ -221,6 +221,7 @@ func _on_drop_button_pressed():
 	var removed = selectedUnits[0].RemoveByIndex(selectedItemIndex)
 	newItem.itemType = removed.type
 	newItem.itemID = removed.data.ID
+	newItem.item = removed
 	newItem.position = selectedUnits[0].position
 	add_sibling(newItem)
 	

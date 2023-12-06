@@ -6,6 +6,8 @@ extends "res://Scripts/unit.gd"
 
 @onready var hitParticleEffect = $HitParticleEffect
 
+var placedItemScene = preload("res://Scenes/placed_item.tscn")
+
 
 func _ready():
 	super._ready()
@@ -54,6 +56,10 @@ func OnDeath():
 	super.OnDeath()
 	print("Dead!")
 	Game.MakeEnemyDeathEffect(global_position)
+	# roll random drop
+	if randf() < 0.5:
+		DropItem()
+		
 	queue_free()
 
 
@@ -62,6 +68,14 @@ func ReceiveHit(amount, penetration: float = 0, accuracy: float = 0, isRadiation
 		hitParticleEffect.emitting = true
 		animationPlayer.play("hit_animation")
 
+
+func DropItem():
+	var newItem = placedItemScene.instantiate()
+	get_parent().add_child(newItem)
+	newItem.item = Item.new(4,0)
+	newItem.position = global_position
+	print("spawned item")
+	
 
 func _on_nav_update_timer_timeout():
 	ChangeTargetPosition(attackTarget.position)
