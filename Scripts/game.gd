@@ -21,6 +21,7 @@ const FOOD_PER_STR: int = 2
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	survivors.append($Survivor)
+	survivors.append($Survivor2)
 	gameScene = self
 	spaceship = $Spaceship
 

@@ -20,6 +20,8 @@ var attackTarget
 
 @onready var target_position: Vector2 = position
 
+var knockBack: Vector2 = Vector2.ZERO
+
 @onready var navRaycast = $NavigationRaycasts/RayCast2D
 @onready var navRaycast2 = $NavigationRaycasts/RayCast2D2
 @onready var navRaycast3 = $NavigationRaycasts/RayCast2D3
@@ -45,27 +47,37 @@ func _ready():
 
 
 func _physics_process(delta):
+	# update marker on spaceship overview UI
 	overviewMarker.position = position / 5.80708
 	overviewMarker.visible = true
+	
 	if health <= 0:
 		OnDeath()
 	
 	if isMoving:
+		# dont use nav is there is a direct path to target
 		if CheckDirectPath():
 			if position.distance_to(target_position) < STOP_DIST:
 				isMoving = false
 				return
 				
-			velocity = position.direction_to(target_position) * speed * speedModifier
+			velocity = position.direction_to(target_position) * speed * speedModifier + knockBack
 			move_and_slide()
+		# use nav if there's an obstacle to go around
 		else:
 			if nav.is_navigation_finished():
 				isMoving = false
 				return
 				
-			velocity = position.direction_to(nav.get_next_path_position()) * speed * speedModifier
+			velocity = position.direction_to(nav.get_next_path_position()) * speed * speedModifier + knockBack
 			move_and_slide()
-
+	
+	# knock back damping
+	if knockBack.length() > 0:
+		knockBack = knockBack.normalized() * (knockBack.length() - delta * 10)
+	else:
+		knockBack = Vector2.ZERO
+		
 
 func ChangeTargetPosition(pos):
 	target_position = pos
@@ -77,7 +89,7 @@ func UpdateHealthBar():
 	healthBar.size.x = health/maxHealth * healthBarSize
 
 
-func ReceiveHit(amount, pene: float = 0, acc: float = 0, isRadiationDamage = false):
+func ReceiveHit(amount, pene: float = 0, acc: float = 0, knockBackVector: Vector2 = Vector2.ZERO, isRadiationDamage = false):
 	# accuracy check
 	var endAccuracy = acc - evasion
 	if endAccuracy < 0:
@@ -109,6 +121,10 @@ func ReceiveHit(amount, pene: float = 0, acc: float = 0, isRadiationDamage = fal
 	Game.MakeDamagePopup(position, amount)
 	
 	UpdateHealthBar()
+	
+	# apply knockback
+	knockBack += knockBackVector
+	
 	return true
 
 

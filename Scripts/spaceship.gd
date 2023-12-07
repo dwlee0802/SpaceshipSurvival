@@ -23,7 +23,7 @@ static var maxFoodStock: int = 0
 # ammo is consumed when using ranged weapons
 # more powerful weapons consume more ammo
 # can't use ranged weapons if ammo is zero
-static var ammoStock: int = 0
+static var ammoStock: int = 1000
 static var maxAmmoStock: int = 0
 
 # the travel speed of the ship

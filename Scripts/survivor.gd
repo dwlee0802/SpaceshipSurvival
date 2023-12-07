@@ -92,6 +92,8 @@ func _ready():
 	
 	overviewMarker.self_modulate = Color.GREEN
 	
+	EquipNewItem(Item.new(1,1), SlotType.Primary)
+	
 
 func parse_json(text):
 	return JSON.parse_string(text)
@@ -226,7 +228,9 @@ func Attack():
 	if Spaceship.ConsumeAmmo(primary.data.ammoPerShot):
 		var amount = randi_range(primary.data.damageMin, primary.data.damageMax)
 		if is_instance_valid(attackTarget):
-			attackTarget.ReceiveHit(amount, primary.data.penetration, endAccuracy)
+			var dir = position.direction_to(attackTarget.position)
+			dir *= 300
+			attackTarget.ReceiveHit(amount, primary.data.penetration, endAccuracy, dir)
 		else:
 			attackTarget = null
 		#print("Delt ", str(amount), " damage!")

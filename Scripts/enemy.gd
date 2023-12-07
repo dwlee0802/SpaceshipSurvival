@@ -39,7 +39,7 @@ func _physics_process(delta):
 			return
 		# update target position realtime
 		navUpdateTimer.stop()
-		velocity = position.direction_to(target_position) * speed * speedModifier
+		velocity = position.direction_to(target_position) * speed * speedModifier + knockBack
 	else:
 		# if not, pathfinding.
 		if navUpdateTimer.is_stopped():
@@ -50,6 +50,11 @@ func _physics_process(delta):
 	overviewMarker.position = position / 5.80708
 	overviewMarker.visible = true
 	
+	# knock back damping
+	if knockBack.length() > 0:
+		knockBack = knockBack.normalized() * (knockBack.length() - delta * 1000)
+	else:
+		knockBack = Vector2.ZERO
 
 
 func OnDeath():
@@ -63,8 +68,8 @@ func OnDeath():
 	queue_free()
 
 
-func ReceiveHit(amount, penetration: float = 0, accuracy: float = 0, isRadiationDamage = false):
-	if super.ReceiveHit(amount, penetration, accuracy, isRadiationDamage):
+func ReceiveHit(amount, penetration: float = 0, accuracy: float = 0, knockBackVec: Vector2 = Vector2.ZERO, isRadiationDamage = false):
+	if super.ReceiveHit(amount, penetration, accuracy, knockBackVec, isRadiationDamage):
 		hitParticleEffect.emitting = true
 		animationPlayer.play("hit_animation")
 
@@ -79,4 +84,4 @@ func DropItem():
 
 func _on_nav_update_timer_timeout():
 	ChangeTargetPosition(attackTarget.position)
-	velocity = position.direction_to(nav.get_next_path_position()) * speed * speedModifier
+	velocity = position.direction_to(nav.get_next_path_position()) * speed * speedModifier + knockBack

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bj6ov38i406sf"]
+[gd_scene load_steps=18 format=3 uid="uid://bj6ov38i406sf"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e32sq"]
 [ext_resource type="Script" path="res://Scripts/InputManager.gd" id="2_drscf"]
@@ -13,6 +13,16 @@
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_k1ai1"]
 allow_unpress = true
+
+[sub_resource type="InputEventMouseButton" id="InputEventMouseButton_d23fh"]
+button_mask = 16
+position = Vector2(166, 17)
+global_position = Vector2(170, 58)
+button_index = 5
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_7qy3f"]
+events = [SubResource("InputEventMouseButton_d23fh")]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_haal1"]
 
@@ -269,6 +279,7 @@ offset_right = 91.0
 offset_bottom = 35.0
 toggle_mode = true
 button_group = SubResource("ButtonGroup_k1ai1")
+shortcut = SubResource("Shortcut_7qy3f")
 text = "Information"
 
 [node name="InventoryButton" type="Button" parent="Camera/Canvas/UnitUI"]
@@ -906,6 +917,10 @@ z_index = -1
 
 [node name="Survivor" parent="." instance=ExtResource("4_16enx")]
 position = Vector2(1541, 943)
+speed = 200
+
+[node name="Survivor2" parent="." instance=ExtResource("4_16enx")]
+position = Vector2(1757, 753)
 speed = 200
 
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InformationButton" to="InputManager" method="_on_information_button_pressed"]
