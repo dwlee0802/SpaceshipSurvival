@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgkk4srytod0q"]
+[gd_scene load_steps=6 format=3 uid="uid://dgkk4srytod0q"]
 
-[sub_resource type="Gradient" id="Gradient_6p3i1"]
-offsets = PackedFloat32Array(0.00662249, 0.761589, 1)
+[ext_resource type="Texture2D" uid="uid://2j00antvhw4x" path="res://Art/circle-256.png" id="1_xkpe4"]
+
+[sub_resource type="Gradient" id="Gradient_4sasq"]
+offsets = PackedFloat32Array(0.00662249, 0.695364, 1)
 colors = PackedColorArray(0.900709, 0.900709, 0.900709, 1, 0.901961, 0.901961, 0.901961, 1, 0.901961, 0.901961, 0.901961, 0)
+
+[sub_resource type="Gradient" id="Gradient_n0wv4"]
+colors = PackedColorArray(0, 1, 0, 1, 1, 0.564706, 0, 1)
 
 [sub_resource type="Animation" id="Animation_g1nr6"]
 resource_name = "death_effect_animation"
@@ -26,25 +31,28 @@ _data = {
 "death_effect_animation": SubResource("Animation_g1nr6")
 }
 
-[node name="DeathParticleEffect" type="CPUParticles2D"]
+[node name="HitParticleEffect" type="CPUParticles2D"]
 emitting = false
-amount = 15
-lifetime = 2.6
+amount = 18
+lifetime = 3.0
 one_shot = true
-speed_scale = 10.0
+speed_scale = 8.0
 explosiveness = 1.0
-emission_shape = 1
-emission_sphere_radius = 1.0
+randomness = 0.2
+texture = ExtResource("1_xkpe4")
 spread = 180.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 80.0
-initial_velocity_max = 120.0
-scale_amount_min = 10.0
-scale_amount_max = 20.0
-color = Color(0, 1, 0, 1)
-color_ramp = SubResource("Gradient_6p3i1")
+gravity = Vector2(0, 10)
+initial_velocity_min = 30.0
+initial_velocity_max = 100.0
+linear_accel_min = -20.0
+scale_amount_min = 0.04
+scale_amount_max = 0.08
+color = Color(0.54902, 0.898039, 0, 1)
+color_ramp = SubResource("Gradient_4sasq")
+color_initial_ramp = SubResource("Gradient_n0wv4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("")
 libraries = {
 "": SubResource("AnimationLibrary_7u2kb")
 }

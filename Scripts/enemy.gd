@@ -71,6 +71,7 @@ func OnDeath():
 func ReceiveHit(amount, penetration: float = 0, accuracy: float = 0, knockBackVec: Vector2 = Vector2.ZERO, isRadiationDamage = false):
 	if super.ReceiveHit(amount, penetration, accuracy, knockBackVec, isRadiationDamage):
 		hitParticleEffect.emitting = true
+		hitParticleEffect.rotation = Vector2.RIGHT.angle_to(knockBackVec)
 		animationPlayer.play("hit_animation")
 
 

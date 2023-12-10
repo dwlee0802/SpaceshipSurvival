@@ -45,11 +45,12 @@ tile_data = PackedInt32Array(0, 458752, 3, 65536, 458752, 3, 131072, 458752, 3, 
 [sub_resource type="TileMapPattern" id="TileMapPattern_l8g8u"]
 tile_data = PackedInt32Array(0, 458752, 3, 65536, 327680, 3, 131072, 327680, 3, 196608, 327680, 3, 262144, 327680, 3, 327680, 458752, 3)
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_7syge"]
-vertices = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_d5duv"]
+vertices = PackedVector2Array(25, 25, -25, 25, -25, -25, 25, -25)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-25, -25, -25, 25, 25, 25, 25, -25)])
 source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ngw0p"]
 resource_name = "Base"
@@ -59,7 +60,7 @@ texture_region_size = Vector2i(50, 50)
 5:3/0/modulate = Color(0.780392, 0.854902, 1, 1)
 5:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:3/0/physics_layer_0/angular_velocity = 0.0
-5:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_7syge")
+5:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_d5duv")
 7:3/0 = 0
 7:3/0/modulate = Color(0.109804, 0.0941176, 0.52549, 1)
 7:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)

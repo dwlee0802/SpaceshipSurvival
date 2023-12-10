@@ -55,7 +55,6 @@ shape = SubResource("RectangleShape2D_nmrp8")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_postprocessing = 1
 avoidance_enabled = true
-debug_enabled = true
 
 [node name="AttackArea" type="Area2D" parent="."]
 collision_layer = 0

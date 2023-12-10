@@ -44,7 +44,7 @@ var healthBarSize = 50
 
 func _ready():
 	overviewMarker = UserInterfaceManager.MakeMarkerOnSpaceshipOverview()
-
+	
 
 func _physics_process(delta):
 	# update marker on spaceship overview UI
@@ -68,7 +68,7 @@ func _physics_process(delta):
 			if nav.is_navigation_finished():
 				isMoving = false
 				return
-				
+			
 			velocity = position.direction_to(nav.get_next_path_position()) * speed * speedModifier + knockBack
 			move_and_slide()
 	
@@ -142,9 +142,9 @@ func OnDeath():
 	overviewMarker.queue_free()
 	
 	
-func CheckDirectPath(pos = target_position):
-	var dir = position.direction_to(pos)
-	var dist = position.distance_to(pos)
+func CheckDirectPath(pos = target_position, start = position):
+	var dir = start.direction_to(pos)
+	var dist = start.distance_to(pos)
 	
 	navRaycast.target_position = dir * dist
 	navRaycast2.target_position = dir * dist
@@ -156,16 +156,3 @@ func CheckDirectPath(pos = target_position):
 		return true
 	else:
 		return false
-
-
-func CheckDirectPathLine(pos = target_position):
-	# Raytrace at mouse position and get tile
-	var space = get_viewport().world_2d.direct_space_state
-	var param = PhysicsRayQueryParameters2D.create(position, pos)
-	param.collision_mask = 16
-	var result = space.intersect_ray(param)
-	
-	if result:
-		return false
-	else:
-		return true
