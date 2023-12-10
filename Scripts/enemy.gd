@@ -61,6 +61,7 @@ func OnDeath():
 	super.OnDeath()
 	print("Dead!")
 	Game.MakeEnemyDeathEffect(global_position)
+	Game.MakeExpOrb(global_position)
 	# roll random drop
 	if randf() < 0.5:
 		DropItem()

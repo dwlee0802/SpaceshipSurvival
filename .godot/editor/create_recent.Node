@@ -1,3 +1,5 @@
+Sprite2D
+Timer
 NavigationRegion2D
 CollisionShape2D
 ShapeCast2D
@@ -5,11 +7,8 @@ RigidBody2D
 Node2D
 TextureRect
 AnimationPlayer
-Timer
 CPUParticles2D
 Label
 Area2D
-Sprite2D
 Panel
 Control
-StaticBody2D

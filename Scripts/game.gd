@@ -11,7 +11,9 @@ static var time: float = 0
 static var damagePopup = preload("res://Scenes/damage_popup.tscn")
 static var deathEffect = preload("res://Scenes/death_particle_effect.tscn")
 
-static var gameScene
+static var expOrb = preload("res://Scenes/exp_orb.tscn")
+
+static var gameScene: Game
 
 static var spaceship
 
@@ -77,3 +79,22 @@ static func UpdateStockMax():
 	for item in survivors:
 		Spaceship.maxAmmoStock += item.strength * AMMO_PER_STR
 		Spaceship.maxFoodStock += item.strength * FOOD_PER_STR
+
+
+static func GetClosestSurvivor(position):
+	var result = survivors[0]
+	var smallestDist = survivors[0].position.distance_to(position)
+	
+	for item in survivors:
+		var dist = item.position.distance_to(position)
+		if smallestDist > dist:
+			result = item
+			smallestDist = dist
+	
+	return result
+	
+	
+static func MakeExpOrb(where):
+	var newOrb = expOrb.instantiate()
+	gameScene.add_child(newOrb)
+	newOrb.position = where
