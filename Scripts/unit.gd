@@ -156,3 +156,16 @@ func CheckDirectPath(pos = target_position):
 		return true
 	else:
 		return false
+
+
+func CheckDirectPathLine(pos = target_position):
+	# Raytrace at mouse position and get tile
+	var space = get_viewport().world_2d.direct_space_state
+	var param = PhysicsRayQueryParameters2D.create(position, pos)
+	param.collision_mask = 16
+	var result = space.intersect_ray(param)
+	
+	if result:
+		return false
+	else:
+		return true

@@ -1,9 +1,9 @@
-res://Scenes/enemy.tscn
-res://Scripts/unit.gd
-res://Scripts/enemy.gd
 res://Scenes/game.tscn
+res://Scripts/unit.gd
+res://Scripts/InputManager.gd
 res://Scenes/survivor.tscn
 res://Scenes/spaceship.tscn
+res://Scenes/enemy.tscn
 res://Scenes/item_container.tscn
 res://Scenes/interactable.tscn
 res://Scenes/infirmary.tscn
@@ -12,7 +12,3 @@ res://Scenes/overview_marker.tscn
 res://Scenes/module.tscn
 res://Scenes/death_particle_effect.tscn
 res://Scenes/placed_item.tscn
-res://Scripts/survivor.gd
-res://Scripts/spaceship.gd
-res://Scripts/module.gd
-res://Scripts/game.gd
