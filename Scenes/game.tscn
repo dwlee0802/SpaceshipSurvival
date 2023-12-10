@@ -916,11 +916,11 @@ shape = SubResource("RectangleShape2D_vbgc8")
 z_index = -1
 
 [node name="Survivor" parent="." instance=ExtResource("4_16enx")]
-position = Vector2(1541, 943)
+position = Vector2(5936, 2065)
 speed = 200
 
 [node name="Survivor2" parent="." instance=ExtResource("4_16enx")]
-position = Vector2(1757, 753)
+position = Vector2(6152, 1875)
 speed = 200
 
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InformationButton" to="InputManager" method="_on_information_button_pressed"]

@@ -11,7 +11,8 @@
 	  "attacksPerSecond": 2,
 	  "weight": 0,
 	  "penetration": 0,
-	  "accuracy": 0.75
+	  "accuracy": 0.8,
+	  "knockBack": 150
 	},
 	{
 	  "name": "Crowbar",
@@ -24,7 +25,8 @@
 	  "attacksPerSecond": 4,
 	  "weight": 5,
 	  "penetration": 0.6,
-	  "accuracy": 0.90
+	  "accuracy": 0.95,
+	  "knockBack": 300
 	},
 	{
 	  "name": "Fire Axe",
@@ -37,7 +39,8 @@
 	  "attacksPerSecond": 3,
 	  "weight": 5,
 	  "penetration": 0.8,
-	  "accuracy": 0.85
+	  "accuracy": 0.9,
+	  "knockBack": 250
 	}
   ],
   "Ranged": [
@@ -54,7 +57,8 @@
 	  "penetration": 0.1,
 	  "accuracy": 0.8,
 	  "reloadTime": 3,
-	  "magSize": 8
+	  "magSize": 8,
+	  "knockBack": 200
 	},
 	{
 	  "name": "Submachine Gun",
@@ -67,9 +71,10 @@
 	  "weight": 5,
 	  "ammoPerShot": 2,
 	  "penetration": 0.2,
-	  "accuracy": 0.8,
+	  "accuracy": 0.9,
 	  "reloadTime": 5,
-	  "magSize": 20
+	  "magSize": 20,
+	  "knockBack": 150
 	},
 	{
 	  "name": "Auto rifle",
@@ -82,9 +87,10 @@
 	  "weight": 5,
 	  "ammoPerShot": 3,
 	  "penetration": 0.3,
-	  "accuracy": 0.9,
+	  "accuracy": 0.95,
 	  "reloadTime": 6,
-	  "magSize": 10
+	  "magSize": 10,
+	  "knockBack": 350
 	}
   ],
   "Head": [

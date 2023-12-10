@@ -22,6 +22,7 @@ static var itemsDict
 
 @onready var destinationMarker = $DestinationCircle
 @onready var attackTargetMarker = $AttackTargetUI
+@onready var aimingIndicator = $ArmSprite/AimingIndicator
 
 var interactionTarget
 
@@ -184,14 +185,18 @@ func _physics_process(delta):
 			if attackRaycast.get_collider() == null:
 				if attackTimer.is_stopped():
 					attackTimer.start()
+					aimingIndicator.visible = true
 				PointArmAt(attackTarget.position)
+				aimingIndicator.scale.y = attackTimer.time_left/ attackTimer.wait_time * 1.5
 				SetAttackLine()
 			else:
 				attackTimer.stop()
+				aimingIndicator.visible = false
 				attackLine.visible = false
 		else:
 			# line of sight blocked. cant attack
 			attackTimer.stop()
+			aimingIndicator.visible = false
 			attackLine.visible = false
 		
 		
@@ -229,7 +234,7 @@ func Attack():
 		var amount = randi_range(primary.data.damageMin, primary.data.damageMax)
 		if is_instance_valid(attackTarget):
 			var dir = position.direction_to(attackTarget.position)
-			dir *= 300
+			dir *= primary.data.knockBack
 			attackTarget.ReceiveHit(amount, primary.data.penetration, endAccuracy, dir)
 		else:
 			attackTarget = null
@@ -379,7 +384,6 @@ func RemoveByIndex(index):
 	
 	return item
 		
-
 
 func _to_string():
 	var output: String = "Survivor Info\n"

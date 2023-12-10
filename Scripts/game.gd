@@ -13,6 +13,8 @@ static var deathEffect = preload("res://Scenes/death_particle_effect.tscn")
 
 static var expOrb = preload("res://Scenes/exp_orb.tscn")
 
+static var experiencePoints: int = 0
+
 static var gameScene: Game
 
 static var spaceship
@@ -98,3 +100,7 @@ static func MakeExpOrb(where):
 	var newOrb = expOrb.instantiate()
 	gameScene.add_child(newOrb)
 	newOrb.position = where
+
+
+static func AddExp(amount):
+	experiencePoints += amount

@@ -1,6 +1,6 @@
-res://Scenes/spaceship.tscn
 res://Scenes/game.tscn
 res://Scenes/survivor.tscn
+res://Scenes/spaceship.tscn
 res://Scenes/enemy.tscn
 res://Scenes/item_container.tscn
 res://Scenes/interactable.tscn
@@ -10,9 +10,6 @@ res://Scenes/overview_marker.tscn
 res://Scenes/module.tscn
 res://Scenes/death_particle_effect.tscn
 res://Scenes/placed_item.tscn
-res://Scripts/unit.gd
-res://Scripts/enemy.gd
 res://Scenes/exp_orb.tscn
-res://Scenes/exp_orb.gd
-res://Scripts/game.gd
-res://Scripts/exp_orb.gd
+res://Scripts/survivor.gd
+res://Data/Items.json
