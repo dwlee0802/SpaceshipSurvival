@@ -11,16 +11,13 @@ static var time: float = 0
 static var damagePopup = preload("res://Scenes/damage_popup.tscn")
 static var deathEffect = preload("res://Scenes/death_particle_effect.tscn")
 
-static var expOrb = preload("res://Scenes/exp_orb.tscn")
-
-static var experiencePoints: int = 0
-
 static var gameScene: Game
 
 static var spaceship
 
 const AMMO_PER_STR: int = 200
 const FOOD_PER_STR: int = 2
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -94,13 +91,12 @@ static func GetClosestSurvivor(position):
 			smallestDist = dist
 	
 	return result
-	
-	
-static func MakeExpOrb(where):
-	var newOrb = expOrb.instantiate()
-	gameScene.add_child(newOrb)
-	newOrb.position = where
 
 
-static func AddExp(amount):
-	experiencePoints += amount
+static func GainExperiencePoints(main, amount):
+	for item : Survivor in survivors:
+		if item == main:
+			item.AddExperiencePoints(amount * 2)
+		else:
+			item.AddExperiencePoints(amount)
+			

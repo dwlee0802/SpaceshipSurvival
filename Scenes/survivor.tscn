@@ -219,7 +219,7 @@ wait_time = 30.0
 autostart = true
 
 [node name="HealthBar" type="Node2D" parent="."]
-position = Vector2(-25, -52)
+position = Vector2(-25, -59)
 
 [node name="BackgroundBar" type="TextureRect" parent="HealthBar"]
 self_modulate = Color(0, 0, 0, 1)
@@ -231,6 +231,21 @@ texture = ExtResource("2_3n7u2")
 self_modulate = Color(1, 0, 0, 1)
 offset_right = 50.0
 offset_bottom = 4.0
+texture = ExtResource("2_3n7u2")
+
+[node name="ExpBar" type="Node2D" parent="."]
+position = Vector2(-25, -54)
+
+[node name="BackgroundBar" type="TextureRect" parent="ExpBar"]
+self_modulate = Color(0, 0, 0, 1)
+offset_right = 50.0
+offset_bottom = 2.0
+texture = ExtResource("2_3n7u2")
+
+[node name="ExpBar" type="TextureRect" parent="ExpBar"]
+self_modulate = Color(0.337255, 0.588235, 1, 1)
+offset_right = 1.0
+offset_bottom = 2.0
 texture = ExtResource("2_3n7u2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

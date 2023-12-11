@@ -73,6 +73,12 @@ var needsRescue: bool = true
 
 signal update_unit_ui
 
+@onready var expBar = $ExpBar/ExpBar
+var experiencePoints: int = 0
+var level: int = 1
+# required exp to level up. Increases 50 percent each level
+var requiredEXP: int = 2000
+
 
 func _ready():
 	super._ready()
@@ -235,7 +241,7 @@ func Attack():
 		if is_instance_valid(attackTarget):
 			var dir = position.direction_to(attackTarget.position)
 			dir *= primary.data.knockBack
-			attackTarget.ReceiveHit(amount, primary.data.penetration, endAccuracy, dir)
+			attackTarget.ReceiveHit(amount, primary.data.penetration, endAccuracy, dir, false, self)
 		else:
 			attackTarget = null
 		#print("Delt ", str(amount), " damage!")
@@ -385,6 +391,22 @@ func RemoveByIndex(index):
 	return item
 		
 
+func AddExperiencePoints(amount):
+	experiencePoints += amount
+	if experiencePoints >= requiredEXP:
+		level += 1
+		requiredEXP  *= 1.5
+		experiencePoints = 0
+	
+	print(experiencePoints)
+	UpdateExpBar()
+	
+
+func UpdateExpBar():
+	expBar.size.x = experiencePoints/float(requiredEXP) * healthBarSize
+	print("experiencePoints/requiredEXP * healthBarSize")
+
+	
 func _to_string():
 	var output: String = "Survivor Info\n"
 	output += "HP: " + str(int(health)) + " / " + str(maxHealth) + "\n"

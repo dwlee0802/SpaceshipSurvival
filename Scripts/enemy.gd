@@ -8,6 +8,8 @@ extends "res://Scripts/unit.gd"
 
 var placedItemScene = preload("res://Scenes/placed_item.tscn")
 
+static var expOrb = preload("res://Scenes/exp_orb.tscn")
+
 
 func _ready():
 	super._ready()
@@ -25,9 +27,6 @@ func _ready():
 # if there is a direct path to target, update target position in realtime
 # else, update it every second
 func _physics_process(delta):
-	if health <= 0:
-		OnDeath()
-		
 	if attackTarget == null or attackTarget.isDead:
 		attackTarget = Game.survivors.pick_random()
 	
@@ -61,7 +60,6 @@ func OnDeath():
 	super.OnDeath()
 	print("Dead!")
 	Game.MakeEnemyDeathEffect(global_position)
-	Game.MakeExpOrb(global_position)
 	# roll random drop
 	if randf() < 0.5:
 		DropItem()
@@ -69,11 +67,16 @@ func OnDeath():
 	queue_free()
 
 
-func ReceiveHit(amount, penetration: float = 0, accuracy: float = 0, knockBackVec: Vector2 = Vector2.ZERO, isRadiationDamage = false):
-	if super.ReceiveHit(amount, penetration, accuracy, knockBackVec, isRadiationDamage):
+func ReceiveHit(amount, penetration: float = 0, _accuracy: float = 0, knockBackVec: Vector2 = Vector2.ZERO, isRadiationDamage = false, from = null):
+	if super.ReceiveHit(amount, penetration, _accuracy, knockBackVec, isRadiationDamage):
 		hitParticleEffect.emitting = true
 		hitParticleEffect.rotation = Vector2.RIGHT.angle_to(knockBackVec)
 		animationPlayer.play("hit_animation")
+		
+	if health <= 0:
+		OnDeath()
+		if not isRadiationDamage:
+			MakeExpOrb(from)
 
 
 func DropItem():
@@ -87,3 +90,10 @@ func DropItem():
 func _on_nav_update_timer_timeout():
 	ChangeTargetPosition(attackTarget.position)
 	velocity = position.direction_to(nav.get_next_path_position()) * speed * speedModifier + knockBack
+
+	
+func MakeExpOrb(target):
+	var newOrb = expOrb.instantiate()
+	Game.gameScene.add_child(newOrb)
+	newOrb.position = global_position
+	newOrb.target = target

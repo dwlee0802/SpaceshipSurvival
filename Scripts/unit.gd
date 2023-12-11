@@ -40,7 +40,8 @@ var overviewMarker
 
 @onready var animationPlayer = $AnimationPlayer
 
-var healthBarSize = 50
+static var healthBarSize = 50
+
 
 func _ready():
 	overviewMarker = UserInterfaceManager.MakeMarkerOnSpaceshipOverview()
@@ -89,7 +90,7 @@ func UpdateHealthBar():
 	healthBar.size.x = health/maxHealth * healthBarSize
 
 
-func ReceiveHit(amount, pene: float = 0, acc: float = 0, knockBackVector: Vector2 = Vector2.ZERO, isRadiationDamage = false):
+func ReceiveHit(amount, pene: float = 0, acc: float = 0, knockBackVector: Vector2 = Vector2.ZERO, isRadiationDamage = false, from = null):
 	# accuracy check
 	var endAccuracy = acc - evasion
 	if endAccuracy < 0:
