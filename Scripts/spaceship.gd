@@ -26,6 +26,12 @@ static var maxFoodStock: int = 0
 static var ammoStock: int = 1000
 static var maxAmmoStock: int = 0
 
+# component stock of the survivors
+# components are used to make gear and fix modules
+# components are earned by dismantling gear or looting
+static var componentStock: int = 10
+static var maxComponentStock: int = 10
+
 # the travel speed of the ship
 # calculated based on the number of operational thrusters
 # added every second to distance traveled. When it reaches a certain amount, the player wins
@@ -55,6 +61,8 @@ func _process(delta):
 	Game.UpdateStockMax()
 	UserInterfaceManager.UpdateAmmoStockLabel(ammoStock)
 	UserInterfaceManager.UpdateFoodStockLabel(foodStock)
+	UserInterfaceManager.UpdateComponentStockLabel(componentStock)
+
 
 func _on_travel_timer_timeout():
 	distanceTraveled += shipSpeed
@@ -115,6 +123,20 @@ static func ConsumeFood(amount):
 		foodStock = 0
 		
 	UserInterfaceManager.UpdateFoodStockLabel(foodStock)
+	return true
+
+
+static func ConsumeComponents(amount):
+	if amount > componentStock:
+		UserInterfaceManager.UpdateComponentStockLabel(componentStock)
+		return false
+	else:
+		componentStock -= amount
+	
+	if componentStock < 0:
+		componentStock = 0
+		
+	UserInterfaceManager.UpdateComponentStockLabel(componentStock)
 	return true
 
 

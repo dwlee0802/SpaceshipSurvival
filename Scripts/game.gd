@@ -17,6 +17,9 @@ static var spaceship
 
 const AMMO_PER_STR: int = 200
 const FOOD_PER_STR: int = 2
+const COMP_PER_STR: int = 10
+
+static var components: int = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -74,10 +77,12 @@ static func MakeEnemyDeathEffect(where):
 static func UpdateStockMax():
 	Spaceship.maxAmmoStock = 0
 	Spaceship.maxFoodStock = 0
+	Spaceship.maxComponentStock = 0
 	
 	for item in survivors:
 		Spaceship.maxAmmoStock += item.strength * AMMO_PER_STR
 		Spaceship.maxFoodStock += item.strength * FOOD_PER_STR
+		Spaceship.maxComponentStock += item.strength * COMP_PER_STR
 
 
 static func GetClosestSurvivor(position):
@@ -99,4 +104,3 @@ static func GainExperiencePoints(main, amount):
 			item.AddExperiencePoints(amount * 2)
 		else:
 			item.AddExperiencePoints(amount)
-			

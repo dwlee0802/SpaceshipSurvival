@@ -128,7 +128,7 @@
 	  "name": "Hazmat Mask",
 	  "ID": 3,
 	  "description": "Good for stopping bullets and more.",
-	  "weight": 5,
+	  "weight": 3,
 	  "defense": 0.3,
 	  "oxygenGeneration": 2,
 	  "radiationDefense": 0.3,
@@ -140,7 +140,7 @@
 	  "name": "Bulletproof Vest",
 	  "ID": 0,
 	  "description": "Good for stopping bullets and more.",
-	  "weight": 5,
+	  "weight": 3,
 	  "defense": 0.3,
 	  "radiationDefense": 0,
 	  "insulation": 0.1
@@ -149,7 +149,7 @@
 	  "name": "Hazmat Suit",
 	  "ID": 1,
 	  "description": "Good for stopping bullets and more.",
-	  "weight": 5,
+	  "weight": 3,
 	  "defense": 0.3,
 	  "radiationDefense": 0.7,
 	  "insulation": 0.1
@@ -163,7 +163,8 @@
 	  "weight": 1,
 	  "heal": 0.2,
 	  "food": 0,
-	  "ammo": 0
+	  "ammo": 0,
+	  "components": 5
 	},
 	{
 	  "name": "Combat ration",
@@ -172,7 +173,8 @@
 	  "weight": 2,
 	  "heal": 0,
 	  "food": 10,
-	  "ammo": 0
+	  "ammo": 0,
+	  "components": 5
 	},
 	{
 	  "name": "Ammo Box",
@@ -181,16 +183,28 @@
 	  "weight": 4,
 	  "heal": 0,
 	  "food": 0,
-	  "ammo": 100
+	  "ammo": 100,
+	  "components": 5
 	},
 	{
 	  "name": "Coffee",
 	  "ID": 3,
 	  "description": "A drink that keeps you awake.",
-	  "weight": 4,
+	  "weight": 2,
 	  "heal": 0,
 	  "food": 1,
-	  "ammo": 0
+	  "ammo": 0,
+	  "components": 5
 	},
+	{
+	  "name": "Toolbox",
+	  "ID": 4,
+	  "description": "Box of components.",
+	  "weight": 4,
+	  "heal": 0,
+	  "food": 0,
+	  "ammo": 0,
+	  "components": 5
+	}
   ]
 }

@@ -16,7 +16,10 @@ static var sleepBar
 
 static var nutritionBar
 
+static var expBar
+
 static var BAR_LENGTH = 200
+static var EXP_BAR_LENGTH = 320
 
 static var unitUI
 
@@ -38,6 +41,8 @@ static var foodStockLabel
 
 static var ammoStockLabel
 
+static var componentsStockLabel
+
 static var containerUI
 
 static var spaceshipOverviewUI
@@ -55,6 +60,7 @@ func _ready():
 	temperatureBar = $UnitUI/TemperatureBar/TextureRect
 	sleepBar = $UnitUI/SleepBar/TextureRect
 	nutritionBar = $UnitUI/NutritionBar/TextureRect
+	expBar = $UnitUI/ExperienceBar/TextureRect
 	unitUI = $UnitUI
 	itemList = $UnitUI/InfoPanel/ItemList
 	inventoryContextMenu = $UnitUI/InfoPanel/ContextMenu
@@ -66,6 +72,7 @@ func _ready():
 	unitEquipmentLabel = infoPanel.get_node("UnitEquipmentLabel")
 	foodStockLabel = $ResourcesUI/FoodStockLabel
 	ammoStockLabel = $ResourcesUI/AmmoStockLabel
+	componentsStockLabel = $ResourcesUI/ComponentsStockLabel
 	containerUI = $UnitUI/ContainerUI
 	spaceshipOverviewUI = $SpaceshipOverviewUI
 	spaceshipOverviewPanel = $SpaceshipOverviewUI/SpaceshipOverviewPanel
@@ -93,12 +100,13 @@ static func UpdateSpaceshipStatusUI(oxygen, temp):
 	spaceshipStatusUI.get_node("TemperatureLevel/Label").text = str(temp) + "C"
 	
 	
-static func UpdateUnitBarUI(unit):
+static func UpdateUnitBarUI(unit: Survivor):
 	healthBar.size.x = unit.health / unit.maxHealth * BAR_LENGTH
 	oxygenBar.size.x = unit.oxygen / 100 * BAR_LENGTH
 	temperatureBar.size.x = unit.bodyTemperature / 50 * BAR_LENGTH
 	sleepBar.size.x = unit.sleep / 600 * BAR_LENGTH
 	nutritionBar.size.x = unit.nutrition / 100 * BAR_LENGTH
+	expBar.size.x = float(unit.experiencePoints) / unit.requiredEXP * EXP_BAR_LENGTH
 
 
 static func UpdateUnitInfoUI(unit):
@@ -203,6 +211,10 @@ static func UpdateAmmoStockLabel(amount):
 	
 static func UpdateFoodStockLabel(amount):
 	foodStockLabel.text = "Food: " + str(amount) + "/" + str(Spaceship.maxFoodStock)
+	
+	
+static func UpdateComponentStockLabel(amount):
+	componentsStockLabel.text = "Components: " + str(amount) + "/" + str(Spaceship.maxComponentStock)
 	
 	
 static func UpdateSpaceshipOverviewUI(val = true):

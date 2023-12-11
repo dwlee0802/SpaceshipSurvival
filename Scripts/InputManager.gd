@@ -235,6 +235,7 @@ func _on_consume_button_pressed():
 	
 	Spaceship.ConsumeAmmo( -data.ammo)
 	Spaceship.ConsumeFood( -data.food)
+	Spaceship.ConsumeComponents( -data.components)
 	
 	selectedUnits[0].HealHealth(data.heal * selectedUnits[0].maxHealth)
 	
