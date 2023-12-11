@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bj6ov38i406sf"]
+[gd_scene load_steps=19 format=3 uid="uid://bj6ov38i406sf"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e32sq"]
 [ext_resource type="Script" path="res://Scripts/InputManager.gd" id="2_drscf"]
@@ -48,6 +48,8 @@ tracks/0/keys = {
 _data = {
 "spaceship_flame_animation": SubResource("Animation_ahy6d")
 }
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_n2cgh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vbgc8"]
 size = Vector2(100, 100)
@@ -936,6 +938,62 @@ offset_bottom = 806.0
 scale = Vector2(0.6, 0.6)
 pivot_offset = Vector2(34, -5)
 texture = ExtResource("7_7g08s")
+
+[node name="DisassemblyUI" type="Control" parent="Camera/Canvas"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 619.0
+offset_top = 303.0
+offset_right = 917.0
+offset_bottom = 623.0
+
+[node name="Background" type="Panel" parent="Camera/Canvas/DisassemblyUI"]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 319.0
+
+[node name="Title" type="Label" parent="Camera/Canvas/DisassemblyUI"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 10.0
+offset_right = 100.0
+offset_bottom = 33.0
+text = "Disassembly"
+
+[node name="TargetItemIcon" type="TextureRect" parent="Camera/Canvas/DisassemblyUI"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 68.0
+offset_right = 190.0
+offset_bottom = 158.0
+texture = SubResource("PlaceholderTexture2D_n2cgh")
+
+[node name="DisassemblyInfoLabel" type="Label" parent="Camera/Canvas/DisassemblyUI"]
+offset_left = 41.0
+offset_top = 184.0
+offset_right = 240.0
+offset_bottom = 233.0
+text = "Item Components Value:
+Expected output: 00 - 00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DisassembleButton" type="Button" parent="Camera/Canvas/DisassemblyUI"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 245.0
+offset_right = 198.0
+offset_bottom = 276.0
+text = "Disassemble"
+
+[node name="ResultLabel" type="Label" parent="Camera/Canvas/DisassemblyUI"]
+visible = false
+layout_mode = 0
+offset_left = 60.0
+offset_top = 283.0
+offset_right = 238.0
+offset_bottom = 306.0
+text = "Result: 00 Components"
 
 [node name="InputManager" type="Node2D" parent="."]
 script = ExtResource("2_drscf")

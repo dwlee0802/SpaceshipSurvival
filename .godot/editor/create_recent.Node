@@ -1,3 +1,8 @@
+Label
+Button
+TextureRect
+Panel
+Control
 Polygon2D
 Sprite2D
 CPUParticles2D
@@ -7,8 +12,3 @@ CollisionShape2D
 ShapeCast2D
 RigidBody2D
 Node2D
-TextureRect
-AnimationPlayer
-Label
-Area2D
-Panel
