@@ -77,8 +77,8 @@ signal update_unit_ui
 var experiencePoints: int = 0
 var level: int = 1
 # required exp to level up. Increases 50 percent each level
-var requiredEXP: int = 2000
-
+var requiredEXP: int = 200
+@onready var levelUpEffect = $LevelUpEffect/AnimationPlayer
 
 func _ready():
 	super._ready()
@@ -397,6 +397,7 @@ func AddExperiencePoints(amount):
 		level += 1
 		requiredEXP  *= 1.5
 		experiencePoints = 0
+		levelUpEffect.play("level_up_anim")
 	
 	print(experiencePoints)
 	UpdateExpBar()

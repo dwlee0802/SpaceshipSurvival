@@ -17,24 +17,36 @@ radius = 600.0
 resource_local_to_scene = true
 radius = 150.0
 
-[sub_resource type="Animation" id="Animation_cymjo"]
-resource_name = "hit_animation"
+[sub_resource type="Animation" id="Animation_kumx6"]
+resource_name = "level_up_anim"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BodySprite:self_modulate")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tg4vx"]
 _data = {
-"hit_animation": SubResource("Animation_cymjo")
+"level_up_anim": SubResource("Animation_kumx6")
 }
 
 [node name="Survivor" type="CharacterBody2D"]
@@ -249,6 +261,15 @@ offset_bottom = 2.0
 texture = ExtResource("2_3n7u2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+speed_scale = 4.0
+
+[node name="LevelUpEffect" type="Polygon2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(0, -20)
+color = Color(0, 1, 0.513726, 0.47451)
+polygon = PackedVector2Array(-22, 0, 22, 0, 22, -55, 40, -55, -1, -86, -39, -53, -22, -53)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelUpEffect"]
 libraries = {
 "": SubResource("AnimationLibrary_tg4vx")
 }
