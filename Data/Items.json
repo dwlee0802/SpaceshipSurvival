@@ -12,7 +12,8 @@
 	  "weight": 0,
 	  "penetration": 0,
 	  "accuracy": 0.8,
-	  "knockBack": 150
+	  "knockBack": 150,
+	  "componentValue": 100
 	},
 	{
 	  "name": "Crowbar",
@@ -26,7 +27,8 @@
 	  "weight": 5,
 	  "penetration": 0.6,
 	  "accuracy": 0.95,
-	  "knockBack": 300
+	  "knockBack": 300,
+	  "componentValue": 100
 	},
 	{
 	  "name": "Fire Axe",
@@ -40,7 +42,8 @@
 	  "weight": 5,
 	  "penetration": 0.8,
 	  "accuracy": 0.9,
-	  "knockBack": 250
+	  "knockBack": 250,
+	  "componentValue": 100
 	}
   ],
   "Ranged": [
@@ -58,7 +61,8 @@
 	  "accuracy": 0.8,
 	  "reloadTime": 3,
 	  "magSize": 8,
-	  "knockBack": 200
+	  "knockBack": 200,
+	  "componentValue": 100
 	},
 	{
 	  "name": "Submachine Gun",
@@ -74,7 +78,8 @@
 	  "accuracy": 0.9,
 	  "reloadTime": 5,
 	  "magSize": 20,
-	  "knockBack": 150
+	  "knockBack": 150,
+	  "componentValue": 100
 	},
 	{
 	  "name": "Auto rifle",
@@ -90,7 +95,8 @@
 	  "accuracy": 0.95,
 	  "reloadTime": 6,
 	  "magSize": 10,
-	  "knockBack": 350
+	  "knockBack": 350,
+	  "componentValue": 100
 	}
   ],
   "Head": [
@@ -102,7 +108,8 @@
 	  "defense": 0.2,
 	  "oxygenGeneration": 0,
 	  "radiationDefense": 0.1,
-	  "insulation": 0.1
+	  "insulation": 0.1,
+	  "componentValue": 100
 	},
 	{
 	  "name": "Recon Helmet",
@@ -112,7 +119,8 @@
 	  "defense": 0.3,
 	  "oxygenGeneration": 1,
 	  "radiationDefense": 0.1,
-	  "insulation": 0.1
+	  "insulation": 0.1,
+	  "componentValue": 100
 	},
 	{
 	  "name": "Oxygen Mask",
@@ -122,7 +130,8 @@
 	  "defense": 0.1,
 	  "oxygenGeneration": 10,
 	  "radiationDefense": 0.1,
-	  "insulation": 0.1
+	  "insulation": 0.1,
+	  "componentValue": 100
 	},
 	{
 	  "name": "Hazmat Mask",
@@ -132,7 +141,8 @@
 	  "defense": 0.3,
 	  "oxygenGeneration": 2,
 	  "radiationDefense": 0.3,
-	  "insulation": 0.1
+	  "insulation": 0.1,
+	  "componentValue": 100
 	}
   ],
   "Body": [
@@ -143,7 +153,8 @@
 	  "weight": 3,
 	  "defense": 0.3,
 	  "radiationDefense": 0,
-	  "insulation": 0.1
+	  "insulation": 0.1,
+	  "componentValue": 100
 	},
 	{
 	  "name": "Hazmat Suit",
@@ -152,7 +163,8 @@
 	  "weight": 3,
 	  "defense": 0.3,
 	  "radiationDefense": 0.7,
-	  "insulation": 0.1
+	  "insulation": 0.1,
+	  "componentValue": 100
 	}
   ],
   "Consumable": [
@@ -164,7 +176,8 @@
 	  "heal": 0.2,
 	  "food": 0,
 	  "ammo": 0,
-	  "components": 5
+	  "components": 0,
+	  "componentValue": 100
 	},
 	{
 	  "name": "Combat ration",
@@ -174,7 +187,8 @@
 	  "heal": 0,
 	  "food": 10,
 	  "ammo": 0,
-	  "components": 5
+	  "components": 0,
+	  "componentValue": 100
 	},
 	{
 	  "name": "Ammo Box",
@@ -184,7 +198,8 @@
 	  "heal": 0,
 	  "food": 0,
 	  "ammo": 100,
-	  "components": 5
+	  "components": 0,
+	  "componentValue": 100
 	},
 	{
 	  "name": "Coffee",
@@ -194,7 +209,8 @@
 	  "heal": 0,
 	  "food": 1,
 	  "ammo": 0,
-	  "components": 5
+	  "components": 0,
+	  "componentValue": 100
 	},
 	{
 	  "name": "Toolbox",
@@ -204,7 +220,8 @@
 	  "heal": 0,
 	  "food": 0,
 	  "ammo": 0,
-	  "components": 5
+	  "components": 100,
+	  "componentValue": 100
 	}
   ]
 }

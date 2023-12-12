@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://dnmd6ufe4n8al"]
 
-[ext_resource type="Script" path="res://Scripts/module.gd" id="1_jygwm"]
+[ext_resource type="Script" path="res://Scenes/crafting_station.gd" id="1_lv7xb"]
 
-[node name="Module" type="Node2D"]
-script = ExtResource("1_jygwm")
+[node name="CraftingStation" type="Node2D"]
+script = ExtResource("1_lv7xb")
 
 [node name="ErrorTimer" type="Timer" parent="."]
 wait_time = 10.0

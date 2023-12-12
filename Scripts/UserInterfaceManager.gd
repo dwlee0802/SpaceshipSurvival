@@ -50,6 +50,8 @@ static var spaceshipOverviewUI
 static var spaceshipOverviewPanel
 static var overviewMarker = preload("res://Scenes/overview_marker.tscn")
 
+static var craftingStationUI
+static var craftingStationUIType: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -76,6 +78,7 @@ func _ready():
 	containerUI = $UnitUI/ContainerUI
 	spaceshipOverviewUI = $SpaceshipOverviewUI
 	spaceshipOverviewPanel = $SpaceshipOverviewUI/SpaceshipOverviewPanel
+	craftingStationUI = $CraftingStationUI
 	
 
 # change scale x of progress bar based on progress
@@ -224,11 +227,22 @@ static func UpdateSpaceshipOverviewUI(val = true):
 	else:
 		spaceshipOverviewUI.visible = false
 
+
 static func UpdateSpaceshipOverviewText():
 	spaceshipOverviewUI.get_node("ModuleStatus").text = Game.spaceship.PrintModuleStatus()
+
 
 # instantiate a marker and return it to the caller
 static func MakeMarkerOnSpaceshipOverview():
 	var newMarker = overviewMarker.instantiate()
 	spaceshipOverviewPanel.add_child(newMarker)
 	return newMarker
+	
+	
+static func UpdateCraftingUI(type):
+	craftingStationUIType = type
+	var optionList: ItemList = craftingStationUI.get_node("ItemList")
+	optionList.clear()
+	var data = Survivor.ReturnItemDictByType(type)
+	for item in data:
+		optionList.add_item(item.name)

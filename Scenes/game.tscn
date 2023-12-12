@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bj6ov38i406sf"]
+[gd_scene load_steps=21 format=3 uid="uid://bj6ov38i406sf"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e32sq"]
 [ext_resource type="Script" path="res://Scripts/InputManager.gd" id="2_drscf"]
@@ -52,6 +52,8 @@ _data = {
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_n2cgh"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7xr05"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_8y74f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vbgc8"]
 size = Vector2(100, 100)
@@ -1000,6 +1002,7 @@ offset_bottom = 306.0
 text = "Result: 00 Components"
 
 [node name="Closebutton" type="Button" parent="Camera/Canvas/DisassemblyUI"]
+layout_mode = 0
 offset_left = 263.0
 offset_top = 4.0
 offset_right = 297.0
@@ -1008,13 +1011,12 @@ theme_override_font_sizes/font_size = 10
 text = "Close"
 
 [node name="CraftingStationUI" type="Control" parent="Camera/Canvas"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 402.0
 offset_top = 218.0
-offset_right = 442.0
-offset_bottom = 258.0
+offset_right = 754.0
+offset_bottom = 504.0
 
 [node name="Background" type="Panel" parent="Camera/Canvas/CraftingStationUI"]
 layout_mode = 0
@@ -1030,7 +1032,7 @@ text = "Crafting Station"
 [node name="ItemList" type="ItemList" parent="Camera/Canvas/CraftingStationUI"]
 layout_mode = 0
 offset_left = 5.0
-offset_top = 37.0
+offset_top = 75.0
 offset_right = 187.0
 offset_bottom = 279.0
 
@@ -1065,12 +1067,132 @@ offset_bottom = 284.0
 theme_override_font_sizes/font_size = 13
 text = "Print"
 
+[node name="MeleeButton" type="Button" parent="Camera/Canvas/CraftingStationUI"]
+layout_mode = 0
+offset_top = 25.0
+offset_right = 40.0
+offset_bottom = 47.0
+theme_override_font_sizes/font_size = 10
+toggle_mode = true
+button_group = SubResource("ButtonGroup_8y74f")
+text = "Melee"
+
+[node name="RangedButton" type="Button" parent="Camera/Canvas/CraftingStationUI"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 25.0
+offset_right = 88.0
+offset_bottom = 47.0
+theme_override_font_sizes/font_size = 10
+toggle_mode = true
+button_group = SubResource("ButtonGroup_8y74f")
+text = "Ranged"
+
+[node name="HeadButton" type="Button" parent="Camera/Canvas/CraftingStationUI"]
+layout_mode = 0
+offset_top = 50.0
+offset_right = 40.0
+offset_bottom = 72.0
+theme_override_font_sizes/font_size = 10
+toggle_mode = true
+button_group = SubResource("ButtonGroup_8y74f")
+text = "Head"
+
+[node name="BodyButton" type="Button" parent="Camera/Canvas/CraftingStationUI"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 50.0
+offset_right = 82.0
+offset_bottom = 72.0
+theme_override_font_sizes/font_size = 10
+toggle_mode = true
+button_group = SubResource("ButtonGroup_8y74f")
+text = "Body"
+
+[node name="ConsumableButton" type="Button" parent="Camera/Canvas/CraftingStationUI"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 50.0
+offset_right = 158.0
+offset_bottom = 72.0
+theme_override_font_sizes/font_size = 10
+toggle_mode = true
+button_group = SubResource("ButtonGroup_8y74f")
+text = "Consumables
+"
+
 [node name="Closebutton" type="Button" parent="Camera/Canvas/CraftingStationUI"]
 layout_mode = 0
 offset_left = 316.0
 offset_top = 3.0
 offset_right = 350.0
 offset_bottom = 25.0
+theme_override_font_sizes/font_size = 10
+text = "Close"
+
+[node name="ModifierUI" type="Control" parent="Camera/Canvas"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 619.0
+offset_top = 303.0
+offset_right = 917.0
+offset_bottom = 623.0
+
+[node name="Background" type="Panel" parent="Camera/Canvas/ModifierUI"]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 319.0
+
+[node name="Title" type="Label" parent="Camera/Canvas/ModifierUI"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 10.0
+offset_right = 100.0
+offset_bottom = 33.0
+text = "Modifier"
+
+[node name="TargetItemIcon" type="TextureRect" parent="Camera/Canvas/ModifierUI"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 68.0
+offset_right = 190.0
+offset_bottom = 158.0
+texture = SubResource("PlaceholderTexture2D_n2cgh")
+
+[node name="DisassemblyInfoLabel" type="Label" parent="Camera/Canvas/ModifierUI"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = 187.0
+offset_right = 299.0
+offset_bottom = 236.0
+text = "Required Component Cost: 0000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DisassembleButton" type="Button" parent="Camera/Canvas/ModifierUI"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 245.0
+offset_right = 198.0
+offset_bottom = 276.0
+text = "Upgrade"
+
+[node name="ResultLabel" type="Label" parent="Camera/Canvas/ModifierUI"]
+visible = false
+layout_mode = 0
+offset_left = 60.0
+offset_top = 283.0
+offset_right = 238.0
+offset_bottom = 306.0
+text = "Result: 00 Components"
+
+[node name="Closebutton" type="Button" parent="Camera/Canvas/ModifierUI"]
+layout_mode = 0
+offset_left = 263.0
+offset_top = 4.0
+offset_right = 297.0
+offset_bottom = 26.0
 theme_override_font_sizes/font_size = 10
 text = "Close"
 
@@ -1112,3 +1234,10 @@ speed = 200
 [connection signal="pressed" from="Camera/Canvas/UnitUI/ContainerUI/ContextMenu/PutInButton" to="InputManager" method="_on_take_button_pressed" binds= [false]]
 [connection signal="toggled" from="Camera/Canvas/UnitUI/CombatBehavior/MoveAndShoot" to="InputManager" method="_on_move_and_shoot_toggled"]
 [connection signal="toggled" from="Camera/Canvas/UnitUI/CombatBehavior/FireAtWill" to="InputManager" method="_on_fire_at_will_toggled"]
+[connection signal="pressed" from="Camera/Canvas/CraftingStationUI/PrintButton" to="InputManager" method="_on_print_button_pressed"]
+[connection signal="pressed" from="Camera/Canvas/CraftingStationUI/MeleeButton" to="InputManager" method="_on_crafting_menu_button_pressed" binds= [0]]
+[connection signal="pressed" from="Camera/Canvas/CraftingStationUI/RangedButton" to="InputManager" method="_on_crafting_menu_button_pressed" binds= [1]]
+[connection signal="pressed" from="Camera/Canvas/CraftingStationUI/HeadButton" to="InputManager" method="_on_crafting_menu_button_pressed" binds= [2]]
+[connection signal="pressed" from="Camera/Canvas/CraftingStationUI/BodyButton" to="InputManager" method="_on_crafting_menu_button_pressed" binds= [3]]
+[connection signal="pressed" from="Camera/Canvas/CraftingStationUI/ConsumableButton" to="InputManager" method="_on_crafting_menu_button_pressed" binds= [4]]
+[connection signal="pressed" from="Camera/Canvas/CraftingStationUI/Closebutton" to="InputManager" method="_on_closebutton_pressed"]

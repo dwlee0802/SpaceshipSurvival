@@ -273,3 +273,23 @@ func _on_take_button_pressed(isTake):
 
 	selectedUnits[0].UpdateStats()
 	UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])
+
+
+func _on_crafting_menu_button_pressed(extra_arg_0):
+	UserInterfaceManager.UpdateCraftingUI(extra_arg_0)
+
+
+func _on_print_button_pressed():
+	# get selected type and selected id
+	var type = UserInterfaceManager.craftingStationUIType
+	var id = UserInterfaceManager.craftingStationUI.get_node("ItemList").get_selected_items()[0]
+	
+	# check if enough components
+	if Spaceship.ConsumeComponents(Survivor.ReturnItemData(type, id).componentValue):
+		print("made item!")
+	else:
+		print("Not enough components!")
+
+
+func _on_closebutton_pressed():
+	UserInterfaceManager.craftingStationUI.visible = false

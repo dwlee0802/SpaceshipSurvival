@@ -29,8 +29,8 @@ static var maxAmmoStock: int = 0
 # component stock of the survivors
 # components are used to make gear and fix modules
 # components are earned by dismantling gear or looting
-static var componentStock: int = 10
-static var maxComponentStock: int = 10
+static var componentStock: int = 220
+static var maxComponentStock: int = 400
 
 # the travel speed of the ship
 # calculated based on the number of operational thrusters

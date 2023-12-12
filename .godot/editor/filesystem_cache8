@@ -1,6 +1,6 @@
 ea4bc82a6ad023ab7ee23ee620429895
 ::res://::1702371741
-::res://Art/::1702371432
+::res://Art/::1702371746
 circle-256.png::CompressedTexture2D::1915240768654291441::1702371432::1702371746::1::::<><>::
 container_temp_sprite.png::CompressedTexture2D::4256416860286807661::1702371432::1702371746::1::::<><>::
 crowbar_placeholder.png::CompressedTexture2D::2715276860940824536::1702371432::1702371746::1::::<><>::
@@ -15,15 +15,15 @@ ump45_temp_sprite.png::CompressedTexture2D::3454104805633979682::1702371432::170
 ::res://Data/::1702371432
 Items.json::JSON::-1::1702371432::0::1::::<><>::
 Skills.json::JSON::-1::1702371432::0::1::::<><>::
-::res://Scenes/::1702371432
+::res://Scenes/::1702373133
 crafting_station.tscn::PackedScene::8096728120423862151::1702371432::0::1::::<><>::res://Scripts/module.gd
 damage_popup.tscn::PackedScene::7783843474897474129::1702371432::0::1::::<><>::res://Scripts/damage_popup.gd
 death_particle_effect.tscn::PackedScene::7601698821197374670::1702371432::0::1::::<><>::uid://2j00antvhw4x::::res://Art/circle-256.png
 enemy.tscn::PackedScene::3614807687968687359::1702371432::0::1::::<><>::res://Scripts/enemy.gd<>uid://ct6hupidc3mfx::::res://Art/enemy_temp_sprite.jpg<>uid://8x1ll54gtflu::::res://Art/single_white_pixel.png<>uid://2j00antvhw4x::::res://Art/circle-256.png
 engine_room.gd::GDScript::-1::1702371432::0::1::::<>Module<>::
-engine_room.tscn::PackedScene::8147710873071030021::1702371432::0::1::::<><>::res://Scenes/engine_room.gd
+engine_room.tscn::PackedScene::8147710873071030021::1702373450::0::1::::<><>::res://Scenes/engine_room.gd
 exp_orb.tscn::PackedScene::1815970831365227559::1702371432::0::1::::<><>::res://Scripts/exp_orb.gd<>uid://2j00antvhw4x::::res://Art/circle-256.png
-game.tscn::PackedScene::3083005048417584829::1702371432::0::1::::<><>::res://Scripts/game.gd<>res://Scripts/InputManager.gd<>res://Scripts/UserInterfaceManager.gd<>uid://8x1ll54gtflu::::res://Art/single_white_pixel.png<>uid://crk54pclkvhi::::res://Scenes/survivor.tscn<>uid://bexkhiplgn4sy::::res://Art/crowbar_placeholder.png<>uid://2j00antvhw4x::::res://Art/circle-256.png<>uid://5cam8m5nc2yc::::res://Scenes/spaceship.tscn<>res://Scripts/camera.gd<>uid://ddgm7rgp5c517::::res://Art/spaceship_image.png
+game.tscn::PackedScene::3083005048417584829::1702373441::0::1::::<><>::res://Scripts/game.gd<>res://Scripts/InputManager.gd<>res://Scripts/UserInterfaceManager.gd<>uid://8x1ll54gtflu::::res://Art/single_white_pixel.png<>uid://crk54pclkvhi::::res://Scenes/survivor.tscn<>uid://bexkhiplgn4sy::::res://Art/crowbar_placeholder.png<>uid://2j00antvhw4x::::res://Art/circle-256.png<>uid://5cam8m5nc2yc::::res://Scenes/spaceship.tscn<>res://Scripts/camera.gd<>uid://ddgm7rgp5c517::::res://Art/spaceship_image.png
 infirmary.tscn::PackedScene::5306657337396324764::1702371432::0::1::::<><>::res://Scripts/infirmary.gd
 interactable.tscn::PackedScene::2732086989902701343::1702371432::0::1::::<><>::res://Scripts/interactable.gd<>uid://8x1ll54gtflu::::res://Art/single_white_pixel.png<>uid://ueh2f2ndukht::::res://Art/interactable_temp_sprite.jpg<>uid://2j00antvhw4x::::res://Art/circle-256.png
 item_container.tscn::PackedScene::7248382669588514586::1702371432::0::1::::<><>::res://Scripts/item_container.gd<>uid://b1v3tf1le4m6x::::res://Art/container_temp_sprite.png
