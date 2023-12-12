@@ -1,6 +1,7 @@
-Label
 Button
+Label
 TextureRect
+ItemList
 Panel
 Control
 Polygon2D
@@ -11,4 +12,3 @@ NavigationRegion2D
 CollisionShape2D
 ShapeCast2D
 RigidBody2D
-Node2D

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bj6ov38i406sf"]
+[gd_scene load_steps=20 format=3 uid="uid://bj6ov38i406sf"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e32sq"]
 [ext_resource type="Script" path="res://Scripts/InputManager.gd" id="2_drscf"]
@@ -50,6 +50,8 @@ _data = {
 }
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_n2cgh"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7xr05"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vbgc8"]
 size = Vector2(100, 100)
@@ -940,6 +942,7 @@ pivot_offset = Vector2(34, -5)
 texture = ExtResource("7_7g08s")
 
 [node name="DisassemblyUI" type="Control" parent="Camera/Canvas"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 619.0
@@ -969,6 +972,7 @@ offset_bottom = 158.0
 texture = SubResource("PlaceholderTexture2D_n2cgh")
 
 [node name="DisassemblyInfoLabel" type="Label" parent="Camera/Canvas/DisassemblyUI"]
+layout_mode = 0
 offset_left = 41.0
 offset_top = 184.0
 offset_right = 240.0
@@ -994,6 +998,81 @@ offset_top = 283.0
 offset_right = 238.0
 offset_bottom = 306.0
 text = "Result: 00 Components"
+
+[node name="Closebutton" type="Button" parent="Camera/Canvas/DisassemblyUI"]
+offset_left = 263.0
+offset_top = 4.0
+offset_right = 297.0
+offset_bottom = 26.0
+theme_override_font_sizes/font_size = 10
+text = "Close"
+
+[node name="CraftingStationUI" type="Control" parent="Camera/Canvas"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 402.0
+offset_top = 218.0
+offset_right = 442.0
+offset_bottom = 258.0
+
+[node name="Background" type="Panel" parent="Camera/Canvas/CraftingStationUI"]
+layout_mode = 0
+offset_right = 354.0
+offset_bottom = 289.0
+
+[node name="Title" type="Label" parent="Camera/Canvas/CraftingStationUI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Crafting Station"
+
+[node name="ItemList" type="ItemList" parent="Camera/Canvas/CraftingStationUI"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 37.0
+offset_right = 187.0
+offset_bottom = 279.0
+
+[node name="TextureRect" type="TextureRect" parent="Camera/Canvas/CraftingStationUI"]
+layout_mode = 0
+offset_left = 226.0
+offset_top = 41.0
+offset_right = 316.0
+offset_bottom = 131.0
+texture = SubResource("PlaceholderTexture2D_7xr05")
+
+[node name="ItemInfo" type="Label" parent="Camera/Canvas/CraftingStationUI"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 141.0
+offset_right = 341.0
+offset_bottom = 252.0
+theme_override_font_sizes/font_size = 11
+text = "Selected Item Info
+Selected Item Info
+Selected Item Info
+Selected Item Info
+Selected Item Info
+Selected Item Info"
+
+[node name="PrintButton" type="Button" parent="Camera/Canvas/CraftingStationUI"]
+layout_mode = 0
+offset_left = 233.0
+offset_top = 258.0
+offset_right = 300.0
+offset_bottom = 284.0
+theme_override_font_sizes/font_size = 13
+text = "Print"
+
+[node name="Closebutton" type="Button" parent="Camera/Canvas/CraftingStationUI"]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 3.0
+offset_right = 350.0
+offset_bottom = 25.0
+theme_override_font_sizes/font_size = 10
+text = "Close"
 
 [node name="InputManager" type="Node2D" parent="."]
 script = ExtResource("2_drscf")
