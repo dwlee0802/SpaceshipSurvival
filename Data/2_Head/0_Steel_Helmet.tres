@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Armor" load_steps=2 format=3 uid="uid://c8l6s8phy8dib"]
+
+[ext_resource type="Script" path="res://Data/armor_data.gd" id="1_53qqb"]
+
+[resource]
+script = ExtResource("1_53qqb")
+defense = 0.2
+oxygenGeneration = 0
+radiationDefense = 0.1
+insulation = 0.1
+type = 2
+name = "Steel Helmet"
+ID = 0
+description = "Simple protective headgear."
+componentValue = 100
+weight = 5

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://jj1u3qskx06m"]
+
+[ext_resource type="Script" path="res://Data/weapon_data.gd" id="1_qs3rv"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xusvr"]
+size = Vector2(20, 20)
+
+[resource]
+script = ExtResource("1_qs3rv")
+range = 80
+minDamage = 50
+maxDamage = 80
+attacksPerSecond = 2.0
+penetration = 0.0
+accuracy = 0.8
+knockBack = 150
+type = 0
+name = "Fists"
+ID = 0
+description = "The weapon humans are born with."
+texture = SubResource("PlaceholderTexture2D_xusvr")
+componentValue = 0
+weight = 0

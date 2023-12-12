@@ -16,6 +16,6 @@ func _ready():
 
 func _to_string():
 	var output = "Placed Item\n"
-	output += Survivor.ReturnItemData(itemType, itemID).name
+	output += DataManager.resources[itemType][itemID].name
 		
 	return output

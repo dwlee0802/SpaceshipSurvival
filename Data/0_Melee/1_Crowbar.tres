@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=2 format=3 uid="uid://dib4xq36fa0ut"]
+
+[ext_resource type="Script" path="res://Data/weapon_data.gd" id="1_na43t"]
+
+[resource]
+script = ExtResource("1_na43t")
+range = 100
+minDamage = 90
+maxDamage = 120
+attacksPerSecond = 4.0
+penetration = 0.6
+accuracy = 0.95
+knockBack = 300
+type = 0
+name = ""
+ID = 1
+description = "A tool for removing alien threats."
+componentValue = 100
+weight = 4

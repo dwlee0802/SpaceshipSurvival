@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://cbcbhpesxx4wg"]
+
+[ext_resource type="Script" path="res://Data/weapon_data.gd" id="1_1thg8"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_dkgu8"]
+
+[resource]
+script = ExtResource("1_1thg8")
+range = 300
+minDamage = 50
+maxDamage = 200
+attacksPerSecond = 1.5
+penetration = 0.1
+accuracy = 0.8
+knockBack = 200
+type = 1
+name = "Handgun"
+ID = 0
+description = "Simple sidearm."
+texture = SubResource("PlaceholderTexture2D_dkgu8")
+componentValue = 100
+weight = 4

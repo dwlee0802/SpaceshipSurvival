@@ -285,7 +285,7 @@ func _on_print_button_pressed():
 	var id = UserInterfaceManager.craftingStationUI.get_node("ItemList").get_selected_items()[0]
 	
 	# check if enough components
-	if Spaceship.ConsumeComponents(Survivor.ReturnItemData(type, id).componentValue):
+	if Spaceship.ConsumeComponents(DataManager.resources[type][id].componentValue):
 		print("made item!")
 	else:
 		print("Not enough components!")

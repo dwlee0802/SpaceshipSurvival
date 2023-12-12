@@ -360,7 +360,7 @@ func _on_nutrition_timer_timeout():
 
 func AddItemByIndex(type, id):
 	inventory.append(Item.new(type, id))
-	inventoryWeight += Survivor.ReturnItemData(type, id).weight
+	inventoryWeight += DataManager.resources[type][id].weight
 	UpdateStats()
 
 
@@ -399,13 +399,11 @@ func AddExperiencePoints(amount):
 		experiencePoints = 0
 		levelUpEffect.play("level_up_anim")
 	
-	print(experiencePoints)
 	UpdateExpBar()
 	
 
 func UpdateExpBar():
 	expBar.size.x = experiencePoints/float(requiredEXP) * healthBarSize
-	print("experiencePoints/requiredEXP * healthBarSize")
 
 	
 func _to_string():
@@ -437,21 +435,4 @@ func PrintEquipmentStatus():
 		output += "Body: None" + "\n"
 		
 	return output
-	
-
-static func ReturnItemDictByType(num):
-	if num == 0:
-		return itemsDict.Melee
-	if num == 1:
-		return itemsDict.Ranged
-	if num == 2:
-		return itemsDict.Head
-	if num == 3:
-		return itemsDict.Body
-	if num == 4:
-		return itemsDict.Consumable
-		
-
-static func ReturnItemData(type, id):
-	return ReturnItemDictByType(type)[id]
 	

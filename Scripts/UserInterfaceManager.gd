@@ -243,7 +243,7 @@ static func UpdateCraftingUI(type):
 	craftingStationUIType = type
 	var optionList: ItemList = craftingStationUI.get_node("ItemList")
 	optionList.clear()
-	var data = Survivor.ReturnItemDictByType(type)
+	var data = DataManager.resources[type]
 	for item in data:
 		optionList.add_item(item.name)
 
@@ -251,7 +251,7 @@ static func UpdateCraftingUI(type):
 static func UpdateCraftingItemInfo():
 	var selectedIndex = craftingStationUI.get_node("ItemList").get_selected_items()[0]
 	var output = ""
-	var data =  Survivor.ReturnItemData(craftingStationUIType, selectedIndex)
+	var data =  DataManager.resources[craftingStationUIType][selectedIndex]
 	output += data.name + "\n"
 	output += "Cost: " + str(data.componentValue) + " components\n"
 	craftingStationUI.get_node("ItemInfo").text = output

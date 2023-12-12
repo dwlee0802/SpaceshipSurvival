@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Armor" load_steps=2 format=3 uid="uid://ba4nx5q1dl61k"]
+
+[ext_resource type="Script" path="res://Data/armor_data.gd" id="1_28d6q"]
+
+[resource]
+script = ExtResource("1_28d6q")
+defense = 0.3
+oxygenGeneration = 0
+radiationDefense = 0.0
+insulation = 0.2
+type = 3
+name = "Bulletproof Vest"
+ID = 0
+description = "Good for stopping bullets and more."
+componentValue = 100
+weight = 4

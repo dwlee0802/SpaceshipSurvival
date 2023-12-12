@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="RangedWeapon" load_steps=2 format=3 uid="uid://du0ut36fntib0"]
+
+[ext_resource type="Script" path="res://Data/ranged_data.gd" id="1_f66qo"]
+
+[resource]
+script = ExtResource("1_f66qo")
+ammoPerShot = 2
+reloadTime = 5.0
+magazineCapacity = 20
+range = 450
+minDamage = 50
+maxDamage = 100
+attacksPerSecond = 3.0
+penetration = 0.2
+accuracy = 0.9
+knockBack = 150
+type = 1
+name = "Submachine Gun"
+ID = 1
+description = "Balanced automatic weapon with decent firepower."
+componentValue = 100
+weight = 5
