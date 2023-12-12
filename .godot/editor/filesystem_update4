@@ -19,3 +19,6 @@ res://Scripts/survivor.gd
 res://Scripts/InputManager.gd
 res://Scripts/placed_item.gd
 res://Scripts/UserInterfaceManager.gd
+res://DraggableItem.gd
+res://Scenes/draggable_item.tscn
+res://Scenes/draggable_item_slot.tscn

@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp6arnj7p6ovd"]
+
+[ext_resource type="Script" path="res://Scripts/DraggableItem.gd" id="1_o0o36"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jdnop"]
+size = Vector2(50, 50)
+
+[node name="DraggableItem" type="TextureButton"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1316.0
+offset_bottom = -718.0
+grow_horizontal = 2
+grow_vertical = 2
+action_mode = 0
+texture_normal = SubResource("PlaceholderTexture2D_jdnop")
+stretch_mode = 0
+script = ExtResource("1_o0o36")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

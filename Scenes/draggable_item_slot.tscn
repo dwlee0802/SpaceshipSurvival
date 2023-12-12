@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bv4s7eywc1713"]
+
+[ext_resource type="Script" path="res://Scripts/DraggableItemSlot.gd" id="1_bu046"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_c2tmp"]
+
+[node name="DraggableItemSlot" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bu046")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.0980392)
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 50.0
+texture = SubResource("PlaceholderTexture2D_c2tmp")
