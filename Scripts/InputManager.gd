@@ -293,3 +293,8 @@ func _on_print_button_pressed():
 
 func _on_closebutton_pressed():
 	UserInterfaceManager.craftingStationUI.visible = false
+
+
+# update item info in crafting menu
+func _on_craft_menu_item_list_item_selected(index):
+	UserInterfaceManager.UpdateCraftingItemInfo()

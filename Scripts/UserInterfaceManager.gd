@@ -246,3 +246,12 @@ static func UpdateCraftingUI(type):
 	var data = Survivor.ReturnItemDictByType(type)
 	for item in data:
 		optionList.add_item(item.name)
+
+
+static func UpdateCraftingItemInfo():
+	var selectedIndex = craftingStationUI.get_node("ItemList").get_selected_items()[0]
+	var output = ""
+	var data =  Survivor.ReturnItemData(craftingStationUIType, selectedIndex)
+	output += data.name + "\n"
+	output += "Cost: " + str(data.componentValue) + " components\n"
+	craftingStationUI.get_node("ItemInfo").text = output
