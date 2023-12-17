@@ -1299,12 +1299,14 @@ offset_left = 22.0
 offset_top = 232.0
 offset_right = 374.0
 offset_bottom = 518.0
+flat = true
 script = ExtResource("8_24sst")
 
 [node name="Background" type="Panel" parent="Camera/Canvas/InformationUI"]
 layout_mode = 0
 offset_right = 354.0
 offset_bottom = 289.0
+mouse_filter = 2
 
 [node name="Title" type="Label" parent="Camera/Canvas/InformationUI"]
 layout_mode = 0
