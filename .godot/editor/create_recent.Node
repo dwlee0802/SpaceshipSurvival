@@ -1,3 +1,4 @@
+Button
 Control
 Label
 TextureRect
@@ -5,7 +6,6 @@ TextureButton
 GridContainer
 Panel
 Node
-Button
 ItemList
 Polygon2D
 Sprite2D

@@ -79,7 +79,6 @@ position = Vector2(25, 0)
 collision_mask = 16
 
 [node name="HitParticleEffect" type="CPUParticles2D" parent="."]
-visible = false
 emitting = false
 amount = 12
 lifetime = 3.0

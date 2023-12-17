@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bj6ov38i406sf"]
+[gd_scene load_steps=24 format=3 uid="uid://bj6ov38i406sf"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e32sq"]
 [ext_resource type="Script" path="res://Scripts/InputManager.gd" id="2_drscf"]
@@ -26,14 +26,6 @@ pressed = true
 
 [sub_resource type="Shortcut" id="Shortcut_7qy3f"]
 events = [SubResource("InputEventMouseButton_d23fh")]
-
-[sub_resource type="InputEventKey" id="InputEventKey_4a3vl"]
-device = -1
-keycode = 73
-unicode = 105
-
-[sub_resource type="Shortcut" id="Shortcut_uxh8f"]
-events = [SubResource("InputEventKey_4a3vl")]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_haal1"]
 
@@ -339,8 +331,17 @@ offset_right = 226.0
 offset_bottom = 35.0
 toggle_mode = true
 button_group = SubResource("ButtonGroup_k1ai1")
-shortcut = SubResource("Shortcut_uxh8f")
 text = "Inventory 00/00"
+
+[node name="EquipmentButton" type="Button" parent="Camera/Canvas/UnitUI"]
+layout_mode = 0
+offset_left = 231.0
+offset_top = 4.0
+offset_right = 341.0
+offset_bottom = 35.0
+toggle_mode = true
+button_group = SubResource("ButtonGroup_k1ai1")
+text = "Equipment"
 
 [node name="EquipmentUI" type="Control" parent="Camera/Canvas/UnitUI"]
 anchors_preset = 0
@@ -417,6 +418,105 @@ offset_right = 338.0
 offset_bottom = 91.0
 theme_override_font_sizes/font_size = 12
 text = "Ammo Consumption: 00"
+
+[node name="InfoPanel" type="Control" parent="Camera/Canvas/UnitUI"]
+anchors_preset = 0
+offset_left = -9.0
+offset_top = -41.0
+offset_right = 31.0
+offset_bottom = -1.0
+
+[node name="Background" type="Panel" parent="Camera/Canvas/UnitUI/InfoPanel"]
+layout_mode = 0
+offset_top = -192.0
+offset_right = 196.0
+offset_bottom = 40.0
+
+[node name="ItemList" type="ItemList" parent="Camera/Canvas/UnitUI/InfoPanel"]
+layout_mode = 0
+offset_top = -191.0
+offset_right = 195.0
+offset_bottom = 40.0
+theme_override_font_sizes/font_size = 13
+allow_search = false
+item_count = 1
+item_0/text = "Handgun"
+
+[node name="ContextMenu" type="Control" parent="Camera/Canvas/UnitUI/InfoPanel"]
+anchors_preset = 0
+offset_top = -224.0
+offset_right = 129.0
+offset_bottom = -192.0
+
+[node name="Panel" type="Panel" parent="Camera/Canvas/UnitUI/InfoPanel/ContextMenu"]
+layout_mode = 0
+offset_right = 129.0
+offset_bottom = 30.0
+
+[node name="EquipButton" type="Button" parent="Camera/Canvas/UnitUI/InfoPanel/ContextMenu"]
+visible = false
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 14
+text = "Equip"
+
+[node name="UnequipButton" type="Button" parent="Camera/Canvas/UnitUI/InfoPanel/ContextMenu"]
+visible = false
+layout_mode = 0
+offset_right = 66.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 14
+text = "Unequip"
+
+[node name="DropButton" type="Button" parent="Camera/Canvas/UnitUI/InfoPanel/ContextMenu"]
+layout_mode = 0
+offset_left = 81.0
+offset_right = 128.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 14
+text = "Drop"
+
+[node name="ConsumeButton" type="Button" parent="Camera/Canvas/UnitUI/InfoPanel/ContextMenu"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 14
+text = "Consume"
+
+[node name="UnitInfoLabel" type="Label" parent="Camera/Canvas/UnitUI/InfoPanel"]
+visible = false
+layout_mode = 0
+offset_top = -189.0
+offset_right = 237.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 14
+text = "asdfsdaf
+sdafsdaf
+sdafsdaf
+sdafsda
+fsda
+fsda
+f
+sadf
+sadfsdaf"
+
+[node name="UnitEquipmentLabel" type="Label" parent="Camera/Canvas/UnitUI/InfoPanel"]
+visible = false
+layout_mode = 0
+offset_top = -189.0
+offset_right = 237.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 14
+text = "asdfsdaf
+sdafsdaf
+sdafsdaf
+sdafsda
+fsda
+fsda
+f
+sadf
+sadfsdaf"
 
 [node name="CombatBehavior" type="Control" parent="Camera/Canvas/UnitUI"]
 anchors_preset = 0
@@ -1003,17 +1103,8 @@ theme_override_font_sizes/font_size = 10
 text = "Close"
 
 [node name="InventoryUI" type="Button" parent="Camera/Canvas"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -293.0
-offset_top = -156.5
-offset_right = 293.0
-offset_bottom = 156.5
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 586.0
+offset_bottom = 313.0
 keep_pressed_outside = true
 flat = true
 script = ExtResource("8_24sst")
@@ -1315,6 +1406,12 @@ script = ExtResource("11_volyp")
 
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InformationButton" to="InputManager" method="_on_information_button_pressed"]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InventoryButton" to="InputManager" method="_on_inventory_button_pressed"]
+[connection signal="pressed" from="Camera/Canvas/UnitUI/EquipmentButton" to="InputManager" method="_on_information_button_pressed"]
+[connection signal="item_clicked" from="Camera/Canvas/UnitUI/InfoPanel/ItemList" to="InputManager" method="_on_item_list_item_clicked"]
+[connection signal="pressed" from="Camera/Canvas/UnitUI/InfoPanel/ContextMenu/EquipButton" to="InputManager" method="_on_equip_button_pressed"]
+[connection signal="pressed" from="Camera/Canvas/UnitUI/InfoPanel/ContextMenu/UnequipButton" to="InputManager" method="_on_unequip_button_pressed"]
+[connection signal="pressed" from="Camera/Canvas/UnitUI/InfoPanel/ContextMenu/DropButton" to="InputManager" method="_on_drop_button_pressed"]
+[connection signal="pressed" from="Camera/Canvas/UnitUI/InfoPanel/ContextMenu/ConsumeButton" to="InputManager" method="_on_consume_button_pressed"]
 [connection signal="toggled" from="Camera/Canvas/UnitUI/CombatBehavior/MoveAndShoot" to="InputManager" method="_on_move_and_shoot_toggled"]
 [connection signal="toggled" from="Camera/Canvas/UnitUI/CombatBehavior/FireAtWill" to="InputManager" method="_on_fire_at_will_toggled"]
 [connection signal="item_selected" from="Camera/Canvas/CraftingStationUI/ItemList" to="InputManager" method="_on_craft_menu_item_list_item_selected"]

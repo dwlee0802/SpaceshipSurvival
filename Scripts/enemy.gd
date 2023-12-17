@@ -32,6 +32,13 @@ func _physics_process(delta):
 	
 	ChangeTargetPosition(attackTarget.position)
 	
+	# update nav target position every 0.5 seconds if it is close
+	# otherwise update every 10 seconds or so
+	if position.distance_to(attackTarget.position) > 2000:
+		navUpdateTimer.wait_time = randf_range(5,10)
+	else:
+		navUpdateTimer.wait_time = 0.5
+		
 	if CheckDirectPath(attackTarget.position):
 		if position.distance_to(target_position) < STOP_DIST:
 			isMoving = false

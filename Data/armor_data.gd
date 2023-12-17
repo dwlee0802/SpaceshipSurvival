@@ -6,5 +6,5 @@ class_name Armor
 @export var radiationDefense: float
 @export var insulation: float
 
-func SpecialEffect(unit):
+func SpecialEffect(_unit):
 	pass

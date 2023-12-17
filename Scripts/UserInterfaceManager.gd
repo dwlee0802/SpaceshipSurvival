@@ -41,8 +41,6 @@ static var ammoStockLabel
 
 static var componentsStockLabel
 
-static var containerUI
-
 static var spaceshipOverviewUI
 
 static var spaceshipOverviewPanel
@@ -54,6 +52,9 @@ static var craftingStationUIType: int = 0
 static var inventoryUI
 static var inventoryGrid
 static var draggableItem = preload("res://Scenes/draggable_item.tscn")
+
+static var containerUI
+static var containerGrid
 
 
 # Called when the node enters the scene tree for the first time.
@@ -67,23 +68,20 @@ func _ready():
 	nutritionBar = $UnitUI/NutritionBar/TextureRect
 	expBar = $UnitUI/ExperienceBar/TextureRect
 	unitUI = $UnitUI
-	itemList = $UnitUI/InfoPanel/ItemList
-	infoPanel = $UnitUI/InfoPanel
 	infoPanelButton = $UnitUI/InformationButton
 	inventoryPanelButton = $UnitUI/InventoryButton
-	equipmentPanelButton = $UnitUI/EquipmentButton
-	unitInfoLabel = infoPanel.get_node("UnitInfoLabel")
-	unitEquipmentLabel = infoPanel.get_node("UnitEquipmentLabel")
 	foodStockLabel = $ResourcesUI/FoodStockLabel
 	ammoStockLabel = $ResourcesUI/AmmoStockLabel
 	componentsStockLabel = $ResourcesUI/ComponentsStockLabel
-	containerUI = $ContainerUI
 	spaceshipOverviewUI = $SpaceshipOverviewUI
 	spaceshipOverviewPanel = $SpaceshipOverviewUI/SpaceshipOverviewPanel
 	craftingStationUI = $CraftingStationUI
+	
 	inventoryUI = $InventoryUI
 	inventoryGrid = inventoryUI.get_node("InventoryGrid")
-
+	containerUI = $ContainerUI
+	containerGrid = containerUI.get_node("ContainerGrid")
+	
 
 # change scale x of progress bar based on progress
 static func UpdateTravelProgressUI(cur, maxVal):
@@ -114,39 +112,12 @@ static func UpdateUnitBarUI(unit: Survivor):
 	sleepBar.size.x = unit.sleep / 600 * BAR_LENGTH
 	nutritionBar.size.x = unit.nutrition / 100 * BAR_LENGTH
 	expBar.size.x = float(unit.experiencePoints) / unit.requiredEXP * EXP_BAR_LENGTH
-
-
-static func UpdateUnitInfoUI(unit):
-	unitInfoLabel.text = str(unit)
-	
-	
-static func UpdateUnitEquipmentInfoUI(unit):
-	unitEquipmentLabel.text = unit.PrintEquipmentStatus()
 	
 
 # toggles the entire unit ui element
 static func ToggleUnitUI(val):
 	unitUI.visible = val
 
-
-# updates the unit info panel. switches to right panel and updates its data
-static func UpdateUnitInfoPanel(unit):
-	infoPanel.visible = true
-	itemList.visible = false
-	unitInfoLabel.visible = false
-	unitEquipmentLabel.visible = false
-	
-	if infoPanelButton.button_pressed:
-		UpdateUnitInfoUI(unit)
-		unitInfoLabel.visible = true
-	elif inventoryPanelButton.button_pressed:
-		itemList.visible = true
-	elif equipmentPanelButton.button_pressed:
-		UpdateUnitEquipmentInfoUI(unit)
-		unitEquipmentLabel.visible = true
-	else:
-		infoPanel.visible = false
-		
 
 static func UpdateAmmoStockLabel(amount):
 	ammoStockLabel.text = "Ammo: " + str(amount) + "/" + str(Spaceship.maxAmmoStock)
@@ -198,21 +169,30 @@ static func UpdateCraftingItemInfo():
 
 
 static func UpdateInventoryUI(unit: Survivor):	
-	# update inventory weight
-	inventoryPanelButton.text = "Inventory " + str(unit.inventoryWeight) + "/" + str(unit.inventoryCapacity)
+	UpdateInventoryWeight(unit)
+	inventoryUI.visible = true
 	
 	PopulateInventoryGrid(unit)
 	
 	if unit.interactionContainer != null:
 		# populate container UI
-		pass
+		UpdateContainerUI(unit.interactionContainer)
 
 
+static func UpdateContainerUI(container: ItemContainer):
+	containerUI.visible = true
+	PopulateContainerGrid(container)
+	
+
+static func UpdateInventoryWeight(unit: Survivor):
+	# update inventory weight
+	inventoryPanelButton.text = "Inventory " + str(unit.inventoryWeight) + "/" + str(unit.inventoryCapacity)
+	
+	
 # makes draggable items based on selected unit inventory
 # assumes that the number of items in an inventory does not go over 24 items
 static func PopulateInventoryGrid(unit: Survivor):
 	var inventory = unit.inventory
-	inventoryUI.visible = true
 	
 	# remove stuff from equipment slots
 	var equipSlot = inventoryUI.get_node("BodySlot/DraggableItem")
@@ -260,13 +240,35 @@ static func PopulateInventoryGrid(unit: Survivor):
 			newDraggable.position = Vector2.ZERO
 
 
-static func PopulateContainerGrid():
-	pass
+static func PopulateContainerGrid(container: ItemContainer):
+	var inventory = container.contents
+			
+	for i in range(24):
+		var slot: Node = containerGrid.get_child(i)
+		# if slot has a draggable item, remove it
+		for j in range(slot.get_child_count()):
+			slot.get_child(j).queue_free()
+			
+		if i < len(inventory):
+			var newDraggable: DraggableItem = draggableItem.instantiate()
+			# this slot is empty
+			if inventory[i] == null:
+				continue
+				
+			newDraggable.item = inventory[i]
+			newDraggable.get_node("TEMP_itemName").text = inventory[i].data.name
+			
+			slot.add_child(newDraggable)
+			newDraggable.position = Vector2.ZERO
+
 
 # modifies selected unit's items based the inventory grids current state
 static func ReadInventoryGrid():
 	pass
 
+
+static func ReadContainerGrid():
+	pass
 
 func _on_inventory_ui_closebutton_pressed():
 	inventoryUI.visible = false

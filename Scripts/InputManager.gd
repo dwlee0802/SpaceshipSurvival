@@ -16,7 +16,6 @@ func _process(delta):
 	if len(selectedUnits) == 1:
 		UserInterfaceManager.ToggleUnitUI(true)
 		UserInterfaceManager.UpdateUnitBarUI(selectedUnits[0])
-		UserInterfaceManager.UpdateUnitInfoUI(selectedUnits[0])
 	else:
 		UserInterfaceManager.ToggleUnitUI(false)
 	
@@ -44,7 +43,7 @@ func _unhandled_input(event):
 						selectedUnits[0].update_unit_inventory_ui.connect(UpdateUnitInventoryUI)
 						
 					# update ui to show newly selected unit
-					UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])
+					#UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])
 				for item in selectedUnits:
 					item.ShowSelectionUI()
 			
@@ -145,11 +144,6 @@ func _on_fire_at_will_toggled(button_pressed):
 	if len(selectedUnits) > 0:
 		for unit in selectedUnits:
 			unit.fireAtWill = button_pressed
-		
-
-func _on_information_button_pressed():
-	if len(selectedUnits) > 0:
-		UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])
 
 
 func _on_equip_button_pressed():
@@ -172,13 +166,11 @@ func _on_equip_button_pressed():
 	selectedUnits[0].EquipItemFromInventory(selectedItemIndex, slotType)
 	selectedUnits[0].UpdateStats()
 	
-	UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])
 	
 
 # update all UI related to unit information
 func UpdateUnitUI():
 	if len(selectedUnits) > 0:
-		UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])
 		UserInterfaceManager.UpdateInventoryUI(selectedUnits[0])
 
 
@@ -194,7 +186,6 @@ func SelectSingleUnit(unit):
 	unit.ShowSelectionUI()
 	if not unit.update_unit_ui.is_connected(UpdateUnitUI):
 		unit.update_unit_ui.connect(UpdateUnitUI)
-	UserInterfaceManager.UpdateUnitInfoPanel(unit)
 
 
 func _on_unequip_button_pressed():
@@ -215,8 +206,6 @@ func _on_unequip_button_pressed():
 	selectedUnits[0].equipmentSlots[slotType] = -1
 	
 	selectedUnits[0].UpdateStats()
-	
-	UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])
 
 
 func _on_drop_button_pressed():
@@ -230,7 +219,6 @@ func _on_drop_button_pressed():
 	add_sibling(newItem)
 	
 	selectedUnits[0].UpdateStats()
-	UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])
 
 
 func _on_consume_button_pressed():
@@ -244,8 +232,6 @@ func _on_consume_button_pressed():
 	selectedUnits[0].HealHealth(data.heal * selectedUnits[0].maxHealth)
 	
 	selectedUnits[0].RemoveByIndex(selectedItemIndex)
-	
-	UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])
 	
 
 func _on_take_button_pressed(isTake):
@@ -276,7 +262,6 @@ func _on_take_button_pressed(isTake):
 		
 
 	selectedUnits[0].UpdateStats()
-	UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])
 
 
 func _on_crafting_menu_button_pressed(extra_arg_0):

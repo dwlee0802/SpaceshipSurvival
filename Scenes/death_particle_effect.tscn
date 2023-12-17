@@ -32,7 +32,6 @@ _data = {
 }
 
 [node name="HitParticleEffect" type="CPUParticles2D"]
-visible = false
 emitting = false
 amount = 18
 lifetime = 3.0

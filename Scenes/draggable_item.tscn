@@ -6,6 +6,7 @@
 size = Vector2(50, 50)
 
 [node name="DraggableItem" type="TextureButton"]
+z_index = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
