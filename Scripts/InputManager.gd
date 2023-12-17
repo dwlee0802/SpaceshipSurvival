@@ -12,6 +12,17 @@ var lockOn: bool = false
 @onready var selectionBox = $SelectionBox
 
 
+func _ready():
+	# connect slots
+	var inventoryGrid = UserInterfaceManager.inventoryGrid
+	var containerGrid = UserInterfaceManager.containerGrid
+	for i in range(inventoryGrid.get_child_count()):
+		inventoryGrid.get_child(i).item_dropped.connect(ApplyUnitInventory)
+		
+	for i in range(containerGrid.get_child_count()):
+		containerGrid.get_child(i).item_dropped.connect(ApplyUnitInventory)
+
+
 func _process(delta):
 	if len(selectedUnits) == 1:
 		UserInterfaceManager.ToggleUnitUI(true)
@@ -177,6 +188,12 @@ func UpdateUnitUI():
 func UpdateUnitInventoryUI():
 	if len(selectedUnits) > 0:
 		UserInterfaceManager.UpdateInventoryUI(selectedUnits[0])
+
+
+func ApplyUnitInventory():
+	selectedUnits[0].inventory = UserInterfaceManager.ReadInventoryGrid()
+	if selectedUnits[0].interactionContainer != null:
+		selectedUnits[0].interactionContainer = UserInterfaceManager.ReadContainerGrid()
 	
 
 func SelectSingleUnit(unit):

@@ -262,13 +262,56 @@ static func PopulateContainerGrid(container: ItemContainer):
 			newDraggable.position = Vector2.ZERO
 
 
-# modifies selected unit's items based the inventory grids current state
+# return a list of items in the inventory grid
 static func ReadInventoryGrid():
-	pass
+	var outputList = []
+	outputList.resize(Survivor.MAX_INVENTORY_COUNT)
+	for i in range(len(outputList)):
+		var slot = inventoryGrid.get_child(i)
+		if slot.get_child_count() > 0:
+			outputList[i] = slot.get_child(0).item
+		else:
+			outputList[i] = null
+	
+	return outputList
 
+
+# returns a dictionary that has key: inventory slot type, value: inventory object
+static func ReadEquipmentSlots():
+	var outputDict = {}
+	var slot = inventoryUI.get_node("HeadSlot/DraggableItem")
+	if slot.get_child_count() > 0:
+		outputDict["Head"] = slot.get_child(0).item
+	else:
+		outputDict["Head"] = null
+		
+	slot = inventoryUI.get_node("BodySlot/DraggableItem")
+	if slot.get_child_count() > 0:
+		outputDict["Body"] = slot.get_child(0).item
+	else:
+		outputDict["Body"] = null
+		
+	slot = inventoryUI.get_node("PrimarySlot/DraggableItem")
+	if slot.get_child_count() > 0:
+		outputDict["Primary"] = slot.get_child(0).item
+	else:
+		outputDict["Primary"] = null
+	
+	return outputDict
+	
 
 static func ReadContainerGrid():
-	pass
+	var outputList = []
+	outputList.resize(Survivor.MAX_INVENTORY_COUNT)
+	for i in range(outputList):
+		var slot = containerGrid.get_child(i)
+		if slot.get_child_count() > 0:
+			outputList[i] = slot.get_child(0).item
+		else:
+			outputList[i] = null
+	
+	return outputList
+
 
 func _on_inventory_ui_closebutton_pressed():
 	inventoryUI.visible = false

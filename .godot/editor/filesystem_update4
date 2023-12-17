@@ -9,3 +9,5 @@ res://Scenes/draggable_item.tscn
 res://Scripts/draggable_window.gd
 res://Scripts/InputManager.gd
 res://Scripts/UserInterfaceManager.gd
+res://Scripts/DraggableItemSlot.gd
+res://Scripts/survivor.gd

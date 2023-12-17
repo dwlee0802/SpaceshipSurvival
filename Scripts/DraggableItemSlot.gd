@@ -8,6 +8,8 @@ enum Type {Head, Body, Primary, Secondary, Null}
 
 var mouseOnThis: bool = false
 
+signal item_dropped
+
 
 func _process(delta):
 	if mouseOnThis:
@@ -39,4 +41,7 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 		item.reparent(data.get_parent())
 	data.reparent(self)
 	data.position = Vector2.ZERO
-
+	
+	# change slot
+	# if the slot is equipment, update stats
+	emit_signal("item_dropped")

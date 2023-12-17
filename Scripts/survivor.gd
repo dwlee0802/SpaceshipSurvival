@@ -115,6 +115,8 @@ func _ready():
 	
 	EquipNewItem(Item.new(1,1), SlotType.Primary)
 	
+	AddItem(Item.new(1,0))
+	
 
 func parse_json(text):
 	return JSON.parse_string(text)
