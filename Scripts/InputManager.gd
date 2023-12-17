@@ -23,7 +23,11 @@ func _ready():
 	UserInterfaceManager.inventoryUI.get_node("PrimarySlot/DraggableItem").item_dropped.connect(ApplyUnitInventory)
 	for i in range(containerGrid.get_child_count()):
 		containerGrid.get_child(i).item_dropped.connect(ApplyUnitInventory)
-
+	
+	# connect disassembly slot and ui update
+	UserInterfaceManager.disassemblyUI.get_node("DraggableItemSlot").item_dropped.connect(UserInterfaceManager.UpdateDisassemblyInfo)
+	UserInterfaceManager.disassemblyUI.get_node("DraggableItemSlot").item_dropped.connect(ApplyUnitInventory)
+	UserInterfaceManager.UpdateDisassemblyInfo()
 
 func _process(delta):
 	if len(selectedUnits) == 1:
@@ -324,3 +328,18 @@ func _on_inventory_button_pressed():
 			UserInterfaceManager.UpdateInventoryUI(selectedUnits[0])
 		else:
 			UserInterfaceManager.inventoryUI.visible = false
+
+
+func _on_disassemble_button_pressed():
+	var slotItem = UserInterfaceManager.disassemblyUI.get_node("DraggableItemSlot")
+	if slotItem.get_child_count() > 0:
+		slotItem = slotItem.get_child(0)
+	else:
+		UserInterfaceManager.UpdateDisassemblyInfo()
+		return
+	
+	var amount = slotItem.item.data.componentValue * randf_range(0.4, 0.8)
+	Spaceship.ConsumeComponents(-amount)
+	slotItem.queue_free()
+	UserInterfaceManager.UpdateDisassemblyInfo()
+	

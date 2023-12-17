@@ -61,11 +61,11 @@ _data = {
 "spaceship_flame_animation": SubResource("Animation_ahy6d")
 }
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_n2cgh"]
-
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7xr05"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_8y74f"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_n2cgh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vbgc8"]
 size = Vector2(100, 100)
@@ -749,19 +749,19 @@ scale = Vector2(0.6, 0.6)
 pivot_offset = Vector2(34, -5)
 texture = ExtResource("7_7g08s")
 
-[node name="DisassemblyUI" type="Control" parent="Camera/Canvas"]
-visible = false
-layout_mode = 3
-anchors_preset = 0
+[node name="DisassemblyUI" type="Button" parent="Camera/Canvas"]
 offset_left = 619.0
 offset_top = 303.0
-offset_right = 917.0
-offset_bottom = 623.0
+offset_right = 834.0
+offset_bottom = 551.0
+flat = true
+script = ExtResource("8_24sst")
 
 [node name="Background" type="Panel" parent="Camera/Canvas/DisassemblyUI"]
 layout_mode = 0
-offset_right = 300.0
-offset_bottom = 319.0
+offset_right = 214.0
+offset_bottom = 247.0
+mouse_filter = 2
 
 [node name="Title" type="Label" parent="Camera/Canvas/DisassemblyUI"]
 layout_mode = 0
@@ -771,20 +771,12 @@ offset_right = 100.0
 offset_bottom = 33.0
 text = "Disassembly"
 
-[node name="TargetItemIcon" type="TextureRect" parent="Camera/Canvas/DisassemblyUI"]
-layout_mode = 0
-offset_left = 100.0
-offset_top = 68.0
-offset_right = 190.0
-offset_bottom = 158.0
-texture = SubResource("PlaceholderTexture2D_n2cgh")
-
 [node name="DisassemblyInfoLabel" type="Label" parent="Camera/Canvas/DisassemblyUI"]
 layout_mode = 0
-offset_left = 41.0
-offset_top = 184.0
-offset_right = 240.0
-offset_bottom = 233.0
+offset_top = 128.0
+offset_right = 199.0
+offset_bottom = 177.0
+theme_override_font_sizes/font_size = 13
 text = "Item Components Value:
 Expected output: 00 - 00"
 horizontal_alignment = 1
@@ -792,29 +784,40 @@ vertical_alignment = 1
 
 [node name="DisassembleButton" type="Button" parent="Camera/Canvas/DisassemblyUI"]
 layout_mode = 0
-offset_left = 92.0
-offset_top = 245.0
-offset_right = 198.0
-offset_bottom = 276.0
+offset_left = 47.0
+offset_top = 188.0
+offset_right = 153.0
+offset_bottom = 219.0
 text = "Disassemble"
 
 [node name="ResultLabel" type="Label" parent="Camera/Canvas/DisassemblyUI"]
 visible = false
 layout_mode = 0
-offset_left = 60.0
-offset_top = 283.0
-offset_right = 238.0
-offset_bottom = 306.0
+offset_left = 15.0
+offset_top = 230.0
+offset_right = 193.0
+offset_bottom = 253.0
+theme_override_font_sizes/font_size = 12
 text = "Result: 00 Components"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Closebutton" type="Button" parent="Camera/Canvas/DisassemblyUI"]
 layout_mode = 0
-offset_left = 263.0
-offset_top = 4.0
-offset_right = 297.0
-offset_bottom = 26.0
+offset_left = 175.0
+offset_top = 8.0
+offset_right = 209.0
+offset_bottom = 30.0
 theme_override_font_sizes/font_size = 10
+shortcut = ExtResource("9_xaavw")
 text = "Close"
+
+[node name="DraggableItemSlot" parent="Camera/Canvas/DisassemblyUI" instance=ExtResource("8_l1l7c")]
+layout_mode = 1
+offset_left = 69.0
+offset_top = 62.0
+offset_right = -83.0
+offset_bottom = -136.0
 
 [node name="CraftingStationUI" type="Control" parent="Camera/Canvas"]
 visible = false
@@ -1322,6 +1325,10 @@ script = ExtResource("11_volyp")
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InventoryButton" to="InputManager" method="_on_inventory_button_pressed"]
 [connection signal="toggled" from="Camera/Canvas/UnitUI/CombatBehavior/MoveAndShoot" to="InputManager" method="_on_move_and_shoot_toggled"]
 [connection signal="toggled" from="Camera/Canvas/UnitUI/CombatBehavior/FireAtWill" to="InputManager" method="_on_fire_at_will_toggled"]
+[connection signal="button_down" from="Camera/Canvas/DisassemblyUI" to="Camera/Canvas/DisassemblyUI" method="_on_button_down"]
+[connection signal="button_up" from="Camera/Canvas/DisassemblyUI" to="Camera/Canvas/DisassemblyUI" method="_on_button_up"]
+[connection signal="pressed" from="Camera/Canvas/DisassemblyUI/DisassembleButton" to="InputManager" method="_on_disassemble_button_pressed"]
+[connection signal="pressed" from="Camera/Canvas/DisassemblyUI/Closebutton" to="Camera/Canvas" method="_on_disassembly_closebutton_pressed"]
 [connection signal="item_selected" from="Camera/Canvas/CraftingStationUI/ItemList" to="InputManager" method="_on_craft_menu_item_list_item_selected"]
 [connection signal="pressed" from="Camera/Canvas/CraftingStationUI/PrintButton" to="InputManager" method="_on_print_button_pressed"]
 [connection signal="pressed" from="Camera/Canvas/CraftingStationUI/MeleeButton" to="InputManager" method="_on_crafting_menu_button_pressed" binds= [0]]

@@ -56,6 +56,8 @@ static var draggableItem = preload("res://Scenes/draggable_item.tscn")
 static var containerUI
 static var containerGrid
 
+static var disassemblyUI
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -81,6 +83,8 @@ func _ready():
 	inventoryGrid = inventoryUI.get_node("InventoryGrid")
 	containerUI = $ContainerUI
 	containerGrid = containerUI.get_node("ContainerGrid")
+	
+	disassemblyUI = $DisassemblyUI
 	
 
 # change scale x of progress bar based on progress
@@ -325,9 +329,23 @@ static func ReadContainerGrid():
 	return outputList
 
 
+static func UpdateDisassemblyInfo():
+	var label = disassemblyUI.get_node("DisassemblyInfoLabel")
+	if disassemblyUI.get_node("DraggableItemSlot").get_child_count() == 0:
+		label.text = "Place item in slot to disassemble"
+		return
+		
+	var item: Item = disassemblyUI.get_node("DraggableItemSlot").get_child(0).item
+	label.text = "Item Components Value: " + str(item.data.componentValue) + "\nExpected output: " + str(item.data.componentValue * 0.4) + " - " + str(item.data.componentValue * 0.8)
+	
+
 func _on_inventory_ui_closebutton_pressed():
 	inventoryUI.visible = false
 
 
 func _on_container_ui_closebutton_pressed():
 	containerUI.visible = false
+
+
+func _on_disassembly_closebutton_pressed():
+	disassemblyUI.visible = false

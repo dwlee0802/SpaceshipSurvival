@@ -19,7 +19,7 @@ func _process(delta):
 		self_modulate.a = 0.4
 		
 		
-func _can_drop_data(at_position, data):
+func _can_drop_data(_at_position, data):
 	if type == Type.Null:
 		return true
 	elif type == Type.Head and data.item.type == ItemType.Head:
