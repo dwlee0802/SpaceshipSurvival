@@ -29,12 +29,17 @@ var interactionTarget
 var interactionContainer
 
 # Holds the itemIDs that the player has in its inventory
+# capped at 24 items
 var inventory = []
+static var MAX_INVENTORY_COUNT = 24
 
 # Holds the index inside inventory of equipped gear
 # 0: Head slot, 1: Body slot, 2: primary weapon slot, 3: secondary weapon slot
 # -1 itemID means slot is empty
 var equipmentSlots = [-1, -1, -1, -1, -1]
+var headSlot: Item
+var bodySlot: Item
+var primarySlot: Item
 
 # how heavy the items this unit is carrying is
 # heavier the load, the slower the unit can move
@@ -71,7 +76,13 @@ var fireAtWill: bool = true
 # survivors join the player's team by being rescued.
 var needsRescue: bool = true
 
+# update unit info ui
+# emitted when unit's stats are changed
 signal update_unit_ui
+# update unit inventory ui
+# emitted when unit's inventory is changed
+# or when unit is interacting with a placed item or container
+signal update_unit_inventory_ui
 
 @onready var expBar = $ExpBar/ExpBar
 var experiencePoints: int = 0
@@ -79,6 +90,7 @@ var level: int = 1
 # required exp to level up. Increases 50 percent each level
 var requiredEXP: int = 200
 @onready var levelUpEffect = $LevelUpEffect/AnimationPlayer
+
 
 func _ready():
 	super._ready()
@@ -90,6 +102,8 @@ func _ready():
 	Item.itemDict = itemsDict
 	
 	attackTimer.timeout.connect(Attack)
+	
+	inventory.resize(MAX_INVENTORY_COUNT)
 	
 	UpdateStats()
 	
@@ -178,11 +192,11 @@ func _physics_process(delta):
 			AddItemByIndex(interactionTarget.itemType, interactionTarget.itemID)
 			interactionTarget.queue_free()
 			interactionTarget = null
-			emit_signal("update_unit_ui")
+			emit_signal("update_unit_inventory_ui")
 		if interactionTarget is ItemContainer:
 			interactionContainer = interactionTarget
 			interactionTarget = null
-			emit_signal("update_unit_ui")
+			emit_signal("update_unit_inventory_ui")
 			
 	
 	if fireAtWill:
@@ -257,9 +271,22 @@ func EquipItemFromInventory(what: int, where: int):
 	
 
 func EquipNewItem(item: Item, where: int):
-	inventory.append(item)
-	equipmentSlots[where] = inventory.find(item)
+	# find first empty slot
+	var index = -1
+	for i in range(MAX_INVENTORY_COUNT):
+		if inventory[i] == null:
+			index = i
+	
+	if index < 0:
+		print("ERROR! Inventory slots full")
+		return
+			
+	inventory[index] = item
+	
+	equipmentSlots[where] = index
+	
 	inventoryWeight += item.data.weight
+	
 	UpdateStats()
 
 
@@ -359,13 +386,15 @@ func _on_nutrition_timer_timeout():
 
 
 func AddItemByIndex(type, id):
-	inventory.append(Item.new(type, id))
+	var index = GetFirstEmptyInventorySlot(inventory)
+	inventory[index] = Item.new(type, id)
 	inventoryWeight += DataManager.resources[type][id].weight
 	UpdateStats()
 
 
 func AddItem(item: Item):
-	inventory.append(item)
+	var index = GetFirstEmptyInventorySlot(inventory)
+	inventory[index] = item
 	inventoryWeight += item.data.weight
 	UpdateStats()
 	
@@ -435,4 +464,11 @@ func PrintEquipmentStatus():
 		output += "Body: None" + "\n"
 		
 	return output
+
+
+func GetFirstEmptyInventorySlot(list):
+	for i in len(list):
+		if list[i] == null:
+			return i
 	
+	return -1

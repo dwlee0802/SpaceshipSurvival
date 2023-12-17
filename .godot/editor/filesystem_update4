@@ -13,3 +13,4 @@ res://Scripts/DraggableItem.gd
 res://Scripts/UserInterfaceManager.gd
 res://Scripts/InputManager.gd
 res://Scenes/death_particle_effect.tscn
+res://Scripts/survivor.gd

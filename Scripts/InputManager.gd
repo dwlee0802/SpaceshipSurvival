@@ -40,7 +40,10 @@ func _unhandled_input(event):
 				if len(selectedUnits) > 0:
 					if not selectedUnits[0].update_unit_ui.is_connected(UpdateUnitUI):
 						selectedUnits[0].update_unit_ui.connect(UpdateUnitUI)
+					if not selectedUnits[0].update_unit_inventory_ui.is_connected(UpdateUnitInventoryUI):
+						selectedUnits[0].update_unit_inventory_ui.connect(UpdateUnitInventoryUI)
 						
+					# update ui to show newly selected unit
 					UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])
 				for item in selectedUnits:
 					item.ShowSelectionUI()
@@ -73,7 +76,7 @@ func _unhandled_input(event):
 						
 					unit.interactionTarget = result[0].collider
 			
-			UpdateUnitUI()
+			#UpdateUnitUI()
 					
 			Game.UpdateEnemyTargetPosition()
 		
@@ -142,12 +145,6 @@ func _on_fire_at_will_toggled(button_pressed):
 	if len(selectedUnits) > 0:
 		for unit in selectedUnits:
 			unit.fireAtWill = button_pressed
-			
-
-func _on_item_list_item_clicked(index, at_position, mouse_button_index):
-	if mouse_button_index == MOUSE_BUTTON_LEFT:
-		UserInterfaceManager.CheckContextMenuVisibility()
-		UserInterfaceManager.ModifyContextMenuByItem(index, selectedUnits[0])
 		
 
 func _on_information_button_pressed():
@@ -177,11 +174,18 @@ func _on_equip_button_pressed():
 	
 	UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])
 	
-	
+
+# update all UI related to unit information
 func UpdateUnitUI():
 	if len(selectedUnits) > 0:
 		UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])
+		UserInterfaceManager.UpdateInventoryUI(selectedUnits[0])
 
+
+func UpdateUnitInventoryUI():
+	if len(selectedUnits) > 0:
+		UserInterfaceManager.UpdateInventoryUI(selectedUnits[0])
+	
 
 func SelectSingleUnit(unit):
 	Game.SetSelectionUI(false)
@@ -302,4 +306,7 @@ func _on_craft_menu_item_list_item_selected(index):
 
 func _on_inventory_button_pressed():
 	if selectedUnits.size() > 0:
-		UserInterfaceManager.PopulateInventoryGrid(selectedUnits[0].inventory)
+		if UserInterfaceManager.inventoryUI.visible == false:
+			UserInterfaceManager.UpdateInventoryUI(selectedUnits[0])
+		else:
+			UserInterfaceManager.inventoryUI.visible = false

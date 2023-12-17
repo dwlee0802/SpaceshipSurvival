@@ -517,104 +517,6 @@ f
 sadf
 sadfsdaf"
 
-[node name="ContainerUI" type="Control" parent="Camera/Canvas/UnitUI"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 191.0
-offset_top = -41.0
-offset_right = 231.0
-offset_bottom = -1.0
-
-[node name="Background" type="Panel" parent="Camera/Canvas/UnitUI/ContainerUI"]
-layout_mode = 0
-offset_top = -192.0
-offset_right = 151.0
-offset_bottom = 40.0
-
-[node name="ItemList" type="ItemList" parent="Camera/Canvas/UnitUI/ContainerUI"]
-layout_mode = 0
-offset_top = -191.0
-offset_right = 149.0
-offset_bottom = 15.0
-theme_override_font_sizes/font_size = 13
-select_mode = 1
-allow_search = false
-item_count = 1
-item_0/text = "Handgun"
-
-[node name="ContextMenu" type="Control" parent="Camera/Canvas/UnitUI/ContainerUI"]
-anchors_preset = 0
-offset_left = -4.0
-offset_top = -225.0
-offset_right = 78.0
-offset_bottom = -193.0
-
-[node name="Panel" type="Panel" parent="Camera/Canvas/UnitUI/ContainerUI/ContextMenu"]
-layout_mode = 0
-offset_left = -44.0
-offset_right = 48.0
-offset_bottom = 30.0
-
-[node name="TakeButton" type="Button" parent="Camera/Canvas/UnitUI/ContainerUI/ContextMenu"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 1.0
-offset_right = 44.0
-offset_bottom = 29.0
-theme_override_font_sizes/font_size = 14
-text = "<"
-
-[node name="PutInButton" type="Button" parent="Camera/Canvas/UnitUI/ContainerUI/ContextMenu"]
-layout_mode = 0
-offset_left = -41.0
-offset_top = 1.0
-offset_right = -1.0
-offset_bottom = 29.0
-theme_override_font_sizes/font_size = 14
-text = ">"
-
-[node name="UnitInfoLabel" type="Label" parent="Camera/Canvas/UnitUI/ContainerUI"]
-visible = false
-layout_mode = 0
-offset_top = -189.0
-offset_right = 237.0
-offset_bottom = 44.0
-theme_override_font_sizes/font_size = 14
-text = "asdfsdaf
-sdafsdaf
-sdafsdaf
-sdafsda
-fsda
-fsda
-f
-sadf
-sadfsdaf"
-
-[node name="UnitEquipmentLabel" type="Label" parent="Camera/Canvas/UnitUI/ContainerUI"]
-visible = false
-layout_mode = 0
-offset_top = -189.0
-offset_right = 237.0
-offset_bottom = 44.0
-theme_override_font_sizes/font_size = 14
-text = "asdfsdaf
-sdafsdaf
-sdafsdaf
-sdafsda
-fsda
-fsda
-f
-sadf
-sadfsdaf"
-
-[node name="Label" type="Label" parent="Camera/Canvas/UnitUI/ContainerUI"]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 16.0
-offset_right = 79.0
-offset_bottom = 39.0
-text = "Container 00/00"
-
 [node name="CombatBehavior" type="Control" parent="Camera/Canvas/UnitUI"]
 anchors_preset = 0
 offset_left = 353.0
@@ -1200,6 +1102,7 @@ theme_override_font_sizes/font_size = 10
 text = "Close"
 
 [node name="InventoryUI" type="Control" parent="Camera/Canvas"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 358.0
@@ -1313,51 +1216,164 @@ layout_mode = 2
 
 [node name="HeadSlot" type="Label" parent="Camera/Canvas/InventoryUI"]
 layout_mode = 0
-offset_left = 55.0
-offset_top = 57.0
-offset_right = 129.0
-offset_bottom = 80.0
+offset_left = 10.0
+offset_top = 40.0
+offset_right = 84.0
+offset_bottom = 63.0
 text = "Head Slot"
 
 [node name="DraggableItem" parent="Camera/Canvas/InventoryUI/HeadSlot" instance=ExtResource("8_l1l7c")]
 layout_mode = 1
-offset_left = 12.0
-offset_top = 22.0
-offset_right = -12.0
-offset_bottom = 49.0
+offset_left = 20.0
+offset_top = 30.0
+offset_right = -4.0
+offset_bottom = 57.0
 type = 0
 
 [node name="BodySlot" type="Label" parent="Camera/Canvas/InventoryUI"]
 layout_mode = 0
-offset_left = 57.0
-offset_top = 131.0
-offset_right = 131.0
-offset_bottom = 154.0
+offset_left = 10.0
+offset_top = 120.0
+offset_right = 84.0
+offset_bottom = 143.0
 text = "Body Slot"
 
 [node name="DraggableItem" parent="Camera/Canvas/InventoryUI/BodySlot" instance=ExtResource("8_l1l7c")]
 layout_mode = 1
-offset_left = 12.0
-offset_top = 22.0
-offset_right = -12.0
-offset_bottom = 49.0
+offset_left = 20.0
+offset_top = 30.0
+offset_right = -4.0
+offset_bottom = 57.0
 type = 1
 
 [node name="PrimarySlot" type="Label" parent="Camera/Canvas/InventoryUI"]
 layout_mode = 0
-offset_left = 52.0
-offset_top = 207.0
-offset_right = 147.0
-offset_bottom = 230.0
+offset_left = 10.0
+offset_top = 200.0
+offset_right = 105.0
+offset_bottom = 223.0
 text = "Primary Slot"
 
 [node name="DraggableItem" parent="Camera/Canvas/InventoryUI/PrimarySlot" instance=ExtResource("8_l1l7c")]
 layout_mode = 1
-offset_left = 22.0
-offset_top = 24.0
-offset_right = -23.0
-offset_bottom = 51.0
+offset_left = 20.0
+offset_top = 30.0
+offset_right = -25.0
+offset_bottom = 57.0
 type = 2
+
+[node name="ContainerUI" type="Control" parent="Camera/Canvas"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 470.0
+offset_top = 223.0
+offset_right = 836.0
+offset_bottom = 499.0
+
+[node name="Panel" type="Panel" parent="Camera/Canvas/ContainerUI"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -5.0
+offset_right = 362.0
+offset_bottom = 272.0
+
+[node name="Title" type="Label" parent="Camera/Canvas/ContainerUI"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 6.0
+offset_right = 93.0
+offset_bottom = 29.0
+text = "Container"
+
+[node name="Closebutton" type="Button" parent="Camera/Canvas/ContainerUI"]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 6.0
+offset_right = 354.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 10
+text = "Close"
+
+[node name="InventoryGrid" type="GridContainer" parent="Camera/Canvas/ContainerUI"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 40.0
+offset_right = 342.0
+offset_bottom = 255.0
+columns = 6
+
+[node name="DraggableItemSlot" parent="Camera/Canvas/ContainerUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot2" parent="Camera/Canvas/ContainerUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot3" parent="Camera/Canvas/ContainerUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot4" parent="Camera/Canvas/ContainerUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot5" parent="Camera/Canvas/ContainerUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot6" parent="Camera/Canvas/ContainerUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot7" parent="Camera/Canvas/ContainerUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot8" parent="Camera/Canvas/ContainerUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot9" parent="Camera/Canvas/ContainerUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot10" parent="Camera/Canvas/ContainerUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot11" parent="Camera/Canvas/ContainerUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot12" parent="Camera/Canvas/ContainerUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot13" parent="Camera/Canvas/ContainerUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot14" parent="Camera/Canvas/ContainerUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot15" parent="Camera/Canvas/ContainerUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot16" parent="Camera/Canvas/ContainerUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot17" parent="Camera/Canvas/ContainerUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot18" parent="Camera/Canvas/ContainerUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot19" parent="Camera/Canvas/ContainerUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot20" parent="Camera/Canvas/ContainerUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot21" parent="Camera/Canvas/ContainerUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot22" parent="Camera/Canvas/ContainerUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot23" parent="Camera/Canvas/ContainerUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot24" parent="Camera/Canvas/ContainerUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
 
 [node name="InputManager" type="Node2D" parent="."]
 script = ExtResource("2_drscf")
@@ -1396,8 +1412,6 @@ script = ExtResource("11_volyp")
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InfoPanel/ContextMenu/UnequipButton" to="InputManager" method="_on_unequip_button_pressed"]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InfoPanel/ContextMenu/DropButton" to="InputManager" method="_on_drop_button_pressed"]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InfoPanel/ContextMenu/ConsumeButton" to="InputManager" method="_on_consume_button_pressed"]
-[connection signal="pressed" from="Camera/Canvas/UnitUI/ContainerUI/ContextMenu/TakeButton" to="InputManager" method="_on_take_button_pressed" binds= [true]]
-[connection signal="pressed" from="Camera/Canvas/UnitUI/ContainerUI/ContextMenu/PutInButton" to="InputManager" method="_on_take_button_pressed" binds= [false]]
 [connection signal="toggled" from="Camera/Canvas/UnitUI/CombatBehavior/MoveAndShoot" to="InputManager" method="_on_move_and_shoot_toggled"]
 [connection signal="toggled" from="Camera/Canvas/UnitUI/CombatBehavior/FireAtWill" to="InputManager" method="_on_fire_at_will_toggled"]
 [connection signal="item_selected" from="Camera/Canvas/CraftingStationUI/ItemList" to="InputManager" method="_on_craft_menu_item_list_item_selected"]
@@ -1409,3 +1423,4 @@ script = ExtResource("11_volyp")
 [connection signal="pressed" from="Camera/Canvas/CraftingStationUI/ConsumableButton" to="InputManager" method="_on_crafting_menu_button_pressed" binds= [4]]
 [connection signal="pressed" from="Camera/Canvas/CraftingStationUI/Closebutton" to="InputManager" method="_on_closebutton_pressed"]
 [connection signal="pressed" from="Camera/Canvas/InventoryUI/Closebutton" to="Camera/Canvas" method="_on_inventory_ui_closebutton_pressed"]
+[connection signal="pressed" from="Camera/Canvas/ContainerUI/Closebutton" to="Camera/Canvas" method="_on_container_ui_closebutton_pressed"]
