@@ -1,9 +1,8 @@
 res://Scenes/game.tscn
 res://Scripts/close_button.tres
-res://Scripts/draggable_window.gd
-res://Scripts/survivor.gd
-res://Scripts/UserInterfaceManager.gd
-res://Scripts/InputManager.gd
+res://Data/1_Ranged/0_Handgun.tres
+res://Data/1_Ranged/1_Submachine_Gun.tres
+res://Data/1_Ranged/2_Auto_Rifle.tres
 res://Scenes/survivor.tscn
 res://Scenes/spaceship.tscn
 res://Scenes/enemy.tscn
@@ -11,3 +10,5 @@ res://Scenes/item_container.tscn
 res://Scenes/module.tscn
 res://Scenes/draggable_item_slot.tscn
 res://Scenes/draggable_item.tscn
+res://Scripts/survivor.gd
+res://Scripts/module.gd

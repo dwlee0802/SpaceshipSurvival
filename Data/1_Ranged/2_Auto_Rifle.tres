@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="RangedWeapon" load_steps=2 format=3 uid="uid://cxrbeacvgmsxk"]
+
+[ext_resource type="Script" path="res://Data/ranged_data.gd" id="1_6cha1"]
+
+[resource]
+script = ExtResource("1_6cha1")
+ammoPerShot = 3
+reloadTime = 6.0
+magazineCapacity = 10
+range = 800
+minDamage = 120
+maxDamage = 300
+attacksPerSecond = 3.0
+penetration = 0.2
+accuracy = 0.95
+knockBack = 350
+type = 1
+name = "Auto Rifle"
+ID = 2
+description = "Constant and powerful fire support for long ranges."
+componentValue = 100
+weight = 6

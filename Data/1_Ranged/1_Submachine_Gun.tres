@@ -6,7 +6,7 @@
 script = ExtResource("1_f66qo")
 ammoPerShot = 2
 reloadTime = 5.0
-magazineCapacity = 20
+magazineCapacity = 25
 range = 450
 minDamage = 50
 maxDamage = 100

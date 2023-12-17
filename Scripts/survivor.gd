@@ -111,7 +111,7 @@ func _ready():
 	
 	overviewMarker.self_modulate = Color.GREEN
 	
-	EquipNewItem(Item.new(1,1), SlotType.Primary)
+	EquipNewItem(Item.new(1,2), SlotType.Primary)
 	
 	AddItem(Item.new(1,0))
 	

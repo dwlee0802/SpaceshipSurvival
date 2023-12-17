@@ -1,11 +1,14 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://cbcbhpesxx4wg"]
+[gd_resource type="Resource" script_class="RangedWeapon" load_steps=3 format=3 uid="uid://cbcbhpesxx4wg"]
 
-[ext_resource type="Script" path="res://Data/weapon_data.gd" id="1_1thg8"]
+[ext_resource type="Script" path="res://Data/ranged_data.gd" id="1_1thg8"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_dkgu8"]
 
 [resource]
 script = ExtResource("1_1thg8")
+ammoPerShot = 1
+reloadTime = 3.0
+magazineCapacity = 12
 range = 300
 minDamage = 50
 maxDamage = 200
