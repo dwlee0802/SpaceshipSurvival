@@ -13,12 +13,18 @@ offset_right = -1316.0
 offset_bottom = -718.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 action_mode = 0
+keep_pressed_outside = true
 texture_normal = SubResource("PlaceholderTexture2D_jdnop")
 stretch_mode = 0
 script = ExtResource("1_o0o36")
 
-[connection signal="button_down" from="." to="." method="_on_button_down"]
-[connection signal="button_up" from="." to="." method="_on_button_up"]
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[node name="TEMP_itemName" type="Label" parent="."]
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 8
+vertical_alignment = 1
+autowrap_mode = 1
+text_overrun_behavior = 3

@@ -1,9 +1,9 @@
+Control
+Label
 TextureRect
 TextureButton
-Label
 GridContainer
 Panel
-Control
 Node
 Button
 ItemList

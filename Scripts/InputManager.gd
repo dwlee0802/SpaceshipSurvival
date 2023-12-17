@@ -298,3 +298,8 @@ func _on_closebutton_pressed():
 # update item info in crafting menu
 func _on_craft_menu_item_list_item_selected(index):
 	UserInterfaceManager.UpdateCraftingItemInfo()
+
+
+func _on_inventory_button_pressed():
+	if selectedUnits.size() > 0:
+		UserInterfaceManager.PopulateInventoryGrid(selectedUnits[0].inventory)

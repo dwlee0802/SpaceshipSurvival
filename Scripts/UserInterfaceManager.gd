@@ -53,6 +53,10 @@ static var overviewMarker = preload("res://Scenes/overview_marker.tscn")
 static var craftingStationUI
 static var craftingStationUIType: int = 0
 
+static var inventoryUI
+static var inventoryGrid
+static var draggableItem = preload("res://Scenes/draggable_item.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	travelProgressUI = $TravelProgressUI
@@ -79,7 +83,9 @@ func _ready():
 	spaceshipOverviewUI = $SpaceshipOverviewUI
 	spaceshipOverviewPanel = $SpaceshipOverviewUI/SpaceshipOverviewPanel
 	craftingStationUI = $CraftingStationUI
-	
+	inventoryUI = $InventoryUI
+	inventoryGrid = inventoryUI.get_node("InventoryGrid")
+
 
 # change scale x of progress bar based on progress
 static func UpdateTravelProgressUI(cur, maxVal):
@@ -255,3 +261,41 @@ static func UpdateCraftingItemInfo():
 	output += data.name + "\n"
 	output += "Cost: " + str(data.componentValue) + " components\n"
 	craftingStationUI.get_node("ItemInfo").text = output
+
+
+static func GetMouseOnItemSlot():
+	for item in inventoryUI.get_node("InventoryGrid").get_children():
+		if item.mouseOnThis:
+			return item
+	
+	for item in inventoryUI.get_node("InventoryGrid").get_children():
+		item.mouseOnThis = false
+		
+	return null
+
+
+# makes draggable items based on selected unit inventory
+# assumes that the number of items in an inventory does not go over 24 items
+static func PopulateInventoryGrid(inventory):
+	inventoryUI.visible = true
+	for i in range(24):
+		var slot: Node = inventoryGrid.get_child(i)
+		# if slot has a draggable item, remove it
+		for j in range(slot.get_child_count()):
+			slot.get_child(j).queue_free()
+		
+		if i < len(inventory):
+			var newDraggable: DraggableItem = draggableItem.instantiate()
+			newDraggable.item = inventory[i]
+			newDraggable.get_node("TEMP_itemName").text = inventory[i].data.name
+			slot.add_child(newDraggable)
+			newDraggable.position = Vector2.ZERO
+
+
+# modifies selected unit's items based the inventory grids current state
+static func ReadInventoryGrid():
+	pass
+
+
+func _on_inventory_ui_closebutton_pressed():
+	inventoryUI.visible = false

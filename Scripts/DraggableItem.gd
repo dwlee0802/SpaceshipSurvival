@@ -1,33 +1,28 @@
 extends TextureButton
+class_name DraggableItem
 
 var mouse_offset: Vector2 = Vector2.ZERO
 
-var previousPosition: Vector2
-
 var dragging: bool = false
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var item: Item
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if dragging:
-		position = get_global_mouse_position() - mouse_offset
+func make_drag_preview(at_position: Vector2) -> Control:
+	var t := TextureRect.new()
+	t.texture = texture_normal
+	t.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	t.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	t.custom_minimum_size = size
+	t.modulate.a = 0.5
+	t.position = Vector2(-at_position)
 
+	var c := Control.new()
+	c.add_child(t)
 
-func _on_button_down():
-	dragging = true
-	mouse_offset = get_global_mouse_position() - position
-	self_modulate.a = 0.5
-	previousPosition = position
-
-
-func _on_button_up():
-	dragging = false
-	# raycast and see if the slot is appropriate
-	# return to previous location if invalid spot
-	position = previousPosition
-	self_modulate.a = 1
+	return c
+	
+	
+func _get_drag_data(at_position: Vector2) -> Variant:
+	set_drag_preview(make_drag_preview(at_position))
+	return self

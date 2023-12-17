@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bj6ov38i406sf"]
+[gd_scene load_steps=23 format=3 uid="uid://bj6ov38i406sf"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e32sq"]
 [ext_resource type="Script" path="res://Scripts/InputManager.gd" id="2_drscf"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://5cam8m5nc2yc" path="res://Scenes/spaceship.tscn" id="5_uopi8"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="6_pyyuj"]
 [ext_resource type="Texture2D" uid="uid://ddgm7rgp5c517" path="res://Art/spaceship_image.png" id="7_7g08s"]
+[ext_resource type="PackedScene" uid="uid://co0ec0725c4fq" path="res://Scenes/draggable_item_slot.tscn" id="8_l1l7c"]
 [ext_resource type="Script" path="res://Scripts/data_manager.gd" id="11_volyp"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_k1ai1"]
@@ -1208,15 +1209,17 @@ offset_bottom = 520.0
 
 [node name="Panel" type="Panel" parent="Camera/Canvas/InventoryUI"]
 layout_mode = 0
-offset_right = 580.0
-offset_bottom = 315.0
+offset_left = 3.0
+offset_top = -5.0
+offset_right = 583.0
+offset_bottom = 310.0
 
 [node name="Title" type="Label" parent="Camera/Canvas/InventoryUI"]
 layout_mode = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 80.0
-offset_bottom = 28.0
+offset_left = 18.0
+offset_top = 6.0
+offset_right = 93.0
+offset_bottom = 29.0
 text = "Inventory"
 
 [node name="Closebutton" type="Button" parent="Camera/Canvas/InventoryUI"]
@@ -1230,11 +1233,131 @@ text = "Close"
 
 [node name="InventoryGrid" type="GridContainer" parent="Camera/Canvas/InventoryUI"]
 layout_mode = 0
-offset_left = 183.0
-offset_top = 39.0
-offset_right = 519.0
-offset_bottom = 293.0
+offset_left = 210.0
+offset_top = 64.0
+offset_right = 532.0
+offset_bottom = 279.0
 columns = 6
+
+[node name="DraggableItemSlot" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot2" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot3" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot4" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot5" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot6" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot7" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot8" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot9" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot10" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot11" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot12" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot13" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot14" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot15" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot16" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot17" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot18" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot19" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot20" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot21" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot22" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot23" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="DraggableItemSlot24" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
+
+[node name="HeadSlot" type="Label" parent="Camera/Canvas/InventoryUI"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 57.0
+offset_right = 129.0
+offset_bottom = 80.0
+text = "Head Slot"
+
+[node name="DraggableItem" parent="Camera/Canvas/InventoryUI/HeadSlot" instance=ExtResource("8_l1l7c")]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 22.0
+offset_right = -12.0
+offset_bottom = 49.0
+type = 0
+
+[node name="BodySlot" type="Label" parent="Camera/Canvas/InventoryUI"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 131.0
+offset_right = 131.0
+offset_bottom = 154.0
+text = "Body Slot"
+
+[node name="DraggableItem" parent="Camera/Canvas/InventoryUI/BodySlot" instance=ExtResource("8_l1l7c")]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 22.0
+offset_right = -12.0
+offset_bottom = 49.0
+type = 1
+
+[node name="PrimarySlot" type="Label" parent="Camera/Canvas/InventoryUI"]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 207.0
+offset_right = 147.0
+offset_bottom = 230.0
+text = "Primary Slot"
+
+[node name="DraggableItem" parent="Camera/Canvas/InventoryUI/PrimarySlot" instance=ExtResource("8_l1l7c")]
+layout_mode = 1
+offset_left = 22.0
+offset_top = 24.0
+offset_right = -23.0
+offset_bottom = 51.0
+type = 2
 
 [node name="InputManager" type="Node2D" parent="."]
 script = ExtResource("2_drscf")
@@ -1266,7 +1389,7 @@ speed = 200
 script = ExtResource("11_volyp")
 
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InformationButton" to="InputManager" method="_on_information_button_pressed"]
-[connection signal="pressed" from="Camera/Canvas/UnitUI/InventoryButton" to="InputManager" method="_on_information_button_pressed"]
+[connection signal="pressed" from="Camera/Canvas/UnitUI/InventoryButton" to="InputManager" method="_on_inventory_button_pressed"]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/EquipmentButton" to="InputManager" method="_on_information_button_pressed"]
 [connection signal="item_clicked" from="Camera/Canvas/UnitUI/InfoPanel/ItemList" to="InputManager" method="_on_item_list_item_clicked"]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InfoPanel/ContextMenu/EquipButton" to="InputManager" method="_on_equip_button_pressed"]
@@ -1285,3 +1408,4 @@ script = ExtResource("11_volyp")
 [connection signal="pressed" from="Camera/Canvas/CraftingStationUI/BodyButton" to="InputManager" method="_on_crafting_menu_button_pressed" binds= [3]]
 [connection signal="pressed" from="Camera/Canvas/CraftingStationUI/ConsumableButton" to="InputManager" method="_on_crafting_menu_button_pressed" binds= [4]]
 [connection signal="pressed" from="Camera/Canvas/CraftingStationUI/Closebutton" to="InputManager" method="_on_closebutton_pressed"]
+[connection signal="pressed" from="Camera/Canvas/InventoryUI/Closebutton" to="Camera/Canvas" method="_on_inventory_ui_closebutton_pressed"]

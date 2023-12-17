@@ -1,21 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://bv4s7eywc1713"]
+[gd_scene load_steps=3 format=3 uid="uid://co0ec0725c4fq"]
 
 [ext_resource type="Script" path="res://Scripts/DraggableItemSlot.gd" id="1_bu046"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_c2tmp"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jdnop"]
+size = Vector2(50, 50)
 
-[node name="DraggableItemSlot" type="Control"]
-layout_mode = 3
+[node name="DraggableItemSlot" type="TextureButton"]
+self_modulate = Color(1, 1, 1, 0.113725)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1316.0
+offset_bottom = -718.0
 grow_horizontal = 2
 grow_vertical = 2
+texture_normal = SubResource("PlaceholderTexture2D_jdnop")
+stretch_mode = 0
 script = ExtResource("1_bu046")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-self_modulate = Color(1, 1, 1, 0.0980392)
-layout_mode = 0
-offset_right = 50.0
-offset_bottom = 50.0
-texture = SubResource("PlaceholderTexture2D_c2tmp")
+[connection signal="button_up" from="." to="." method="_on_button_up"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
