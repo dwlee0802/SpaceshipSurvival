@@ -105,8 +105,6 @@ func _ready():
 	
 	inventory.resize(MAX_INVENTORY_COUNT)
 	
-	UpdateStats()
-	
 	$AttackUpdateTimer.timeout.connect(ScanForAttackTargets)
 	
 	destinationMarker.get_node("Label").text = name
@@ -116,6 +114,8 @@ func _ready():
 	EquipNewItem(Item.new(1,1), SlotType.Primary)
 	
 	AddItem(Item.new(1,0))
+	
+	UpdateStats()
 	
 
 func parse_json(text):
@@ -319,7 +319,19 @@ func UpdateStats():
 		radiationDefense += body.data.radiationDefense
 	
 	inventoryCapacity = strength * 2
-
+	inventoryWeight = 0
+	# recalculate inventory weight
+	for item: Item in inventory:
+		if item != null:
+			inventoryWeight += item.data.weight
+	
+	if headSlot != null:
+		inventoryWeight += headSlot.data.weight
+	if bodySlot != null:
+		inventoryWeight += bodySlot.data.weight
+	if primarySlot != null:
+		inventoryWeight += primarySlot.data.weight
+		
 	# modify speed based on inventory weight
 	if inventoryWeight > inventoryCapacity:
 		speedModifier = 1 - (inventoryWeight - inventoryCapacity) / float(inventoryCapacity)

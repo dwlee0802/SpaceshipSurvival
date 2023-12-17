@@ -315,7 +315,7 @@ static func ReadEquipmentSlots():
 static func ReadContainerGrid():
 	var outputList = []
 	outputList.resize(Survivor.MAX_INVENTORY_COUNT)
-	for i in range(outputList):
+	for i in range(len(outputList)):
 		var slot = containerGrid.get_child(i)
 		if slot.get_child_count() > 0:
 			outputList[i] = slot.get_child(0).item

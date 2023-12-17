@@ -29,6 +29,7 @@ func _process(delta):
 	if len(selectedUnits) == 1:
 		UserInterfaceManager.ToggleUnitUI(true)
 		UserInterfaceManager.UpdateUnitBarUI(selectedUnits[0])
+		UserInterfaceManager.UpdateInventoryWeight(selectedUnits[0])
 	else:
 		UserInterfaceManager.ToggleUnitUI(false)
 	
@@ -190,7 +191,9 @@ func UpdateUnitUI():
 func UpdateUnitInventoryUI():
 	if len(selectedUnits) > 0:
 		UserInterfaceManager.UpdateInventoryUI(selectedUnits[0])
-
+	
+	UserInterfaceManager.UpdateInventoryWeight(selectedUnits[0])
+	
 
 func ApplyUnitInventory():
 	selectedUnits[0].inventory = UserInterfaceManager.ReadInventoryGrid()
@@ -200,7 +203,7 @@ func ApplyUnitInventory():
 	selectedUnits[0].primarySlot = equipments.Primary
 	
 	if selectedUnits[0].interactionContainer != null:
-		selectedUnits[0].interactionContainer = UserInterfaceManager.ReadContainerGrid()
+		selectedUnits[0].interactionContainer.contents = UserInterfaceManager.ReadContainerGrid()
 	
 	selectedUnits[0].UpdateStats()
 	
