@@ -11,3 +11,6 @@ res://Scripts/InputManager.gd
 res://Scripts/UserInterfaceManager.gd
 res://Scripts/DraggableItemSlot.gd
 res://Scripts/survivor.gd
+res://Scripts/enemy.gd
+res://Scripts/DraggableItem.gd
+res://Scripts/module.gd

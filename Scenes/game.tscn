@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bj6ov38i406sf"]
+[gd_scene load_steps=27 format=3 uid="uid://bj6ov38i406sf"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e32sq"]
 [ext_resource type="Script" path="res://Scripts/InputManager.gd" id="2_drscf"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ddgm7rgp5c517" path="res://Art/spaceship_image.png" id="7_7g08s"]
 [ext_resource type="Script" path="res://Scripts/draggable_window.gd" id="8_24sst"]
 [ext_resource type="PackedScene" uid="uid://co0ec0725c4fq" path="res://Scenes/draggable_item_slot.tscn" id="8_l1l7c"]
+[ext_resource type="Shortcut" uid="uid://bcj08ui1vldhx" path="res://Scripts/close_button.tres" id="9_xaavw"]
 [ext_resource type="Script" path="res://Scripts/data_manager.gd" id="11_volyp"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_k1ai1"]
@@ -1041,6 +1042,7 @@ offset_top = 10.0
 offset_right = 572.0
 offset_bottom = 32.0
 theme_override_font_sizes/font_size = 10
+shortcut = ExtResource("9_xaavw")
 text = "Close"
 
 [node name="InventoryGrid" type="GridContainer" parent="Camera/Canvas/InventoryUI"]
@@ -1202,6 +1204,7 @@ offset_top = 6.0
 offset_right = 354.0
 offset_bottom = 28.0
 theme_override_font_sizes/font_size = 10
+shortcut = ExtResource("9_xaavw")
 text = "Close"
 
 [node name="ContainerGrid" type="GridContainer" parent="Camera/Canvas/ContainerUI"]

@@ -10,6 +10,8 @@ var placedItemScene = preload("res://Scenes/placed_item.tscn")
 
 static var expOrb = preload("res://Scenes/exp_orb.tscn")
 
+var itemDropProbability: float = 0.1
+
 
 func _ready():
 	super._ready()
@@ -68,7 +70,7 @@ func OnDeath():
 	print("Dead!")
 	Game.MakeEnemyDeathEffect(global_position)
 	# roll random drop
-	if randf() < 0.5:
+	if randf() < itemDropProbability:
 		DropItem()
 		
 	queue_free()

@@ -7,6 +7,8 @@ var dragging: bool = false
 
 var item: Item
 
+var previousSlot
+
 
 func make_drag_preview(at_position: Vector2) -> Control:
 	var t := TextureRect.new()
@@ -25,4 +27,5 @@ func make_drag_preview(at_position: Vector2) -> Control:
 	
 func _get_drag_data(at_position: Vector2) -> Variant:
 	set_drag_preview(make_drag_preview(at_position))
+	previousSlot = get_parent()
 	return self

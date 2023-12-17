@@ -123,8 +123,6 @@ func parse_json(text):
 
 
 func _process(delta):
-	print(primarySlot)
-	
 	if isDead:
 		return
 		

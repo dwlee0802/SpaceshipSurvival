@@ -38,10 +38,10 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 		var item := get_child(0)
 		if item == data:
 			return
-		item.reparent(data.get_parent())
+		item.reparent(data.previousSlot)
+		print(item.get_parent().name)
+		item.position = Vector2.ZERO
 	data.reparent(self)
 	data.position = Vector2.ZERO
 	
-	# change slot
-	# if the slot is equipment, update stats
 	emit_signal("item_dropped")
