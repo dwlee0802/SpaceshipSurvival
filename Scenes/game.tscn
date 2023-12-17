@@ -751,7 +751,6 @@ pivot_offset = Vector2(34, -5)
 texture = ExtResource("7_7g08s")
 
 [node name="DisassemblyUI" type="Button" parent="Camera/Canvas"]
-visible = false
 offset_left = 619.0
 offset_top = 303.0
 offset_right = 834.0
@@ -818,8 +817,9 @@ text = "Close"
 layout_mode = 1
 offset_left = 69.0
 offset_top = 62.0
-offset_right = -83.0
+offset_right = -96.0
 offset_bottom = -136.0
+stretch_mode = 2
 
 [node name="CraftingStationUI" type="Control" parent="Camera/Canvas"]
 visible = false
@@ -1495,11 +1495,11 @@ shape = SubResource("RectangleShape2D_vbgc8")
 z_index = -1
 
 [node name="Survivor" parent="." instance=ExtResource("4_16enx")]
-position = Vector2(5936, 2065)
+position = Vector2(1692, 1086)
 speed = 200
 
 [node name="Survivor2" parent="." instance=ExtResource("4_16enx")]
-position = Vector2(6152, 1875)
+position = Vector2(1908, 896)
 speed = 200
 
 [node name="DataManager" type="Node" parent="."]

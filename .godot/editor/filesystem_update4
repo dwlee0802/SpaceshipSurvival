@@ -12,3 +12,7 @@ res://Scenes/draggable_item_slot.tscn
 res://Scenes/draggable_item.tscn
 res://Scripts/survivor.gd
 res://Scripts/module.gd
+res://Scenes/interactable.tscn
+res://Scenes/disassembly.tscn
+res://Scenes/disassembly.gd
+res://Scripts/interactable.gd

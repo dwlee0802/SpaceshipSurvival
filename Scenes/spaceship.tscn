@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://5cam8m5nc2yc"]
+[gd_scene load_steps=26 format=3 uid="uid://5cam8m5nc2yc"]
 
 [ext_resource type="Script" path="res://Scripts/spaceship.gd" id="1_6uk50"]
 [ext_resource type="Texture2D" uid="uid://dj066sixgm20c" path="res://Art/tilemap_grayscale_packed.png" id="2_usmpp"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://jyq0yd0540h7" path="res://Scenes/nuclear_reactor.tscn" id="4_c0l2y"]
 [ext_resource type="PackedScene" uid="uid://be6pcrbh62p80" path="res://Scenes/interactable.tscn" id="4_vuwvc"]
 [ext_resource type="PackedScene" uid="uid://7co56rfrnp0b" path="res://Scenes/spawn_point.tscn" id="5_ew3pq"]
+[ext_resource type="PackedScene" uid="uid://2kdlobiaje25" path="res://Scenes/disassembly.tscn" id="5_je77g"]
 [ext_resource type="PackedScene" uid="uid://chut4u6e4lyka" path="res://Scenes/infirmary.tscn" id="6_yum15"]
 [ext_resource type="PackedScene" uid="uid://dbjf2k6mniw07" path="res://Scenes/item_container.tscn" id="8_mslp6"]
 
@@ -197,6 +198,9 @@ position = Vector2(278, 120)
 
 [node name="SpawnPoint2" parent="Modules/Infirmary/SpawnPoints" instance=ExtResource("5_ew3pq")]
 position = Vector2(283, -133)
+
+[node name="Disassembly" parent="Modules" instance=ExtResource("5_je77g")]
+position = Vector2(-3404, -697)
 
 [node name="Containers" type="Node2D" parent="."]
 position = Vector2(5514, 1894)
