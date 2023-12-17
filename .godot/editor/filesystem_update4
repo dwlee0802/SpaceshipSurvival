@@ -1,4 +1,9 @@
 res://Scenes/game.tscn
+res://Scripts/close_button.tres
+res://Scripts/draggable_window.gd
+res://Scripts/survivor.gd
+res://Scripts/UserInterfaceManager.gd
+res://Scripts/InputManager.gd
 res://Scenes/survivor.tscn
 res://Scenes/spaceship.tscn
 res://Scenes/enemy.tscn
@@ -6,12 +11,3 @@ res://Scenes/item_container.tscn
 res://Scenes/module.tscn
 res://Scenes/draggable_item_slot.tscn
 res://Scenes/draggable_item.tscn
-res://Scripts/draggable_window.gd
-res://Scripts/InputManager.gd
-res://Scripts/UserInterfaceManager.gd
-res://Scripts/DraggableItemSlot.gd
-res://Scripts/survivor.gd
-res://Scripts/enemy.gd
-res://Scripts/DraggableItem.gd
-res://Scripts/module.gd
-res://Scripts/item.gd

@@ -58,6 +58,11 @@ static var containerGrid
 
 static var disassemblyUI
 
+static var informationUI
+static var informationUIHealth
+static var informationUICombat
+static var informationUIMisc
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -85,6 +90,11 @@ func _ready():
 	containerGrid = containerUI.get_node("ContainerGrid")
 	
 	disassemblyUI = $DisassemblyUI
+	
+	informationUI = $InformationUI
+	informationUIHealth = $InformationUI/HealthStats
+	informationUICombat = $InformationUI/CombatStats
+	informationUIMisc = $InformationUI/MiscStats
 	
 
 # change scale x of progress bar based on progress
@@ -339,6 +349,12 @@ static func UpdateDisassemblyInfo():
 	label.text = "Item Components Value: " + str(item.data.componentValue) + "\nExpected output: " + str(item.data.componentValue * 0.4) + " - " + str(item.data.componentValue * 0.8)
 	
 
+static func UpdateInformationUI(unit: Survivor):
+	informationUIHealth.text = unit.PrintHealthStats()
+	informationUICombat.text = unit.PrintCombatStats()
+	informationUIMisc.text = unit.PrintMiscStats()
+	
+	
 func _on_inventory_ui_closebutton_pressed():
 	inventoryUI.visible = false
 

@@ -197,6 +197,7 @@ offset_bottom = 25.0
 texture = ExtResource("3_gb5p3")
 
 [node name="MoodBar" type="Control" parent="Camera/Canvas/UnitUI"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 129.0
@@ -231,9 +232,9 @@ texture = ExtResource("3_gb5p3")
 layout_mode = 3
 anchors_preset = 0
 offset_left = 129.0
-offset_top = 149.0
+offset_top = 124.0
 offset_right = 169.0
-offset_bottom = 189.0
+offset_bottom = 164.0
 
 [node name="Label" type="Label" parent="Camera/Canvas/UnitUI/SleepBar"]
 layout_mode = 0
@@ -251,7 +252,7 @@ offset_bottom = 25.0
 texture = ExtResource("3_gb5p3")
 
 [node name="TextureRect" type="TextureRect" parent="Camera/Canvas/UnitUI/SleepBar"]
-self_modulate = Color(0.729412, 0.729412, 0.729412, 1)
+self_modulate = Color(0.431373, 0.243137, 1, 1)
 layout_mode = 0
 offset_top = 15.0
 offset_right = 146.0
@@ -261,10 +262,10 @@ texture = ExtResource("3_gb5p3")
 [node name="TemperatureBar" type="Control" parent="Camera/Canvas/UnitUI"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 128.0
-offset_top = 174.0
-offset_right = 168.0
-offset_bottom = 214.0
+offset_left = 129.0
+offset_top = 149.0
+offset_right = 169.0
+offset_bottom = 189.0
 
 [node name="Label" type="Label" parent="Camera/Canvas/UnitUI/TemperatureBar"]
 layout_mode = 0
@@ -282,7 +283,7 @@ offset_bottom = 25.0
 texture = ExtResource("3_gb5p3")
 
 [node name="TextureRect" type="TextureRect" parent="Camera/Canvas/UnitUI/TemperatureBar"]
-self_modulate = Color(0.792157, 0.490196, 0.733333, 1)
+self_modulate = Color(0.792157, 0.490196, 0.431373, 1)
 layout_mode = 0
 offset_top = 15.0
 offset_right = 105.0
@@ -292,9 +293,9 @@ texture = ExtResource("3_gb5p3")
 [node name="ExperienceBar" type="Control" parent="Camera/Canvas/UnitUI"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 9.0
+offset_left = 8.0
 offset_top = 196.0
-offset_right = 49.0
+offset_right = 48.0
 offset_bottom = 236.0
 
 [node name="Label" type="Label" parent="Camera/Canvas/UnitUI/ExperienceBar"]
@@ -821,6 +822,7 @@ offset_right = -83.0
 offset_bottom = -136.0
 
 [node name="CraftingStationUI" type="Control" parent="Camera/Canvas"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 402.0
@@ -1292,6 +1294,83 @@ layout_mode = 2
 [node name="DraggableItemSlot24" parent="Camera/Canvas/ContainerUI/ContainerGrid" instance=ExtResource("8_l1l7c")]
 layout_mode = 2
 
+[node name="InformationUI" type="Button" parent="Camera/Canvas"]
+offset_left = 22.0
+offset_top = 232.0
+offset_right = 374.0
+offset_bottom = 518.0
+script = ExtResource("8_24sst")
+
+[node name="Background" type="Panel" parent="Camera/Canvas/InformationUI"]
+layout_mode = 0
+offset_right = 354.0
+offset_bottom = 289.0
+
+[node name="Title" type="Label" parent="Camera/Canvas/InformationUI"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 135.0
+offset_bottom = 28.0
+text = "Unit Information"
+
+[node name="UnitPortrait" type="TextureRect" parent="Camera/Canvas/InformationUI"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 38.0
+offset_right = 100.0
+offset_bottom = 118.0
+texture = SubResource("PlaceholderTexture2D_7xr05")
+
+[node name="Closebutton" type="Button" parent="Camera/Canvas/InformationUI"]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 3.0
+offset_right = 350.0
+offset_bottom = 25.0
+theme_override_font_sizes/font_size = 10
+shortcut = ExtResource("9_xaavw")
+text = "Close"
+
+[node name="HealthStats" type="Label" parent="Camera/Canvas/InformationUI"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 128.0
+offset_right = 120.0
+offset_bottom = 239.0
+theme_override_font_sizes/font_size = 11
+text = "Health Stats:
+HP: 000/000
+Body Temp: 00C
+Oxygen: 00%
+Nutrition: 00%
+Sleep: 00%"
+
+[node name="CombatStats" type="Label" parent="Camera/Canvas/InformationUI"]
+offset_left = 198.0
+offset_top = 128.0
+offset_right = 329.0
+offset_bottom = 277.0
+theme_override_font_sizes/font_size = 11
+text = "Combat Stats:
+Speed:
+Strength:
+Accuracy:
+Evasion:
+Defense:
+Knock-back Resist:
+Radiation Defense:"
+
+[node name="MiscStats" type="Label" parent="Camera/Canvas/InformationUI"]
+offset_left = 106.0
+offset_top = 64.0
+offset_right = 188.0
+offset_bottom = 118.0
+theme_override_font_sizes/font_size = 9
+text = "Misc. Stats:
+Level: 00
+EXP: 0000/0000"
+
 [node name="InputManager" type="Node2D" parent="."]
 script = ExtResource("2_drscf")
 
@@ -1343,3 +1422,6 @@ script = ExtResource("11_volyp")
 [connection signal="button_down" from="Camera/Canvas/ContainerUI" to="Camera/Canvas/ContainerUI" method="_on_button_down"]
 [connection signal="button_up" from="Camera/Canvas/ContainerUI" to="Camera/Canvas/ContainerUI" method="_on_button_up"]
 [connection signal="pressed" from="Camera/Canvas/ContainerUI/Closebutton" to="Camera/Canvas" method="_on_container_ui_closebutton_pressed"]
+[connection signal="button_down" from="Camera/Canvas/InformationUI" to="Camera/Canvas/InformationUI" method="_on_button_down"]
+[connection signal="button_up" from="Camera/Canvas/InformationUI" to="Camera/Canvas/InformationUI" method="_on_button_up"]
+[connection signal="pressed" from="Camera/Canvas/InformationUI/Closebutton" to="InputManager" method="_on_info_closebutton_pressed"]

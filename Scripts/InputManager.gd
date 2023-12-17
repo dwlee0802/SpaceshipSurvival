@@ -34,6 +34,7 @@ func _process(delta):
 		UserInterfaceManager.ToggleUnitUI(true)
 		UserInterfaceManager.UpdateUnitBarUI(selectedUnits[0])
 		UserInterfaceManager.UpdateInventoryWeight(selectedUnits[0])
+		UserInterfaceManager.UpdateInformationUI(selectedUnits[0])
 	else:
 		UserInterfaceManager.ToggleUnitUI(false)
 	
@@ -343,3 +344,12 @@ func _on_disassemble_button_pressed():
 	slotItem.queue_free()
 	UserInterfaceManager.UpdateDisassemblyInfo()
 	
+
+
+func _on_information_button_pressed():
+	UserInterfaceManager.UpdateInformationUI(selectedUnits[0])
+	UserInterfaceManager.informationUI.visible = true
+
+
+func _on_info_closebutton_pressed():
+	UserInterfaceManager.informationUI.visible = false

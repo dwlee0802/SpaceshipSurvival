@@ -64,7 +64,7 @@ var nutrition: float = 100
 # 2 inventory cap for 1 strength
 var strength: int = 10
 
-var sleep: float = 600
+var sleep: float = 100
 
 var isDead: bool = false
 
@@ -485,3 +485,34 @@ func GetFirstEmptyInventorySlot(list):
 			return i
 	
 	return -1
+	
+	
+func PrintHealthStats() -> String:
+	var output = "Health Stats:\n"
+	output += "HP: " + str(health) + "/" + str(maxHealth) + "\n"
+	output += "Temp: " + str(int(bodyTemperature * 10000) / 10000.0) + "C\n"
+	output += "Oxygen: " + str(int(oxygen * 100) / 100) + "%\n"
+	output += "Nutrition: " + str(int(nutrition * 100) / 100) + "%\n"
+	output += "Sleep: " + str(int(sleep * 100)/100) + "%\n"
+	
+	return output
+
+
+func PrintCombatStats() -> String:
+	var output = "Combat Stats:"
+	output += "Speed: " + str(speed * speedModifier) + "\n"
+	output += "Strength: " + str(strength) + "\n"
+	output += "Accuracy: " + str(int(endAccuracy * 100) / 100) + "%\n"
+	output += "Evasion" + str(int(evasion * 100) / 100) + "%\n"
+	output += "Defense: " + str(int(defense * 100) / 100) + "%\n"
+	output += "Rad. Defense: " + str(int(radiationDefense * 100) / 100) + "%\n"
+	
+	return output
+	
+	
+func PrintMiscStats() -> String:
+	var output = "Name Here\n"
+	output += "Character job here\n"
+	output += "LV: " + str(level) + "\n"
+	output += str(experiencePoints) + "/" + str(requiredEXP) + "\n"
+	return output
