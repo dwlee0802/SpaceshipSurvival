@@ -1295,6 +1295,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="InformationUI" type="Button" parent="Camera/Canvas"]
+visible = false
 offset_left = 22.0
 offset_top = 232.0
 offset_right = 374.0
@@ -1373,6 +1374,99 @@ text = "Misc. Stats:
 Level: 00
 EXP: 0000/0000"
 
+[node name="LevelupUI" type="Button" parent="Camera/Canvas"]
+offset_left = 22.0
+offset_top = 232.0
+offset_right = 374.0
+offset_bottom = 518.0
+flat = true
+script = ExtResource("8_24sst")
+
+[node name="Background" type="Panel" parent="Camera/Canvas/LevelupUI"]
+layout_mode = 0
+offset_right = 354.0
+offset_bottom = 289.0
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="Camera/Canvas/LevelupUI"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 135.0
+offset_bottom = 28.0
+text = "Level Up!"
+
+[node name="UnitPortrait" type="TextureRect" parent="Camera/Canvas/LevelupUI"]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 48.0
+offset_right = 209.0
+offset_bottom = 128.0
+texture = SubResource("PlaceholderTexture2D_7xr05")
+
+[node name="PassButton" type="Button" parent="Camera/Canvas/LevelupUI"]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 3.0
+offset_right = 350.0
+offset_bottom = 25.0
+theme_override_font_sizes/font_size = 10
+shortcut = ExtResource("9_xaavw")
+text = "Pass"
+
+[node name="Option1" type="Button" parent="Camera/Canvas/LevelupUI"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 147.0
+offset_right = 95.0
+offset_bottom = 178.0
+text = "Option 1"
+
+[node name="Description" type="Label" parent="Camera/Canvas/LevelupUI/Option1"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 36.0
+offset_right = 95.0
+offset_bottom = 130.0
+theme_override_font_sizes/font_size = 12
+text = "Description
+asdfasdfasdfwdsfafsadfasdq"
+autowrap_mode = 3
+
+[node name="Option2" type="Button" parent="Camera/Canvas/LevelupUI"]
+offset_left = 133.0
+offset_top = 148.0
+offset_right = 208.0
+offset_bottom = 179.0
+text = "Option 2"
+
+[node name="Description" type="Label" parent="Camera/Canvas/LevelupUI/Option2"]
+offset_left = -7.0
+offset_top = 36.0
+offset_right = 95.0
+offset_bottom = 130.0
+theme_override_font_sizes/font_size = 12
+text = "Description
+asdfasdfasdfwdsfafsadfasdq"
+autowrap_mode = 3
+
+[node name="Option3" type="Button" parent="Camera/Canvas/LevelupUI"]
+offset_left = 252.0
+offset_top = 149.0
+offset_right = 327.0
+offset_bottom = 180.0
+text = "Option 3"
+
+[node name="Description" type="Label" parent="Camera/Canvas/LevelupUI/Option3"]
+offset_left = -7.0
+offset_top = 36.0
+offset_right = 95.0
+offset_bottom = 130.0
+theme_override_font_sizes/font_size = 12
+text = "Description
+asdfasdfasdfwdsfafsadfasdq"
+autowrap_mode = 3
+
 [node name="InputManager" type="Node2D" parent="."]
 script = ExtResource("2_drscf")
 
@@ -1427,3 +1521,6 @@ script = ExtResource("11_volyp")
 [connection signal="button_down" from="Camera/Canvas/InformationUI" to="Camera/Canvas/InformationUI" method="_on_button_down"]
 [connection signal="button_up" from="Camera/Canvas/InformationUI" to="Camera/Canvas/InformationUI" method="_on_button_up"]
 [connection signal="pressed" from="Camera/Canvas/InformationUI/Closebutton" to="InputManager" method="_on_info_closebutton_pressed"]
+[connection signal="button_down" from="Camera/Canvas/LevelupUI" to="Camera/Canvas/LevelupUI" method="_on_button_down"]
+[connection signal="button_up" from="Camera/Canvas/LevelupUI" to="Camera/Canvas/LevelupUI" method="_on_button_up"]
+[connection signal="pressed" from="Camera/Canvas/LevelupUI/PassButton" to="InputManager" method="_on_info_closebutton_pressed"]
