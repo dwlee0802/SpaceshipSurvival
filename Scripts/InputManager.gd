@@ -18,7 +18,9 @@ func _ready():
 	var containerGrid = UserInterfaceManager.containerGrid
 	for i in range(inventoryGrid.get_child_count()):
 		inventoryGrid.get_child(i).item_dropped.connect(ApplyUnitInventory)
-		
+	UserInterfaceManager.inventoryUI.get_node("HeadSlot/DraggableItem").item_dropped.connect(ApplyUnitInventory)
+	UserInterfaceManager.inventoryUI.get_node("BodySlot/DraggableItem").item_dropped.connect(ApplyUnitInventory)
+	UserInterfaceManager.inventoryUI.get_node("PrimarySlot/DraggableItem").item_dropped.connect(ApplyUnitInventory)
 	for i in range(containerGrid.get_child_count()):
 		containerGrid.get_child(i).item_dropped.connect(ApplyUnitInventory)
 
@@ -192,8 +194,15 @@ func UpdateUnitInventoryUI():
 
 func ApplyUnitInventory():
 	selectedUnits[0].inventory = UserInterfaceManager.ReadInventoryGrid()
+	var equipments = UserInterfaceManager.ReadEquipmentSlots()
+	selectedUnits[0].headSlot = equipments.Head
+	selectedUnits[0].bodySlot = equipments.Body
+	selectedUnits[0].primarySlot = equipments.Primary
+	
 	if selectedUnits[0].interactionContainer != null:
 		selectedUnits[0].interactionContainer = UserInterfaceManager.ReadContainerGrid()
+	
+	selectedUnits[0].UpdateStats()
 	
 
 func SelectSingleUnit(unit):

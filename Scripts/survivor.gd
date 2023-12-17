@@ -123,6 +123,8 @@ func parse_json(text):
 
 
 func _process(delta):
+	print(primarySlot)
+	
 	if isDead:
 		return
 		
@@ -282,11 +284,14 @@ func EquipNewItem(item: Item, where: int):
 	if index < 0:
 		print("ERROR! Inventory slots full")
 		return
-			
-	inventory[index] = item
 	
-	equipmentSlots[where] = index
-	
+	if where == SlotType.Head:
+		headSlot = item
+	if where == SlotType.Body:
+		bodySlot = item
+	if where == SlotType.Primary:
+		primarySlot = item
+		
 	inventoryWeight += item.data.weight
 	
 	UpdateStats()
@@ -294,15 +299,11 @@ func EquipNewItem(item: Item, where: int):
 
 func UpdateStats():
 	# equip fists as default
-	var primary = Item.new(0,2)
-	if equipmentSlots[SlotType.Primary] >= 0:
-		primary = inventory[equipmentSlots[SlotType.Primary]]
-	var head = null
-	if equipmentSlots[SlotType.Head] >= 0:
-		head = inventory[equipmentSlots[SlotType.Head]]
-	var body = null
-	if equipmentSlots[SlotType.Body] >= 0:
-		body = inventory[equipmentSlots[SlotType.Body]]
+	var primary = Item.new(0,0)
+	if primarySlot != null:
+		primary = primarySlot
+	var head = headSlot
+	var body = bodySlot
 	
 	if primary != null:
 		attackTimer.wait_time = 1 / primary.data.attacksPerSecond

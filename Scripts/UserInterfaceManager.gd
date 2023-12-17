@@ -213,8 +213,7 @@ static func PopulateInventoryGrid(unit: Survivor):
 		for j in range(slot.get_child_count()):
 			slot.get_child(j).queue_free()
 			
-
-		
+			
 		if i < len(inventory):
 			var newDraggable: DraggableItem = draggableItem.instantiate()
 			# this slot is empty
@@ -223,21 +222,34 @@ static func PopulateInventoryGrid(unit: Survivor):
 				
 			newDraggable.item = inventory[i]
 			newDraggable.get_node("TEMP_itemName").text = inventory[i].data.name
-			
-			var slotIndex = unit.equipmentSlots.find(i)
-			if slotIndex != -1:
-				var equipmentSlot
-				if slotIndex == SlotType.Head:
-					equipmentSlot = inventoryUI.get_node("HeadSlot/DraggableItem")
-				if slotIndex == SlotType.Body:
-					equipmentSlot = inventoryUI.get_node("BodySlot/DraggableItem")
-				if slotIndex == SlotType.Primary:
-					equipmentSlot = inventoryUI.get_node("PrimarySlot/DraggableItem")
-				
-				slot = equipmentSlot
 					
 			slot.add_child(newDraggable)
 			newDraggable.position = Vector2.ZERO
+	
+	# make items at equipment slots
+	var slot = inventoryUI.get_node("HeadSlot/DraggableItem")
+	if unit.headSlot != null:
+		var newDraggable: DraggableItem = draggableItem.instantiate()
+		newDraggable.item = unit.headSlot
+		newDraggable.get_node("TEMP_itemName").text = unit.headSlot.data.name
+		slot.add_child(newDraggable)
+		newDraggable.position = Vector2.ZERO
+		
+	slot = inventoryUI.get_node("BodySlot/DraggableItem")
+	if unit.bodySlot != null:
+		var newDraggable: DraggableItem = draggableItem.instantiate()
+		newDraggable.item = unit.bodySlot
+		newDraggable.get_node("TEMP_itemName").text = unit.bodySlot.data.name
+		slot.add_child(newDraggable)
+		newDraggable.position = Vector2.ZERO
+		
+	slot = inventoryUI.get_node("PrimarySlot/DraggableItem")
+	if unit.primarySlot != null:
+		var newDraggable: DraggableItem = draggableItem.instantiate()
+		newDraggable.item = unit.primarySlot
+		newDraggable.get_node("TEMP_itemName").text = unit.primarySlot.data.name
+		slot.add_child(newDraggable)
+		newDraggable.position = Vector2.ZERO
 
 
 static func PopulateContainerGrid(container: ItemContainer):
