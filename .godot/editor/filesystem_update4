@@ -1,8 +1,7 @@
-res://Scenes/game.tscn
+res://Scenes/disassembly.tscn
 res://Scripts/close_button.tres
-res://Data/1_Ranged/0_Handgun.tres
-res://Data/1_Ranged/1_Submachine_Gun.tres
-res://Data/1_Ranged/2_Auto_Rifle.tres
+res://Scenes/disassembly.gd
+res://Scenes/game.tscn
 res://Scenes/survivor.tscn
 res://Scenes/spaceship.tscn
 res://Scenes/enemy.tscn
@@ -10,9 +9,4 @@ res://Scenes/item_container.tscn
 res://Scenes/module.tscn
 res://Scenes/draggable_item_slot.tscn
 res://Scenes/draggable_item.tscn
-res://Scripts/survivor.gd
-res://Scripts/module.gd
 res://Scenes/interactable.tscn
-res://Scenes/disassembly.tscn
-res://Scenes/disassembly.gd
-res://Scripts/interactable.gd
