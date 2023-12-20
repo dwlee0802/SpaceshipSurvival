@@ -111,11 +111,14 @@ func _ready():
 	
 	overviewMarker.self_modulate = Color.GREEN
 	
-	EquipNewItem(Item.new(1,3), SlotType.Primary)
+	EquipNewItem(Item.new(1,4), SlotType.Primary)
 	
 	AddItem(Item.new(1,0))
 	
 	UpdateStats()
+	
+	# start with full health
+	health = maxHealth
 	
 
 func parse_json(text):
@@ -308,7 +311,7 @@ func UpdateStats():
 	var body = bodySlot
 	
 	if primary != null:
-		attackTimer.wait_time = 1 / primary.data.attacksPerSecond
+		attackTimer.wait_time = 1 / primary.data.attacksPerSecond + randf_range(-0.01,0.01)
 		get_node("AttackArea").get_node("CollisionShape2D").shape.set_radius(primary.data.range)
 		endAccuracy = accuracy + primary.data.accuracy
 	

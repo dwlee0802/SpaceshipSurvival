@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="RangedWeapon" load_steps=2 format=3 uid="uid://cxrbeacvgmsxk"]
+[gd_resource type="Resource" script_class="RangedWeapon" load_steps=2 format=3 uid="uid://cyv0cps7rhalm"]
 
 [ext_resource type="Script" path="res://Data/ranged_data.gd" id="1_6cha1"]
 
 [resource]
 script = ExtResource("1_6cha1")
 ammoPerShot = 3
-reloadTime = 6.0
+reloadTime = 4.0
 magazineCapacity = 10
 range = 800
 minDamage = 200
@@ -13,7 +13,7 @@ maxDamage = 350
 attacksPerSecond = 3.0
 penetration = 0.2
 accuracy = 0.95
-knockBack = 350
+knockBack = 250
 type = 1
 name = "Auto Rifle"
 ID = 2

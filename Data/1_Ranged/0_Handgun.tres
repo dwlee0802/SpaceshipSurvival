@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="RangedWeapon" load_steps=3 format=3 uid="uid://cbcbhpesxx4wg"]
+[gd_resource type="Resource" script_class="RangedWeapon" load_steps=3 format=3 uid="uid://i7dglcx22nnc"]
 
 [ext_resource type="Script" path="res://Data/ranged_data.gd" id="1_1thg8"]
 
@@ -15,7 +15,7 @@ maxDamage = 200
 attacksPerSecond = 1.5
 penetration = 0.1
 accuracy = 0.8
-knockBack = 200
+knockBack = 180
 type = 1
 name = "Handgun"
 ID = 0

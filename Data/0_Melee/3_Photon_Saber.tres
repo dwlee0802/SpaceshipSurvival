@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://uj4r1hce5rn0"]
+
+[ext_resource type="Script" path="res://Data/weapon_data.gd" id="1_nju4y"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xusvr"]
+size = Vector2(20, 20)
+
+[resource]
+script = ExtResource("1_nju4y")
+range = 100
+minDamage = 80
+maxDamage = 200
+attacksPerSecond = 4.0
+penetration = 1.0
+accuracy = 0.93
+knockBack = 0
+type = 0
+name = "Photon Saber"
+ID = 3
+description = "A sword of light."
+texture = SubResource("PlaceholderTexture2D_xusvr")
+componentValue = 100
+weight = 5

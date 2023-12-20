@@ -19,3 +19,8 @@ res://Scripts/item_container.gd
 res://Data/1_Ranged/1_Submachine_Gun.tres
 res://Data/1_Ranged/3_Laser_Rifle.tres
 res://Scripts/survivor.gd
+res://Data/0_Melee/3_Photon_Saber.tres
+res://Data/1_Ranged/0_Handgun.tres
+res://Data/1_Ranged/2_Auto_Rifle.tres
+res://Data/1_Ranged/4_Sniper_Rifle.tres
+res://Scripts/UserInterfaceManager.gd
