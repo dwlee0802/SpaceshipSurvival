@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="RangedWeapon" load_steps=2 format=3 uid="uid://do14h7texqedq"]
+
+[ext_resource type="Script" path="res://Data/ranged_data.gd" id="1_0mtu2"]
+
+[resource]
+script = ExtResource("1_0mtu2")
+ammoPerShot = 0
+reloadTime = 0.0
+magazineCapacity = 1
+range = 700
+minDamage = 20
+maxDamage = 40
+attacksPerSecond = 10.0
+penetration = 0.0
+accuracy = 0.99
+knockBack = 0
+type = 1
+name = "Laser Rifle"
+ID = 3
+description = "Weaponized LASER technology."
+componentValue = 100
+weight = 6

@@ -111,7 +111,7 @@ func _ready():
 	
 	overviewMarker.self_modulate = Color.GREEN
 	
-	EquipNewItem(Item.new(1,2), SlotType.Primary)
+	EquipNewItem(Item.new(1,3), SlotType.Primary)
 	
 	AddItem(Item.new(1,0))
 	
@@ -249,11 +249,15 @@ func ScanForAttackTargets():
 func Attack():
 	# deal damage
 	# default weapon fists
-	var primary = Item.new(0,2)
-	if equipmentSlots[SlotType.Primary] >= 0:
-		primary= inventory[equipmentSlots[SlotType.Primary]]
-	if Spaceship.ConsumeAmmo(primary.data.ammoPerShot):
-		var amount = randi_range(primary.data.damageMin, primary.data.damageMax)
+	var primary
+		
+	if primarySlot == null:
+		primary = Item.new(0,2)
+	else:
+		primary = primarySlot
+		
+	if primary.type == ItemType.Melee or (primary.type == ItemType.Ranged and Spaceship.ConsumeAmmo(primary.data.ammoPerShot)):
+		var amount = randi_range(primary.data.minDamage, primary.data.maxDamage)
 		if is_instance_valid(attackTarget):
 			var dir = position.direction_to(attackTarget.position)
 			dir *= primary.data.knockBack

@@ -59,7 +59,7 @@ text = "[center][b]100[/b][/center]"
 script = ExtResource("1_5aj2g")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "damage_popup_anim"
 libraries = {
 "": SubResource("AnimationLibrary_jefui")
 }
+autoplay = "damage_popup_anim"

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://cyyp3h6fome87"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://wukd46e02e5n"]
 
 [ext_resource type="Script" path="res://Data/weapon_data.gd" id="1_xqxcj"]
 
@@ -17,7 +17,7 @@ knockBack = 250
 type = 0
 name = "Fire Axe"
 ID = 2
-description = "Good for breaking down door and enemies alike."
+description = "Good for breaking down doors and enemies alike."
 texture = SubResource("PlaceholderTexture2D_xusvr")
 componentValue = 100
 weight = 5

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="RangedWeapon" load_steps=2 format=3 uid="uid://du0ut36fntib0"]
+[gd_resource type="Resource" script_class="RangedWeapon" load_steps=2 format=3 uid="uid://ba3pvdqw5wfbu"]
 
 [ext_resource type="Script" path="res://Data/ranged_data.gd" id="1_f66qo"]
 

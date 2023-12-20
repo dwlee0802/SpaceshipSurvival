@@ -9,16 +9,12 @@ static var itemDict
 func _init(_type, _id):
 	type = _type
 	
-	if type == ItemType.Melee:
-		data = Item.itemDict.Melee[_id]
-	elif type == ItemType.Ranged:
-		data = Item.itemDict.Ranged[_id]
-	elif type == ItemType.Head:
-		data = Item.itemDict.Head[_id]
-	elif type == ItemType.Body:
-		data = Item.itemDict.Body[_id]
-	elif type == ItemType.Consumable:
-		data = Item.itemDict.Consumable[_id]
+	if _id >= len(DataManager.resources[type]):
+		print("ERROR! ID out of bounds.")
+		print(str(_id) + " for " + str(type))
+	else:
+		data = DataManager.resources[type][_id]
+
 
 func _to_string():
 	var output = data.name + "\n"
