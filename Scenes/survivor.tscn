@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://crk54pclkvhi"]
+[gd_scene load_steps=12 format=3 uid="uid://crk54pclkvhi"]
 
 [ext_resource type="Script" path="res://Scripts/survivor.gd" id="1_ag083"]
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="2_3n7u2"]
@@ -16,6 +16,15 @@ radius = 600.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_fl1yi"]
 resource_local_to_scene = true
 radius = 150.0
+
+[sub_resource type="Gradient" id="Gradient_2kiva"]
+offsets = PackedFloat32Array(0, 0.75)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k6mnu"]
+gradient = SubResource("Gradient_2kiva")
+fill = 1
+fill_from = Vector2(0.506098, 0.5)
 
 [sub_resource type="Animation" id="Animation_kumx6"]
 resource_name = "level_up_anim"
@@ -73,7 +82,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(0, -51)
+position = Vector2(0, -44)
 shape = SubResource("CircleShape2D_4duku")
 
 [node name="AttackLine" type="Line2D" parent="."]
@@ -102,7 +111,6 @@ scale = Vector2(38, 10)
 texture = ExtResource("2_3n7u2")
 
 [node name="MuzzleFlash" type="Sprite2D" parent="ArmSprite"]
-visible = false
 self_modulate = Color(1, 0, 0, 1)
 position = Vector2(55, -0.500001)
 scale = Vector2(0.101563, 0.0507812)
@@ -113,6 +121,13 @@ self_modulate = Color(1, 0.819608, 0, 1)
 position = Vector2(-59.077, 4.92308)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_5uyep")
+
+[node name="PointLight2D" type="PointLight2D" parent="ArmSprite/MuzzleFlash"]
+visible = false
+position = Vector2(-98.4611, 9.84619)
+scale = Vector2(19.8461, 40)
+energy = 2.0
+texture = SubResource("GradientTexture2D_k6mnu")
 
 [node name="AimingIndicator" type="Polygon2D" parent="ArmSprite"]
 position = Vector2(41, 0)
