@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://2kdlobiaje25"]
+[gd_scene load_steps=7 format=3 uid="uid://cg6fqh4d0bs3p"]
 
-[ext_resource type="Script" path="res://Scripts/disassembly.gd" id="1_4n601"]
-[ext_resource type="Texture2D" uid="uid://ueh2f2ndukht" path="res://Art/interactable_temp_sprite.jpg" id="2_2hst8"]
-[ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="3_583tx"]
-[ext_resource type="Texture2D" uid="uid://2j00antvhw4x" path="res://Art/circle-256.png" id="4_jwsfw"]
+[ext_resource type="Script" path="res://Scenes/crafting_station.gd" id="1_8j5o3"]
+[ext_resource type="Texture2D" uid="uid://ueh2f2ndukht" path="res://Art/interactable_temp_sprite.jpg" id="2_sqwmp"]
+[ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="3_488j3"]
+[ext_resource type="Texture2D" uid="uid://2j00antvhw4x" path="res://Art/circle-256.png" id="4_7ym5m"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_elui1"]
 
@@ -11,23 +11,23 @@
 resource_local_to_scene = true
 size = Vector2(50, 69)
 
-[node name="Disassembly" type="StaticBody2D"]
+[node name="CraftingStation" type="StaticBody2D"]
 collision_layer = 4
 collision_mask = 0
 physics_material_override = SubResource("PhysicsMaterial_elui1")
-script = ExtResource("1_4n601")
+script = ExtResource("1_8j5o3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0.47451, 0.0235294, 1, 1)
+self_modulate = Color(0.427451, 1, 0.180392, 1)
 position = Vector2(-7.62939e-06, -9.50001)
 scale = Vector2(0.144509, 0.146497)
-texture = ExtResource("2_2hst8")
+texture = ExtResource("2_sqwmp")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
 self_modulate = Color(0, 0.792157, 0.917647, 1)
 position = Vector2(0, -0.27)
 scale = Vector2(1, 0.34)
-texture = ExtResource("3_583tx")
+texture = ExtResource("3_488j3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -9.5)
@@ -48,4 +48,4 @@ vertical_alignment = 1
 visible = false
 position = Vector2(0, 53)
 scale = Vector2(0.0859375, 0.0859375)
-texture = ExtResource("4_jwsfw")
+texture = ExtResource("4_7ym5m")

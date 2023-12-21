@@ -41,6 +41,7 @@ func _process(delta):
 		UserInterfaceManager.ToggleUnitUI(false)
 		UserInterfaceManager.inventoryUI.visible = false
 		UserInterfaceManager.informationUI.visible = false
+		UserInterfaceManager.craftingStationUI.visible = false
 	
 	if lockOn:
 		if len(selectedUnits) > 0:
@@ -222,7 +223,7 @@ func ApplyUnitInventory():
 	selectedUnits[0].bodySlot = equipments.Body
 	selectedUnits[0].primarySlot = equipments.Primary
 	
-	if selectedUnits[0].interactionObject != null:
+	if selectedUnits[0].interactionObject != null and selectedUnits[0].interactionObject is ItemContainer:
 		selectedUnits[0].interactionObject.contents = UserInterfaceManager.ReadContainerGrid()
 	
 	selectedUnits[0].UpdateStats()
@@ -325,12 +326,10 @@ func _on_print_button_pressed():
 	# check if enough components
 	if Spaceship.ConsumeComponents(DataManager.resources[type][id].componentValue):
 		print("made item!")
+		selectedUnits[0].AddItemByIndex(type, id)
+		UserInterfaceManager.UpdateInventoryUI(selectedUnits[0])
 	else:
 		print("Not enough components!")
-
-
-func _on_closebutton_pressed():
-	UserInterfaceManager.craftingStationUI.visible = false
 
 
 # update item info in crafting menu
@@ -398,7 +397,10 @@ func _on_interaction_button_pressed():
 		if obj is Disassembly:
 			UserInterfaceManager.disassemblyUI.visible = not UserInterfaceManager.disassemblyUI.visible
 			selectedUnits[0].isInteractionOpen = UserInterfaceManager.disassemblyUI.visible
-
+		if obj is CraftingStation:
+			UserInterfaceManager.craftingStationUI.visible = not UserInterfaceManager.craftingStationUI.visible
+			selectedUnits[0].isInteractionOpen = UserInterfaceManager.craftingStationUI.visible
+			
 
 func _on_container_closebutton_pressed():
 	UserInterfaceManager.containerUI.visible = false
@@ -408,3 +410,8 @@ func _on_container_closebutton_pressed():
 func _on_inventory_closebutton_pressed():
 	UserInterfaceManager.inventoryUI.visible = false
 	selectedUnits[0].isInventoryOpen = false
+
+
+func _on_crafting_station_closebutton_pressed():
+	UserInterfaceManager.craftingStationUI.visible = false
+	selectedUnits[0].isInteractionOpen = false

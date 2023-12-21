@@ -767,6 +767,7 @@ pivot_offset = Vector2(34, -5)
 texture = ExtResource("7_7g08s")
 
 [node name="DisassemblyUI" type="Button" parent="Camera/Canvas"]
+visible = false
 offset_left = 940.0
 offset_top = 252.0
 offset_right = 1155.0
@@ -837,19 +838,21 @@ offset_right = -96.0
 offset_bottom = -136.0
 stretch_mode = 2
 
-[node name="CraftingStationUI" type="Control" parent="Camera/Canvas"]
-visible = false
-layout_mode = 3
-anchors_preset = 0
+[node name="CraftingStationUI" type="Button" parent="Camera/Canvas"]
 offset_left = 840.0
 offset_top = 234.0
 offset_right = 1192.0
 offset_bottom = 520.0
+flat = true
+script = ExtResource("8_24sst")
 
 [node name="Background" type="Panel" parent="Camera/Canvas/CraftingStationUI"]
 layout_mode = 0
+offset_left = -6.0
+offset_top = -3.0
 offset_right = 354.0
 offset_bottom = 289.0
+mouse_filter = 2
 
 [node name="Title" type="Label" parent="Camera/Canvas/CraftingStationUI"]
 layout_mode = 0
@@ -866,17 +869,17 @@ offset_bottom = 279.0
 
 [node name="TextureRect" type="TextureRect" parent="Camera/Canvas/CraftingStationUI"]
 layout_mode = 0
-offset_left = 226.0
-offset_top = 41.0
-offset_right = 316.0
-offset_bottom = 131.0
+offset_left = 229.0
+offset_top = 55.0
+offset_right = 309.0
+offset_bottom = 135.0
 texture = SubResource("PlaceholderTexture2D_7xr05")
 
 [node name="ItemInfo" type="Label" parent="Camera/Canvas/CraftingStationUI"]
 layout_mode = 0
-offset_left = 208.0
+offset_left = 202.0
 offset_top = 141.0
-offset_right = 341.0
+offset_right = 335.0
 offset_bottom = 252.0
 theme_override_font_sizes/font_size = 11
 text = "Selected Item Info
@@ -885,13 +888,15 @@ Selected Item Info
 Selected Item Info
 Selected Item Info
 Selected Item Info"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PrintButton" type="Button" parent="Camera/Canvas/CraftingStationUI"]
 layout_mode = 0
-offset_left = 233.0
-offset_top = 258.0
-offset_right = 300.0
-offset_bottom = 284.0
+offset_left = 238.0
+offset_top = 255.0
+offset_right = 305.0
+offset_bottom = 281.0
 theme_override_font_sizes/font_size = 13
 text = "Print"
 
@@ -1516,7 +1521,7 @@ position = Vector2(1692, 1086)
 speed = 200
 
 [node name="Survivor2" parent="." instance=ExtResource("4_16enx")]
-position = Vector2(1908, 896)
+position = Vector2(2277, 1015)
 speed = 200
 
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InformationButton" to="InputManager" method="_on_information_button_pressed"]
@@ -1528,6 +1533,8 @@ speed = 200
 [connection signal="button_up" from="Camera/Canvas/DisassemblyUI" to="Camera/Canvas/DisassemblyUI" method="_on_button_up"]
 [connection signal="pressed" from="Camera/Canvas/DisassemblyUI/DisassembleButton" to="InputManager" method="_on_disassemble_button_pressed"]
 [connection signal="pressed" from="Camera/Canvas/DisassemblyUI/Closebutton" to="Camera/Canvas" method="_on_disassembly_closebutton_pressed"]
+[connection signal="button_down" from="Camera/Canvas/CraftingStationUI" to="Camera/Canvas/CraftingStationUI" method="_on_button_down"]
+[connection signal="button_up" from="Camera/Canvas/CraftingStationUI" to="Camera/Canvas/CraftingStationUI" method="_on_button_up"]
 [connection signal="item_selected" from="Camera/Canvas/CraftingStationUI/ItemList" to="InputManager" method="_on_craft_menu_item_list_item_selected"]
 [connection signal="pressed" from="Camera/Canvas/CraftingStationUI/PrintButton" to="InputManager" method="_on_print_button_pressed"]
 [connection signal="pressed" from="Camera/Canvas/CraftingStationUI/MeleeButton" to="InputManager" method="_on_crafting_menu_button_pressed" binds= [0]]
@@ -1535,7 +1542,7 @@ speed = 200
 [connection signal="pressed" from="Camera/Canvas/CraftingStationUI/HeadButton" to="InputManager" method="_on_crafting_menu_button_pressed" binds= [2]]
 [connection signal="pressed" from="Camera/Canvas/CraftingStationUI/BodyButton" to="InputManager" method="_on_crafting_menu_button_pressed" binds= [3]]
 [connection signal="pressed" from="Camera/Canvas/CraftingStationUI/ConsumableButton" to="InputManager" method="_on_crafting_menu_button_pressed" binds= [4]]
-[connection signal="pressed" from="Camera/Canvas/CraftingStationUI/Closebutton" to="InputManager" method="_on_closebutton_pressed"]
+[connection signal="pressed" from="Camera/Canvas/CraftingStationUI/Closebutton" to="InputManager" method="_on_crafting_station_closebutton_pressed"]
 [connection signal="button_down" from="Camera/Canvas/ContainerUI" to="Camera/Canvas/ContainerUI" method="_on_button_down"]
 [connection signal="button_up" from="Camera/Canvas/ContainerUI" to="Camera/Canvas/ContainerUI" method="_on_button_up"]
 [connection signal="pressed" from="Camera/Canvas/ContainerUI/Closebutton" to="InputManager" method="_on_container_closebutton_pressed"]

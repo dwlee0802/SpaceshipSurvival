@@ -17,3 +17,7 @@ res://temp.tscn
 res://Scripts/UserInterfaceManager.gd
 res://Scripts/game.gd
 res://Scripts/InputManager.gd
+res://Scripts/draggable_window.gd
+res://Scenes/crafting_station.tscn
+res://Scripts/disassembly.gd
+res://Scenes/crafting_station.gd

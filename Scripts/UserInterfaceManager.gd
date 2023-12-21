@@ -169,7 +169,12 @@ static func UpdateCraftingUI(type):
 	var optionList: ItemList = craftingStationUI.get_node("ItemList")
 	optionList.clear()
 	var data = DataManager.resources[type]
+	var isFirst = true
 	for item in data:
+		# skip first melee item (default fists item)
+		if isFirst and type == ItemType.Melee:
+			isFirst = false
+			continue
 		optionList.add_item(item.name)
 
 
@@ -369,7 +374,13 @@ static func UpdateInteractionUI(unit):
 		button.text = "Disassembly"
 		UpdateDisassemblyInfo()
 		disassemblyUI.visible = unit.isInteractionOpen
-
+	elif object is CraftingStation:
+		var button = unitUI.get_node("InteractionButton")
+		button.visible = true
+		button.text = "Crafting Station"
+		UpdateCraftingUI(ItemType.Melee)
+		craftingStationUI.visible = unit.isInteractionOpen
+		
 
 # resets the visibility of interaction object's UI windows to false
 static func CloseInteractionWindows():
