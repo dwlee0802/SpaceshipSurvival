@@ -1516,6 +1516,13 @@ offset_bottom = 51.0
 script = ExtResource("12_35cvf")
 type = null
 
+[node name="LevelUpEffect" type="Polygon2D" parent="Camera/Canvas/InventoryUI/DropSlot"]
+position = Vector2(40, 30)
+rotation = 3.14159
+scale = Vector2(0.503803, 0.469087)
+color = Color(0.447059, 0, 0.054902, 0.47451)
+polygon = PackedVector2Array(-22, 0, 22, 0, 22, -55, 40, -55, -1, -86, -39, -53, -22, -53)
+
 [node name="InputManager" type="Node2D" parent="."]
 script = ExtResource("2_drscf")
 

@@ -100,7 +100,7 @@ var isInteractionOpen: bool = false
 var experiencePoints: int = 0
 var level: int = 1
 # required exp to level up. Increases 50 percent each level
-var requiredEXP: int = 200
+var requiredEXP: int = 500
 @onready var levelUpEffect = $LevelUpEffect/AnimationPlayer
 
 # variables related to reloading
