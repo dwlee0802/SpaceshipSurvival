@@ -1547,4 +1547,4 @@ speed = 200
 [connection signal="pressed" from="Camera/Canvas/LevelupUI/PassButton" to="InputManager" method="_on_info_closebutton_pressed"]
 [connection signal="button_down" from="Camera/Canvas/InventoryUI" to="Camera/Canvas/InventoryUI" method="_on_button_down"]
 [connection signal="button_up" from="Camera/Canvas/InventoryUI" to="Camera/Canvas/InventoryUI" method="_on_button_up"]
-[connection signal="pressed" from="Camera/Canvas/InventoryUI/Closebutton" to="Camera/Canvas" method="_on_inventory_ui_closebutton_pressed"]
+[connection signal="pressed" from="Camera/Canvas/InventoryUI/Closebutton" to="InputManager" method="_on_inventory_closebutton_pressed"]

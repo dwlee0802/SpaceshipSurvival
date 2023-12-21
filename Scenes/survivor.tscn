@@ -279,8 +279,7 @@ texture = ExtResource("2_3n7u2")
 speed_scale = 4.0
 
 [node name="LevelUpEffect" type="Polygon2D" parent="."]
-self_modulate = Color(1, 1, 1, 0)
-position = Vector2(0, -20)
+visible = false
 color = Color(0, 1, 0.513726, 0.47451)
 polygon = PackedVector2Array(-22, 0, 22, 0, 22, -55, 40, -55, -1, -86, -39, -53, -22, -53)
 
@@ -289,6 +288,9 @@ libraries = {
 "": SubResource("AnimationLibrary_tg4vx")
 }
 speed_scale = 4.0
+
+[node name="ReloadTimer" type="Timer" parent="."]
+process_callback = 0
 
 [connection signal="timeout" from="OxygenTimer" to="." method="_on_oxygen_timer_timeout"]
 [connection signal="timeout" from="TemperatureTimer" to="." method="_on_temperature_timer_timeout"]

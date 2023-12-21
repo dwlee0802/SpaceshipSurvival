@@ -403,3 +403,8 @@ func _on_interaction_button_pressed():
 func _on_container_closebutton_pressed():
 	UserInterfaceManager.containerUI.visible = false
 	selectedUnits[0].isInteractionOpen = false
+
+
+func _on_inventory_closebutton_pressed():
+	UserInterfaceManager.inventoryUI.visible = false
+	selectedUnits[0].isInventoryOpen = false

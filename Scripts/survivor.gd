@@ -103,6 +103,10 @@ var level: int = 1
 var requiredEXP: int = 200
 @onready var levelUpEffect = $LevelUpEffect/AnimationPlayer
 
+# variables related to reloading
+var magazine: int
+var magazineMax: int
+
 
 func _ready():
 	super._ready()
@@ -365,6 +369,7 @@ func UpdateStats():
 			speedModifier = 0
 	else:
 		speedModifier = 1
+
 
 func PointArmAt(pos):
 	# turn towards target

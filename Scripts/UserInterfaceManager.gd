@@ -375,10 +375,6 @@ static func UpdateInteractionUI(unit):
 static func CloseInteractionWindows():
 	containerUI.visible = false
 	disassemblyUI.visible = false
-	
-	
-func _on_inventory_ui_closebutton_pressed():
-	inventoryUI.visible = false
 
 
 func _on_disassembly_closebutton_pressed():
