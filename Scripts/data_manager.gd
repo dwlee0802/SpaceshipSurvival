@@ -30,25 +30,6 @@ var paths = [
 
 # populate data by reading files
 func _ready():
-	"""
-	resources[0].append(item00)
-	resources[0].append(item01)
-	resources[0].append(item02)
-	
-	resources[1].append(item10)
-	resources[1].append(item11)
-	resources[1].append(item12)
-	resources[1].append(item13)
-	
-	resources[2].append(item20)
-	
-	resources[3].append(item30)
-	
-	resources[4].append(item40)
-	
-	return
-	"""
-	
 	for i in range(len(paths)):
 		var path = paths[i]
 		var dir
@@ -58,7 +39,6 @@ func _ready():
 		
 		while filename != "":
 			var fullpath = path + filename
-			print("loading " + fullpath)
 			resources[i].append(load(fullpath))
 			filename = dir.get_next()
 	

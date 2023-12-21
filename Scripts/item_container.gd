@@ -1,4 +1,4 @@
-extends Node2D
+extends Interactable
 
 class_name ItemContainer
 
@@ -6,8 +6,6 @@ var contents = []
 
 var weight: int = 0
 var capacity: int = 20
-
-@onready var interactionPoint = $InteractionPoint
 
 @export var randomizeContent: bool = false
 
@@ -69,3 +67,7 @@ func UpdateWeight():
 
 func _on_timer_timeout():
 	FillContentsRandomly()
+
+
+func Fix(delta):
+	return true

@@ -187,10 +187,6 @@ static func UpdateInventoryUI(unit: Survivor):
 	inventoryUI.visible = true
 	
 	PopulateInventoryGrid(unit)
-	
-	if unit.interactionContainer != null:
-		# populate container UI
-		UpdateContainerUI(unit.interactionContainer)
 
 
 static func UpdateContainerUI(container: ItemContainer):
@@ -340,6 +336,7 @@ static func ReadContainerGrid():
 
 
 static func UpdateDisassemblyInfo():
+	disassemblyUI.visible = true
 	var label = disassemblyUI.get_node("DisassemblyInfoLabel")
 	if disassemblyUI.get_node("DraggableItemSlot").get_child_count() == 0:
 		label.text = "Place item in slot to disassemble"
@@ -355,6 +352,21 @@ static func UpdateInformationUI(unit: Survivor):
 	informationUIMisc.text = unit.PrintMiscStats()
 	
 	
+# makes appropriate ui window visible
+# also changes interaction button in unit ui to show what type is interacting
+static func UpdateInteractionUI(object):
+	if object is ItemContainer:
+		pass
+	elif object is Disassembly:
+		pass
+
+
+# resets the visibility of interaction object's UI windows to false
+static func CloseInteractionWindows():
+	containerUI.visible = false
+	disassemblyUI.visible = false
+	
+	
 func _on_inventory_ui_closebutton_pressed():
 	inventoryUI.visible = false
 
@@ -365,3 +377,7 @@ func _on_container_ui_closebutton_pressed():
 
 func _on_disassembly_closebutton_pressed():
 	disassemblyUI.visible = false
+	
+	
+func _on_close_interaction_window_button_pressed():
+	CloseInteractionWindows()

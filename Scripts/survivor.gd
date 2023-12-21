@@ -24,9 +24,11 @@ static var itemsDict
 @onready var attackTargetMarker = $AttackTargetUI
 @onready var aimingIndicator = $ArmSprite/AimingIndicator
 
+# the interaction target this unit is moving towards
 var interactionTarget
 
-var interactionContainer
+# the interaction object this unit is currently interacting with
+var interactionObject
 
 # Holds the itemIDs that the player has in its inventory
 # capped at 24 items
@@ -79,10 +81,15 @@ var needsRescue: bool = true
 # update unit info ui
 # emitted when unit's stats are changed
 signal update_unit_ui
+
 # update unit inventory ui
 # emitted when unit's inventory is changed
 # or when unit is interacting with a placed item or container
 signal update_unit_inventory_ui
+
+# update interaction uis
+# emitted when unit reaches interaction target
+signal update_interaction_ui
 
 @onready var expBar = $ExpBar/ExpBar
 var experiencePoints: int = 0
@@ -173,22 +180,30 @@ func _physics_process(delta):
 	super._physics_process(delta)
 	muzzleFlashSprite.visible = false
 	
+	# destination marker that shows where the unit is headed
 	if not isMoving:
 		destinationMarker.visible = false
 	else:
 		destinationMarker.visible = true
 		destinationMarker.position = target_position - position
 	
+	# attack target marker showing what the unit is attacking
 	if attackTarget != null and not attackTimer.is_stopped():
 		attackTargetMarker.visible = true
 		attackTargetMarker.global_position = attackTarget.global_position
 	else:
 		attackTargetMarker.visible = false
 		
+	# interactions with interactable objects
 	if  (not isMoving) and (interactionTarget != null):
+		# unit has reached the interaction Target
 		if interactionTarget is Interactable:
 			if interactionTarget.Fix(delta):
+				# interaction target is operational
+				interactionObject = interactionTarget
 				interactionTarget = null
+				emit_signal("update_unit_inventory_ui")
+				emit_signal("update_interaction_ui")
 			else:
 				PointArmAt(interactionTarget.global_position)
 		if interactionTarget is PlacedItem:
@@ -198,12 +213,9 @@ func _physics_process(delta):
 			interactionTarget.queue_free()
 			interactionTarget = null
 			emit_signal("update_unit_inventory_ui")
-		if interactionTarget is ItemContainer:
-			interactionContainer = interactionTarget
-			interactionTarget = null
-			emit_signal("update_unit_inventory_ui")
 			
 	
+	# attack process
 	if fireAtWill:
 		if attackTarget != null and (moveAndShoot or (not moveAndShoot and not isMoving)):
 			attackRaycast.target_position = attackTarget.position - position
@@ -369,7 +381,7 @@ func ShowSelectionUI(val = true):
 func ChangeTargetPosition(where):
 	super.ChangeTargetPosition(where)
 	PointArmAt(where)
-	interactionContainer = null
+	interactionObject = null
 	
 
 func OnDeath():

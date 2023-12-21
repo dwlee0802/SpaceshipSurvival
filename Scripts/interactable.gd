@@ -6,16 +6,19 @@ class_name Interactable
 var timeToFix: float = 0
 
 @onready var interactionPoint = $InteractionPoint
-@onready var fixTimeLabel = $FixTimeLabel
+var fixTimeLabel
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	fixTimeLabel = get_node_or_null("FixTimeLabel")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if fixTimeLabel == null:
+		return
+		
 	if timeToFix > 0:
 		modulate = Color.RED
 		fixTimeLabel.visible = true

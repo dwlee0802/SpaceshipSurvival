@@ -29,6 +29,7 @@ func _ready():
 	UserInterfaceManager.disassemblyUI.get_node("DraggableItemSlot").item_dropped.connect(ApplyUnitInventory)
 	UserInterfaceManager.UpdateDisassemblyInfo()
 
+
 func _process(delta):
 	if len(selectedUnits) == 1:
 		UserInterfaceManager.ToggleUnitUI(true)
@@ -36,7 +37,9 @@ func _process(delta):
 		UserInterfaceManager.UpdateInventoryWeight(selectedUnits[0])
 		UserInterfaceManager.UpdateInformationUI(selectedUnits[0])
 	else:
+		UserInterfaceManager.CloseInteractionWindows()
 		UserInterfaceManager.ToggleUnitUI(false)
+		UserInterfaceManager.inventoryUI.visible = false
 	
 	if lockOn:
 		if len(selectedUnits) > 0:
@@ -60,6 +63,8 @@ func _unhandled_input(event):
 						selectedUnits[0].update_unit_ui.connect(UpdateUnitUI)
 					if not selectedUnits[0].update_unit_inventory_ui.is_connected(UpdateUnitInventoryUI):
 						selectedUnits[0].update_unit_inventory_ui.connect(UpdateUnitInventoryUI)
+					if not selectedUnits[0].update_interaction_ui.is_connected(UpdateInteractionUI):
+						selectedUnits[0].update_interaction_ui.connect(UpdateInteractionUI)
 						
 					# update ui to show newly selected unit
 					#UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])
@@ -80,7 +85,7 @@ func _unhandled_input(event):
 				for unit in selectedUnits:
 					unit.ChangeTargetPosition( get_global_mouse_position() )
 					unit.interactionTarget = null
-					unit.interactionContainer = null
+					unit.interactionObject = null
 			else:
 				for unit in selectedUnits:
 					if result[0].collider is Interactable:
@@ -196,10 +201,15 @@ func UpdateUnitUI():
 func UpdateUnitInventoryUI():
 	if len(selectedUnits) > 0:
 		UserInterfaceManager.UpdateInventoryUI(selectedUnits[0])
-	
+
 	UserInterfaceManager.UpdateInventoryWeight(selectedUnits[0])
 	
 
+# makes interaction ui visible
+func UpdateInteractionUI():
+	UserInterfaceManager.UpdateInteractionUI(selectedUnits[0].interactionObject)
+	
+	
 func ApplyUnitInventory():
 	selectedUnits[0].inventory = UserInterfaceManager.ReadInventoryGrid()
 	var equipments = UserInterfaceManager.ReadEquipmentSlots()
@@ -332,6 +342,13 @@ func _on_inventory_button_pressed():
 
 
 func _on_disassemble_button_pressed():
+	# toggle ui visibility
+	if selectedUnits.size() > 0:
+		if UserInterfaceManager.disassemblyUI.visible == false:
+			UserInterfaceManager.UpdateDisassemblyInfo()
+		else:
+			UserInterfaceManager.disassemblyUI.visible = false
+			
 	var slotItem = UserInterfaceManager.disassemblyUI.get_node("DraggableItemSlot")
 	if slotItem.get_child_count() > 0:
 		slotItem = slotItem.get_child(0)
@@ -353,3 +370,14 @@ func _on_information_button_pressed():
 
 func _on_info_closebutton_pressed():
 	UserInterfaceManager.informationUI.visible = false
+
+
+func _on_interaction_button_pressed():
+	var obj = selectedUnits[0].interactionObject
+	if obj == null:
+		UserInterfaceManager.CloseInteractionWindows()
+	else:
+		if obj is ItemContainer:
+			UserInterfaceManager.containerUI.visible = not UserInterfaceManager.containerUI.visible
+		if obj is Disassembly:
+			UserInterfaceManager.disassemblyUI.visible = not UserInterfaceManager.disassemblyUI.visible
