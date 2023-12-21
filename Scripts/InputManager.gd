@@ -218,8 +218,8 @@ func ApplyUnitInventory():
 	selectedUnits[0].bodySlot = equipments.Body
 	selectedUnits[0].primarySlot = equipments.Primary
 	
-	if selectedUnits[0].interactionContainer != null:
-		selectedUnits[0].interactionContainer.contents = UserInterfaceManager.ReadContainerGrid()
+	if selectedUnits[0].interactionObject != null:
+		selectedUnits[0].interactionObject.contents = UserInterfaceManager.ReadContainerGrid()
 	
 	selectedUnits[0].UpdateStats()
 	
@@ -365,12 +365,18 @@ func _on_disassemble_button_pressed():
 
 
 func _on_information_button_pressed():
-	UserInterfaceManager.UpdateInformationUI(selectedUnits[0])
-	UserInterfaceManager.informationUI.visible = true
+	if selectedUnits[0].isInfoOpen:
+		UserInterfaceManager.informationUI.visible = false
+	else:
+		UserInterfaceManager.UpdateInformationUI(selectedUnits[0])
+		UserInterfaceManager.informationUI.visible = true
+		
+	selectedUnits[0].isInfoOpen = not selectedUnits[0].isInfoOpen
 
 
 func _on_info_closebutton_pressed():
 	UserInterfaceManager.informationUI.visible = false
+	selectedUnits[0].isInfoOpen = false
 
 
 func _on_interaction_button_pressed():
@@ -380,5 +386,7 @@ func _on_interaction_button_pressed():
 	else:
 		if obj is ItemContainer:
 			UserInterfaceManager.containerUI.visible = not UserInterfaceManager.containerUI.visible
+			selectedUnits[0].isInteractionOpen = UserInterfaceManager.containerUI.visible
 		if obj is Disassembly:
 			UserInterfaceManager.disassemblyUI.visible = not UserInterfaceManager.disassemblyUI.visible
+			selectedUnits[0].isInteractionOpen = UserInterfaceManager.disassemblyUI.visible

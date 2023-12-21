@@ -2,7 +2,6 @@ res://Scenes/game.tscn
 res://Data/0_Melee/0_Fists.tres
 res://Data/0_Melee/2_Fire_Axe.tres
 res://Scripts/close_button.tres
-res://Scripts/UserInterfaceManager.gd
 res://Scenes/survivor.tscn
 res://Scenes/spaceship.tscn
 res://Scenes/enemy.tscn

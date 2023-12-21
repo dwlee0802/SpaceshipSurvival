@@ -91,6 +91,11 @@ signal update_unit_inventory_ui
 # emitted when unit reaches interaction target
 signal update_interaction_ui
 
+# bools to keep track of which ui window is opened for this unit
+var isInfoOpen: bool = false
+var isInventoryOpen: bool = false
+var isInteractionOpen: bool = false
+
 @onready var expBar = $ExpBar/ExpBar
 var experiencePoints: int = 0
 var level: int = 1
@@ -204,6 +209,8 @@ func _physics_process(delta):
 				interactionTarget = null
 				emit_signal("update_unit_inventory_ui")
 				emit_signal("update_interaction_ui")
+				isInteractionOpen = true
+				isInventoryOpen = true
 			else:
 				PointArmAt(interactionTarget.global_position)
 		if interactionTarget is PlacedItem:

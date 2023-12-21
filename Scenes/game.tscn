@@ -767,11 +767,10 @@ pivot_offset = Vector2(34, -5)
 texture = ExtResource("7_7g08s")
 
 [node name="DisassemblyUI" type="Button" parent="Camera/Canvas"]
-visible = false
-offset_left = 619.0
-offset_top = 303.0
-offset_right = 834.0
-offset_bottom = 551.0
+offset_left = 940.0
+offset_top = 252.0
+offset_right = 1155.0
+offset_bottom = 500.0
 flat = true
 script = ExtResource("8_24sst")
 
@@ -842,10 +841,10 @@ stretch_mode = 2
 visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_left = 402.0
-offset_top = 218.0
-offset_right = 754.0
-offset_bottom = 504.0
+offset_left = 840.0
+offset_top = 234.0
+offset_right = 1192.0
+offset_bottom = 520.0
 
 [node name="Background" type="Panel" parent="Camera/Canvas/CraftingStationUI"]
 layout_mode = 0
@@ -963,10 +962,10 @@ text = "Close"
 visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_left = 619.0
-offset_top = 303.0
-offset_right = 917.0
-offset_bottom = 623.0
+offset_left = 560.0
+offset_top = 223.0
+offset_right = 858.0
+offset_bottom = 543.0
 
 [node name="Background" type="Panel" parent="Camera/Canvas/ModifierUI"]
 layout_mode = 0
@@ -1027,10 +1026,10 @@ text = "Close"
 
 [node name="ContainerUI" type="Button" parent="Camera/Canvas"]
 visible = false
-offset_left = 713.0
-offset_top = 218.0
-offset_right = 1079.0
-offset_bottom = 494.0
+offset_left = 734.0
+offset_top = 234.0
+offset_right = 1100.0
+offset_bottom = 510.0
 flat = true
 script = ExtResource("8_24sst")
 
@@ -1142,10 +1141,10 @@ layout_mode = 2
 
 [node name="InformationUI" type="Button" parent="Camera/Canvas"]
 visible = false
-offset_left = 22.0
-offset_top = 232.0
-offset_right = 374.0
-offset_bottom = 518.0
+offset_left = 35.0
+offset_top = 239.0
+offset_right = 387.0
+offset_bottom = 525.0
 flat = true
 script = ExtResource("8_24sst")
 
@@ -1224,10 +1223,10 @@ EXP: 0000/0000"
 
 [node name="LevelupUI" type="Button" parent="Camera/Canvas"]
 visible = false
-offset_left = 22.0
-offset_top = 232.0
-offset_right = 374.0
-offset_bottom = 518.0
+offset_left = 360.0
+offset_top = 249.0
+offset_right = 712.0
+offset_bottom = 535.0
 flat = true
 script = ExtResource("8_24sst")
 
@@ -1330,10 +1329,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -293.0
-offset_top = -156.5
-offset_right = 293.0
-offset_bottom = 156.5
+offset_left = -506.0
+offset_top = -158.0
+offset_right = 80.0
+offset_bottom = 155.0
 grow_horizontal = 2
 grow_vertical = 2
 keep_pressed_outside = true
