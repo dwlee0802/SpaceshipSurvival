@@ -352,13 +352,18 @@ static func UpdateInformationUI(unit: Survivor):
 	informationUIMisc.text = unit.PrintMiscStats()
 	
 	
-# makes appropriate ui window visible
-# also changes interaction button in unit ui to show what type is interacting
+# changes interaction button in unit ui to show what type is interacting
 static func UpdateInteractionUI(object):
+	CloseInteractionWindows()
+	if object == null:
+		return
+		
 	if object is ItemContainer:
-		pass
+		containerUI.visible = true
+		UpdateContainerUI(object)
 	elif object is Disassembly:
-		pass
+		disassemblyUI.visible = true
+		UpdateDisassemblyInfo()
 
 
 # resets the visibility of interaction object's UI windows to false

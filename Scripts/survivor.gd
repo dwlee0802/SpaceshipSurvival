@@ -382,6 +382,7 @@ func ChangeTargetPosition(where):
 	super.ChangeTargetPosition(where)
 	PointArmAt(where)
 	interactionObject = null
+	emit_signal("update_interaction_ui")
 	
 
 func OnDeath():

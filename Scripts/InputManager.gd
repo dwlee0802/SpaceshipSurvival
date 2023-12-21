@@ -65,9 +65,10 @@ func _unhandled_input(event):
 						selectedUnits[0].update_unit_inventory_ui.connect(UpdateUnitInventoryUI)
 					if not selectedUnits[0].update_interaction_ui.is_connected(UpdateInteractionUI):
 						selectedUnits[0].update_interaction_ui.connect(UpdateInteractionUI)
-						
+				
 					# update ui to show newly selected unit
 					#UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])
+					UpdateInteractionUI()
 				for item in selectedUnits:
 					item.ShowSelectionUI()
 			
