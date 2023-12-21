@@ -21,3 +21,6 @@ res://Scripts/draggable_window.gd
 res://Scenes/crafting_station.tscn
 res://Scripts/disassembly.gd
 res://Scenes/crafting_station.gd
+res://Scenes/drop_item_slot.gd
+res://Scenes/placed_item.tscn
+res://Scripts/placed_item.gd

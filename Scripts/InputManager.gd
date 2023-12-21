@@ -1,6 +1,7 @@
 extends Node2D
+class_name InputManager
 
-var selectedUnits = []
+static var selectedUnits = []
 
 var placedItem = preload("res://Scenes/placed_item.tscn")
 
@@ -21,6 +22,7 @@ func _ready():
 	UserInterfaceManager.inventoryUI.get_node("HeadSlot/DraggableItem").item_dropped.connect(ApplyUnitInventory)
 	UserInterfaceManager.inventoryUI.get_node("BodySlot/DraggableItem").item_dropped.connect(ApplyUnitInventory)
 	UserInterfaceManager.inventoryUI.get_node("PrimarySlot/DraggableItem").item_dropped.connect(ApplyUnitInventory)
+	UserInterfaceManager.inventoryUI.get_node("DropSlot/DraggableItem").item_dropped.connect(ApplyUnitInventory)
 	for i in range(containerGrid.get_child_count()):
 		containerGrid.get_child(i).item_dropped.connect(ApplyUnitInventory)
 	
@@ -236,6 +238,9 @@ func SelectSingleUnit(unit):
 	unit.ShowSelectionUI()
 	if not unit.update_unit_ui.is_connected(UpdateUnitUI):
 		unit.update_unit_ui.connect(UpdateUnitUI)
+	UserInterfaceManager.inventoryUI.visible = unit.isInventoryOpen
+	UserInterfaceManager.informationUI.visible = unit.isInfoOpen
+	UserInterfaceManager.UpdateInventoryUI(selectedUnits[0])
 
 
 func _on_unequip_button_pressed():

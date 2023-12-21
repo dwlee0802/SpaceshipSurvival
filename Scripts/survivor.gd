@@ -220,7 +220,7 @@ func _physics_process(delta):
 		if interactionTarget is PlacedItem:
 			# pick up item
 			print(interactionTarget)
-			AddItemByIndex(interactionTarget.itemType, interactionTarget.itemID)
+			AddItem(interactionTarget.item)
 			interactionTarget.queue_free()
 			interactionTarget = null
 			emit_signal("update_unit_inventory_ui")

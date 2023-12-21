@@ -11,11 +11,10 @@ var item: Item
 func _ready():
 	if item != null:
 		itemType = item.type
-		itemID = item.ID
 
 
 func _to_string():
 	var output = "Placed Item\n"
-	output += DataManager.resources[itemType][itemID].name
+	output += item.data.name
 		
 	return output
