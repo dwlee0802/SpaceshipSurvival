@@ -15,3 +15,8 @@ res://Scenes/damage_popup.tscn
 res://temp.tscn
 res://Scripts/survivor.gd
 res://Scripts/InputManager.gd
+res://Data/1_Ranged/0_Handgun.tres
+res://Data/1_Ranged/1_Submachine_Gun.tres
+res://Data/1_Ranged/5_Shotgun.tres
+res://Scripts/UserInterfaceManager.gd
+res://Scenes/disassembly.gd

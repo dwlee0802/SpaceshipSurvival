@@ -123,7 +123,7 @@ func _ready():
 	
 	overviewMarker.self_modulate = Color.GREEN
 	
-	EquipNewItem(Item.new(1,4), SlotType.Primary)
+	EquipNewItem(Item.new(1,5), SlotType.Primary)
 	
 	AddItem(Item.new(1,0))
 	
@@ -209,8 +209,8 @@ func _physics_process(delta):
 				interactionTarget = null
 				emit_signal("update_unit_inventory_ui")
 				emit_signal("update_interaction_ui")
-				isInteractionOpen = true
-				isInventoryOpen = true
+				#isInteractionOpen = true
+				#isInventoryOpen = true
 			else:
 				PointArmAt(interactionTarget.global_position)
 		if interactionTarget is PlacedItem:
@@ -389,6 +389,7 @@ func ChangeTargetPosition(where):
 	super.ChangeTargetPosition(where)
 	PointArmAt(where)
 	interactionObject = null
+	isInteractionOpen = false
 	emit_signal("update_interaction_ui")
 	
 

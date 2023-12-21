@@ -40,6 +40,7 @@ func _process(delta):
 		UserInterfaceManager.CloseInteractionWindows()
 		UserInterfaceManager.ToggleUnitUI(false)
 		UserInterfaceManager.inventoryUI.visible = false
+		UserInterfaceManager.informationUI.visible = false
 	
 	if lockOn:
 		if len(selectedUnits) > 0:
@@ -68,6 +69,9 @@ func _unhandled_input(event):
 				
 					# update ui to show newly selected unit
 					#UserInterfaceManager.UpdateUnitInfoPanel(selectedUnits[0])
+					UserInterfaceManager.informationUI.visible = selectedUnits[0].isInfoOpen
+					UserInterfaceManager.inventoryUI.visible = selectedUnits[0].isInventoryOpen
+					UpdateUnitInventoryUI()
 					UpdateInteractionUI()
 				for item in selectedUnits:
 					item.ShowSelectionUI()
@@ -208,7 +212,7 @@ func UpdateUnitInventoryUI():
 
 # makes interaction ui visible
 func UpdateInteractionUI():
-	UserInterfaceManager.UpdateInteractionUI(selectedUnits[0].interactionObject)
+	UserInterfaceManager.UpdateInteractionUI(selectedUnits[0])
 	
 	
 func ApplyUnitInventory():
@@ -338,12 +342,16 @@ func _on_inventory_button_pressed():
 	if selectedUnits.size() > 0:
 		if UserInterfaceManager.inventoryUI.visible == false:
 			UserInterfaceManager.UpdateInventoryUI(selectedUnits[0])
+			UserInterfaceManager.inventoryUI.visible = true
 		else:
 			UserInterfaceManager.inventoryUI.visible = false
+		
+		selectedUnits[0].isInventoryOpen = not selectedUnits[0].isInventoryOpen
 
 
 func _on_disassemble_button_pressed():
 	# toggle ui visibility
+	selectedUnits[0].isInteractionOn = true
 	if selectedUnits.size() > 0:
 		if UserInterfaceManager.disassemblyUI.visible == false:
 			UserInterfaceManager.UpdateDisassemblyInfo()
@@ -390,3 +398,8 @@ func _on_interaction_button_pressed():
 		if obj is Disassembly:
 			UserInterfaceManager.disassemblyUI.visible = not UserInterfaceManager.disassemblyUI.visible
 			selectedUnits[0].isInteractionOpen = UserInterfaceManager.disassemblyUI.visible
+
+
+func _on_container_closebutton_pressed():
+	UserInterfaceManager.containerUI.visible = false
+	selectedUnits[0].isInteractionOpen = false

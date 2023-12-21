@@ -1538,7 +1538,7 @@ speed = 200
 [connection signal="pressed" from="Camera/Canvas/CraftingStationUI/Closebutton" to="InputManager" method="_on_closebutton_pressed"]
 [connection signal="button_down" from="Camera/Canvas/ContainerUI" to="Camera/Canvas/ContainerUI" method="_on_button_down"]
 [connection signal="button_up" from="Camera/Canvas/ContainerUI" to="Camera/Canvas/ContainerUI" method="_on_button_up"]
-[connection signal="pressed" from="Camera/Canvas/ContainerUI/Closebutton" to="Camera/Canvas" method="_on_container_ui_closebutton_pressed"]
+[connection signal="pressed" from="Camera/Canvas/ContainerUI/Closebutton" to="InputManager" method="_on_container_closebutton_pressed"]
 [connection signal="button_down" from="Camera/Canvas/InformationUI" to="Camera/Canvas/InformationUI" method="_on_button_down"]
 [connection signal="button_up" from="Camera/Canvas/InformationUI" to="Camera/Canvas/InformationUI" method="_on_button_up"]
 [connection signal="pressed" from="Camera/Canvas/InformationUI/Closebutton" to="InputManager" method="_on_info_closebutton_pressed"]
