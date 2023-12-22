@@ -12,6 +12,10 @@ static var expOrb = preload("res://Scenes/exp_orb.tscn")
 
 var itemDropProbability: float = 0.1
 
+@onready var alertArea = $AlertArea
+@onready var attackArea = $AttackArea
+@onready var navShapeCast: ShapeCast2D = $NavShapeCast
+
 
 func _ready():
 	super._ready()
@@ -29,17 +33,26 @@ func _ready():
 # if there is a direct path to target, update target position in realtime
 # else, update it every second
 func _physics_process(delta):
-	if attackTarget == null or attackTarget.isDead:
-		attackTarget = Game.survivors.pick_random()
+	overviewMarker.position = position / 5.80708
+	overviewMarker.visible = true
 	
-	ChangeTargetPosition(attackTarget.position)
-	
+	# knock back damping
+	if knockBack.length() > 0:
+		knockBack = knockBack.normalized() * (knockBack.length() - delta * 1000)
+	else:
+		knockBack = Vector2.ZERO
+		
+	if attackTarget == null:
+		return
+		
 	# update nav target position every 0.5 seconds if it is close
 	# otherwise update every 10 seconds or so
-	if position.distance_to(attackTarget.position) > 2000:
+	if position.distance_to(attackTarget.position) > 10000:
 		navUpdateTimer.wait_time = randf_range(5,10)
 	else:
 		navUpdateTimer.wait_time = 0.5
+		
+	ChangeTargetPosition(attackTarget.position)
 		
 	if CheckDirectPath(attackTarget.position):
 		if position.distance_to(target_position) < STOP_DIST:
@@ -55,14 +68,6 @@ func _physics_process(delta):
 		
 	move_and_slide()
 	
-	overviewMarker.position = position / 5.80708
-	overviewMarker.visible = true
-	
-	# knock back damping
-	if knockBack.length() > 0:
-		knockBack = knockBack.normalized() * (knockBack.length() - delta * 1000)
-	else:
-		knockBack = Vector2.ZERO
 
 
 func OnDeath():
@@ -77,6 +82,11 @@ func OnDeath():
 
 
 func ReceiveHit(amount, penetration: float = 0, _accuracy: float = 0, knockBackVec: Vector2 = Vector2.ZERO, isRadiationDamage = false, from = null):
+	# if attack target is null, move towards attacker
+	if attackTarget == null and attackTarget is Survivor:
+		attackTarget = from
+		ChangeTargetPosition(attackTarget.position)
+		
 	if super.ReceiveHit(amount, penetration, _accuracy, knockBackVec, isRadiationDamage):
 		hitParticleEffect.emitting = true
 		hitParticleEffect.rotation = Vector2.RIGHT.angle_to(knockBackVec)
@@ -97,6 +107,9 @@ func DropItem():
 	
 
 func _on_nav_update_timer_timeout():
+	if attackTarget == null:
+		return
+		
 	ChangeTargetPosition(attackTarget.position)
 	velocity = position.direction_to(nav.get_next_path_position()) * speed * speedModifier + knockBack
 
@@ -106,3 +119,21 @@ func MakeExpOrb(target):
 	Game.gameScene.add_child(newOrb)
 	newOrb.position = global_position
 	newOrb.target = target
+
+
+func _on_alert_update_timer_timeout():
+	var results = alertArea.get_overlapping_bodies()
+	# find closest within range
+	var smallestDist = 100000
+	var closest: Survivor = null
+	for unit in results:
+		# check if unit is not behind any obstacles
+		navShapeCast.target_position = unit.position - position
+		if navShapeCast.get_collision_count() > 0:
+			continue
+		if position.distance_to(unit.position) < smallestDist:
+			smallestDist = position.distance_to(unit.position)
+			closest = unit
+		
+	attackTarget = closest
+	return

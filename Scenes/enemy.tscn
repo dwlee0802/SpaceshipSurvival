@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://brrbmb154h7yh"]
+[gd_scene load_steps=13 format=3 uid="uid://brrbmb154h7yh"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_l4svj"]
 [ext_resource type="Texture2D" uid="uid://ct6hupidc3mfx" path="res://Art/enemy_temp_sprite.jpg" id="2_nph33"]
@@ -35,6 +35,15 @@ _data = {
 "hit_animation": SubResource("Animation_cymjo")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_r5xoe"]
+radius = 400.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tjyqd"]
+radius = 100.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_irdpv"]
+size = Vector2(50, 50)
+
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 17
@@ -55,7 +64,7 @@ path_postprocessing = 1
 
 [node name="NavUpdateTimer" type="Timer" parent="."]
 process_callback = 0
-wait_time = 0.5
+wait_time = 0.1
 
 [node name="NavigationRaycasts" type="Node2D" parent="."]
 
@@ -118,4 +127,27 @@ offset_right = 50.0
 offset_bottom = 4.0
 texture = ExtResource("3_b4iln")
 
+[node name="AlertArea" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AlertArea"]
+shape = SubResource("CircleShape2D_r5xoe")
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_tjyqd")
+debug_color = Color(1, 0.121569, 0.105882, 0.419608)
+
+[node name="NavShapeCast" type="ShapeCast2D" parent="."]
+shape = SubResource("RectangleShape2D_irdpv")
+max_results = 1
+collision_mask = 16
+
+[node name="AlertUpdateTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.1
+autostart = true
+
 [connection signal="timeout" from="NavUpdateTimer" to="." method="_on_nav_update_timer_timeout"]
+[connection signal="timeout" from="AlertUpdateTimer" to="." method="_on_alert_update_timer_timeout"]
