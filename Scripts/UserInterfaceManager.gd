@@ -129,7 +129,7 @@ static func UpdateSpaceshipStatusUI(oxygen, temp):
 		oxygenLabel.self_modulate = Color.WHITE
 		
 	spaceshipStatusUI.get_node("TemperatureLevel/Label").text = str(temp) + "C"
-	
+	spaceshipStatusUI.get_node("OverviewLabel").text = Spaceship.PrintModuleStatus()
 	
 static func UpdateUnitBarUI(unit: Survivor):
 	healthBar.size.x = unit.health / unit.maxHealth * BAR_LENGTH
@@ -356,7 +356,7 @@ static func UpdateDisassemblyInfo():
 		return
 		
 	var item: Item = disassemblyUI.get_node("DraggableItemSlot").get_child(0).item
-	label.text = "Item Components Value: " + str(item.data.componentValue) + "\nExpected output: " + str(item.data.componentValue * 0.4) + " - " + str(item.data.componentValue * 0.8)
+	label.text = "Item Components Value: " + str(item.data.componentValue) + "\nExpected output: " + str(item.data.componentValue * 0.2) + " - " + str(item.data.componentValue * 0.4)
 	
 
 static func UpdateInformationUI(unit: Survivor):
@@ -402,10 +402,14 @@ static func CloseInteractionWindows():
 
 # update equipment UI with item's data
 static func UpdateEquipmentUI(item: Item):
-	var data: Weapon = item.data
-	equipmentUI.get_node("WeaponName").text = item.data.name
-	if item.data.texture != null:
-		equipmentUI.get_node("WeaponImage").texture = item.data.texture
+	var data: Weapon
+	if item == null:
+		data = DataManager.resources[ItemType.Melee][0]
+	else:
+		data = item.data
+	equipmentUI.get_node("WeaponName").text = data.name
+	if item != null and item.data.texture != null:
+		equipmentUI.get_node("WeaponImage").texture = data.texture
 	else:
 		var texture = PlaceholderTexture2D.new()
 		texture.set_size(Vector2(50,50))

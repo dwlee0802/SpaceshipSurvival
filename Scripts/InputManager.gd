@@ -468,7 +468,7 @@ func _on_disassemble_button_pressed():
 		UserInterfaceManager.UpdateDisassemblyInfo()
 		return
 	
-	var amount = slotItem.item.data.componentValue * randf_range(0.4, 0.8)
+	var amount = slotItem.item.data.componentValue * randf_range(0.2, 0.6)
 	Spaceship.ConsumeComponents(-amount)
 	slotItem.queue_free()
 	UserInterfaceManager.UpdateDisassemblyInfo()

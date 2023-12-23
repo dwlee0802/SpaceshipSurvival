@@ -161,25 +161,26 @@ func _process(delta):
 	if nutrition == 0:
 		health -= delta
 	
-	# high fever
-	if bodyTemperature >= 42:
-		health -= delta * 1
-	# moderate fever
-	elif bodyTemperature >= 40:
-		health -= delta * 0.5
-	# mild fever
-	elif bodyTemperature >= 38:
-		pass
-	
-	# Severe Hypothermia
-	if bodyTemperature <= 28:
-		health -= delta * 1
-	# moderate Hypothermia
-	elif bodyTemperature <= 32:
-		health -= delta * 0.5
-	# mild Hypothermia
-	elif bodyTemperature <= 34:
-		pass
+	#
+	## high fever
+	#if bodyTemperature >= 42:
+		#health -= delta * 1
+	## moderate fever
+	#elif bodyTemperature >= 40:
+		#health -= delta * 0.5
+	## mild fever
+	#elif bodyTemperature >= 38:
+		#pass
+	#
+	## Severe Hypothermia
+	#if bodyTemperature <= 28:
+		#health -= delta * 1
+	## moderate Hypothermia
+	#elif bodyTemperature <= 32:
+		#health -= delta * 0.5
+	## mild Hypothermia
+	#elif bodyTemperature <= 34:
+		#pass
 	
 	UpdateHealthBar()
 	

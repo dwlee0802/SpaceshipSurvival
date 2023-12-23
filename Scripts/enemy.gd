@@ -204,4 +204,4 @@ func _on_attack_timer_timeout():
 	var results = attackArea.get_overlapping_bodies()
 	if len(results) > 0:
 		var target : Survivor = results[0]
-		target.ReceiveHit(10,0,100)
+		target.ReceiveHit(20,0,100)
