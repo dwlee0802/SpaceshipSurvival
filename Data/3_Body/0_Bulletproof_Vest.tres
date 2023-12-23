@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_28d6q")
-defense = 0.3
+defense = 0.5
 oxygenGeneration = 0
 radiationDefense = 0.0
 insulation = 0.2

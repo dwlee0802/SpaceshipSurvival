@@ -153,7 +153,7 @@ func _process(delta):
 	if oxygen > 100:
 		oxygen = 100
 		
-	sleep -= delta
+	sleep -= delta * 0.25
 	if sleep < 0:
 		sleep = 0
 	if sleep > 100:
@@ -417,8 +417,8 @@ func OnDeath():
 # simulates breathing in
 func _on_oxygen_timer_timeout():
 	oxygen += 10 * Spaceship.oxygenLevel / 100.0
-	if equipmentSlots[SlotType.Head] >= 0:
-		oxygen += inventory[equipmentSlots[SlotType.Head]].data.oxygenGeneration
+	if headSlot != null:
+		oxygen += headSlot.data.oxygenGeneration
 	
 	if oxygen < 0:
 		oxygen = 0
@@ -530,7 +530,7 @@ static func GetFirstEmptySlot(list):
 	
 func PrintHealthStats() -> String:
 	var output = "Health Stats:\n"
-	output += "HP: " + str(health) + "/" + str(maxHealth) + "\n"
+	output += "HP: " + str(int(health * 100) / 100.0) + "/" + str(maxHealth) + "\n"
 	output += "Temp: " + str(int(bodyTemperature * 10000) / 10000.0) + "C\n"
 	output += "Oxygen: " + str(int(oxygen * 100) / 100) + "%\n"
 	output += "Nutrition: " + str(int(nutrition * 100) / 100) + "%\n"

@@ -42,6 +42,7 @@ func _process(delta):
 		UserInterfaceManager.UpdateUnitBarUI(selectedUnits[0])
 		UserInterfaceManager.UpdateInventoryWeight(selectedUnits[0])
 		UserInterfaceManager.UpdateInformationUI(selectedUnits[0])
+		UserInterfaceManager.UpdateEquipmentUI(selectedUnits[0].primarySlot)
 	else:
 		UserInterfaceManager.CloseInteractionWindows()
 		UserInterfaceManager.ToggleUnitUI(false)
@@ -265,7 +266,10 @@ static func UseInventoryItem(draggable):
 				unit.HealHealth(item.data.amount)
 			# Oxygen Inhaler
 			if item.data.ID == 1:
-				unit.oxygen += item.data.amount
+				if unit.oxygen + item.data.amount > 100:
+					unit.oxygen = 100
+				else:
+					unit.oxygen += item.data.amount
 		# equip gear
 		if item.data.type == ItemType.Head:
 			# check if slot is empty

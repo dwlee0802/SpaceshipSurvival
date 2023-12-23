@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=2 format=3 uid="uid://dib4xq36fa0ut"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://dib4xq36fa0ut"]
 
 [ext_resource type="Script" path="res://Data/weapon_data.gd" id="1_na43t"]
+[ext_resource type="Texture2D" uid="uid://bexkhiplgn4sy" path="res://Art/crowbar_placeholder.png" id="2_qi5od"]
 
 [resource]
 script = ExtResource("1_na43t")
@@ -15,5 +16,6 @@ type = 0
 name = "Crowbar"
 ID = 1
 description = "A tool for removing alien threats."
+texture = ExtResource("2_qi5od")
 componentValue = 100
 weight = 4

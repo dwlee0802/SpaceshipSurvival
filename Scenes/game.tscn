@@ -354,12 +354,12 @@ text = "Inventory 00/00"
 anchors_preset = 0
 offset_left = 356.0
 offset_top = 93.0
-offset_right = 396.0
-offset_bottom = 133.0
+offset_right = 621.0
+offset_bottom = 211.0
 
 [node name="Panel" type="Panel" parent="Camera/Canvas/UnitUI/EquipmentUI"]
 layout_mode = 0
-offset_right = 266.0
+offset_right = 302.0
 offset_bottom = 118.0
 
 [node name="WeaponImage" type="TextureRect" parent="Camera/Canvas/UnitUI/EquipmentUI"]
@@ -370,6 +370,7 @@ texture = ExtResource("4_rp8w6")
 expand_mode = 1
 
 [node name="SecondaryImage" type="TextureRect" parent="Camera/Canvas/UnitUI/EquipmentUI"]
+visible = false
 layout_mode = 0
 offset_left = 62.0
 offset_right = 107.0
@@ -385,46 +386,18 @@ offset_right = 76.0
 offset_bottom = 115.0
 text = "Crowbar"
 
-[node name="WeaponStats" type="Control" parent="Camera/Canvas/UnitUI/EquipmentUI"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="DamageRange" type="Label" parent="Camera/Canvas/UnitUI/EquipmentUI/WeaponStats"]
+[node name="WeaponStats" type="Label" parent="Camera/Canvas/UnitUI/EquipmentUI"]
 layout_mode = 0
-offset_left = 120.0
-offset_top = 4.0
-offset_right = 243.0
-offset_bottom = 30.0
+offset_left = 109.0
+offset_right = 300.0
+offset_bottom = 117.0
 theme_override_font_sizes/font_size = 12
-text = "Damage: 00 - 00"
-
-[node name="AttackSpeed" type="Label" parent="Camera/Canvas/UnitUI/EquipmentUI/WeaponStats"]
-layout_mode = 0
-offset_left = 120.0
-offset_top = 24.0
-offset_right = 337.0
-offset_bottom = 50.0
-theme_override_font_sizes/font_size = 12
-text = "Attack Speed: 00 / s"
-
-[node name="Penetration" type="Label" parent="Camera/Canvas/UnitUI/EquipmentUI/WeaponStats"]
-layout_mode = 0
-offset_left = 121.0
-offset_top = 45.0
-offset_right = 338.0
-offset_bottom = 71.0
-theme_override_font_sizes/font_size = 12
-text = "Penetration: 00 %"
-
-[node name="AmmoConsumption" type="Label" parent="Camera/Canvas/UnitUI/EquipmentUI/WeaponStats"]
-layout_mode = 0
-offset_left = 121.0
-offset_top = 65.0
-offset_right = 338.0
-offset_bottom = 91.0
-theme_override_font_sizes/font_size = 12
-text = "Ammo Consumption: 00"
+text = "sadfas
+sadfsda
+sdaf
+asdf
+12
+12123"
 
 [node name="CombatBehavior" type="Control" parent="Camera/Canvas/UnitUI"]
 anchors_preset = 0

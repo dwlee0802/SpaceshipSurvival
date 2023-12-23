@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Armor" load_steps=3 format=3 uid="uid://c7301qqyslwgb"]
+
+[ext_resource type="Script" path="res://Data/armor_data.gd" id="1_lwl6n"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rqsh4"]
+
+[resource]
+script = ExtResource("1_lwl6n")
+defense = 0.05
+oxygenGeneration = 9
+radiationDefense = 0.5
+insulation = 0.2
+type = 2
+name = "Oxygen Mask"
+ID = 2
+description = "Allows wearer to breathe."
+texture = SubResource("PlaceholderTexture2D_rqsh4")
+componentValue = 100
+weight = 3

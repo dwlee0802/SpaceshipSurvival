@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_53qqb")
-defense = 0.2
+defense = 0.3
 oxygenGeneration = 0
 radiationDefense = 0.1
 insulation = 0.1
@@ -13,4 +13,4 @@ name = "Steel Helmet"
 ID = 0
 description = "Simple protective headgear."
 componentValue = 100
-weight = 5
+weight = 3

@@ -6,3 +6,13 @@ res://Scripts/survivor.gd
 res://Data/consumable_data.gd
 res://Data/4_Consumable/0_Medkit.tres
 res://Data/4_Consumable/2_Canned_Coffee.tres
+res://Data/0_Melee/0_Fists.tres
+res://Data/0_Melee/1_Crowbar.tres
+res://Data/0_Melee/2_Fire_Axe.tres
+res://Data/0_Melee/3_Photon_Saber.tres
+res://Data/2_Head/1_Hazmat_Helmet.tres
+res://Data/2_Head/0_Steel_Helmet.tres
+res://Data/3_Body/0_Bulletproof_Vest.tres
+res://Data/3_Body/1_Hazmat_Suit.tres
+res://Data/2_Head/2_Oxygen_Mask.tres
+res://Scripts/UserInterfaceManager.gd

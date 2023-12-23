@@ -67,6 +67,8 @@ static var primarySlot
 static var headSlot
 static var bodySlot
 
+static var equipmentUI
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -103,6 +105,8 @@ func _ready():
 	primarySlot = $InventoryUI/PrimarySlot/DraggableItem
 	headSlot = $InventoryUI/HeadSlot/DraggableItem
 	bodySlot = $InventoryUI/BodySlot/DraggableItem
+	
+	equipmentUI = $UnitUI/EquipmentUI
 	
 
 # change scale x of progress bar based on progress
@@ -396,6 +400,27 @@ static func CloseInteractionWindows():
 	disassemblyUI.visible = false
 
 
+# update equipment UI with item's data
+static func UpdateEquipmentUI(item: Item):
+	var data: Weapon = item.data
+	equipmentUI.get_node("WeaponName").text = item.data.name
+	if item.data.texture != null:
+		equipmentUI.get_node("WeaponImage").texture = item.data.texture
+	else:
+		var texture = PlaceholderTexture2D.new()
+		texture.set_size(Vector2(50,50))
+		equipmentUI.get_node("WeaponImage").texture = texture
+	
+	# update stats label
+	var output = ""
+	output += "Damage: " + str(data.minDamage) + " - " + str(data.maxDamage) + "\n"
+	output += "Accuracy: " + str(int(data.accuracy * 100)) + "%\n"
+	output += "Attack speed: " + str(data.attacksPerSecond) + " per second.\n"
+	output += "Accuracy: " + str(data.accuracy) + "\n"
+	output += "Knock Back: " + str(data.knockBack) + "\n"
+	equipmentUI.get_node("WeaponStats").text = output
+	
+	
 func _on_disassembly_closebutton_pressed():
 	disassemblyUI.visible = false
 	

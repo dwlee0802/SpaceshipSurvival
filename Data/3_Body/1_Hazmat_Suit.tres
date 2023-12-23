@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Armor" load_steps=2 format=3 uid="uid://bhtippidl0toc"]
+
+[ext_resource type="Script" path="res://Data/armor_data.gd" id="1_x6orv"]
+
+[resource]
+script = ExtResource("1_x6orv")
+defense = 0.2
+oxygenGeneration = 0
+radiationDefense = 0.5
+insulation = 0.3
+type = 3
+name = "Hazmat Suit"
+ID = 1
+description = "Protection from radiation."
+componentValue = 100
+weight = 5
