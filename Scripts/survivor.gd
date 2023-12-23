@@ -440,14 +440,14 @@ func _on_nutrition_timer_timeout():
 
 
 func AddItemByIndex(type, id):
-	var index = GetFirstEmptyInventorySlot(inventory)
+	var index = Survivor.GetFirstEmptySlot(inventory)
 	inventory[index] = Item.new(type, id)
 	inventoryWeight += DataManager.resources[type][id].weight
 	UpdateStats()
 
 
 func AddItem(item: Item):
-	var index = GetFirstEmptyInventorySlot(inventory)
+	var index = Survivor.GetFirstEmptySlot(inventory)
 	inventory[index] = item
 	inventoryWeight += item.data.weight
 	UpdateStats()
@@ -520,7 +520,7 @@ func PrintEquipmentStatus():
 	return output
 
 
-func GetFirstEmptyInventorySlot(list):
+static func GetFirstEmptySlot(list):
 	for i in len(list):
 		if list[i] == null:
 			return i

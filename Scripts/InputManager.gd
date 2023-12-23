@@ -253,14 +253,16 @@ func SelectSingleUnit(unit):
 	
 
 static func UseInventoryItem(draggable):
-	# if draggable is in inventory
+	var unit: Survivor = selectedUnits[0]
+	
+	# draggable is in inventory
 	if draggable.get_parent() in UserInterfaceManager.inventoryGrid.get_children():
 		# remove draggable
 		# apply whatever effect
 		var item: Item = draggable.item
 		print(item)
-		var unit: Survivor = selectedUnits[0]
 		if item.data.type == ItemType.Consumable:
+			# Medkit
 			if item.data.ID == 0:
 				unit.health += 10
 		
@@ -268,6 +270,17 @@ static func UseInventoryItem(draggable):
 		unit.inventory = UserInterfaceManager.ReadInventoryGrid()
 		unit.inventory.remove_at(unit.inventory.find(item))
 		unit.UpdateStats()
+	
+	# draggable is in container
+	if draggable.get_parent() in UserInterfaceManager.containerGrid.get_children():
+		# move item to inventory
+		var item: Item = draggable.item
+		unit.AddItem(draggable.item)
+		draggable.queue_free()
+		if unit.interactionObject is ItemContainer:
+			unit.interactionObject.contents.remove_at(unit.interactionObject.contents.find(item))
+	
+	UserInterfaceManager.UpdateInventoryUI(unit)
 	
 	
 func _on_unequip_button_pressed():
