@@ -6,6 +6,7 @@ class_name Unit
 @export var maxHealth: int = 100
 @export var speed: int = 100
 var speedModifier: float = 1
+var running: bool = false
 # how much damage is reduced when this unit is hit.
 @export var defense: float = 0
 @export var radiationDefense: float = 0
@@ -62,7 +63,7 @@ func _physics_process(delta):
 				isMoving = false
 				return
 				
-			velocity = position.direction_to(target_position) * speed * speedModifier + knockBack
+			velocity = position.direction_to(target_position) * speed * (speedModifier + int(running)) + knockBack
 			move_and_slide()
 		# use nav if there's an obstacle to go around
 		else:
@@ -70,9 +71,11 @@ func _physics_process(delta):
 				isMoving = false
 				return
 			
-			velocity = position.direction_to(nav.get_next_path_position()) * speed * speedModifier + knockBack
+			velocity = position.direction_to(nav.get_next_path_position()) * speed * (speedModifier + int(running)) + knockBack
 			move_and_slide()
-	
+	else:
+		running = false
+		
 	# knock back damping
 	if knockBack.length() > 0:
 		knockBack = knockBack.normalized() * (knockBack.length() - delta * 10)

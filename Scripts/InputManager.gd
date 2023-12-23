@@ -99,6 +99,9 @@ func _unhandled_input(event):
 					unit.ChangeTargetPosition( get_global_mouse_position() )
 					unit.interactionTarget = null
 					unit.interactionObject = null
+					
+					if Input.is_key_pressed(KEY_SHIFT):
+						unit.running = true
 			else:
 				for unit in selectedUnits:
 					if result[0].collider is Interactable:
@@ -112,6 +115,9 @@ func _unhandled_input(event):
 						
 					unit.interactionTarget = result[0].collider
 			
+					if Input.is_key_pressed(KEY_SHIFT):
+						unit.running = true
+				
 			Game.UpdateEnemyTargetPosition()
 		
 	if event is InputEventKey:

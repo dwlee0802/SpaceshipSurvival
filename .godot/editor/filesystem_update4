@@ -16,3 +16,4 @@ res://Data/3_Body/0_Bulletproof_Vest.tres
 res://Data/3_Body/1_Hazmat_Suit.tres
 res://Data/2_Head/2_Oxygen_Mask.tres
 res://Scripts/UserInterfaceManager.gd
+res://Scripts/unit.gd

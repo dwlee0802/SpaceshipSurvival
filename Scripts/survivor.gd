@@ -103,10 +103,6 @@ var level: int = 1
 var requiredEXP: int = 500
 @onready var levelUpEffect = $LevelUpEffect/AnimationPlayer
 
-# variables related to reloading
-var magazine: int
-var magazineMax: int
-
 
 func _ready():
 	super._ready()
@@ -402,6 +398,7 @@ func ChangeTargetPosition(where):
 	interactionObject = null
 	isInteractionOpen = false
 	emit_signal("update_interaction_ui")
+	running = false
 	
 
 func OnDeath():
@@ -540,8 +537,8 @@ func PrintHealthStats() -> String:
 
 
 func PrintCombatStats() -> String:
-	var output = "Combat Stats:"
-	output += "Speed: " + str(speed * speedModifier) + "\n"
+	var output = "Combat Stats:\n"
+	output += "Speed: " + str(speed * (speedModifier + int(running))) + "\n"
 	output += "Strength: " + str(strength) + "\n"
 	output += "Accuracy: " + str(int(endAccuracy * 100) / 100) + "%\n"
 	output += "Evasion" + str(int(evasion * 100) / 100) + "%\n"
