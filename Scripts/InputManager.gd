@@ -107,8 +107,6 @@ func _unhandled_input(event):
 						
 					unit.interactionTarget = result[0].collider
 			
-			#UpdateUnitUI()
-					
 			Game.UpdateEnemyTargetPosition()
 		
 	if event is InputEventKey:

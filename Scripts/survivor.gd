@@ -279,7 +279,7 @@ func Attack():
 	var primary
 		
 	if primarySlot == null:
-		primary = Item.new(0,2)
+		primary = Item.new(0,0)
 	else:
 		primary = primarySlot
 		
@@ -329,8 +329,11 @@ func EquipNewItem(item: Item, where: int):
 func UpdateStats():
 	# equip fists as default
 	var primary = Item.new(0,0)
+	
 	if primarySlot != null:
 		primary = primarySlot
+		
+	print(primary.data.name)
 	var head = headSlot
 	var body = bodySlot
 	

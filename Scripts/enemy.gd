@@ -1,4 +1,5 @@
 extends "res://Scripts/unit.gd"
+class_name Enemy
 
 @onready var bodySprite = $BodySprite
 
@@ -16,8 +17,6 @@ var componentDropProbability: float = 0.1
 @onready var alertArea = $AlertArea
 @onready var detectionArea = $DetectionArea
 @onready var attackArea = $AttackArea
-@onready var navShapeCast: ShapeCast2D = $NavShapeCast
-
 
 func _ready():
 	super._ready()
@@ -134,7 +133,7 @@ func _on_detection_update_timer_timeout():
 				smallestDist = dist
 				output = unit
 	
-	attackTarget = output
+	ChangeAttackTarget(output)
 
 
 func CheckLineOfSight(start, end, mask = 16):
@@ -146,3 +145,21 @@ func CheckLineOfSight(start, end, mask = 16):
 		return true
 	else:
 		return false
+
+
+func ChangeAttackTarget(unit):
+	attackTarget = unit
+	AlertOthers(unit)
+	Game.UpdateEnemyTargetPosition()
+	
+
+# alerts its friends nearby
+func AlertOthers(survivor: Survivor):
+	var results = alertArea.get_overlapping_bodies()
+	for item : Enemy in results:
+		if item.attackTarget == null:
+			item.attackTarget = survivor
+
+
+func _on_detection_area_body_exited(body):
+	_on_detection_update_timer_timeout()

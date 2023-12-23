@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bj6ov38i406sf"]
+[gd_scene load_steps=29 format=3 uid="uid://bj6ov38i406sf"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e32sq"]
 [ext_resource type="Script" path="res://Scripts/InputManager.gd" id="2_drscf"]
@@ -15,6 +15,7 @@
 [ext_resource type="Shortcut" uid="uid://bcj08ui1vldhx" path="res://Scripts/close_button.tres" id="9_xaavw"]
 [ext_resource type="Script" path="res://Scripts/data_manager.gd" id="11_volyp"]
 [ext_resource type="Script" path="res://Scenes/drop_item_slot.gd" id="12_35cvf"]
+[ext_resource type="PackedScene" uid="uid://brrbmb154h7yh" path="res://Scenes/enemy.tscn" id="16_v16a4"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_k1ai1"]
 allow_unpress = true
@@ -1547,6 +1548,12 @@ speed = 200
 [node name="Survivor2" parent="." instance=ExtResource("4_16enx")]
 position = Vector2(2277, 1015)
 speed = 200
+
+[node name="Enemy" parent="." instance=ExtResource("16_v16a4")]
+position = Vector2(1161, 1193)
+
+[node name="Enemy2" parent="." instance=ExtResource("16_v16a4")]
+position = Vector2(1070, 1507)
 
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InformationButton" to="InputManager" method="_on_information_button_pressed"]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InventoryButton" to="InputManager" method="_on_inventory_button_pressed"]
