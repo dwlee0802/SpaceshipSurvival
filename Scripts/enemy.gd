@@ -18,6 +18,8 @@ var componentDropProbability: float = 0.1
 @onready var detectionArea = $DetectionArea
 @onready var attackArea = $AttackArea
 
+@onready var roamTimer = $RoamTimer
+
 func _ready():
 	super._ready()
 	
@@ -55,6 +57,10 @@ func _physics_process(delta):
 		else:
 			navUpdateTimer.wait_time = 0.5
 	
+	#if not isMoving:
+		#if roamTimer.is_stopped():
+			#roamTimer.start()
+		
 	if isMoving:
 		if position.distance_to(target_position) < STOP_DIST:
 			isMoving = false
@@ -163,3 +169,10 @@ func AlertOthers(survivor: Survivor):
 
 func _on_detection_area_body_exited(body):
 	_on_detection_update_timer_timeout()
+
+
+# pick new location after stopping for a bit
+func _on_roam_timer_timeout():
+	print("called")
+	var newpos = position + Vector2(randf_range(-150, 150), randf_range(-150, 150))
+	ChangeTargetPosition(newpos)

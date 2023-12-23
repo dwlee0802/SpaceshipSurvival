@@ -130,11 +130,11 @@ func _ready():
 	EquipNewItem(Item.new(1,5), SlotType.Primary)
 	
 	AddItem(Item.new(1,0))
-	
+	AddItem(Item.new(4,0))
 	UpdateStats()
 	
 	# start with full health
-	health = maxHealth
+	#health = maxHealth
 	
 
 func parse_json(text):
@@ -213,7 +213,6 @@ func _physics_process(delta):
 				interactionTarget = null
 				emit_signal("update_unit_inventory_ui")
 				emit_signal("update_interaction_ui")
-				print("here")
 				#isInteractionOpen = true
 				#isInventoryOpen = true
 			else:
@@ -324,6 +323,11 @@ func EquipNewItem(item: Item, where: int):
 	inventoryWeight += item.data.weight
 	
 	UpdateStats()
+
+
+# use the item located at index in inventory
+func UseItemAt(index):
+	pass
 
 
 func UpdateStats():

@@ -153,6 +153,12 @@ process_callback = 0
 wait_time = 0.1
 autostart = true
 
+[node name="RoamTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 3.0
+one_shot = true
+
 [connection signal="timeout" from="NavUpdateTimer" to="." method="_on_nav_update_timer_timeout"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="timeout" from="DetectionUpdateTimer" to="." method="_on_detection_update_timer_timeout"]
+[connection signal="timeout" from="RoamTimer" to="." method="_on_roam_timer_timeout"]

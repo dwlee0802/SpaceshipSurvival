@@ -12,13 +12,17 @@ var lockOn: bool = false
 
 @onready var selectionBox = $SelectionBox
 
+static var InputManagerInstance
 
 func _ready():
+	InputManagerInstance = self
+	
 	# connect slots
 	var inventoryGrid = UserInterfaceManager.inventoryGrid
 	var containerGrid = UserInterfaceManager.containerGrid
 	for i in range(inventoryGrid.get_child_count()):
 		inventoryGrid.get_child(i).item_dropped.connect(ApplyUnitInventory)
+		
 	UserInterfaceManager.inventoryUI.get_node("HeadSlot/DraggableItem").item_dropped.connect(ApplyUnitInventory)
 	UserInterfaceManager.inventoryUI.get_node("BodySlot/DraggableItem").item_dropped.connect(ApplyUnitInventory)
 	UserInterfaceManager.inventoryUI.get_node("PrimarySlot/DraggableItem").item_dropped.connect(ApplyUnitInventory)
@@ -246,8 +250,26 @@ func SelectSingleUnit(unit):
 	UserInterfaceManager.informationUI.visible = unit.isInfoOpen
 	UserInterfaceManager.UpdateInventoryUI(selectedUnits[0])
 	UserInterfaceManager.UpdateInteractionUI(selectedUnits[0])
+	
 
-
+static func UseInventoryItem(draggable):
+	# if draggable is in inventory
+	if draggable.get_parent() in UserInterfaceManager.inventoryGrid.get_children():
+		# remove draggable
+		# apply whatever effect
+		var item: Item = draggable.item
+		print(item)
+		var unit: Survivor = selectedUnits[0]
+		if item.data.type == ItemType.Consumable:
+			if item.data.ID == 0:
+				unit.health += 10
+		
+		draggable.queue_free()
+		unit.inventory = UserInterfaceManager.ReadInventoryGrid()
+		unit.inventory.remove_at(unit.inventory.find(item))
+		unit.UpdateStats()
+	
+	
 func _on_unequip_button_pressed():
 	var selectedItemIndex: int = UserInterfaceManager.itemList.get_selected_items()[0]
 	var itemType = selectedUnits[0].inventory[selectedItemIndex].type

@@ -24,3 +24,5 @@ res://Data/0_Melee/3_Photon_Saber.tres
 res://Scripts/UserInterfaceManager.gd
 res://Scripts/survivor.gd
 res://Scripts/data_manager.gd
+res://Scripts/DraggableItem.gd
+res://Scripts/item.gd

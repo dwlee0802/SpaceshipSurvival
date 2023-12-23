@@ -29,3 +29,8 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	set_drag_preview(make_drag_preview(at_position))
 	previousSlot = get_parent()
 	return self
+
+
+# use button on right click
+func _on_pressed():
+	InputManager.UseInventoryItem(self)
