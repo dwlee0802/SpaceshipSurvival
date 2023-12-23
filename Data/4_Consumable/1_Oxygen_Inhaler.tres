@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Consumable" load_steps=2 format=3 uid="uid://d34kmfbv04ia"]
+
+[ext_resource type="Script" path="res://Data/consumable_data.gd" id="1_8iosb"]
+
+[resource]
+script = ExtResource("1_8iosb")
+amount = 25.0
+type = 4
+name = "Oxygen Inhaler"
+ID = 1
+description = "Refreshing Oxygen in a can."
+componentValue = 30
+weight = 3

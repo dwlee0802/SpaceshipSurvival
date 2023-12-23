@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Consumable" load_steps=3 format=3 uid="uid://uvt4t2e7134w"]
+
+[ext_resource type="Script" path="res://Data/consumable_data.gd" id="1_0awbg"]
+[ext_resource type="Texture2D" uid="uid://bexkhiplgn4sy" path="res://Art/crowbar_placeholder.png" id="2_o2p2y"]
+
+[resource]
+script = ExtResource("1_0awbg")
+amount = 35.0
+type = 4
+name = "Canned Coffee"
+ID = 2
+description = "Coffee in a can."
+texture = ExtResource("2_o2p2y")
+componentValue = 30
+weight = 3

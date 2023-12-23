@@ -262,7 +262,10 @@ static func UseInventoryItem(draggable):
 		if item.data.type == ItemType.Consumable:
 			# Medkit
 			if item.data.ID == 0:
-				unit.health += 10
+				unit.HealHealth(item.data.amount)
+			# Oxygen Inhaler
+			if item.data.ID == 1:
+				unit.oxygen += item.data.amount
 		# equip gear
 		if item.data.type == ItemType.Head:
 			# check if slot is empty

@@ -4,9 +4,10 @@
 
 [resource]
 script = ExtResource("1_suhjv")
+amount = 10.0
 type = 4
 name = "Medkit"
 ID = 0
 description = "First aid."
-componentValue = 100
+componentValue = 30
 weight = 2

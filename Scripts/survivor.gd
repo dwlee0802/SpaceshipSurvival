@@ -150,8 +150,14 @@ func _process(delta):
 		oxygen = 0
 	if oxygen == 0:
 		health -= delta
+	if oxygen > 100:
+		oxygen = 100
 		
 	sleep -= delta
+	if sleep < 0:
+		sleep = 0
+	if sleep > 100:
+		sleep = 100
 	
 	nutrition -= delta
 	if nutrition < 0:
