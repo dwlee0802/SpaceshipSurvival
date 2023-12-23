@@ -273,6 +273,9 @@ func ScanForAttackTargets():
 
 
 func Attack():
+	if isDead:
+		return
+		
 	# deal damage
 	# default weapon fists
 	var primary
@@ -412,6 +415,8 @@ func OnDeath():
 		
 	isDead = true
 	print("survivor dead!")
+	$BodyCollisionShape.set_deferred("disabled", true)
+	$ArmSprite.visible = false
 	
 
 # simulates breathing in
