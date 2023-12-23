@@ -24,3 +24,6 @@ res://Scripts/exp_orb.gd
 res://Scenes/resouce_orb.gd
 res://Scenes/exp_orb.tscn
 res://Scripts/resouce_orb.gd
+res://Scripts/spaceship.gd
+res://Scripts/InputManager.gd
+res://Scripts/UserInterfaceManager.gd

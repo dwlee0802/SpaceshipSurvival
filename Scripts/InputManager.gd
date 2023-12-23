@@ -260,15 +260,68 @@ static func UseInventoryItem(draggable):
 		# remove draggable
 		# apply whatever effect
 		var item: Item = draggable.item
-		print(item)
 		if item.data.type == ItemType.Consumable:
 			# Medkit
 			if item.data.ID == 0:
 				unit.health += 10
+		# equip gear
+		if item.data.type == ItemType.Head:
+			# check if slot is empty
+			var slot = UserInterfaceManager.inventoryUI.get_node("HeadSlot/DraggableItem")
+			if slot.get_child_count() == 0:
+				# slot is empty. Just equip
+				unit.EquipNewItem(item, SlotType.Head)
+				draggable.reparent(slot)
+			else:
+				# swap items
+				var prevItem = slot.get_child(0)
+				prevItem.reparent(draggable.get_parent())
+				prevItem.position = Vector2.ZERO
+				draggable.reparent(slot)
+				draggable.position = Vector2.ZERO
+				unit.EquipNewItem(item, SlotType.Head)
+		
+		if item.data.type == ItemType.Body:
+			# check if slot is empty
+			var slot = UserInterfaceManager.inventoryUI.get_node("BodySlot/DraggableItem")
+			if slot.get_child_count() == 0:
+				# slot is empty. Just equip
+				unit.EquipNewItem(item, SlotType.Body)
+				draggable.reparent(slot)
+			else:
+				# swap items
+				var prevItem = slot.get_child(0)
+				prevItem.reparent(draggable.get_parent())
+				prevItem.position = Vector2.ZERO
+				draggable.reparent(slot)
+				draggable.position = Vector2.ZERO
+				unit.EquipNewItem(item, SlotType.Body)
+				
+		if item.data.type == ItemType.Melee or item.data.type == ItemType.Ranged:
+			# check if slot is empty
+			var slot = UserInterfaceManager.inventoryUI.get_node("PrimarySlot/DraggableItem")
+			if slot.get_child_count() == 0:
+				# slot is empty. Just equip
+				unit.EquipNewItem(item, SlotType.Primary)
+				draggable.reparent(slot)
+			else:
+				# swap items
+				var prevItem = slot.get_child(0)
+				prevItem.reparent(draggable.get_parent())
+				prevItem.position = Vector2.ZERO
+				draggable.reparent(slot)
+				draggable.position = Vector2.ZERO
+				unit.EquipNewItem(item, SlotType.Primary)
 		
 		draggable.queue_free()
 		unit.inventory = UserInterfaceManager.ReadInventoryGrid()
-		unit.inventory.remove_at(unit.inventory.find(item))
+		var index = unit.inventory.find(item)
+		if index > 0:
+			unit.inventory.remove_at(index)
+		var equipmentDict = UserInterfaceManager.ReadEquipmentSlots()
+		unit.headSlot = equipmentDict.Head
+		unit.bodySlot = equipmentDict.Body
+		unit.primarySlot = equipmentDict.Primary
 		unit.UpdateStats()
 	
 	# draggable is in container

@@ -306,16 +306,6 @@ func EquipItemFromInventory(what: int, where: int):
 	
 
 func EquipNewItem(item: Item, where: int):
-	# find first empty slot
-	var index = -1
-	for i in range(MAX_INVENTORY_COUNT):
-		if inventory[i] == null:
-			index = i
-	
-	if index < 0:
-		print("ERROR! Inventory slots full")
-		return
-	
 	if where == SlotType.Head:
 		headSlot = item
 	if where == SlotType.Body:

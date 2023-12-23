@@ -63,6 +63,10 @@ static var informationUIHealth
 static var informationUICombat
 static var informationUIMisc
 
+static var primarySlot
+static var headSlot
+static var bodySlot
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -95,6 +99,10 @@ func _ready():
 	informationUIHealth = $InformationUI/HealthStats
 	informationUICombat = $InformationUI/CombatStats
 	informationUIMisc = $InformationUI/MiscStats
+	
+	primarySlot = $InventoryUI/PrimarySlot/DraggableItem
+	headSlot = $InventoryUI/HeadSlot/DraggableItem
+	bodySlot = $InventoryUI/BodySlot/DraggableItem
 	
 
 # change scale x of progress bar based on progress

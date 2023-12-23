@@ -11,25 +11,25 @@ static var oxygenLevel: int = 100
 # temperature level of the ship
 # body temperature of survivors slowly change towards ship temperature
 # if too high or low, speed and accuracy is decreased and HP is slowly reduced
-static var temperature: float = 40
+static var temperature: float = 20
 
 # food stock of the survivors
 # food is consumed periodically
 # if nutrition is zero, speed is reduced and lose HP
-static var foodStock: int = 0
+static var foodStock: int = 5
 static var maxFoodStock: int = 0
 
 # ammo stock of the survivors
 # ammo is consumed when using ranged weapons
 # more powerful weapons consume more ammo
 # can't use ranged weapons if ammo is zero
-static var ammoStock: int = 1000
+static var ammoStock: int = 100
 static var maxAmmoStock: int = 0
 
 # component stock of the survivors
 # components are used to make gear and fix modules
 # components are earned by dismantling gear or looting
-static var componentStock: int = 220
+static var componentStock: int = 0
 static var maxComponentStock: int = 400
 
 # the travel speed of the ship
