@@ -126,6 +126,7 @@ func ReceiveHit(amount, pene: float = 0, acc: float = 0, knockBackVector: Vector
 	# apply knockback
 	knockBack += knockBackVector
 	
+	animationPlayer.play("hit_animation")
 	return true
 
 

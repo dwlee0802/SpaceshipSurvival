@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://crk54pclkvhi"]
+[gd_scene load_steps=14 format=3 uid="uid://crk54pclkvhi"]
 
 [ext_resource type="Script" path="res://Scripts/survivor.gd" id="1_ag083"]
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="2_3n7u2"]
@@ -25,6 +25,26 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_2kiva")
 fill = 1
 fill_from = Vector2(0.506098, 0.5)
+
+[sub_resource type="Animation" id="Animation_o6jsv"]
+resource_name = "hit_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BodySprite:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xqt6f"]
+_data = {
+"hit_animation": SubResource("Animation_o6jsv")
+}
 
 [sub_resource type="Animation" id="Animation_kumx6"]
 resource_name = "level_up_anim"
@@ -276,6 +296,9 @@ offset_bottom = 2.0
 texture = ExtResource("2_3n7u2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xqt6f")
+}
 speed_scale = 4.0
 
 [node name="LevelUpEffect" type="Polygon2D" parent="."]

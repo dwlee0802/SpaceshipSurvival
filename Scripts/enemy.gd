@@ -17,6 +17,7 @@ var componentDropProbability: float = 0.1
 @onready var alertArea = $AlertArea
 @onready var detectionArea = $DetectionArea
 @onready var attackArea = $AttackArea
+@onready var attackTimer = $AttackTimer
 
 @onready var roamTimer = $RoamTimer
 
@@ -56,6 +57,12 @@ func _physics_process(delta):
 			navUpdateTimer.wait_time = randf_range(5,10)
 		else:
 			navUpdateTimer.wait_time = 0.5
+			
+		var results = attackArea.get_overlapping_bodies()
+		if len(results) > 0:
+			if attackTimer.is_stopped():
+				attackTimer.start()
+			return
 	
 	#if not isMoving:
 		#if roamTimer.is_stopped():
@@ -100,7 +107,6 @@ func ReceiveHit(amount, penetration: float = 0, _accuracy: float = 0, knockBackV
 	if super.ReceiveHit(amount, penetration, _accuracy, knockBackVec, isRadiationDamage):
 		hitParticleEffect.emitting = true
 		hitParticleEffect.rotation = Vector2.RIGHT.angle_to(knockBackVec)
-		animationPlayer.play("hit_animation")
 		
 	if health <= 0:
 		OnDeath()
@@ -176,3 +182,10 @@ func _on_roam_timer_timeout():
 	print("called")
 	var newpos = position + Vector2(randf_range(-150, 150), randf_range(-150, 150))
 	ChangeTargetPosition(newpos)
+
+
+func _on_attack_timer_timeout():
+	var results = attackArea.get_overlapping_bodies()
+	if len(results) > 0:
+		var target : Survivor = results[0]
+		target.ReceiveHit(10,0,100)
