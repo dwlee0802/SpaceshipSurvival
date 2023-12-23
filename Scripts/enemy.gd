@@ -11,8 +11,10 @@ var placedItemScene = preload("res://Scenes/placed_item.tscn")
 static var expOrb = preload("res://Scenes/exp_orb.tscn")
 
 var itemDropProbability: float = 0.1
+var componentDropProbability: float = 0.1
 
 @onready var alertArea = $AlertArea
+@onready var detectionArea = $DetectionArea
 @onready var attackArea = $AttackArea
 @onready var navShapeCast: ShapeCast2D = $NavShapeCast
 
@@ -28,6 +30,8 @@ func _ready():
 	
 	overviewMarker.self_modulate = Color.DARK_ORANGE
 	
+	target_position = global_position
+	
 
 # movement
 # if there is a direct path to target, update target position in realtime
@@ -42,33 +46,34 @@ func _physics_process(delta):
 	else:
 		knockBack = Vector2.ZERO
 		
-	if attackTarget == null:
-		return
-		
 	# update nav target position every 0.5 seconds if it is close
 	# otherwise update every 10 seconds or so
-	if position.distance_to(attackTarget.position) > 10000:
-		navUpdateTimer.wait_time = randf_range(5,10)
-	else:
-		navUpdateTimer.wait_time = 0.5
+	if attackTarget != null:
+		target_position = attackTarget.position	
 		
-	ChangeTargetPosition(attackTarget.position)
-		
-	if CheckDirectPath(attackTarget.position):
+		if position.distance_to(attackTarget.position) > 10000:
+			navUpdateTimer.wait_time = randf_range(5,10)
+		else:
+			navUpdateTimer.wait_time = 0.5
+	
+	if isMoving:
 		if position.distance_to(target_position) < STOP_DIST:
 			isMoving = false
 			return
-		# update target position realtime
-		navUpdateTimer.stop()
-		velocity = position.direction_to(target_position) * speed * speedModifier + knockBack
-	else:
-		# if not, pathfinding.
-		if navUpdateTimer.is_stopped():
-			navUpdateTimer.start()
-		
-	move_and_slide()
+				
+		# direct path exists to target
+		if CheckDirectPath(target_position):
+			# update target position realtime
+			navUpdateTimer.stop()
+			velocity = position.direction_to(target_position) * speed * speedModifier + knockBack
+		else:
+			# if not, pathfinding.
+			ChangeTargetPosition(target_position)
+			if navUpdateTimer.is_stopped():
+				navUpdateTimer.start()
+			
+		move_and_slide()
 	
-
 
 func OnDeath():
 	super.OnDeath()
@@ -83,7 +88,7 @@ func OnDeath():
 
 func ReceiveHit(amount, penetration: float = 0, _accuracy: float = 0, knockBackVec: Vector2 = Vector2.ZERO, isRadiationDamage = false, from = null):
 	# if attack target is null, move towards attacker
-	if attackTarget == null and attackTarget is Survivor:
+	if attackTarget == null and from is Survivor:
 		attackTarget = from
 		ChangeTargetPosition(attackTarget.position)
 		
@@ -107,10 +112,6 @@ func DropItem():
 	
 
 func _on_nav_update_timer_timeout():
-	if attackTarget == null:
-		return
-		
-	ChangeTargetPosition(attackTarget.position)
 	velocity = position.direction_to(nav.get_next_path_position()) * speed * speedModifier + knockBack
 
 	
@@ -121,19 +122,27 @@ func MakeExpOrb(target):
 	newOrb.target = target
 
 
-func _on_alert_update_timer_timeout():
-	var results = alertArea.get_overlapping_bodies()
-	# find closest within range
+# set attack target to closest survivor within detection range
+func _on_detection_update_timer_timeout():
+	var results = detectionArea.get_overlapping_bodies()
 	var smallestDist = 100000
-	var closest: Survivor = null
+	var output = null
 	for unit in results:
-		# check if unit is not behind any obstacles
-		navShapeCast.target_position = unit.position - position
-		if navShapeCast.get_collision_count() > 0:
-			continue
-		if position.distance_to(unit.position) < smallestDist:
-			smallestDist = position.distance_to(unit.position)
-			closest = unit
-		
-	attackTarget = closest
-	return
+		if CheckLineOfSight(position, unit.position):
+			var dist = unit.position.distance_to(position)
+			if dist < smallestDist:
+				smallestDist = dist
+				output = unit
+	
+	attackTarget = output
+
+
+func CheckLineOfSight(start, end, mask = 16):
+	var space = get_viewport().world_2d.direct_space_state
+	var param = PhysicsRayQueryParameters2D.create(start, end, mask)
+	var result = space.intersect_ray(param)
+	
+	if result.is_empty():
+		return true
+	else:
+		return false

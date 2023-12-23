@@ -241,6 +241,7 @@ func SelectSingleUnit(unit):
 	UserInterfaceManager.inventoryUI.visible = unit.isInventoryOpen
 	UserInterfaceManager.informationUI.visible = unit.isInfoOpen
 	UserInterfaceManager.UpdateInventoryUI(selectedUnits[0])
+	UserInterfaceManager.UpdateInteractionUI(selectedUnits[0])
 
 
 func _on_unequip_button_pressed():

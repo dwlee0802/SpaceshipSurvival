@@ -16,3 +16,8 @@ res://Scenes/damage_popup.tscn
 res://temp.tscn
 res://Scenes/crafting_station.tscn
 res://Scenes/placed_item.tscn
+res://Scripts/game.gd
+res://Scripts/module.gd
+res://Scripts/InputManager.gd
+res://Data/0_Melee/1_Crowbar.tres
+res://Data/0_Melee/3_Photon_Saber.tres

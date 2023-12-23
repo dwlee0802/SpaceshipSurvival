@@ -55,6 +55,7 @@ func RollEnemySpawn():
 		newEnemy.health = 200
 		newEnemy.maxHealth = 200
 		newEnemy.global_position = spawnPoints.pick_random().global_position
+		newEnemy.target_position = newEnemy.global_position
 
 
 func CheckOperational():
