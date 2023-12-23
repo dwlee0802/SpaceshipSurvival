@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://co0ec0725c4fq" path="res://Scenes/draggable_item_slot.tscn" id="8_l1l7c"]
 [ext_resource type="Shortcut" uid="uid://bcj08ui1vldhx" path="res://Scripts/close_button.tres" id="9_xaavw"]
 [ext_resource type="Script" path="res://Scripts/data_manager.gd" id="11_volyp"]
-[ext_resource type="Script" path="res://Scenes/drop_item_slot.gd" id="12_35cvf"]
+[ext_resource type="Script" path="res://Scripts/drop_item_slot.gd" id="12_35cvf"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_k1ai1"]
 allow_unpress = true

@@ -10,9 +10,10 @@ class_name Enemy
 var placedItemScene = preload("res://Scenes/placed_item.tscn")
 
 static var expOrb = preload("res://Scenes/exp_orb.tscn")
+static var resourceOrb = preload("res://Scenes/resouce_orb.tscn")
 
 var itemDropProbability: float = 0.1
-var componentDropProbability: float = 0.1
+var resourceDropProbability: float = 0.8
 
 @onready var alertArea = $AlertArea
 @onready var detectionArea = $DetectionArea
@@ -94,6 +95,8 @@ func OnDeath():
 	# roll random drop
 	if randf() < itemDropProbability:
 		DropItem()
+	if randf() < resourceDropProbability:
+		DropResource()
 		
 	queue_free()
 
@@ -120,6 +123,12 @@ func DropItem():
 	newItem.item = Item.new(4,0)
 	newItem.position = global_position
 	print("spawned item")
+
+
+func DropResource():
+	var newOrb = resourceOrb.instantiate()
+	get_parent().add_child(newOrb)
+	newOrb.position = global_position + Vector2(randi_range(-20, 20), randi_range(-20, 20))
 	
 
 func _on_nav_update_timer_timeout():

@@ -17,3 +17,10 @@ res://Scenes/crafting_station.tscn
 res://Scenes/placed_item.tscn
 res://Scripts/enemy.gd
 res://Scripts/survivor.gd
+res://Scenes/placed_resource.tscn
+res://Scenes/placed_resource.gd
+res://Scenes/resouce_orb.tscn
+res://Scripts/exp_orb.gd
+res://Scenes/resouce_orb.gd
+res://Scenes/exp_orb.tscn
+res://Scripts/resouce_orb.gd
