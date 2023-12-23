@@ -211,8 +211,7 @@ func UpdateUnitUI():
 func UpdateUnitInventoryUI():
 	if len(selectedUnits) > 0:
 		UserInterfaceManager.UpdateInventoryUI(selectedUnits[0])
-
-	UserInterfaceManager.UpdateInventoryWeight(selectedUnits[0])
+		UserInterfaceManager.UpdateInventoryWeight(selectedUnits[0])
 	
 
 # makes interaction ui visible
@@ -447,14 +446,6 @@ func _on_inventory_button_pressed():
 
 
 func _on_disassemble_button_pressed():
-	# toggle ui visibility
-	selectedUnits[0].isInteractionOn = true
-	if selectedUnits.size() > 0:
-		if UserInterfaceManager.disassemblyUI.visible == false:
-			UserInterfaceManager.UpdateDisassemblyInfo()
-		else:
-			UserInterfaceManager.disassemblyUI.visible = false
-			
 	var slotItem = UserInterfaceManager.disassemblyUI.get_node("DraggableItemSlot")
 	if slotItem.get_child_count() > 0:
 		slotItem = slotItem.get_child(0)

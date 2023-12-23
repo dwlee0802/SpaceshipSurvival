@@ -134,7 +134,7 @@ func _ready():
 	UpdateStats()
 	
 	# start with full health
-	#health = maxHealth
+	health = maxHealth
 	
 
 func parse_json(text):
@@ -161,7 +161,7 @@ func _process(delta):
 	
 	# high fever
 	if bodyTemperature >= 42:
-		health -= delta * 2
+		health -= delta * 1
 	# moderate fever
 	elif bodyTemperature >= 40:
 		health -= delta * 0.5
@@ -171,7 +171,7 @@ func _process(delta):
 	
 	# Severe Hypothermia
 	if bodyTemperature <= 28:
-		health -= delta * 2
+		health -= delta * 1
 	# moderate Hypothermia
 	elif bodyTemperature <= 32:
 		health -= delta * 0.5

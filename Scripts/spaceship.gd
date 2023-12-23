@@ -79,7 +79,7 @@ func _on_travel_timer_timeout():
 
 func _on_temperature_timer_timeout():
 	if not modules[ModuleName.Temperature_Control].isOperational:
-		temperature -= 0.1
+		temperature -= 0.01
 	elif temperature < 25:
 		temperature += 0.1
 	
@@ -88,7 +88,7 @@ func _on_temperature_timer_timeout():
 
 func _on_oxygen_timer_timeout():
 	if not modules[ModuleName.Oxygen_Generator].isOperational:
-		oxygenLevel -= 1
+		oxygenLevel -= 0.01
 	else:
 		oxygenLevel += 2
 	
