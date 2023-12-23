@@ -1515,23 +1515,11 @@ z_index = -1
 
 [node name="Survivor" parent="." instance=ExtResource("4_16enx")]
 position = Vector2(1692, 1086)
-health = null
-maxHealth = null
 speed = 200
-defense = null
-radiationDefense = null
-evasion = null
-accuracy = null
 
 [node name="Survivor2" parent="." instance=ExtResource("4_16enx")]
 position = Vector2(2277, 1015)
-health = null
-maxHealth = null
 speed = 200
-defense = null
-radiationDefense = null
-evasion = null
-accuracy = null
 
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InformationButton" to="InputManager" method="_on_information_button_pressed"]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InventoryButton" to="InputManager" method="_on_inventory_button_pressed"]

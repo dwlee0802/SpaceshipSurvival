@@ -42,7 +42,9 @@ func _process(delta):
 		UserInterfaceManager.UpdateUnitBarUI(selectedUnits[0])
 		UserInterfaceManager.UpdateInventoryWeight(selectedUnits[0])
 		UserInterfaceManager.UpdateInformationUI(selectedUnits[0])
-		UserInterfaceManager.UpdateEquipmentUI(selectedUnits[0].primarySlot)
+		#UserInterfaceManager.UpdateEquipmentUI(selectedUnits[0].primarySlot)
+		var callable = Callable(UserInterfaceManager, "UpdateEquipmentUI")
+		callable.call(selectedUnits[0].primarySlot)
 	else:
 		UserInterfaceManager.CloseInteractionWindows()
 		UserInterfaceManager.ToggleUnitUI(false)

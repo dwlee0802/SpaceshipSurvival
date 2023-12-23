@@ -398,7 +398,7 @@ func ChangeTargetPosition(where):
 	interactionObject = null
 	isInteractionOpen = false
 	emit_signal("update_interaction_ui")
-	running = false
+	self.running = false
 	
 
 func OnDeath():
@@ -538,7 +538,7 @@ func PrintHealthStats() -> String:
 
 func PrintCombatStats() -> String:
 	var output = "Combat Stats:\n"
-	output += "Speed: " + str(speed * (speedModifier + int(running))) + "\n"
+	output += "Speed: " + str(speed * (speedModifier + int(self.running))) + "\n"
 	output += "Strength: " + str(strength) + "\n"
 	output += "Accuracy: " + str(int(endAccuracy * 100) / 100) + "%\n"
 	output += "Evasion" + str(int(evasion * 100) / 100) + "%\n"
