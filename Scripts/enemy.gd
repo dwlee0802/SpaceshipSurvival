@@ -64,9 +64,9 @@ func _physics_process(delta):
 				attackTimer.start()
 			return
 	
-	#if not isMoving:
-		#if roamTimer.is_stopped():
-			#roamTimer.start()
+	if not isMoving:
+		if roamTimer.is_stopped():
+			roamTimer.start()
 		
 	if isMoving:
 		if position.distance_to(target_position) < STOP_DIST:
@@ -179,10 +179,17 @@ func _on_detection_area_body_exited(body):
 
 # pick new location after stopping for a bit
 func _on_roam_timer_timeout():
-	print("called")
-	var newpos = position + Vector2(randf_range(-150, 150), randf_range(-150, 150))
-	ChangeTargetPosition(newpos)
-
+	var randomPos = position
+	
+	while true:
+		var angle = randf_range(0, 360)
+		randomPos = position + Vector2.from_angle(angle) * randi_range(100, 300)
+		
+		if CheckLineOfSight(position, randomPos):
+			break
+			
+	ChangeTargetPosition(randomPos)
+	
 
 func _on_attack_timer_timeout():
 	var results = attackArea.get_overlapping_bodies()

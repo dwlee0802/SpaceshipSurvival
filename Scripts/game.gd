@@ -5,6 +5,7 @@ class_name Game
 static var survivors = []
 
 static var enemies = []
+static var MAX_ENEMY_COUNT: int = 50
 
 static var time: float = 0
 

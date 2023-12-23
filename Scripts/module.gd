@@ -48,6 +48,9 @@ func _process(_delta):
 		
 	
 func RollEnemySpawn():
+	if Game.enemies.size() > 50:
+		return
+		
 	if randf() < respawnRate:
 		var newEnemy = enemyScene.instantiate()
 		get_parent().get_parent().add_child(newEnemy)

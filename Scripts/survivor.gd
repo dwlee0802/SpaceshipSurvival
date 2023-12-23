@@ -340,7 +340,6 @@ func UpdateStats():
 	if primarySlot != null:
 		primary = primarySlot
 		
-	print(primary.data.name)
 	var head = headSlot
 	var body = bodySlot
 	
