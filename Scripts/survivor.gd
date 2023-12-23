@@ -213,6 +213,7 @@ func _physics_process(delta):
 				interactionTarget = null
 				emit_signal("update_unit_inventory_ui")
 				emit_signal("update_interaction_ui")
+				print("here")
 				#isInteractionOpen = true
 				#isInventoryOpen = true
 			else:

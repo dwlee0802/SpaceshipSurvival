@@ -236,8 +236,14 @@ func SelectSingleUnit(unit):
 	selectedUnits = []
 	selectedUnits.append(unit)
 	unit.ShowSelectionUI()
-	if not unit.update_unit_ui.is_connected(UpdateUnitUI):
-		unit.update_unit_ui.connect(UpdateUnitUI)
+	
+	if not selectedUnits[0].update_unit_ui.is_connected(UpdateUnitUI):
+		selectedUnits[0].update_unit_ui.connect(UpdateUnitUI)
+	if not selectedUnits[0].update_unit_inventory_ui.is_connected(UpdateUnitInventoryUI):
+		selectedUnits[0].update_unit_inventory_ui.connect(UpdateUnitInventoryUI)
+	if not selectedUnits[0].update_interaction_ui.is_connected(UpdateInteractionUI):
+		selectedUnits[0].update_interaction_ui.connect(UpdateInteractionUI)
+		
 	UserInterfaceManager.inventoryUI.visible = unit.isInventoryOpen
 	UserInterfaceManager.informationUI.visible = unit.isInfoOpen
 	UserInterfaceManager.UpdateInventoryUI(selectedUnits[0])

@@ -21,3 +21,5 @@ res://Scripts/module.gd
 res://Scripts/InputManager.gd
 res://Data/0_Melee/1_Crowbar.tres
 res://Data/0_Melee/3_Photon_Saber.tres
+res://Scripts/UserInterfaceManager.gd
+res://Scripts/survivor.gd
