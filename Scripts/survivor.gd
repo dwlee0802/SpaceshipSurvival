@@ -378,11 +378,13 @@ func UpdateStats():
 		speedModifier = 1
 	
 	self.attackSpeedModifier = 1
+	self.defenseModifier = 1
 	
 	for item: BuffObject in self.buffs:
 		speedModifier += item.data.speedModifer
 		self.attackSpeedModifier += item.data.attackSpeedModifier
 		endAccuracy += item.data.accuracyAmount
+		defense += item.data.defenseAmount
 
 	if primary != null:
 		attackTimer.wait_time = (1 / primary.data.attacksPerSecond + randf_range(-0.01,0.01))/self.attackSpeedModifier
@@ -570,7 +572,7 @@ func PrintCombatStats() -> String:
 	output += "Strength: " + str(strength) + "\n"
 	output += "Accuracy: " + str(int(endAccuracy * 100) / 100) + "%\n"
 	output += "Evasion" + str(int(evasion * 100) / 100) + "%\n"
-	output += "Defense: " + str(int(defense * 100) / 100) + "%\n"
+	output += "Defense: " + str(int(defense * 100)) + "%\n"
 	output += "Rad. Defense: " + str(int(radiationDefense * 100) / 100) + "%\n"
 	
 	return output
