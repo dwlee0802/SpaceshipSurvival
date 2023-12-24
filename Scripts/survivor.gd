@@ -145,7 +145,9 @@ func parse_json(text):
 func _process(delta):
 	if isDead:
 		return
-		
+	
+	ReduceBuffDurations(delta)
+	
 	oxygen -= delta * 3
 	if oxygen < 0:
 		oxygen = 0
@@ -194,6 +196,8 @@ func _physics_process(delta):
 	if isDead:
 		return
 		
+	UpdateStats()
+	
 	super._physics_process(delta)
 	muzzleFlashSprite.visible = false
 	
@@ -341,11 +345,6 @@ func UpdateStats():
 	var head = headSlot
 	var body = bodySlot
 	
-	if primary != null:
-		attackTimer.wait_time = 1 / primary.data.attacksPerSecond + randf_range(-0.01,0.01)
-		get_node("AttackArea").get_node("CollisionShape2D").shape.set_radius(primary.data.range)
-		endAccuracy = accuracy + primary.data.accuracy
-	
 	defense = 0
 	radiationDefense = 0
 	if head != null:
@@ -369,7 +368,7 @@ func UpdateStats():
 		inventoryWeight += bodySlot.data.weight
 	if primarySlot != null:
 		inventoryWeight += primarySlot.data.weight
-		
+	
 	# modify speed based on inventory weight
 	if inventoryWeight > inventoryCapacity:
 		speedModifier = 1 - (inventoryWeight - inventoryCapacity) / float(inventoryCapacity)
@@ -377,7 +376,19 @@ func UpdateStats():
 			speedModifier = 0
 	else:
 		speedModifier = 1
+	
+	self.attackSpeedModifier = 1
+	
+	for item: BuffObject in self.buffs:
+		speedModifier += item.data.speedModifer
+		self.attackSpeedModifier += item.data.attackSpeedModifier
+		endAccuracy += item.data.accuracyAmount
 
+	if primary != null:
+		attackTimer.wait_time = (1 / primary.data.attacksPerSecond + randf_range(-0.01,0.01))/self.attackSpeedModifier
+		get_node("AttackArea").get_node("CollisionShape2D").shape.set_radius(primary.data.range)
+		endAccuracy = accuracy + primary.data.accuracy
+	
 
 func PointArmAt(pos):
 	# turn towards target
@@ -491,6 +502,17 @@ func AddExperiencePoints(amount):
 func UpdateExpBar():
 	expBar.size.x = experiencePoints/float(requiredEXP) * healthBarSize
 
+
+# reduce duration times of buff objects and remove them if they are expired
+func ReduceBuffDurations(delta):
+	var buffsSize = self.buffs.size()
+	for i in range(buffsSize):
+		var index = buffsSize - 1 - i
+		self.buffs[index].durationLeft -= delta
+		if self.buffs[index].durationLeft < 0:
+			self.buffs.remove_at(index)
+		
+		
 	
 func _to_string():
 	var output: String = "Survivor Info\n"

@@ -12,6 +12,8 @@ static var time: float = 0
 static var damagePopup = preload("res://Scenes/damage_popup.tscn")
 static var deathEffect = preload("res://Scenes/death_particle_effect.tscn")
 
+static var areaEffectScene = preload("res://Scenes/area_effect.tscn")
+
 static var gameScene: Game
 
 static var spaceship
@@ -76,6 +78,11 @@ static func MakeEnemyDeathEffect(where):
 	gameScene.add_child(thing)
 	
 
+static func MakeAreaEffect():
+	var newAreaEffect = areaEffectScene.instantiate()
+	gameScene.add_child(newAreaEffect)
+	
+	
 static func UpdateStockMax():
 	Spaceship.maxAmmoStock = 0
 	Spaceship.maxFoodStock = 0

@@ -5,9 +5,9 @@
 [resource]
 script = ExtResource("1_jdfwn")
 speedAmount = 0.0
-speedModifer = 1.25
+speedModifer = 0.25
 attackSpeedAmount = 0.0
-attackSpeedModifier = 1.25
+attackSpeedModifier = 1.0
 accuracyAmount = 0.0
 accuracyModifier = 1.0
 defenseAmount = 0.0

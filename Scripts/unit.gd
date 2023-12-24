@@ -14,6 +14,8 @@ var running: bool = false
 # how well this person can hit targets with a ranged weapon
 # added with weapon accuracy to get total accuracy
 @export var accuracy: float = 0
+var accuracyModifer: float = 1
+var attackSpeedModifier: float = 1
 
 var attackTarget
 
@@ -42,6 +44,9 @@ var overviewMarker
 @onready var animationPlayer = $AnimationPlayer
 
 static var healthBarSize = 50
+
+# holds buff objects that hold buff data and buff duration
+var buffs = []
 
 
 func _ready():
@@ -161,3 +166,7 @@ func CheckDirectPath(pos = target_position, start = position):
 		return true
 	else:
 		return false
+		
+
+func AddBuff(buff: BuffObject):
+	buffs.append(buff)
