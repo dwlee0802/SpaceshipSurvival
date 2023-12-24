@@ -315,6 +315,17 @@ speed_scale = 4.0
 [node name="ReloadTimer" type="Timer" parent="."]
 process_callback = 0
 
+[node name="SelectionShortcutLabel" type="Panel" parent="."]
+offset_left = -38.0
+offset_top = -85.0
+offset_right = -24.0
+offset_bottom = -62.0
+
+[node name="SelectionShortcutLabel" type="Label" parent="SelectionShortcutLabel"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "1"
+
 [connection signal="timeout" from="OxygenTimer" to="." method="_on_oxygen_timer_timeout"]
 [connection signal="timeout" from="TemperatureTimer" to="." method="_on_temperature_timer_timeout"]
 [connection signal="timeout" from="NutritionTimer" to="." method="_on_nutrition_timer_timeout"]

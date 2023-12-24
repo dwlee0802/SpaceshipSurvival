@@ -32,7 +32,9 @@ func _ready():
 	survivors.append($Survivor2)
 	gameScene = self
 	spaceship = $Spaceship
-
+	
+	for i in range(survivors.size()):
+		survivors[i].get_node("SelectionShortcutLabel/SelectionShortcutLabel").text = str(i + 1)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -740,6 +740,13 @@ text = "Fire"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Panel" type="Panel" parent="Camera/Canvas/SpaceshipStatusUI"]
+layout_mode = 0
+offset_left = -158.0
+offset_top = 158.0
+offset_right = 53.0
+offset_bottom = 317.0
+
 [node name="OverviewLabel" type="Label" parent="Camera/Canvas/SpaceshipStatusUI"]
 layout_mode = 0
 offset_left = -230.0

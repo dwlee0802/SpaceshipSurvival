@@ -128,13 +128,13 @@ func _ready():
 	
 	overviewMarker.self_modulate = Color.GREEN
 	
-	EquipNewItem(Item.new(1,5), SlotType.Primary)
+	EquipNewItem(Item.new(1,0), SlotType.Primary)
 	
-	AddItem(Item.new(1,0))
 	AddItem(Item.new(4,0))
 	UpdateStats()
 	
 	# start with full health
+	maxHealth = 200
 	health = maxHealth
 	
 
