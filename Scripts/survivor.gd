@@ -2,7 +2,7 @@ extends "res://Scripts/unit.gd"
 
 class_name Survivor
 
-var survivorData
+@export var survivorData: SurvivorData
 
 var endAccuracy: float = 0
 

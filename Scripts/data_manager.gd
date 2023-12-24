@@ -18,12 +18,13 @@ static var skillPath = "res://Data/Skills/"
 
 # populate data by reading files
 func _ready():
+	var filename
 	for i in range(len(paths)):
 		var path = paths[i]
 		var dir
 		dir = DirAccess.open(path)
 		dir.list_dir_begin()
-		var filename = dir.get_next()
+		filename = dir.get_next()
 		
 		while filename != "":
 			var fullpath = path + filename
@@ -34,7 +35,7 @@ func _ready():
 	
 	var dir = DirAccess.open(skillPath)
 	dir.list_dir_begin()
-	var filename = dir.get_next()
+	filename = dir.get_next()
 	
 	while filename != "":
 		var fullpath = skillPath + filename

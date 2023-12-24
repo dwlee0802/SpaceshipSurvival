@@ -17,3 +17,5 @@ res://Scenes/survivor.tscn
 res://Scripts/survivor.gd
 res://Scripts/UserInterfaceManager.gd
 res://Data/Skills/2_Lob_Grenade.tres
+res://Data/survivor_data.gd
+res://Data/Survivors/0_Veteran.tres

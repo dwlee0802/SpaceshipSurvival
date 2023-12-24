@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SurvivorData" load_steps=3 format=3 uid="uid://d51whjtkivtv"]
+
+[ext_resource type="Texture2D" uid="uid://bphgupljd61uk" path="res://Art/ump45_temp_sprite.png" id="1_cndn7"]
+[ext_resource type="Script" path="res://Data/survivor_data.gd" id="1_mp5xf"]
+
+[resource]
+script = ExtResource("1_mp5xf")
+name = "Veteran"
+profileTexture = ExtResource("1_cndn7")
+spriteTexture = ExtResource("1_cndn7")
+speed = 150.0
+accuracy = 0.0
+strength = 0.0
+maxHealth = 0.0
