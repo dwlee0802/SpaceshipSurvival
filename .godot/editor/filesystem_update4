@@ -9,3 +9,5 @@ res://Scripts/UserInterfaceManager.gd
 res://Data/Skills/0_Adrenalin_Surge.tres
 res://Data/Skills/1_Steady_Aim.tres
 res://Data/Skills/2_Roll.tres
+res://Data/Skills/3_Grenade_Throw.tres
+res://Data/Skills/4_Leadership.tres

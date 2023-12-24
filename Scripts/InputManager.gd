@@ -521,3 +521,11 @@ func _on_inventory_closebutton_pressed():
 func _on_crafting_station_closebutton_pressed():
 	UserInterfaceManager.craftingStationUI.visible = false
 	selectedUnits[0].isInteractionOpen = false
+
+
+# use skill
+func _on_skill_button_pressed(extra_arg_0):
+	if extra_arg_0 == 0:
+		selectedUnits[0].skillSlot_1.Effect(selectedUnits[0])
+	if extra_arg_0 == 1:
+		selectedUnits[0].skillSlot_2.Effect(selectedUnits[0])
