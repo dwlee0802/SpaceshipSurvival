@@ -11,3 +11,6 @@ res://Scripts/InputManager.gd
 res://Scripts/camera.gd
 res://Scripts/spaceship.gd
 res://Scripts/module.gd
+res://Scripts/data_manager.gd
+res://Scenes/resouce_orb.tscn
+res://Scripts/resouce_orb.gd

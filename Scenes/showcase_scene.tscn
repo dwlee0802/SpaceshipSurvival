@@ -871,6 +871,7 @@ offset_right = 1192.0
 offset_bottom = 520.0
 flat = true
 script = ExtResource("9_8qjoq")
+metadata/_edit_use_anchors_ = true
 
 [node name="Background" type="Panel" parent="Camera/Canvas/CraftingStationUI"]
 layout_mode = 0

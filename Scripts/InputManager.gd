@@ -227,7 +227,8 @@ func UpdateUnitInventoryUI():
 
 # makes interaction ui visible
 func UpdateInteractionUI():
-	UserInterfaceManager.UpdateInteractionUI(selectedUnits[0])
+	if selectedUnits.size() > 0:
+		UserInterfaceManager.UpdateInteractionUI(selectedUnits[0])
 	
 	
 func ApplyUnitInventory():
