@@ -1,4 +1,6 @@
 Label
+Spaceship
+Node2D
 TextureButton
 Control
 CollisionShape2D
@@ -10,5 +12,3 @@ PointLight2D
 TextureRect
 GridContainer
 Panel
-Node
-ItemList

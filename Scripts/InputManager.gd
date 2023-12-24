@@ -134,10 +134,10 @@ func _unhandled_input(event):
 				if len(Game.survivors) >= 2:
 					SelectSingleUnit(Game.survivors[1])
 			if event.keycode == KEY_3:
-				if len(Game.survivors) >= 2:
+				if len(Game.survivors) >= 3:
 					SelectSingleUnit(Game.survivors[2])
 			if event.keycode == KEY_4:
-				if len(Game.survivors) >= 3:
+				if len(Game.survivors) >= 4:
 					SelectSingleUnit(Game.survivors[3])
 			
 			# show spaceship overview UI

@@ -70,10 +70,10 @@ func _unhandled_input(event):
 			if len(Game.survivors) >= 2:
 				position = Game.survivors[1].position
 		if event.keycode == KEY_3:
-			if len(Game.survivors) >= 2:
+			if len(Game.survivors) >= 3:
 				position = Game.survivors[2].position
 		if event.keycode == KEY_4:
-			if len(Game.survivors) >= 3:
+			if len(Game.survivors) >= 4:
 				position = Game.survivors[3].position
 
 		

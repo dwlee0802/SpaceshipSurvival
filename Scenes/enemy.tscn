@@ -36,7 +36,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1t5kc"]
-radius = 400.0
+radius = 300.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vxpih"]
 radius = 600.0
@@ -128,7 +128,6 @@ offset_bottom = 4.0
 texture = ExtResource("3_b4iln")
 
 [node name="AlertArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 2
 
