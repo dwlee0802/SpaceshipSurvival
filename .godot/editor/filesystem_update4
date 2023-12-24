@@ -1,3 +1,6 @@
-res://Scenes/spaceship.tscn
-res://Scripts/close_button.tres
 res://Scenes/game.tscn
+res://Scripts/close_button.tres
+res://Scripts/InputManager.gd
+res://Scenes/spaceship.tscn
+res://Data/skill_data.gd
+res://Data/item_data.gd

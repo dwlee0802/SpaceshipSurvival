@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bj6ov38i406sf"]
+[gd_scene load_steps=29 format=3 uid="uid://bj6ov38i406sf"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e32sq"]
 [ext_resource type="Script" path="res://Scripts/InputManager.gd" id="2_drscf"]
@@ -35,9 +35,6 @@ keycode = 69
 unicode = 101
 
 [sub_resource type="Shortcut" id="Shortcut_uxh8f"]
-events = [SubResource("InputEventKey_4a3vl")]
-
-[sub_resource type="Shortcut" id="Shortcut_pokcy"]
 events = [SubResource("InputEventKey_4a3vl")]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_askhj"]
@@ -436,7 +433,7 @@ offset_right = 349.0
 offset_bottom = 35.0
 toggle_mode = true
 button_group = SubResource("ButtonGroup_k1ai1")
-shortcut = SubResource("Shortcut_pokcy")
+shortcut = SubResource("Shortcut_uxh8f")
 text = "Interaction"
 
 [node name="SkillButtons" type="Control" parent="Camera/Canvas/UnitUI"]

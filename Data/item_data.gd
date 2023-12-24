@@ -1,6 +1,5 @@
-class_name ItemData
 extends Resource
-
+class_name ItemData
 
 enum Type {Melee, Ranged, Head, Body, Consumable}
 

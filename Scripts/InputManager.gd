@@ -144,10 +144,10 @@ func _unhandled_input(event):
 				
 			# pause button
 			if event.keycode == KEY_SPACE:
-				if Engine.time_scale == 0:
+				if Engine.time_scale == 0.5:
 					Engine.time_scale = 1
 				else:
-					Engine.time_scale = 0
+					Engine.time_scale = 0.5
 					
 			if event.keycode == KEY_Y:
 				lockOn = not lockOn
