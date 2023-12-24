@@ -433,7 +433,7 @@ static func UpdateSkillButtons(unit: Survivor):
 	if unit.skillSlot_1 == null:
 		skillButtons.get_node("SkillButton1").visible = false
 	else:
-		var skill_1: SkillData = unit.skillSlot_1
+		var skill_1: Skill = unit.skillSlot_1
 		var button = skillButtons.get_node("SkillButton1/Label")
 		button.text = skill_1.name
 		skillButtons.get_node("SkillButton1").visible = true
@@ -441,7 +441,7 @@ static func UpdateSkillButtons(unit: Survivor):
 	if unit.skillSlot_2 == null:
 		skillButtons.get_node("SkillButton2").visible = false
 	else:
-		var skill_2: SkillData = unit.skillSlot_2
+		var skill_2: Skill = unit.skillSlot_2
 		var button = skillButtons.get_node("SkillButton2/Label")
 		button.text = skill_2.name
 		skillButtons.get_node("SkillButton2").visible = true

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="BuffSkill" load_steps=2 format=3 uid="uid://bnncpbvnspnx5"]
+
+[ext_resource type="Script" path="res://Data/buff_skill.gd" id="1_jdfwn"]
+
+[resource]
+script = ExtResource("1_jdfwn")
+speedAmount = 0.0
+speedModifer = 1.25
+attackSpeedAmount = 0.0
+attackSpeedModifier = 1.25
+accuracyAmount = 0.0
+accuracyModifier = 1.0
+defenseAmount = 0.0
+defenseModifier = 1.0
+name = "Adrenalin Rush"
+ID = 0
+description = "Rush of adrenalin. Boosts movement speed and attack speed."
+cooltime = 5.0
+duration = 5.0

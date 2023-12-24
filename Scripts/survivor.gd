@@ -2,6 +2,8 @@ extends "res://Scripts/unit.gd"
 
 class_name Survivor
 
+var survivorData
+
 var endAccuracy: float = 0
 
 @onready var attackArea = $AttackArea
@@ -103,8 +105,8 @@ var level: int = 1
 var requiredEXP: int = 500
 @onready var levelUpEffect = $LevelUpEffect/AnimationPlayer
 
-@export var skillSlot_1: SkillData
-@export var skillSlot_2: SkillData
+@export var skillSlot_1: Skill
+@export var skillSlot_2: Skill
 
 
 func _ready():

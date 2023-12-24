@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bj6ov38i406sf"]
+[gd_scene load_steps=34 format=3 uid="uid://bj6ov38i406sf"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e32sq"]
 [ext_resource type="Script" path="res://Scripts/InputManager.gd" id="2_drscf"]
@@ -15,8 +15,10 @@
 [ext_resource type="Shortcut" uid="uid://bcj08ui1vldhx" path="res://Scripts/close_button.tres" id="9_xaavw"]
 [ext_resource type="Script" path="res://Scripts/data_manager.gd" id="11_volyp"]
 [ext_resource type="Script" path="res://Scripts/drop_item_slot.gd" id="12_35cvf"]
-[ext_resource type="Resource" uid="uid://dbqxb6q48kjtb" path="res://Data/Skills/0_Adrenalin_Surge.tres" id="16_ywika"]
-[ext_resource type="Resource" uid="uid://bn7pgbgaq7tt" path="res://Data/Skills/1_Steady_Aim.tres" id="17_eacmb"]
+[ext_resource type="Resource" uid="uid://bnncpbvnspnx5" path="res://Data/Skills/0_Adrenalin_Rush.tres" id="16_b4dm4"]
+[ext_resource type="Resource" uid="uid://dj20wnavxfafh" path="res://Data/Skills/2_Lob_Grenade.tres" id="17_3xrjk"]
+[ext_resource type="Resource" uid="uid://wcnoearsoegm" path="res://Data/Skills/5_Defensive_Stance.tres" id="18_qhpks"]
+[ext_resource type="Resource" uid="uid://5hayf3r68rj1" path="res://Data/Skills/3_Stun_Grenade.tres" id="19_osnou"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_k1ai1"]
 allow_unpress = true
@@ -456,12 +458,14 @@ texture_normal = SubResource("PlaceholderTexture2D_askhj")
 
 [node name="Label" type="Label" parent="Camera/Canvas/UnitUI/SkillButtons/SkillButton1"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_font_sizes/font_size = 14
+offset_right = 70.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 12
 text = "skill 1"
+autowrap_mode = 1
 
 [node name="SkillButton2" type="TextureButton" parent="Camera/Canvas/UnitUI/SkillButtons"]
+layout_mode = 0
 offset_left = 758.0
 offset_top = 139.0
 offset_right = 838.0
@@ -469,10 +473,12 @@ offset_bottom = 219.0
 texture_normal = SubResource("PlaceholderTexture2D_askhj")
 
 [node name="Label" type="Label" parent="Camera/Canvas/UnitUI/SkillButtons/SkillButton2"]
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_font_sizes/font_size = 14
-text = "skill 2"
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 12
+text = "skill 2asdfsadfdsafasdfasdfads"
+autowrap_mode = 1
 
 [node name="ResourcesUI" type="Control" parent="Camera/Canvas"]
 layout_mode = 3
@@ -1565,12 +1571,14 @@ z_index = -1
 
 [node name="Survivor" parent="." instance=ExtResource("4_16enx")]
 position = Vector2(1692, 1086)
-skillSlot_1 = ExtResource("16_ywika")
-skillSlot_2 = ExtResource("17_eacmb")
+skillSlot_1 = ExtResource("16_b4dm4")
+skillSlot_2 = ExtResource("17_3xrjk")
 speed = 200
 
 [node name="Survivor2" parent="." instance=ExtResource("4_16enx")]
 position = Vector2(2277, 1015)
+skillSlot_1 = ExtResource("18_qhpks")
+skillSlot_2 = ExtResource("19_osnou")
 speed = 200
 
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InformationButton" to="InputManager" method="_on_information_button_pressed"]

@@ -12,6 +12,9 @@ var paths = [
 	"res://Data/4_Consumable/"
 ]
 
+static var skillResources = []
+static var skillPath = "res://Data/Skills/"
+
 
 # populate data by reading files
 func _ready():
@@ -28,3 +31,14 @@ func _ready():
 			filename = dir.get_next()
 	
 		print("Imported " + str(resources[i].size()) + " resources of type " + ItemType.ReturnString(i))
+	
+	var dir = DirAccess.open(skillPath)
+	dir.list_dir_begin()
+	var filename = dir.get_next()
+	
+	while filename != "":
+		var fullpath = skillPath + filename
+		skillResources.append(load(fullpath))
+		filename = dir.get_next()
+	
+	print("Imported " + str(skillResources.size()) + " skill resources.")

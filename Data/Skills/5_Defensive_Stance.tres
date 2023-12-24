@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="BuffSkill" load_steps=2 format=3 uid="uid://wcnoearsoegm"]
+
+[ext_resource type="Script" path="res://Data/buff_skill.gd" id="1_42xxc"]
+
+[resource]
+script = ExtResource("1_42xxc")
+speedAmount = 0.0
+speedModifer = 1.0
+attackSpeedAmount = 0.0
+attackSpeedModifier = 1.0
+accuracyAmount = 0.0
+accuracyModifier = 1.0
+defenseAmount = 0.0
+defenseModifier = 1.25
+name = "Defensive Stance"
+ID = 1
+description = "Increase defense."
+cooltime = 5.0
+duration = 4.0

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="BuffSkill" load_steps=2 format=3 uid="uid://c5ytfe4uv40xd"]
+
+[ext_resource type="Script" path="res://Data/buff_skill.gd" id="1_8ou1s"]
+
+[resource]
+script = ExtResource("1_8ou1s")
+speedAmount = 0.0
+speedModifer = 1.0
+attackSpeedAmount = 0.0
+attackSpeedModifier = 1.0
+accuracyAmount = 0.3
+accuracyModifier = 1.0
+defenseAmount = 0.0
+defenseModifier = 1.0
+name = "Marksmen's Eye"
+ID = 1
+description = "Increase focus for higher accuracy."
+cooltime = 5.0
+duration = 3.0

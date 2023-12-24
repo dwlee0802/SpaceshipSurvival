@@ -79,7 +79,7 @@ _data = {
 }
 
 [node name="Survivor" type="CharacterBody2D"]
-collision_mask = 19
+collision_mask = 18
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_ag083")

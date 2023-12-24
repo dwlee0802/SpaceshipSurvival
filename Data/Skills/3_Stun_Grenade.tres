@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ProjectileSkill" load_steps=2 format=3 uid="uid://5hayf3r68rj1"]
+
+[ext_resource type="Script" path="res://Data/projectile_skill.gd" id="1_go1d7"]
+
+[resource]
+script = ExtResource("1_go1d7")
+throwRange = 350
+effectRadius = 100
+damageAmount = 10
+stunDuration = 3
+name = "Stun Grenade"
+ID = 3
+description = "Shock and awe."
+cooltime = 5.0
+duration = 0.0

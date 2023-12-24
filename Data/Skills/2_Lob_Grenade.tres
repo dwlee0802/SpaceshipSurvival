@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ProjectileSkill" load_steps=2 format=3 uid="uid://dj20wnavxfafh"]
+
+[ext_resource type="Script" path="res://Data/projectile_skill.gd" id="1_y302a"]
+
+[resource]
+script = ExtResource("1_y302a")
+throwRange = 300
+effectRadius = 150
+damageAmount = 50
+stunDuration = 0
+name = "Lob Grenade"
+ID = 2
+description = "Throw a grenade at target, dealing area damage."
+cooltime = 5.0
+duration = 0.0
