@@ -5,7 +5,7 @@ class_name Game
 static var survivors = []
 
 static var enemies = []
-static var MAX_ENEMY_COUNT: int = 50
+static var MAX_ENEMY_COUNT: int = 10
 
 static var time: float = 0
 
@@ -25,6 +25,7 @@ static var components: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	survivors = []
 	survivors.append($Survivor)
 	survivors.append($Survivor2)
 	gameScene = self
@@ -105,3 +106,7 @@ static func GainExperiencePoints(main, amount):
 			item.AddExperiencePoints(amount * 2)
 		else:
 			item.AddExperiencePoints(amount)
+
+
+func _on_restart_button_pressed():
+	get_tree().reload_current_scene()

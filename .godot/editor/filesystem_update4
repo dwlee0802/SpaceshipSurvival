@@ -9,3 +9,5 @@ res://Scripts/game.gd
 res://Scenes/enemy.tscn
 res://Scripts/InputManager.gd
 res://Scripts/camera.gd
+res://Scripts/spaceship.gd
+res://Scripts/module.gd

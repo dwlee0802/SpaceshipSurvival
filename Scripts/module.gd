@@ -48,7 +48,7 @@ func _process(_delta):
 		
 	
 func RollEnemySpawn():
-	if Game.enemies.size() > 100:
+	if Game.enemies.size() > Game.MAX_ENEMY_COUNT:
 		return
 		
 	if randf() < respawnRate:
