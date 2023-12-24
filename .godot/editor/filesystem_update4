@@ -4,3 +4,8 @@ res://Scripts/InputManager.gd
 res://Scenes/spaceship.tscn
 res://Data/skill_data.gd
 res://Data/item_data.gd
+res://Scripts/survivor.gd
+res://Scripts/UserInterfaceManager.gd
+res://Data/Skills/0_Adrenalin_Surge.tres
+res://Data/Skills/1_Steady_Aim.tres
+res://Data/Skills/2_Roll.tres

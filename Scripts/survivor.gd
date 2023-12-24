@@ -103,6 +103,9 @@ var level: int = 1
 var requiredEXP: int = 500
 @onready var levelUpEffect = $LevelUpEffect/AnimationPlayer
 
+@export var skillSlot_1: SkillData
+@export var skillSlot_2: SkillData
+
 
 func _ready():
 	super._ready()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bj6ov38i406sf"]
+[gd_scene load_steps=32 format=3 uid="uid://bj6ov38i406sf"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e32sq"]
 [ext_resource type="Script" path="res://Scripts/InputManager.gd" id="2_drscf"]
@@ -15,6 +15,8 @@
 [ext_resource type="Shortcut" uid="uid://bcj08ui1vldhx" path="res://Scripts/close_button.tres" id="9_xaavw"]
 [ext_resource type="Script" path="res://Scripts/data_manager.gd" id="11_volyp"]
 [ext_resource type="Script" path="res://Scripts/drop_item_slot.gd" id="12_35cvf"]
+[ext_resource type="Resource" uid="uid://dbqxb6q48kjtb" path="res://Data/Skills/0_Adrenalin_Surge.tres" id="16_ywika"]
+[ext_resource type="Resource" uid="uid://bn7pgbgaq7tt" path="res://Data/Skills/1_Steady_Aim.tres" id="17_eacmb"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_k1ai1"]
 allow_unpress = true
@@ -452,12 +454,25 @@ offset_right = 713.0
 offset_bottom = 179.0
 texture_normal = SubResource("PlaceholderTexture2D_askhj")
 
+[node name="Label" type="Label" parent="Camera/Canvas/UnitUI/SkillButtons/SkillButton1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 14
+text = "skill 1"
+
 [node name="SkillButton2" type="TextureButton" parent="Camera/Canvas/UnitUI/SkillButtons"]
 offset_left = 758.0
 offset_top = 139.0
 offset_right = 838.0
 offset_bottom = 219.0
 texture_normal = SubResource("PlaceholderTexture2D_askhj")
+
+[node name="Label" type="Label" parent="Camera/Canvas/UnitUI/SkillButtons/SkillButton2"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 14
+text = "skill 2"
 
 [node name="ResourcesUI" type="Control" parent="Camera/Canvas"]
 layout_mode = 3
@@ -1550,6 +1565,8 @@ z_index = -1
 
 [node name="Survivor" parent="." instance=ExtResource("4_16enx")]
 position = Vector2(1692, 1086)
+skillSlot_1 = ExtResource("16_ywika")
+skillSlot_2 = ExtResource("17_eacmb")
 speed = 200
 
 [node name="Survivor2" parent="." instance=ExtResource("4_16enx")]

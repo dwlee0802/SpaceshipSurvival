@@ -45,6 +45,8 @@ func _process(delta):
 		#UserInterfaceManager.UpdateEquipmentUI(selectedUnits[0].primarySlot)
 		var callable = Callable(UserInterfaceManager, "UpdateEquipmentUI")
 		callable.call(selectedUnits[0].primarySlot)
+		callable = Callable(UserInterfaceManager, "UpdateSkillButtons")
+		callable.call(selectedUnits[0])
 	else:
 		UserInterfaceManager.CloseInteractionWindows()
 		UserInterfaceManager.ToggleUnitUI(false)

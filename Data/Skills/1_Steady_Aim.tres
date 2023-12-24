@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=2 format=3 uid="uid://bn7pgbgaq7tt"]
+
+[ext_resource type="Script" path="res://Data/skill_data.gd" id="1_nksdq"]
+
+[resource]
+script = ExtResource("1_nksdq")
+name = "Steady Aim"
+ID = 1
+description = "Increase attack speed."
+cooltime = 5.0
+duration = 3.0

@@ -1,6 +1,6 @@
+Label
 TextureButton
 Control
-Label
 CollisionShape2D
 Area2D
 Timer

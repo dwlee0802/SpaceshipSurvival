@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=2 format=3 uid="uid://3n5aki13v5v6"]
+
+[ext_resource type="Script" path="res://Data/skill_data.gd" id="1_8stjq"]
+
+[resource]
+script = ExtResource("1_8stjq")
+name = "Roll"
+ID = 2
+description = "Quickly move forward, making you hard to hit."
+cooltime = 5.0
+duration = 3.0
