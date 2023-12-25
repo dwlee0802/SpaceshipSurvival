@@ -515,6 +515,10 @@ func ReduceBuffDurations(delta):
 			self.buffs.remove_at(index)
 		
 		
+func ApplyCooldown(skill):
+	print("used skill " + skill.name)
+	pass
+	
 	
 func _to_string():
 	var output: String = "Survivor Info\n"

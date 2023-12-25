@@ -83,6 +83,7 @@ static func MakeEnemyDeathEffect(where):
 static func MakeAreaEffect():
 	var newAreaEffect = areaEffectScene.instantiate()
 	gameScene.add_child(newAreaEffect)
+	return newAreaEffect
 	
 	
 static func UpdateStockMax():

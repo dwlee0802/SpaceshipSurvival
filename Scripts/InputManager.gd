@@ -14,6 +14,9 @@ var lockOn: bool = false
 
 static var InputManagerInstance
 
+static var waitingForSkillLocation: bool = false
+
+
 func _ready():
 	InputManagerInstance = self
 	
@@ -70,6 +73,7 @@ func _unhandled_input(event):
 				dragging = false
 				selectionBox.visible = false
 				selectedUnits = selectionBox.get_overlapping_bodies()
+					
 				selectionBox.get_node("CollisionShape2D").disabled = true
 				if len(selectedUnits) > 0:
 					if not selectedUnits[0].update_unit_ui.is_connected(UpdateUnitUI):
@@ -480,69 +484,85 @@ func _on_disassemble_button_pressed():
 
 func _on_information_button_pressed():
 	if selectedUnits[0].isInfoOpen:
-		UserInterfaceManager.informationUI.visible = false
-	else:
-		UserInterfaceManager.UpdateInformationUI(selectedUnits[0])
-		UserInterfaceManager.informationUI.visible = true
-		
-	selectedUnits[0].isInfoOpen = not selectedUnits[0].isInfoOpen
+		UserInterfaceManager.inforyUI/InventoryGrid" instance=ExtResource("21_8pb3y")]
+layout_mode = 2
 
+[node name="DraggableItemSlot22" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("21_8pb3y")]
+layout_mode = 2
 
-func _on_info_closebutton_pressed():
-	UserInterfaceManager.informationUI.visible = false
-	selectedUnits[0].isInfoOpen = false
+[node name="DraggableItemSlot23" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("21_8pb3y")]
+layout_mode = 2
 
+[node name="DraggableItemSlot24" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("21_8pb3y")]
+layout_mode = 2
 
-func _on_interaction_button_pressed():
-	var obj = selectedUnits[0].interactionObject
-	if obj == null:
-		UserInterfaceManager.CloseInteractionWindows()
-	else:
-		if obj is ItemContainer:
-			UserInterfaceManager.containerUI.visible = not UserInterfaceManager.containerUI.visible
-			selectedUnits[0].isInteractionOpen = UserInterfaceManager.containerUI.visible
-		if obj is Disassembly:
-			UserInterfaceManager.disassemblyUI.visible = not UserInterfaceManager.disassemblyUI.visible
-			selectedUnits[0].isInteractionOpen = UserInterfaceManager.disassemblyUI.visible
-		if obj is CraftingStation:
-			UserInterfaceManager.craftingStationUI.visible = not UserInterfaceManager.craftingStationUI.visible
-			selectedUnits[0].isInteractionOpen = UserInterfaceManager.craftingStationUI.visible
-			
+[node name="HeadSlot" type="Label" parent="Camera/Canvas/InventoryUI"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 40.0
+offset_right = 84.0
+offset_bottom = 63.0
+text = "Head Slot"
 
-func _on_container_closebutton_pressed():
-	UserInterfaceManager.containerUI.visible = false
-	selectedUnits[0].isInteractionOpen = false
+[node name="DraggableItem" parent="Camera/Canvas/InventoryUI/HeadSlot" instance=ExtResource("21_8pb3y")]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 30.0
+offset_right = -4.0
+offset_bottom = 57.0
+type = 0
 
+[node name="BodySlot" type="Label" parent="Camera/Canvas/InventoryUI"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 120.0
+offset_right = 84.0
+offset_bottom = 143.0
+text = "Body Slot"
 
-func _on_inventory_closebutton_pressed():
-	UserInterfaceManager.inventoryUI.visible = false
-	selectedUnits[0].isInventoryOpen = false
+[node name="DraggableItem" parent="Camera/Canvas/InventoryUI/BodySlot" instance=ExtResource("21_8pb3y")]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 30.0
+offset_right = -4.0
+offset_bottom = 57.0
+type = 1
 
+[node name="PrimarySlot" type="Label" parent="Camera/Canvas/InventoryUI"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 200.0
+offset_right = 105.0
+offset_bottom = 223.0
+text = "Primary Slot"
 
-func _on_crafting_station_closebutton_pressed():
-	UserInterfaceManager.craftingStationUI.visible = false
-	selectedUnits[0].isInteractionOpen = false
+[node name="DraggableItem" parent="Camera/Canvas/InventoryUI/PrimarySlot" instance=ExtResource("21_8pb3y")]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 30.0
+offset_right = -25.0
+offset_bottom = 57.0
+type = 2
 
+[node name="DropSlot" type="Label" parent="Camera/Canvas/InventoryUI"]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 206.0
+offset_right = 551.0
+offset_bottom = 229.0
+text = "Drop Item"
 
-# use skill
-# apply cooldown
-func _on_skill_button_pressed(extra_arg_0):
-	var skillData: Skill
-	if extra_arg_0 == 0:
-		skillData = selectedUnits[0].skillSlot_1
-	if extra_arg_0 == 1:
-		skillData = selectedUnits[0].skillSlot_2
-	
-	if skillData == null:
-		print("Skilldata null!")
-		return
-	
-	# set waiting for projectile target location true
-	if skillData is ProjectileSkill:
-		pass
-	
-	if skillData is BuffSkill:
-		var newBuffObject = BuffObject.new()
-		newBuffObject.data = skillData
-		newBuffObject.durationLeft = newBuffObject.data.duration
-		selectedUnits[0].AddBuff(newBuffObject)
+[node name="DraggableItem" parent="Camera/Canvas/InventoryUI/DropSlot" instance=ExtResource("21_8pb3y")]
+layout_mode = 1
+offset_left = 15.0
+offset_top = 24.0
+offset_right = -14.0
+offset_bottom = 51.0
+script = ExtResource("22_tgjxd")
+
+[node name="LevelUpEffect" type="Polygon2D" parent="Camera/Canvas/InventoryUI/DropSlot"]
+position = Vector2(40, 30)
+rotation = 3.14159
+scale = Vector2(0.503803, 0.469087)
+color = Color(0.447059, 0, 0.054902, 0.47451)
+polygon = PackedVector2Array(-22, 0, 22, 0, 22, -55, 40, -55

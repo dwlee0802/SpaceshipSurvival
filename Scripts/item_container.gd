@@ -1,73 +1,62 @@
-extends Interactable
+entoryUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
 
-class_name ItemContainer
+[node name="DraggableItemSlot21" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
 
-var contents = []
+[node name="DraggableItemSlot22" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
 
-var weight: int = 0
-var capacity: int = 20
+[node name="DraggableItemSlot23" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
 
-@export var randomizeContent: bool = false
+[node name="DraggableItemSlot24" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("8_l1l7c")]
+layout_mode = 2
 
-@export var spawnAmmo: bool = false
-@export var spawnFood: bool = false
-@export var spawnWeapons: bool = false
-@export var spawnArmor: bool = false
-@export var spawnConsumables: bool = false
+[node name="HeadSlot" type="Label" parent="Camera/Canvas/InventoryUI"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 40.0
+offset_right = 84.0
+offset_bottom = 63.0
+text = "Head Slot"
 
+[node name="DraggableItem" parent="Camera/Canvas/InventoryUI/HeadSlot" instance=ExtResource("8_l1l7c")]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 30.0
+offset_right = -4.0
+offset_bottom = 57.0
+type = 0
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
+[node name="BodySlot" type="Label" parent="Camera/Canvas/InventoryUI"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 120.0
+offset_right = 84.0
+offset_bottom = 143.0
+text = "Body Slot"
 
+[node name="DraggableItem" parent="Camera/Canvas/InventoryUI/BodySlot" instance=ExtResource("8_l1l7c")]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 30.0
+offset_right = -4.0
+offset_bottom = 57.0
+type = 1
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+[node name="PrimarySlot" type="Label" parent="Camera/Canvas/InventoryUI"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 200.0
+offset_right = 105.0
+offset_bottom = 223.0
+text = "Primary Slot"
 
-
-func FillContentsRandomly():
-	if randomizeContent:
-		var count = randi_range(1,4)
-		for i in range(count):
-			# pick item type
-			var itemType = randi_range(0, 4)
-			if itemType == 0:
-				AddItem(Item.new(itemType, randi_range(1, len(DataManager.resources[ItemType.Melee]) - 1)))
-			if itemType == 1:
-				AddItem(Item.new(itemType, randi_range(0, len(DataManager.resources[ItemType.Ranged]) - 1)))
-			if itemType == 2:
-				AddItem(Item.new(itemType, randi_range(0, len(DataManager.resources[ItemType.Head]) - 1)))
-			if itemType == 3:
-				AddItem(Item.new(itemType, randi_range(0, len(DataManager.resources[ItemType.Body]) - 1)))
-			if itemType == 4:
-				AddItem(Item.new(itemType, randi_range(0, len(DataManager.resources[ItemType.Consumable]) - 1)))
-
-
-func AddItem(item: Item):
-	if weight + item.data.weight <= capacity:
-		contents.append(item)
-		UpdateWeight()
-		return true
-	else:
-		return false
-	
-
-func RemoveItemByIndex(index):
-	var removed = contents.pop_at(index)
-	UpdateWeight()
-	return removed
-
-
-func UpdateWeight():
-	weight = 0
-	for item in contents:
-		weight += item.data.weight
-
-
-func _on_timer_timeout():
-	FillContentsRandomly()
-
-
-func Fix(delta):
-	return true
+[node name="DraggableItem" parent="Camera/Canvas/InventoryUI/PrimarySlot" instance=ExtResource("8_l1l7c")]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 30.0
+offset_right = -25.0
+offset_bottom = 57.0
+type
