@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://cmphbtso2kmap"]
 
-[ext_resource type="Script" path="res://Scenes/area_effect.gd" id="1_13gn7"]
+[ext_resource type="Script" path="res://Scripts/area_effect.gd" id="1_x1gka"]
 [ext_resource type="Texture2D" uid="uid://2j00antvhw4x" path="res://Art/circle-256.png" id="2_x2k0i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_181av"]
 radius = 126.0
 
 [node name="AreaEffect" type="Node2D"]
-script = ExtResource("1_13gn7")
+script = ExtResource("1_x1gka")
 
 [node name="Area2D" type="Area2D" parent="."]
 

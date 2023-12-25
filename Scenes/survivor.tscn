@@ -322,6 +322,7 @@ offset_right = -24.0
 offset_bottom = -62.0
 
 [node name="SelectionShortcutLabel" type="Label" parent="SelectionShortcutLabel"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "1"
