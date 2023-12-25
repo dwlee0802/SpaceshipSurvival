@@ -1,1 +1,173 @@
-9, 327680, 3, -2687083, 327680, 3, -2621547, 327680, 3, -2556011, 327680, 3, -2490475, 327680, 3, -2424939, 327680, 3, -2359403, 327680, 3, -2293867, 327680, 3, -2228331, 327680, 3, -2162795, 327680, 3, -2097259, 327680, 3, -2031723, 327680, 3, -1966187, 327680, 3, -1900651, 327680, 3, -1835115, 327680, 3, -1769579, 327680, 3, -1704043, 458752, 3, -3145834, 458752, 3, -3080298, 327680, 3, -3014762, 327680, 3, -2949226, 327680, 3, -2883690, 327680, 3, -2818154, 327680, 3, -2752618, 327680, 3, -2687082, 327680, 3, -2621546, 327680, 3, -2556010, 327680, 3, -2490474, 327680, 3, -2424938, 327680, 3, -2359402, 327680, 3, -2293866, 327680, 3, -2228330, 327680, 3, -2162794, 327680, 3, -2097258, 327680, 3, -2031722, 327680, 3, -1966186, 327680, 3, -1900650, 327680, 3, -1835114, 327680, 3, -1769578, 327680, 3, -1704042, 458752, 3, -3145833, 458752, 3, -3080297, 327680, 3, -3014761, 327680, 3, -2949225, 327680, 3, -2883689, 327680, 3, -2818153, 327680, 3, -2752617, 327680, 3, -2687081, 327680, 3, -2621545, 327680, 3, -2556009, 327680, 3, -2490473, 327680, 3, -2424937, 327680, 3, -2359401, 327680, 3, -2293865, 327680, 3, -2228329, 327680, 3, -2162793, 327680, 3, -2097257, 327680, 3, -2031721, 327680, 3, -1966185, 327680, 3, -1900649, 327680, 3, -1835113, 327680, 3, -1769577, 327680, 3, -1704041, 458752, 3, -3145832, 458752, 3, -3080296, 327680, 3, -3014760, 327680, 3, -2949224, 327680, 3, -2883688, 327680, 3, -2818152, 327680, 3, -2752616, 327680, 3, -2687080, 327680, 3, -2621544, 327680, 3, -2556008, 327680, 3, -2490472, 327680, 3, -2424936, 327680, 3, -2359400, 327680, 3, -2293864, 327680, 3, -2228328, 327680, 3, -2162792, 327680, 3, -2097256, 327680, 3, -2031720, 327680, 3, -1966184, 327680, 3, -1900648, 327680, 3, -1835112, 327680, 3, -1769576, 327680, 3, -1704040, 458752, 3, -3145831, 458752, 3, -3080295, 327680, 3, -3014759, 327680, 3, -2949223, 327680, 3, -2883687, 327680, 3, -2818151, 327680, 3, -2752615, 327680, 3, -2687079, 327680, 3, -2621543, 327680, 3, -2556007, 327680, 3, -2490471, 327680, 3, -2424935, 327680, 3, -2359399, 327680, 3, -2293863, 327680, 3, -2228327, 327680, 3, -2162791, 327680, 3, -2097255, 327680, 3, -2031719, 327680, 3, -1966183, 327680, 3, -1900647, 327680, 3, -1835111, 327680, 3, -1769575, 327680, 3, -1704039, 458752, 3, -3145830, 458752, 3, -3080294, 327680, 3, -3014758, 327680, 3, -2949222, 327680, 3, -2883686, 327680, 3, -2818150, 327680, 3, -2752614, 327680, 3, -2687078, 327680, 3, -2621542, 327680, 3, -2556006, 327680, 3, -2490470, 327680, 3, -2424934, 327680, 3, -2359398, 327680, 3, -2293862, 327680, 3, -2228326, 327680, 3, -2162790, 327680, 3, -2097254, 327680, 3, -2031718, 327680, 3, -1966182, 327680, 3, -1900646, 327680, 3, -1835110, 327680, 3, -1769574, 327680, 3, -1704038, 458752, 3, -3145829, 458752, 3, -3080293, 458752, 3, -3014757, 458752, 3, -2949221, 458752, 3, -2883685, 458752, 3, -2818149, 458752, 3, -2752613, 458752, 3, -2687077, 458752, 3, -2621541, 458752, 3, -2556005, 327680, 3, -2490469, 327680, 3, -2424933, 327680, 3, -2359397, 327680, 3, -2293861, 327680, 3, -2228325, 327680, 3, -2162789, 458752, 3, -2097253, 458752, 3, -2031717, 458752, 3, -1966181, 458752, 3, -1900645, 458752, 3, -1835109, 458752, 3, -1769573, 458752, 3, -1704037, 458752, 3, -3145828, 458752, 3, -3080292, 327680, 3, -3014756, 327680, 3, -2949220, 327680, 3, -2883684, 327680, 3, -2818148, 327680, 3, -2752612, 327680, 3, -2687076, 327680, 3, -2621540, 458752, 3, -2556004, 327680, 3, -2490468, 327680, 3, -2424932, 327680, 3, -2359396, 327680, 3, -2293860, 327680, 3, -2228324, 327680, 3, -2162788, 458752, 3, -2097252, 327680, 3, -2031716, 327680, 3, -1966180, 327680, 3, -1900644, 327680, 3, -1835108, 327680, 3, -1769572, 327680, 3, -1704036, 458752, 3, -3145827, 458752, 3, -3080291, 327680, 3, -3014755, 327680, 3, -2949219, 327680, 3, -2883683, 327680, 3, -2818147, 327680, 3, -2752611, 327680, 3, -2687075, 327680, 3, -2621539, 458752, 3, -2556003, 327680, 3, -2490467, 327680, 3, -2424931, 327680, 3, -2359395, 327680, 3, -2293859, 327680, 3, -2228323, 327680, 3, -2162787, 458752, 3, -2097251, 327680, 3, -2031715, 327680, 3, -1966179, 327680, 3, -1900643, 327680, 3, -1835107, 327680, 3, -1769571, 327680, 3, -1704035, 458752, 3, -3145826, 458752, 3, -3080290, 327680, 3, -3014754, 327680, 3, -2949218, 327680, 3, -2883682, 327680, 3, -2818146, 327680, 3, -2752610, 327680, 3, -2687074, 327680, 3, -2621538, 458752, 3, -2556002, 327680, 3, -2490466, 327680, 3, -2424930, 327680, 3, -2359394, 327680, 3, -2
+extends CharacterBody2D
+
+class_name Unit
+
+@export var health: float = 50
+@export var maxHealth: int = 100
+@export var speed: int = 100
+var speedModifier: float = 1
+var running: bool = false
+# how much damage is reduced when this unit is hit.
+@export var defense: float = 0
+var defenseModifier: float = 0
+@export var radiationDefense: float = 0
+@export var evasion: float = 0
+# how well this person can hit targets with a ranged weapon
+# added with weapon accuracy to get total accuracy
+@export var accuracy: float = 0
+var accuracyModifer: float = 1
+var attackSpeedModifier: float = 1
+
+var attackTarget
+
+@onready var nav: NavigationAgent2D = $NavigationAgent2D
+
+@onready var target_position: Vector2 = position
+
+var knockBack: Vector2 = Vector2.ZERO
+
+@onready var navRaycast = $NavigationRaycasts/RayCast2D
+@onready var navRaycast2 = $NavigationRaycasts/RayCast2D2
+@onready var navRaycast3 = $NavigationRaycasts/RayCast2D3
+@onready var navRaycast4 = $NavigationRaycasts/RayCast2D4
+@onready var navRaycast5 = $NavigationRaycasts/RayCast2D5
+
+@onready var healthBar = $HealthBar/HealthBar
+
+var isMoving: bool = false
+
+var STOP_DIST = 5
+
+var radiationDamageTimeHolder = 2
+
+var overviewMarker
+
+@onready var animationPlayer = $AnimationPlayer
+
+static var healthBarSize = 50
+
+# holds buff objects that hold buff data and buff duration
+var buffs = []
+
+
+func _ready():
+	overviewMarker = UserInterfaceManager.MakeMarkerOnSpaceshipOverview()
+	
+
+func _physics_process(delta):
+	# update marker on spaceship overview UI
+	overviewMarker.position = position / 5.80708
+	overviewMarker.visible = true
+	
+	if health <= 0:
+		OnDeath()
+	
+	if isMoving:
+		# dont use nav is there is a direct path to target
+		if CheckDirectPath():
+			if position.distance_to(target_position) < STOP_DIST:
+				isMoving = false
+				return
+				
+			velocity = position.direction_to(target_position) * speed * (speedModifier + int(running)) + knockBack
+			move_and_slide()
+		# use nav if there's an obstacle to go around
+		else:
+			if nav.is_navigation_finished():
+				isMoving = false
+				return
+			
+			velocity = position.direction_to(nav.get_next_path_position()) * speed * (speedModifier + int(running)) + knockBack
+			move_and_slide()
+	else:
+		running = false
+		
+	# knock back damping
+	if knockBack.length() > 0:
+		knockBack = knockBack.normalized() * (knockBack.length() - delta * 10)
+	else:
+		knockBack = Vector2.ZERO
+		
+
+func ChangeTargetPosition(pos):
+	target_position = pos
+	isMoving = true
+	nav.target_position = target_position
+
+
+func UpdateHealthBar():
+	healthBar.size.x = health/maxHealth * healthBarSize
+
+
+func ReceiveHit(amount, pene: float = 0, acc: float = 0, knockBackVector: Vector2 = Vector2.ZERO, isRadiationDamage = false, from = null):
+	# accuracy check
+	var endAccuracy = acc - evasion
+	if endAccuracy < 0:
+		endAccuracy = 0
+	
+	var rng = randf()
+	if rng > endAccuracy:
+		print(endAccuracy)
+		print(rng)
+		Game.MakeDamagePopup(position, 0)
+		return false
+		
+	print("Init: ", amount)
+	var endDefense
+	if not isRadiationDamage:
+		endDefense = defense - pene
+		if endDefense < 0:
+			endDefense = 0
+	else:
+		endDefense = radiationDefense
+		
+	print("Eff. Defense: ", endDefense)
+	amount = int(amount * (1 - endDefense))
+	
+	print("Eff. Damage: ", amount)
+	health -= amount
+	
+	print("Left HP: " + str(health))
+	Game.MakeDamagePopup(position, amount)
+	
+	UpdateHealthBar()
+	
+	# apply knockback
+	knockBack += knockBackVector
+	
+	animationPlayer.play("hit_animation")
+	return true
+
+
+func HealHealth(amount):
+	health += amount
+	if health > maxHealth:
+		health = maxHealth
+	
+	Game.MakeDamagePopup(position, amount, Color.LIME_GREEN)
+	UpdateHealthBar()
+	
+
+func OnDeath():
+	print("Dead!")
+	overviewMarker.queue_free()
+	
+	
+func CheckDirectPath(pos = target_position, start = position):
+	var dir = start.direction_to(pos)
+	var dist = start.distance_to(pos)
+	
+	navRaycast.target_position = dir * dist
+	navRaycast2.target_position = dir * dist
+	navRaycast3.target_position = dir * dist
+	navRaycast4.target_position = dir * dist
+	navRaycast5.target_position = dir * dist
+	
+	if navRaycast.get_collider() == null and navRaycast2.get_collider() == null and navRaycast3.get_collider() == null and navRaycast4.get_collider() == null and navRaycast5.get_collider() == null:
+		return true
+	else:
+		return false
+		
+
+func AddBuff(buff: BuffObject):
+	buffs.append(buff)

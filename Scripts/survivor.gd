@@ -515,8 +515,8 @@ func ReduceBuffDurations(delta):
 			self.buffs.remove_at(index)
 		
 		
-func ApplyCooldown(skill):
-	print("used skill " + skill.name)
+func ApplySkillCooldown(skill: Skill):
+	print(skill.name)
 	pass
 	
 	
