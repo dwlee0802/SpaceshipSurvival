@@ -6,4 +6,4 @@ class_name ProjectileSkill
 @export var effectRadius: int
 @export var damageAmount: int
 @export var stunDuration: int
-
+@export var knockBack: int = 0

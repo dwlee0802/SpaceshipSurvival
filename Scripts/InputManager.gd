@@ -333,7 +333,7 @@ static func UseInventoryItem(draggable):
 		draggable.queue_free()
 		unit.inventory = UserInterfaceManager.ReadInventoryGrid()
 		var index = unit.inventory.find(item)
-		if index > 0:
+		if index >= 0:
 			unit.inventory.remove_at(index)
 		var equipmentDict = UserInterfaceManager.ReadEquipmentSlots()
 		unit.headSlot = equipmentDict.Head
