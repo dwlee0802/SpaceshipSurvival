@@ -9,6 +9,9 @@ var expAmount: int = 50
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	if target == null:
+		queue_free()
+		
 	if fly:
 		position += position.direction_to(target.position) * FOLLOW_SPEED
 	

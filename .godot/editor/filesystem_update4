@@ -1,3 +1,11 @@
 res://Scenes/area_effect.tscn
 res://Scenes/survivor.tscn
 res://Scenes/resouce_orb.tscn
+res://Scripts/area_effect.gd
+res://Scripts/exp_orb.gd
+res://Scripts/close_button.tres
+res://Scenes/showcase_spaceship.tscn
+res://Scenes/showcase_scene.tscn
+res://Data/Skills/3_Stun_Grenade.tres
+res://Data/Skills/2_Lob_Grenade.tres
+res://Scenes/projectile.tscn

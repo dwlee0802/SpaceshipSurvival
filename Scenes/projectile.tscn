@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuqliu0tt3lqc"]
+
+[ext_resource type="Texture2D" uid="uid://2j00antvhw4x" path="res://Art/circle-256.png" id="1_7rvlb"]
+
+[node name="Projectile" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.870588, 0.866667, 0.117647, 1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_7rvlb")

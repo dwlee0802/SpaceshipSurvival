@@ -6,8 +6,15 @@ var target_position: Vector2
 var isPreview: bool = true
 var data: Skill
 var effectSprite
+var durationTimer: Timer
+
+@onready var effectArea = $Area2D
 
 signal skill_used
+
+var projectileScene = load("res://Scenes/projectile.tscn")
+var projectileObject
+var projectileSpeed: int = 500
 
 
 func SetData(skill: Skill):
@@ -16,10 +23,13 @@ func SetData(skill: Skill):
 	$EffectSprite.scale = Vector2(data.effectRadius / 128.0, data.effectRadius / 128.0)
 	effectSprite = $EffectSprite
 	start_position = position
-	
+	durationTimer = $DurationTimer
+	projectileObject = projectileScene.instantiate()
+	add_sibling(projectileObject)
+
 
 func _process(delta):
-	if CheckRange():
+	if CheckRange() and CheckLineOfSight(get_parent().position, global_position):
 		effectSprite.self_modulate = Color.GREEN
 	else:
 		effectSprite.self_modulate = Color.RED
@@ -28,19 +38,36 @@ func _process(delta):
 		effectSprite.self_modulate.a = 0.4
 		position = get_global_mouse_position()
 		position += get_local_mouse_position()
-		
+		projectileObject.visible = false
+	else:
+		projectileObject.visible = true
+		projectileObject.global_position += projectileObject.position.direction_to(target_position) * projectileSpeed * delta
+
+		if projectileObject.position.distance_squared_to(target_position) < 20:
+			projectileObject.queue_free()
+			# it is a one time effect skill
+			if data.duration == 0:
+				Effect()
+				queue_free()
+			# it lasts for a while on the map
+			else:
+				durationTimer.start()
+	
 
 func _unhandled_input(event):
+	if effectSprite.visible == false:
+		return
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
 				isPreview = false
-				if CheckRange():
-					$DurationTimer.start()
+				if CheckRange() and CheckLineOfSight(get_parent().position, global_position):
+					target_position = global_position
 					skill_used.emit(data)
+					projectileObject.position = get_parent().position
 				else:
 					queue_free()
-
+				effectSprite.visible = false
 
 func CheckRange():
 	if position.distance_to(start_position) <= data.throwRange:
@@ -52,3 +79,21 @@ func CheckRange():
 # when duration is over, queue free this
 func _on_duration_timer_timeout():
 	queue_free()
+
+
+func Effect():
+	var results = effectArea.get_overlapping_bodies()
+	for item in results:
+		item.ReceiveHit(data.damageAmount, 0, 1)
+	
+	
+func CheckLineOfSight(start, end, mask = 16):
+	print(start)
+	print(end)
+	var space = get_viewport().world_2d.direct_space_state
+	var param = PhysicsRayQueryParameters2D.create(start, end, mask)
+	var result = space.intersect_ray(param)
+	if result.is_empty():
+		return true
+	else:
+		return false

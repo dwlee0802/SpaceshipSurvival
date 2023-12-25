@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_y302a")
-throwRange = 300
+throwRange = 350
 effectRadius = 150
 damageAmount = 50
 stunDuration = 0
