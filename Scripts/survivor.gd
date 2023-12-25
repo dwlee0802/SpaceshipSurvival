@@ -108,6 +108,8 @@ var requiredEXP: int = 500
 @export var skillSlot_1: Skill
 @export var skillSlot_2: Skill
 
+var isInScreen: bool = false
+
 
 func _ready():
 	super._ready()
@@ -588,3 +590,7 @@ func PrintMiscStats() -> String:
 	output += "LV: " + str(level) + "\n"
 	output += str(experiencePoints) + "/" + str(requiredEXP) + "\n"
 	return output
+
+
+func _on_visible_on_screen_notifier_2d_screen(extra_arg_0):
+	isInScreen = extra_arg_0

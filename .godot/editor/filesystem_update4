@@ -9,3 +9,5 @@ res://Scenes/projectile.tscn
 res://Data/projectile_skill.gd
 res://Data/Skills/2_Lob_Grenade.tres
 res://Scripts/area_effect.gd
+res://Scripts/survivor.gd
+res://Scripts/camera.gd

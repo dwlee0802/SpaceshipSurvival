@@ -145,14 +145,19 @@ func _unhandled_input(event):
 				UserInterfaceManager.UpdateSpaceshipOverviewUI()
 				
 			# pause button
-			if event.keycode == KEY_SPACE:
-				if Engine.time_scale == 0.5:
-					Engine.time_scale = 1
-				else:
-					Engine.time_scale = 0.5
+			if event.keycode == KEY_F1:
+				Engine.time_scale = 0.5
+			if event.keycode == KEY_F2:
+				Engine.time_scale = 1
+			if event.keycode == KEY_F3:
+				Engine.time_scale = 2
 					
 			if event.keycode == KEY_Y:
 				lockOn = not lockOn
+			
+			if event.keycode == KEY_SPACE:
+				if selectedUnits.size() > 0:
+					Camera.CenterCameraAt(selectedUnits[0].position)
 		else:
 			# show spaceship overview UI
 			if event.keycode == KEY_TAB:

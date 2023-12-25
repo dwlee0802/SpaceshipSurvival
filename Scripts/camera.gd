@@ -65,16 +65,20 @@ func _unhandled_input(event):
 		# pan camera to survivors
 		if event.keycode == KEY_1:
 			if len(Game.survivors) >= 1:
-				position = Game.survivors[0].position
+				if not Game.survivors[0].isInScreen:
+					position = Game.survivors[0].position
 		if event.keycode == KEY_2:
 			if len(Game.survivors) >= 2:
-				position = Game.survivors[1].position
+				if not Game.survivors[1].isInScreen:
+					position = Game.survivors[1].position
 		if event.keycode == KEY_3:
 			if len(Game.survivors) >= 3:
-				position = Game.survivors[2].position
+				if not Game.survivors[2].isInScreen:
+					position = Game.survivors[2].position
 		if event.keycode == KEY_4:
 			if len(Game.survivors) >= 4:
-				position = Game.survivors[3].position
+				if not Game.survivors[3].isInScreen:
+					position = Game.survivors[3].position
 
 		
 func ShakeScreen(intensity, duration):
@@ -90,3 +94,6 @@ func get_noise_offset(delta: float):
 		noise.get_noise_2d(100, noise_i) * shake_strength
 	)
 
+
+static func CenterCameraAt(position: Vector2):
+	cam.position = position
