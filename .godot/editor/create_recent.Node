@@ -1,5 +1,5 @@
-VisibleOnScreenNotifier2D
 Sprite2D
+VisibleOnScreenNotifier2D
 Panel
 Label
 Timer
@@ -12,4 +12,3 @@ TextureButton
 Control
 ShapeCast2D
 PointLight2D
-TextureRect
