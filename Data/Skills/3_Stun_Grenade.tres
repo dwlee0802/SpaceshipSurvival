@@ -6,8 +6,10 @@
 script = ExtResource("1_go1d7")
 throwRange = 400
 effectRadius = 100
-damageAmount = 10
+damageMin = 10
+damageMax = 20
 stunDuration = 3
+knockBack = 0
 name = "Stun Grenade"
 ID = 3
 description = "Shock and awe."

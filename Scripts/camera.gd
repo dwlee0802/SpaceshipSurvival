@@ -4,15 +4,15 @@ class_name Camera
 
 var noise = FastNoiseLite.new()
 
-var noise_i: float = 0.0
+static var noise_i: float = 0.0
 
-var SHAKE_DECAY_RATE: float = 2.0
+static var SHAKE_DECAY_RATE: float = 2.0
 
 var NOISE_SHAKE_SPEED: float = 30.0
 
 var NOISE_SHAKE_STRENGTH: float = 60.0
 
-var shake_strength: float = 0
+static var shake_strength: float = 0
 
 var tileSize = 30
 
@@ -32,6 +32,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	shake_strength = lerp(shake_strength, 0.0, SHAKE_DECAY_RATE * delta)
+	if shake_strength < 2:
+		shake_strength = 0
+		
 	offset = get_noise_offset(delta)
 	
 	# mouse wheel button dragging
@@ -81,7 +84,7 @@ func _unhandled_input(event):
 					position = Game.survivors[3].position
 
 		
-func ShakeScreen(intensity, duration):
+static func ShakeScreen(intensity, duration):
 	noise_i = 0
 	shake_strength = intensity
 	SHAKE_DECAY_RATE = duration

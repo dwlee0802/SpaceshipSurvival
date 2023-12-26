@@ -14,6 +14,8 @@ static var deathEffect = preload("res://Scenes/death_particle_effect.tscn")
 
 static var areaEffectScene = preload("res://Scenes/area_effect.tscn")
 
+static var explostionEffect = preload("res://Scenes/explosion_effect.tscn")
+
 static var gameScene: Game
 
 static var spaceship
@@ -78,6 +80,13 @@ static func MakeEnemyDeathEffect(where):
 	thing.global_position = where
 	thing.emitting = true
 	gameScene.add_child(thing)
+
+
+static func MakeExplosionEffect(where):
+	var newEff = explostionEffect.instantiate()
+	newEff.global_position = where
+	gameScene.add_child(newEff)
+	return newEff
 	
 
 static func MakeAreaEffect():

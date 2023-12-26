@@ -48,6 +48,10 @@ func _process(delta):
 			# it is a one time effect skill
 			if data.duration == 0:
 				Effect()
+				var callable = Callable(Game, "MakeExplosionEffect")
+				var eff = callable.call(global_position)
+				eff.get_node("Sprite2D").scale = effectSprite.scale
+				Camera.ShakeScreen(20,8)
 				queue_free()
 			# it lasts for a while on the map
 			else:
@@ -87,7 +91,7 @@ func Effect():
 		var dir = global_position.direction_to(item.position)
 		if item is Survivor:
 			dir = Vector2.ZERO
-		item.ReceiveHit(data.damageAmount, 0, 1, dir * data.knockBack)
+		item.ReceiveHit(randi_range(data.damageMin, data.damageMax), 0, 1, dir * data.knockBack, false, get_parent())
 	
 	
 func CheckLineOfSight(start, end, mask = 16):
