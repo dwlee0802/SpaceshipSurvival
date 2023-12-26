@@ -129,15 +129,27 @@ func _unhandled_input(event):
 			# pan camera to survivors
 			if event.keycode == KEY_1:
 				if len(Game.survivors) >= 1:
+					if selectedUnits.size() > 0:
+						if selectedUnits[0] == Game.survivors[0]:
+							Camera.CenterCameraAt(Game.survivors[0].position)
 					SelectSingleUnit(Game.survivors[0])
 			if event.keycode == KEY_2:
 				if len(Game.survivors) >= 2:
+					if selectedUnits.size() > 0:
+						if selectedUnits[0] == Game.survivors[1]:
+							Camera.CenterCameraAt(Game.survivors[1].position)
 					SelectSingleUnit(Game.survivors[1])
 			if event.keycode == KEY_3:
 				if len(Game.survivors) >= 3:
+					if selectedUnits[0] == Game.survivors[2]:
+						if selectedUnits.size() > 0:
+							Camera.CenterCameraAt(Game.survivors[2].position)
 					SelectSingleUnit(Game.survivors[2])
 			if event.keycode == KEY_4:
 				if len(Game.survivors) >= 4:
+					if selectedUnits[0] == Game.survivors[3]:
+						if selectedUnits.size() > 0:
+							Camera.CenterCameraAt(Game.survivors[3].position)
 					SelectSingleUnit(Game.survivors[3])
 			
 			# show spaceship overview UI

@@ -73,6 +73,7 @@ func _unhandled_input(event):
 					queue_free()
 				effectSprite.visible = false
 
+
 func CheckRange():
 	if position.distance_to(start_position) <= data.throwRange:
 		return true
