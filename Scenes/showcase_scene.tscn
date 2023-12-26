@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c5nyr1fhytbkv"]
+[gd_scene load_steps=38 format=3 uid="uid://c5nyr1fhytbkv"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_8rs23"]
 [ext_resource type="PackedScene" uid="uid://bglyxpx5ldmya" path="res://Scenes/showcase_spaceship.tscn" id="2_cyxog"]
@@ -44,8 +44,24 @@ events = [SubResource("InputEventKey_4a3vl")]
 [sub_resource type="Shortcut" id="Shortcut_pokcy"]
 events = [SubResource("InputEventKey_4a3vl")]
 
+[sub_resource type="InputEventKey" id="InputEventKey_f6pi5"]
+device = -1
+keycode = 90
+unicode = 122
+
+[sub_resource type="Shortcut" id="Shortcut_hmhhn"]
+events = [SubResource("InputEventKey_f6pi5")]
+
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_askhj"]
 size = Vector2(70, 70)
+
+[sub_resource type="InputEventKey" id="InputEventKey_xk656"]
+device = -1
+keycode = 88
+unicode = 120
+
+[sub_resource type="Shortcut" id="Shortcut_7g5vs"]
+events = [SubResource("InputEventKey_xk656")]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_haal1"]
 
@@ -449,6 +465,7 @@ offset_left = 673.0
 offset_top = 139.0
 offset_right = 713.0
 offset_bottom = 179.0
+shortcut = SubResource("Shortcut_hmhhn")
 texture_normal = SubResource("PlaceholderTexture2D_askhj")
 
 [node name="Label" type="Label" parent="Camera/Canvas/UnitUI/SkillButtons/SkillButton1"]
@@ -465,6 +482,7 @@ offset_left = 758.0
 offset_top = 139.0
 offset_right = 838.0
 offset_bottom = 219.0
+shortcut = SubResource("Shortcut_7g5vs")
 texture_normal = SubResource("PlaceholderTexture2D_askhj")
 
 [node name="Label" type="Label" parent="Camera/Canvas/UnitUI/SkillButtons/SkillButton2"]
