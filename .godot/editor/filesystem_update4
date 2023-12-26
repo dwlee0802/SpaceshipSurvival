@@ -14,3 +14,4 @@ res://Data/projectile_skill.gd
 res://Data/Skills/2_Lob_Grenade.tres
 res://Data/Skills/3_Stun_Grenade.tres
 res://Scripts/InputManager.gd
+res://Data/Skills/6_Taunt.tres
