@@ -12,6 +12,8 @@ static var time: float = 0
 static var damagePopup = preload("res://Scenes/damage_popup.tscn")
 static var deathEffect = preload("res://Scenes/death_particle_effect.tscn")
 
+static var enemyHitEffectScene = preload("res://Scenes/hit_particle_effect.tscn")
+
 static var areaEffectScene = preload("res://Scenes/area_effect.tscn")
 
 static var explostionEffect = preload("res://Scenes/explosion_effect.tscn")
@@ -67,6 +69,14 @@ static func MakeExplosionEffect(where):
 	newEff.global_position = where
 	gameScene.add_child(newEff)
 	return newEff
+
+
+static func MakeEnemyHitEffect(where, to):
+	var newEff = enemyHitEffectScene.instantiate()
+	gameScene.add_child(newEff)
+	newEff.global_position = where
+	newEff.direction = to.global_position.normalized() * -1
+	return newEff
 	
 
 static func MakeAreaEffect():
@@ -87,7 +97,7 @@ static func UpdateStockMax():
 	Spaceship.maxComponentStock += item.strength * COMP_PER_STR
 
 
-static func GainExperiencePoints(main, amount):
+static func GainExperiencePoints(_main, amount):
 	survivor.AddExperiencePoints(amount)
 
 

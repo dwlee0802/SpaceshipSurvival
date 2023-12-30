@@ -92,7 +92,7 @@ func Effect():
 		var dir = global_position.direction_to(item.position)
 		if item is Survivor:
 			dir = Vector2.ZERO
-		item.ReceiveHit(randi_range(data.damageMin, data.damageMax), 0, 1, dir * data.knockBack, false, get_parent())
+		item.ReceiveHit(get_parent(), randi_range(data.damageMin, data.damageMax), 0)
 	
 	
 func CheckLineOfSight(start, end, mask = 16):

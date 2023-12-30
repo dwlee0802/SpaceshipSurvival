@@ -12,8 +12,8 @@ var placedItemScene = preload("res://Scenes/placed_item.tscn")
 static var expOrb = preload("res://Scenes/exp_orb.tscn")
 static var resourceOrb = preload("res://Scenes/resouce_orb.tscn")
 
-var itemDropProbability: float = 0.01
-var resourceDropProbability: float = 0.1
+var itemDropProbability: float = 0.5
+var resourceDropProbability: float = 0.5
 
 @onready var alertArea = $AlertArea
 @onready var detectionArea = $DetectionArea
@@ -94,22 +94,22 @@ func OnDeath():
 	Game.MakeEnemyDeathEffect(global_position)
 	# roll random drop
 	if randf() < itemDropProbability:
-		DropItem()
+		call_deferred("DropItem")
 	if randf() < resourceDropProbability:
-		DropResource()
+		call_deferred("DropResource")
 		
 	queue_free()
 
 
-func ReceiveHit(amount, penetration: float = 0, _accuracy: float = 0, knockBackVec: Vector2 = Vector2.ZERO, isRadiationDamage = false, from = null):
+func ReceiveHit(from, amount, penetration = 0, isRadiationDamage = false):
 	# if attack target is null, move towards attacker
 	if attackTarget == null and from is Survivor:
 		attackTarget = from
 		ChangeTargetPosition(attackTarget.position)
 		
-	if super.ReceiveHit(amount, penetration, _accuracy, knockBackVec, isRadiationDamage):
-		hitParticleEffect.emitting = true
-		hitParticleEffect.rotation = Vector2.RIGHT.angle_to(knockBackVec)
+	if super.ReceiveHit(from, amount, penetration, isRadiationDamage):
+		var temp = Game.MakeEnemyHitEffect(global_position, from)
+		temp.emitting = true
 		
 	if health <= 0:
 		OnDeath()
@@ -127,7 +127,7 @@ func DropItem():
 
 func DropResource():
 	var newOrb = resourceOrb.instantiate()
-	get_parent().add_child(newOrb)
+	get_tree().root.add_child(newOrb)
 	newOrb.position = global_position + Vector2(randi_range(-20, 20), randi_range(-20, 20))
 	
 
@@ -204,4 +204,4 @@ func _on_attack_timer_timeout():
 	var results = attackArea.get_overlapping_bodies()
 	if len(results) > 0:
 		var target : Survivor = results[0]
-		target.ReceiveHit(randi_range(5,15),0,100)
+		target.ReceiveHit(self, randi_range(5,15), 0)

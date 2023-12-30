@@ -6,6 +6,8 @@ var weapon
 
 var penetrationCount: int = 1
 
+var from
+
 
 func _physics_process(delta):
 	position += transform.x * speed * delta
@@ -20,7 +22,7 @@ func _on_body_entered(body):
 		
 	if body is Enemy:
 		penetrationCount -= 1
-		body.ReceiveHit(randi_range(weapon.data.minDamage, weapon.data.maxDamage), 0, 1)
+		body.ReceiveHit(from, randi_range(weapon.data.minDamage, weapon.data.maxDamage), weapon.data.penetration)
 		queue_free()
 	
 	if not body is Survivor:

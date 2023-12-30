@@ -268,24 +268,10 @@ func Attack():
 	var newBullet = bulletScene.instantiate()
 	Game.gameScene.add_child(newBullet)
 	newBullet.weapon = primarySlot
+	newBullet.from = self
 	newBullet.position = global_position
 	newBullet.rotation = global_position.angle_to_point(get_global_mouse_position())
-	set_push(position.direction_to(get_global_mouse_position()), 50.0, 0.2)
 
-
-func set_push(dir: Vector2, strength: float, timer: float):
-	push_dir = dir
-	push_strength = strength
-	push_timer = timer
-
-
-func push_back(delta: float):
-	if push_timer > 0.0:
-		position -= push_dir * push_strength * delta
-		push_timer -= delta
-	else:
-		push_timer = 0.0
-		
 		
 # takes in where, which slot to put item into, and what, which is the index of the item being moved inside inventory.
 func EquipItemFromInventory(what: int, where: int):

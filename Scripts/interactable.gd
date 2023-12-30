@@ -5,7 +5,6 @@ class_name Interactable
 # time needed to fix this object
 var timeToFix: float = 0
 
-@onready var interactionPoint = $InteractionPoint
 var fixTimeLabel
 
 @onready var sprite = $Sprite2D

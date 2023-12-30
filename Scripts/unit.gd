@@ -16,7 +16,10 @@ var defenseModifier: float = 0
 # added with weapon accuracy to get total accuracy
 @export var accuracy: float = 0
 var accuracyModifer: float = 1
+
 var attackSpeedModifier: float = 1
+
+@export var penetration: float = 0
 
 var attackTarget
 
@@ -99,23 +102,11 @@ func UpdateHealthBar():
 	healthBar.size.x = health/maxHealth * healthBarSize
 
 
-func ReceiveHit(amount, pene: float = 0, acc: float = 0, knockBackVector: Vector2 = Vector2.ZERO, isRadiationDamage = false, from = null):
-	# accuracy check
-	var endAccuracy = acc - evasion
-	if endAccuracy < 0:
-		endAccuracy = 0
-	
-	var rng = randf()
-	if rng > endAccuracy:
-		print(endAccuracy)
-		print(rng)
-		Game.MakeDamagePopup(position, 0)
-		return false
-		
+func ReceiveHit(from, amount, penetration = 0, isRadiationDamage = false):
 	print("Init: ", amount)
 	var endDefense
 	if not isRadiationDamage:
-		endDefense = defense - pene
+		endDefense = defense - penetration
 		if endDefense < 0:
 			endDefense = 0
 	else:
@@ -133,9 +124,10 @@ func ReceiveHit(amount, pene: float = 0, acc: float = 0, knockBackVector: Vector
 	UpdateHealthBar()
 	
 	# apply knockback
-	knockBack += knockBackVector
+	knockBack += -1 * position.direction_to(from.global_position) * 100
 	
 	animationPlayer.play("hit_animation")
+	
 	return true
 
 
