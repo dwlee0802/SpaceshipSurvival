@@ -1,6 +1,5 @@
 res://Scenes/survivor.tscn
 res://Scripts/close_button.tres
-res://Scripts/enemy.gd
 res://Scenes/resouce_orb.tscn
 res://Scenes/showcase_spaceship.tscn
 res://Scenes/showcase_scene.tscn
@@ -9,19 +8,6 @@ res://Scenes/enemy.tscn
 res://Scenes/interactable.tscn
 res://Scenes/disassembly.tscn
 res://Scenes/crafting_station.tscn
-res://Scripts/area_effect.gd
-res://Scripts/game.gd
 res://Scenes/hit_particle_effect.tscn
-res://Scripts/interactable.gd
-res://Scripts/InputManager.gd
 res://Scripts/survivor.gd
-res://Scripts/UserInterfaceManager.gd
-res://Data/2_Head/1_Hazmat_Helmet.tres
-res://Data/1_Ranged/6_Assault_Rifle.tres
-res://Data/1_Ranged/1_Submachine_Gun.tres
-res://Scripts/spaceship.gd
-res://Scripts/DraggableItemSlot.gd
-res://Scripts/draggable_window.gd
-res://Scripts/unit.gd
-res://Scripts/resouce_orb.gd
-res://Data/Skills/2_Lob_Grenade.tres
+res://Data/1_Ranged/0_Handgun.tres

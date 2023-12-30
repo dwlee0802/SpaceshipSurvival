@@ -274,6 +274,9 @@ func Attack():
 	newBullet.from = self
 	newBullet.position = global_position
 	newBullet.rotation = global_position.angle_to_point(get_global_mouse_position())
+	var angle = atan(25.0 / primarySlot.data.range)
+	newBullet.rotation += randf_range(-angle, angle)
+	print(newBullet.rotation)
 	muzzleFlashSprite.visible = true
 		
 # takes in where, which slot to put item into, and what, which is the index of the item being moved inside inventory.
