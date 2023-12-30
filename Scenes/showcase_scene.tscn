@@ -888,7 +888,6 @@ offset_bottom = -136.0
 stretch_mode = 2
 
 [node name="CraftingStationUI" type="Button" parent="Camera/Canvas"]
-visible = false
 offset_left = 840.0
 offset_top = 234.0
 offset_right = 1192.0
@@ -1012,6 +1011,7 @@ offset_top = 3.0
 offset_right = 350.0
 offset_bottom = 25.0
 theme_override_font_sizes/font_size = 10
+shortcut = ExtResource("10_r2g1i")
 text = "Close"
 
 [node name="ModifierUI" type="Control" parent="Camera/Canvas"]
@@ -1616,6 +1616,11 @@ speed = 250
 [connection signal="button_up" from="Camera/Canvas/CraftingStationUI" to="Camera/Canvas/CraftingStationUI" method="_on_button_up"]
 [connection signal="item_selected" from="Camera/Canvas/CraftingStationUI/ItemList" to="InputManager" method="_on_craft_menu_item_list_item_selected"]
 [connection signal="pressed" from="Camera/Canvas/CraftingStationUI/PrintButton" to="InputManager" method="_on_print_button_pressed"]
+[connection signal="pressed" from="Camera/Canvas/CraftingStationUI/MeleeButton" to="InputManager" method="_on_crafting_menu_button_pressed" binds= [0]]
+[connection signal="pressed" from="Camera/Canvas/CraftingStationUI/RangedButton" to="InputManager" method="_on_crafting_menu_button_pressed" binds= [1]]
+[connection signal="pressed" from="Camera/Canvas/CraftingStationUI/HeadButton" to="InputManager" method="_on_crafting_menu_button_pressed" binds= [2]]
+[connection signal="pressed" from="Camera/Canvas/CraftingStationUI/BodyButton" to="InputManager" method="_on_crafting_menu_button_pressed" binds= [3]]
+[connection signal="pressed" from="Camera/Canvas/CraftingStationUI/ConsumableButton" to="InputManager" method="_on_crafting_menu_button_pressed" binds= [4]]
 [connection signal="pressed" from="Camera/Canvas/CraftingStationUI/Closebutton" to="InputManager" method="_on_crafting_station_closebutton_pressed"]
 [connection signal="button_down" from="Camera/Canvas/ContainerUI" to="Camera/Canvas/ContainerUI" method="_on_button_down"]
 [connection signal="button_up" from="Camera/Canvas/ContainerUI" to="Camera/Canvas/ContainerUI" method="_on_button_up"]

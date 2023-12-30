@@ -16,7 +16,7 @@ static var temperature: float = 20
 # food stock of the survivors
 # food is consumed periodically
 # if nutrition is zero, speed is reduced and lose HP
-static var foodStock: int = 5
+static var foodStock: int = 10
 static var maxFoodStock: int = 0
 
 # ammo stock of the survivors
@@ -29,7 +29,7 @@ static var maxAmmoStock: int = 1000
 # component stock of the survivors
 # components are used to make gear and fix modules
 # components are earned by dismantling gear or looting
-static var componentStock: int = 0
+static var componentStock: int = 150
 static var maxComponentStock: int = 400
 
 # the travel speed of the ship

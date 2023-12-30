@@ -399,7 +399,8 @@ static func UpdateInteractionUI(unit):
 	elif object is Disassembly:
 		UpdateDisassemblyInfo()
 	elif object is CraftingStation:
-		UpdateCraftingUI(ItemType.Melee)
+		return
+		UpdateCraftingUI(craftingStationUIType)
 		
 
 # resets the visibility of interaction object's UI windows to false

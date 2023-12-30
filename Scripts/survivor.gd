@@ -221,7 +221,6 @@ func _physics_process(delta):
 	
 	var results = interactionArea.get_overlapping_bodies()
 	if results.size() >= 1:
-		print(results[0].name)
 		results[0].available = true
 		interactionObject = results[0]
 		UserInterfaceManager.UpdateInteractionUI(self)

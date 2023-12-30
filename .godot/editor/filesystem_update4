@@ -13,3 +13,10 @@ res://Scripts/area_effect.gd
 res://Scripts/game.gd
 res://Scenes/hit_particle_effect.tscn
 res://Scripts/interactable.gd
+res://Scripts/InputManager.gd
+res://Scripts/survivor.gd
+res://Scripts/UserInterfaceManager.gd
+res://Data/2_Head/1_Hazmat_Helmet.tres
+res://Data/1_Ranged/6_Assault_Rifle.tres
+res://Data/1_Ranged/1_Submachine_Gun.tres
+res://Scripts/spaceship.gd

@@ -123,6 +123,7 @@ energy = 2.0
 texture = SubResource("GradientTexture2D_k6mnu")
 
 [node name="AimingIndicator" type="Polygon2D" parent="ArmSprite"]
+visible = false
 position = Vector2(41, 0)
 scale = Vector2(1, 1.5)
 color = Color(0.294118, 0.294118, 0.294118, 0.4)

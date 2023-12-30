@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="RangedWeapon" load_steps=2 format=3 uid="uid://7txy7bjmpmct"]
+
+[ext_resource type="Script" path="res://Data/ranged_data.gd" id="1_r1t4y"]
+
+[resource]
+script = ExtResource("1_r1t4y")
+ammoPerShot = 2
+reloadTime = 4.0
+magazineCapacity = 8
+range = 375
+minDamage = 150
+maxDamage = 300
+attacksPerSecond = 6.0
+penetration = 0.5
+accuracy = 1.0
+knockBack = 300
+type = 1
+name = "Assault Rifle"
+ID = 5
+description = "The solution for close quarter combat."
+componentValue = 100
+weight = 5
