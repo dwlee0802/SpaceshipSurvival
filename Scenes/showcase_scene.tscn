@@ -1596,7 +1596,7 @@ shape = SubResource("RectangleShape2D_vbgc8")
 position = Vector2(-162, 54)
 skillSlot_1 = ExtResource("16_atbyv")
 skillSlot_2 = ExtResource("17_glgvd")
-speed = 200
+speed = 250
 
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InformationButton" to="InputManager" method="_on_information_button_pressed"]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InventoryButton" to="InputManager" method="_on_inventory_button_pressed"]

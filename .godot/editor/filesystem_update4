@@ -12,3 +12,5 @@ res://Scripts/drop_item_slot.gd
 res://Scripts/survivor.gd
 res://Scripts/enemy.gd
 res://Scripts/unit.gd
+res://Scenes/bullet.tscn
+res://Scripts/bullet.gd

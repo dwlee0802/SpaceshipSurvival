@@ -6,6 +6,8 @@ class_name Survivor
 
 var endAccuracy: float = 0
 
+@onready var bulletScene = preload("res://Scenes/bullet.tscn")
+
 @onready var attackArea = $AttackArea
 @onready var attackLine = $AttackLine
 
@@ -17,6 +19,8 @@ var endAccuracy: float = 0
 @onready var noAmmoLabel = $NoAmmoLabel
 
 @onready var aimingIndicator = $ArmSprite/AimingIndicator
+
+@onready var attackCooldown: bool = false
 
 # the interaction target this unit is moving towards
 var interactionTarget
@@ -100,17 +104,21 @@ var requiredEXP: int = 500
 @export var skillSlot_1: Skill
 @export var skillSlot_2: Skill
 
+var push_dir: Vector2 = Vector2(0, 0)
+var push_strength: float = 0.0
+var push_timer: float = 0.0
+
+@export var rotate_flag: bool = true # Enable body rotation 
+
 
 func _ready():
 	super._ready()
-	
-	attackTimer.timeout.connect(Attack)
-	
+
 	inventory.resize(MAX_INVENTORY_COUNT)
 	
 	overviewMarker.self_modulate = Color.GREEN
 	
-	EquipNewItem(Item.new(1,0), SlotType.Primary)
+	EquipNewItem(Item.new(1,1), SlotType.Primary)
 	
 	AddItem(Item.new(4,0))
 	UpdateStats()
@@ -184,13 +192,19 @@ func _physics_process(delta):
 	velocity = Vector2.ZERO # The player's movement vector.
 	# Movement input
 	if Input.is_action_pressed("move_right"):
-		velocity.x += 100
+		velocity.x += 1
 	if Input.is_action_pressed("move_left"):
-		velocity.x -= 100
+		velocity.x -= 1
 	if Input.is_action_pressed("move_down"):
-		velocity.y += 100
+		velocity.y += 1
 	if Input.is_action_pressed("move_up"):
-		velocity.y -= 100
+		velocity.y -= 1
+		
+	# Shot input
+	if Input.is_action_pressed("attack_primary") and attackCooldown == false:
+		attackTimer.start(1/primarySlot.data.attacksPerSecond)
+		attackCooldown = true
+		Attack()
 		
 	# Normalize velocity if move along x and y together
 	if velocity.length() > 0:
@@ -222,35 +236,31 @@ func _physics_process(delta):
 			interactionTarget = null
 			emit_signal("update_unit_inventory_ui")
 	"""
-
+	
+	
 func Attack():
-	if isDead:
-		return
-		
-	# deal damage
-	# default weapon fists
-	var primary
-		
-	if primarySlot == null:
-		primary = Item.new(0,0)
-	else:
-		primary = primarySlot
-		
-	if primary.type == ItemType.Melee or (primary.type == ItemType.Ranged and Spaceship.ConsumeAmmo(primary.data.ammoPerShot)):
-		var amount = randi_range(primary.data.minDamage, primary.data.maxDamage)
-		if is_instance_valid(attackTarget):
-			var dir = position.direction_to(attackTarget.position)
-			dir *= primary.data.knockBack
-			attackTarget.ReceiveHit(amount, primary.data.penetration, endAccuracy, dir, false, self)
-		else:
-			attackTarget = null
-		#print("Delt ", str(amount), " damage!")
-		muzzleFlashSprite.visible = true
-		noAmmoLabel.visible = false
-	else:
-		noAmmoLabel.visible = true
+	var newBullet = bulletScene.instantiate()
+	Game.gameScene.add_child(newBullet)
+	newBullet.weapon = primarySlot
+	newBullet.position = global_position
+	newBullet.rotation = global_position.angle_to_point(get_global_mouse_position())
+	set_push(position.direction_to(get_global_mouse_position()), 50.0, 0.2)
 
 
+func set_push(dir: Vector2, strength: float, timer: float):
+	push_dir = dir
+	push_strength = strength
+	push_timer = timer
+
+
+func push_back(delta: float):
+	if push_timer > 0.0:
+		position -= push_dir * push_strength * delta
+		push_timer -= delta
+	else:
+		push_timer = 0.0
+		
+		
 # takes in where, which slot to put item into, and what, which is the index of the item being moved inside inventory.
 func EquipItemFromInventory(what: int, where: int):
 	equipmentSlots[where] = what
@@ -509,3 +519,7 @@ func PrintMiscStats() -> String:
 	output += "LV: " + str(level) + "\n"
 	output += str(experiencePoints) + "/" + str(requiredEXP) + "\n"
 	return output
+
+
+func _on_attack_timer_timeout():
+	attackCooldown = false

@@ -210,6 +210,7 @@ speed_scale = 4.0
 [node name="ReloadTimer" type="Timer" parent="."]
 process_callback = 0
 
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="OxygenTimer" to="." method="_on_oxygen_timer_timeout"]
 [connection signal="timeout" from="TemperatureTimer" to="." method="_on_temperature_timer_timeout"]
 [connection signal="timeout" from="NutritionTimer" to="." method="_on_nutrition_timer_timeout"]
