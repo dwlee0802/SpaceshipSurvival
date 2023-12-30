@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://c5nyr1fhytbkv"]
+[gd_scene load_steps=37 format=3 uid="uid://c5nyr1fhytbkv"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_8rs23"]
 [ext_resource type="PackedScene" uid="uid://bglyxpx5ldmya" path="res://Scenes/showcase_spaceship.tscn" id="2_cyxog"]
@@ -21,26 +21,29 @@
 [sub_resource type="ButtonGroup" id="ButtonGroup_k1ai1"]
 allow_unpress = true
 
-[sub_resource type="InputEventMouseButton" id="InputEventMouseButton_d23fh"]
-button_mask = 16
-position = Vector2(166, 17)
-global_position = Vector2(170, 58)
-button_index = 5
-pressed = true
+[sub_resource type="InputEventKey" id="InputEventKey_wok48"]
+device = -1
+keycode = 73
+unicode = 105
 
 [sub_resource type="Shortcut" id="Shortcut_7qy3f"]
-events = [SubResource("InputEventMouseButton_d23fh")]
+events = [SubResource("InputEventKey_wok48")]
 
 [sub_resource type="InputEventKey" id="InputEventKey_4a3vl"]
 device = -1
-keycode = 69
-unicode = 101
+keycode = 66
+unicode = 98
 
 [sub_resource type="Shortcut" id="Shortcut_uxh8f"]
 events = [SubResource("InputEventKey_4a3vl")]
 
-[sub_resource type="Shortcut" id="Shortcut_pokcy"]
-events = [SubResource("InputEventKey_4a3vl")]
+[sub_resource type="InputEventKey" id="InputEventKey_ca4cy"]
+device = -1
+keycode = 69
+unicode = 101
+
+[sub_resource type="Shortcut" id="Shortcut_fmohv"]
+events = [SubResource("InputEventKey_ca4cy")]
 
 [sub_resource type="InputEventKey" id="InputEventKey_f6pi5"]
 device = -1
@@ -441,15 +444,13 @@ button_pressed = true
 text = "Fire At Will"
 
 [node name="InteractionButton" type="Button" parent="Camera/Canvas/UnitUI"]
-visible = false
 layout_mode = 0
 offset_left = 225.0
 offset_top = 4.0
 offset_right = 349.0
 offset_bottom = 35.0
 toggle_mode = true
-button_group = SubResource("ButtonGroup_k1ai1")
-shortcut = SubResource("Shortcut_pokcy")
+shortcut = SubResource("Shortcut_fmohv")
 text = "Interaction"
 
 [node name="SkillButtons" type="Control" parent="Camera/Canvas/UnitUI"]

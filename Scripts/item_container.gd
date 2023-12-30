@@ -23,7 +23,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if available:
+		modulate = Color.GREEN
+	else:
+		modulate = Color.WHITE
+		
+	available = false
 
 
 func FillContentsRandomly():

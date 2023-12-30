@@ -22,6 +22,8 @@ var endAccuracy: float = 0
 
 @onready var attackCooldown: bool = false
 
+@onready var interactionArea = $InteractionArea
+
 # the interaction target this unit is moving towards
 var interactionTarget
 
@@ -109,6 +111,9 @@ var push_strength: float = 0.0
 var push_timer: float = 0.0
 
 @export var rotate_flag: bool = true # Enable body rotation 
+
+var isRunning: bool = false
+var attacking: bool = false
 
 
 func _ready():
@@ -199,9 +204,15 @@ func _physics_process(delta):
 		velocity.y += 1
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
+	
+	if Input.is_action_pressed("run"):
+		isRunning = true
+	else:
+		isRunning = false
+		
 		
 	# Shot input
-	if Input.is_action_pressed("attack_primary") and attackCooldown == false:
+	if attacking and attackCooldown == false:
 		attackTimer.start(1/primarySlot.data.attacksPerSecond)
 		attackCooldown = true
 		Attack()
@@ -212,6 +223,17 @@ func _physics_process(delta):
 		#move_trail_effect.emitting = true # Play movement trail effect
 	# Limit the player movement, add your character scale if needed
 	move_and_slide()
+	
+	
+	var results = interactionArea.get_overlapping_bodies()
+	if results.size() >= 1:
+		print(results[0].name)
+		results[0].available = true
+		interactionObject = results[0]
+		UserInterfaceManager.UpdateInteractionUI(self)
+	else:
+		interactionObject = null
+		UserInterfaceManager.CloseInteractionWindows()
 		
 	"""
 	# interactions with interactable objects
@@ -237,7 +259,17 @@ func _physics_process(delta):
 			emit_signal("update_unit_inventory_ui")
 	"""
 	
-	
+
+func _unhandled_input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			if event.pressed:
+				attacking = true
+			else:
+				attacking = false
+		
+
+# need to make it so that the angle is offset based on accuracy
 func Attack():
 	var newBullet = bulletScene.instantiate()
 	Game.gameScene.add_child(newBullet)

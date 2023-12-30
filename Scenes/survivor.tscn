@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://crk54pclkvhi"]
+[gd_scene load_steps=14 format=3 uid="uid://crk54pclkvhi"]
 
 [ext_resource type="Script" path="res://Scripts/survivor.gd" id="1_ag083"]
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="2_3n7u2"]
@@ -74,6 +74,9 @@ _data = {
 "level_up_anim": SubResource("Animation_kumx6")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_atndj"]
+radius = 50.0
+
 [node name="Survivor" type="CharacterBody2D"]
 collision_mask = 18
 motion_mode = 1
@@ -100,6 +103,9 @@ shape = SubResource("CircleShape2D_4duku")
 [node name="AttackTimer" type="Timer" parent="."]
 process_callback = 0
 wait_time = 0.2
+
+[node name="ReloadTimer" type="Timer" parent="."]
+process_callback = 0
 
 [node name="ArmSprite" type="Node2D" parent="."]
 
@@ -134,16 +140,15 @@ scale = Vector2(1, 1.5)
 color = Color(0.294118, 0.294118, 0.294118, 0.4)
 polygon = PackedVector2Array(0, 0, 25, 10, 25, 0, 25, -10)
 
-[node name="AttackUpdateTimer" type="Timer" parent="."]
-process_callback = 0
-wait_time = 0.2
-autostart = true
-
 [node name="OxygenTimer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
 
 [node name="TemperatureTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="NutritionTimer" type="Timer" parent="."]
+wait_time = 30.0
 autostart = true
 
 [node name="NoAmmoLabel" type="Label" parent="."]
@@ -155,10 +160,6 @@ offset_right = 56.0
 offset_bottom = -34.0
 theme_override_font_sizes/font_size = 9
 text = "No Ammo"
-
-[node name="NutritionTimer" type="Timer" parent="."]
-wait_time = 30.0
-autostart = true
 
 [node name="HealthBar" type="Node2D" parent="."]
 position = Vector2(-25, -59)
@@ -207,8 +208,12 @@ libraries = {
 }
 speed_scale = 4.0
 
-[node name="ReloadTimer" type="Timer" parent="."]
-process_callback = 0
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_atndj")
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="OxygenTimer" to="." method="_on_oxygen_timer_timeout"]

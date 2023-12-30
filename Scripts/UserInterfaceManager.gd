@@ -383,19 +383,16 @@ static func UpdateInteractionUI(unit):
 		button.visible = true
 		button.text = "Container"
 		UpdateContainerUI(object)
-		containerUI.visible = unit.isInteractionOpen
 	elif object is Disassembly:
 		var button = unitUI.get_node("InteractionButton")
 		button.visible = true
 		button.text = "Disassembly"
 		UpdateDisassemblyInfo()
-		disassemblyUI.visible = unit.isInteractionOpen
 	elif object is CraftingStation:
 		var button = unitUI.get_node("InteractionButton")
 		button.visible = true
 		button.text = "Crafting Station"
 		UpdateCraftingUI(ItemType.Melee)
-		craftingStationUI.visible = unit.isInteractionOpen
 		
 
 # resets the visibility of interaction object's UI windows to false

@@ -14,3 +14,8 @@ res://Scripts/enemy.gd
 res://Scripts/unit.gd
 res://Scenes/bullet.tscn
 res://Scripts/bullet.gd
+res://Scenes/item_container.tscn
+res://Scenes/interactable.tscn
+res://Scripts/interactable.gd
+res://Scripts/item_container.gd
+res://Scripts/UserInterfaceManager.gd
