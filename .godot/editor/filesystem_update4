@@ -11,3 +11,10 @@ res://Scenes/crafting_station.tscn
 res://Scenes/hit_particle_effect.tscn
 res://Scripts/survivor.gd
 res://Data/1_Ranged/0_Handgun.tres
+res://Data/1_Ranged/1_Submachine_Gun.tres
+res://Data/1_Ranged/2_Auto_Rifle.tres
+res://Data/1_Ranged/3_Laser_Rifle.tres
+res://Data/1_Ranged/4_Sniper_Rifle.tres
+res://Data/1_Ranged/5_Shotgun.tres
+res://Data/1_Ranged/6_Assault_Rifle.tres
+res://Data/ranged_data.gd

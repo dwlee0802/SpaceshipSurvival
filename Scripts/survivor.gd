@@ -107,6 +107,8 @@ var push_timer: float = 0.0
 var isRunning: bool = false
 var attacking: bool = false
 
+var spread: float = 0
+
 
 func _ready():
 	super._ready()
@@ -273,11 +275,10 @@ func Attack():
 	newBullet.weapon = primarySlot
 	newBullet.from = self
 	newBullet.position = global_position
-	newBullet.rotation = global_position.angle_to_point(get_global_mouse_position())
-	var angle = atan(25.0 / primarySlot.data.range)
-	newBullet.rotation += randf_range(-angle, angle)
+	newBullet.rotation = global_position.angle_to_point(get_global_mouse_position()) + randf_range(-spread, spread)
 	print(newBullet.rotation)
 	muzzleFlashSprite.visible = true
+		
 		
 # takes in where, which slot to put item into, and what, which is the index of the item being moved inside inventory.
 func EquipItemFromInventory(what: int, where: int):
@@ -360,6 +361,14 @@ func UpdateStats():
 		attackTimer.wait_time = (1 / primary.data.attacksPerSecond + randf_range(-0.01,0.01))/self.attackSpeedModifier
 		endAccuracy = accuracy + primary.data.accuracy
 	
+	# update weapon bullet spread
+	spread = 2 * atan(25.0/primary.data.range)
+	
+	if isRunning:
+		spread *= 2
+	elif velocity != Vector2.ZERO:
+		spread *= primary.data.movementPenalty
+
 
 func PointArmAt(pos):
 	# turn towards target
