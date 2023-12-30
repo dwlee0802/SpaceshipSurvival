@@ -359,7 +359,7 @@ func UpdateStats():
 	self.defenseModifier = 1
 	
 	for item: BuffObject in self.buffs:
-		speedModifier += item.data.speedModifer
+		speed *= 1 + item.data.speedModifer
 		self.attackSpeedModifier += item.data.attackSpeedModifier
 		endAccuracy += item.data.accuracyAmount
 		defense += item.data.defenseAmount
