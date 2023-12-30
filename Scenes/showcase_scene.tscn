@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://c5nyr1fhytbkv"]
+[gd_scene load_steps=36 format=3 uid="uid://c5nyr1fhytbkv"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_8rs23"]
 [ext_resource type="PackedScene" uid="uid://bglyxpx5ldmya" path="res://Scenes/showcase_spaceship.tscn" id="2_cyxog"]
@@ -17,8 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://crk54pclkvhi" path="res://Scenes/survivor.tscn" id="15_4sls7"]
 [ext_resource type="Resource" uid="uid://bnncpbvnspnx5" path="res://Data/Skills/0_Adrenalin_Rush.tres" id="16_atbyv"]
 [ext_resource type="Resource" uid="uid://dj20wnavxfafh" path="res://Data/Skills/2_Lob_Grenade.tres" id="17_glgvd"]
-[ext_resource type="Resource" uid="uid://wcnoearsoegm" path="res://Data/Skills/5_Defensive_Stance.tres" id="18_fv7et"]
-[ext_resource type="Resource" uid="uid://5hayf3r68rj1" path="res://Data/Skills/3_Stun_Grenade.tres" id="19_cgn3u"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_k1ai1"]
 allow_unpress = true
@@ -1600,19 +1598,11 @@ skillSlot_1 = ExtResource("16_atbyv")
 skillSlot_2 = ExtResource("17_glgvd")
 speed = 200
 
-[node name="Survivor2" parent="." instance=ExtResource("15_4sls7")]
-position = Vector2(-22, 52)
-skillSlot_1 = ExtResource("18_fv7et")
-skillSlot_2 = ExtResource("19_cgn3u")
-speed = 200
-
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InformationButton" to="InputManager" method="_on_information_button_pressed"]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InventoryButton" to="InputManager" method="_on_inventory_button_pressed"]
 [connection signal="toggled" from="Camera/Canvas/UnitUI/CombatBehavior/MoveAndShoot" to="InputManager" method="_on_move_and_shoot_toggled"]
 [connection signal="toggled" from="Camera/Canvas/UnitUI/CombatBehavior/FireAtWill" to="InputManager" method="_on_fire_at_will_toggled"]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InteractionButton" to="InputManager" method="_on_interaction_button_pressed"]
-[connection signal="pressed" from="Camera/Canvas/UnitUI/SkillButtons/SkillButton1" to="InputManager" method="_on_skill_button_pressed" binds= [0]]
-[connection signal="pressed" from="Camera/Canvas/UnitUI/SkillButtons/SkillButton2" to="InputManager" method="_on_skill_button_pressed" binds= [1]]
 [connection signal="button_down" from="Camera/Canvas/DisassemblyUI" to="Camera/Canvas/DisassemblyUI" method="_on_button_down"]
 [connection signal="button_up" from="Camera/Canvas/DisassemblyUI" to="Camera/Canvas/DisassemblyUI" method="_on_button_up"]
 [connection signal="pressed" from="Camera/Canvas/DisassemblyUI/DisassembleButton" to="InputManager" method="_on_disassemble_button_pressed"]
@@ -1621,11 +1611,6 @@ speed = 200
 [connection signal="button_up" from="Camera/Canvas/CraftingStationUI" to="Camera/Canvas/CraftingStationUI" method="_on_button_up"]
 [connection signal="item_selected" from="Camera/Canvas/CraftingStationUI/ItemList" to="InputManager" method="_on_craft_menu_item_list_item_selected"]
 [connection signal="pressed" from="Camera/Canvas/CraftingStationUI/PrintButton" to="InputManager" method="_on_print_button_pressed"]
-[connection signal="pressed" from="Camera/Canvas/CraftingStationUI/MeleeButton" to="InputManager" method="_on_crafting_menu_button_pressed" binds= [0]]
-[connection signal="pressed" from="Camera/Canvas/CraftingStationUI/RangedButton" to="InputManager" method="_on_crafting_menu_button_pressed" binds= [1]]
-[connection signal="pressed" from="Camera/Canvas/CraftingStationUI/HeadButton" to="InputManager" method="_on_crafting_menu_button_pressed" binds= [2]]
-[connection signal="pressed" from="Camera/Canvas/CraftingStationUI/BodyButton" to="InputManager" method="_on_crafting_menu_button_pressed" binds= [3]]
-[connection signal="pressed" from="Camera/Canvas/CraftingStationUI/ConsumableButton" to="InputManager" method="_on_crafting_menu_button_pressed" binds= [4]]
 [connection signal="pressed" from="Camera/Canvas/CraftingStationUI/Closebutton" to="InputManager" method="_on_crafting_station_closebutton_pressed"]
 [connection signal="button_down" from="Camera/Canvas/ContainerUI" to="Camera/Canvas/ContainerUI" method="_on_button_down"]
 [connection signal="button_up" from="Camera/Canvas/ContainerUI" to="Camera/Canvas/ContainerUI" method="_on_button_up"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://crk54pclkvhi"]
+[gd_scene load_steps=13 format=3 uid="uid://crk54pclkvhi"]
 
 [ext_resource type="Script" path="res://Scripts/survivor.gd" id="1_ag083"]
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="2_3n7u2"]
@@ -12,10 +12,6 @@ size = Vector2(40, 40)
 [sub_resource type="CircleShape2D" id="CircleShape2D_4duku"]
 resource_local_to_scene = true
 radius = 600.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_fl1yi"]
-resource_local_to_scene = true
-radius = 150.0
 
 [sub_resource type="Gradient" id="Gradient_2kiva"]
 offsets = PackedFloat32Array(0, 0.75)
@@ -93,10 +89,6 @@ texture = ExtResource("2_10b6v")
 [node name="BodyCollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_nmrp8")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_postprocessing = 1
-avoidance_enabled = true
-
 [node name="AttackArea" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
@@ -105,22 +97,9 @@ collision_mask = 2
 position = Vector2(0, -44)
 shape = SubResource("CircleShape2D_4duku")
 
-[node name="AttackLine" type="Line2D" parent="."]
-points = PackedVector2Array(0, 0, 0, 0)
-width = 1.0
-default_color = Color(1, 0, 0, 1)
-
 [node name="AttackTimer" type="Timer" parent="."]
 process_callback = 0
 wait_time = 0.2
-
-[node name="AuraArea" type="Area2D" parent="."]
-visible = false
-collision_layer = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AuraArea"]
-shape = SubResource("CircleShape2D_fl1yi")
-debug_color = Color(0.682353, 0.494118, 0.290196, 0.419608)
 
 [node name="ArmSprite" type="Node2D" parent="."]
 
@@ -160,52 +139,6 @@ process_callback = 0
 wait_time = 0.2
 autostart = true
 
-[node name="NavigationRaycasts" type="Node2D" parent="."]
-visible = false
-
-[node name="RayCast2D" type="RayCast2D" parent="NavigationRaycasts"]
-visible = false
-collision_mask = 16
-
-[node name="RayCast2D2" type="RayCast2D" parent="NavigationRaycasts"]
-visible = false
-position = Vector2(0, 25)
-collision_mask = 16
-
-[node name="RayCast2D3" type="RayCast2D" parent="NavigationRaycasts"]
-visible = false
-position = Vector2(0, -25)
-collision_mask = 16
-
-[node name="RayCast2D4" type="RayCast2D" parent="NavigationRaycasts"]
-visible = false
-position = Vector2(-25, 0)
-collision_mask = 16
-
-[node name="RayCast2D5" type="RayCast2D" parent="NavigationRaycasts"]
-visible = false
-position = Vector2(25, 0)
-collision_mask = 16
-
-[node name="SelectionCircle" type="Sprite2D" parent="."]
-visible = false
-self_modulate = Color(0, 1, 0, 0.27451)
-position = Vector2(6.55651e-07, 25)
-scale = Vector2(0.234375, 0.0546875)
-texture = ExtResource("3_5uyep")
-
-[node name="SelectionArrow" type="Sprite2D" parent="SelectionCircle"]
-self_modulate = Color(0, 1, 0, 0.329412)
-position = Vector2(6.99361e-06, -1462.86)
-rotation = -1.33021
-scale = Vector2(129.755, 135.723)
-skew = 1.11183
-texture = ExtResource("2_3n7u2")
-
-[node name="AttackRaycast" type="RayCast2D" parent="."]
-target_position = Vector2(205, -1)
-collision_mask = 16
-
 [node name="OxygenTimer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
@@ -222,44 +155,6 @@ offset_right = 56.0
 offset_bottom = -34.0
 theme_override_font_sizes/font_size = 9
 text = "No Ammo"
-
-[node name="DestinationCircle" type="Sprite2D" parent="."]
-visible = false
-self_modulate = Color(0, 0.929412, 0.278431, 1)
-show_behind_parent = true
-position = Vector2(141, 37)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("3_5uyep")
-
-[node name="Label" type="Label" parent="DestinationCircle"]
-self_modulate = Color(0, 0, 0, 1)
-offset_left = -150.0
-offset_top = -50.0
-offset_right = 160.0
-offset_bottom = 50.0
-theme_override_font_sizes/font_size = 60
-text = "Survivor 1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="AttackTargetUI" type="Sprite2D" parent="."]
-self_modulate = Color(1, 0, 0, 0.607843)
-show_behind_parent = true
-position = Vector2(141, 37)
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("3_5uyep")
-
-[node name="Label" type="Label" parent="AttackTargetUI"]
-self_modulate = Color(0, 0, 0, 1)
-offset_left = 220.0
-offset_top = -780.0
-offset_right = 1257.0
-offset_bottom = -159.0
-theme_override_font_sizes/font_size = 150
-text = "Hit Chance: 00
-ACC: 00
-EVA: 00"
-vertical_alignment = 1
 
 [node name="NutritionTimer" type="Timer" parent="."]
 wait_time = 30.0
@@ -315,22 +210,6 @@ speed_scale = 4.0
 [node name="ReloadTimer" type="Timer" parent="."]
 process_callback = 0
 
-[node name="SelectionShortcutLabel" type="Panel" parent="."]
-offset_left = -38.0
-offset_top = -85.0
-offset_right = -24.0
-offset_bottom = -62.0
-
-[node name="SelectionShortcutLabel" type="Label" parent="SelectionShortcutLabel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "1"
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-
 [connection signal="timeout" from="OxygenTimer" to="." method="_on_oxygen_timer_timeout"]
 [connection signal="timeout" from="TemperatureTimer" to="." method="_on_temperature_timer_timeout"]
 [connection signal="timeout" from="NutritionTimer" to="." method="_on_nutrition_timer_timeout"]
-[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen" binds= [true]]
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen" binds= [false]]

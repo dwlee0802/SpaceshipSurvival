@@ -8,7 +8,7 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	var newPlacedItem = placedItem.instantiate()
 	newPlacedItem.item = data.item
 	Game.gameScene.add_child(newPlacedItem)
-	newPlacedItem.position = InputManager.selectedUnits[0].position + Vector2(randi_range(-25,25), randi_range(-25,25))
+	newPlacedItem.position = Game.survivor.position + Vector2(randi_range(-25,25), randi_range(-25,25))
 	data.reparent(self)
 	data.queue_free()
 	

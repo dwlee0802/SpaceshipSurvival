@@ -37,9 +37,7 @@ func _process(delta):
 		
 	offset = get_noise_offset(delta)
 	
-	# mouse wheel button dragging
-	if screenDragging:
-		position = screenDragOffset + screenDragStart - get_local_mouse_position()
+	position = Game.survivor.position
 
 
 func _unhandled_input(event):
@@ -48,40 +46,6 @@ func _unhandled_input(event):
 			zoom = zoom * 1.2
 		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
 			zoom = zoom * 0.8
-		if event.button_index == MOUSE_BUTTON_MIDDLE and event.pressed:
-			screenDragging = true
-			screenDragStart = position
-			screenDragOffset = get_local_mouse_position()
-		else:
-			screenDragging = false
-			
-	if event is InputEventKey and event.pressed:
-		if event.keycode == KEY_W:
-			position += Vector2(0, -tileSize * 4)
-		if event.keycode == KEY_S:
-			position -= Vector2(0, -tileSize * 4)
-		if event.keycode == KEY_A:
-			position += Vector2(-tileSize * 4, 0)
-		if event.keycode == KEY_D:
-			position += Vector2(tileSize * 4, 0)
-			
-		# pan camera to survivors
-		if event.keycode == KEY_1:
-			if len(Game.survivors) >= 1:
-				if not Game.survivors[0].isInScreen:
-					position = Game.survivors[0].position
-		if event.keycode == KEY_2:
-			if len(Game.survivors) >= 2:
-				if not Game.survivors[1].isInScreen:
-					position = Game.survivors[1].position
-		if event.keycode == KEY_3:
-			if len(Game.survivors) >= 3:
-				if not Game.survivors[2].isInScreen:
-					position = Game.survivors[2].position
-		if event.keycode == KEY_4:
-			if len(Game.survivors) >= 4:
-				if not Game.survivors[3].isInScreen:
-					position = Game.survivors[3].position
 
 		
 static func ShakeScreen(intensity, duration):

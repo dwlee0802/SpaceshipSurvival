@@ -2,7 +2,7 @@ extends Node2D
 
 class_name Game
 
-static var survivors = []
+static var survivor
 
 static var enemies = []
 static var MAX_ENEMY_COUNT: int = 10
@@ -29,25 +29,10 @@ static var components: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	survivors = []
-	survivors.append($Survivor)
-	survivors.append($Survivor2)
+	survivor = $Survivor
 	gameScene = self
 	spaceship = $Spaceship
 	
-	for i in range(survivors.size()):
-		survivors[i].get_node("SelectionShortcutLabel/SelectionShortcutLabel").text = str(i + 1)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	var count = len(survivors)
-	for i in count:
-		if survivors[i].isDead:
-			count -= 1
-	
-	if count <= 0:
-		print("Game Over!")
-
 
 static func UpdateEnemyTargetPosition():
 	for item in enemies:
@@ -56,11 +41,6 @@ static func UpdateEnemyTargetPosition():
 				item.ChangeTargetPosition(item.attackTarget.position)
 		else:
 			enemies.erase(item)
-
-
-static func SetSelectionUI(value):
-	for item in survivors:
-		item.ShowSelectionUI(value)
 
 
 static func MakeDamagePopup(where, amount, color = Color.DARK_RED):
@@ -100,31 +80,15 @@ static func UpdateStockMax():
 	Spaceship.maxFoodStock = 0
 	Spaceship.maxComponentStock = 0
 	
-	for item in survivors:
-		Spaceship.maxAmmoStock += item.strength * AMMO_PER_STR
-		Spaceship.maxFoodStock += item.strength * FOOD_PER_STR
-		Spaceship.maxComponentStock += item.strength * COMP_PER_STR
-
-
-static func GetClosestSurvivor(position):
-	var result = survivors[0]
-	var smallestDist = survivors[0].position.distance_to(position)
+	var item = survivor
 	
-	for item in survivors:
-		var dist = item.position.distance_to(position)
-		if smallestDist > dist:
-			result = item
-			smallestDist = dist
-	
-	return result
+	Spaceship.maxAmmoStock += item.strength * AMMO_PER_STR
+	Spaceship.maxFoodStock += item.strength * FOOD_PER_STR
+	Spaceship.maxComponentStock += item.strength * COMP_PER_STR
 
 
 static func GainExperiencePoints(main, amount):
-	for item : Survivor in survivors:
-		if item == main:
-			item.AddExperiencePoints(amount * 2)
-		else:
-			item.AddExperiencePoints(amount)
+	survivor.AddExperiencePoints(amount)
 
 
 func _on_restart_button_pressed():

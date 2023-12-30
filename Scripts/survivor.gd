@@ -9,21 +9,13 @@ var endAccuracy: float = 0
 @onready var attackArea = $AttackArea
 @onready var attackLine = $AttackLine
 
-@onready var selectionCircle = $SelectionCircle
-
-static var itemsFilePath: String = "res://Data/Items.json"
-static var itemsDict
-
 @onready var attackTimer = $AttackTimer
-@onready var attackRaycast = $AttackRaycast
 
 @onready var armSprite = $ArmSprite
 @onready var muzzleFlashSprite = $ArmSprite/MuzzleFlash
 
 @onready var noAmmoLabel = $NoAmmoLabel
 
-@onready var destinationMarker = $DestinationCircle
-@onready var attackTargetMarker = $AttackTargetUI
 @onready var aimingIndicator = $ArmSprite/AimingIndicator
 
 # the interaction target this unit is moving towards
@@ -108,25 +100,13 @@ var requiredEXP: int = 500
 @export var skillSlot_1: Skill
 @export var skillSlot_2: Skill
 
-var isInScreen: bool = false
-
 
 func _ready():
 	super._ready()
-	# read in json files
-	var file1 = FileAccess.open(itemsFilePath, FileAccess.READ)
-
-	var content_as_text1 = file1.get_as_text()
-	itemsDict = parse_json(content_as_text1)
-	Item.itemDict = itemsDict
 	
 	attackTimer.timeout.connect(Attack)
 	
 	inventory.resize(MAX_INVENTORY_COUNT)
-	
-	$AttackUpdateTimer.timeout.connect(ScanForAttackTargets)
-	
-	destinationMarker.get_node("Label").text = name
 	
 	overviewMarker.self_modulate = Color.GREEN
 	
@@ -139,10 +119,6 @@ func _ready():
 	maxHealth = 200
 	health = maxHealth
 	
-
-func parse_json(text):
-	return JSON.parse_string(text)
-
 
 func _process(delta):
 	if isDead:
@@ -201,22 +177,29 @@ func _physics_process(delta):
 	UpdateStats()
 	
 	super._physics_process(delta)
+	
 	muzzleFlashSprite.visible = false
 	
-	# destination marker that shows where the unit is headed
-	if not isMoving:
-		destinationMarker.visible = false
-	else:
-		destinationMarker.visible = true
-		destinationMarker.position = target_position - position
-	
-	# attack target marker showing what the unit is attacking
-	if attackTarget != null and not attackTimer.is_stopped():
-		attackTargetMarker.visible = true
-		attackTargetMarker.global_position = attackTarget.global_position
-	else:
-		attackTargetMarker.visible = false
+	# player controls
+	velocity = Vector2.ZERO # The player's movement vector.
+	# Movement input
+	if Input.is_action_pressed("move_right"):
+		velocity.x += 100
+	if Input.is_action_pressed("move_left"):
+		velocity.x -= 100
+	if Input.is_action_pressed("move_down"):
+		velocity.y += 100
+	if Input.is_action_pressed("move_up"):
+		velocity.y -= 100
 		
+	# Normalize velocity if move along x and y together
+	if velocity.length() > 0:
+		velocity = velocity.normalized() * speed
+		#move_trail_effect.emitting = true # Play movement trail effect
+	# Limit the player movement, add your character scale if needed
+	move_and_slide()
+		
+	"""
 	# interactions with interactable objects
 	if  (not isMoving) and (interactionTarget != null):
 		# unit has reached the interaction Target
@@ -238,53 +221,7 @@ func _physics_process(delta):
 			interactionTarget.queue_free()
 			interactionTarget = null
 			emit_signal("update_unit_inventory_ui")
-			
-	
-	# attack process
-	if fireAtWill:
-		if attackTarget != null and (moveAndShoot or (not moveAndShoot and not isMoving)):
-			attackRaycast.target_position = attackTarget.position - position
-			if attackRaycast.get_collider() == null:
-				if attackTimer.is_stopped():
-					attackTimer.start()
-					aimingIndicator.visible = true
-				PointArmAt(attackTarget.position)
-				aimingIndicator.scale.y = attackTimer.time_left/ attackTimer.wait_time * 1.5
-				SetAttackLine()
-			else:
-				attackTimer.stop()
-				aimingIndicator.visible = false
-				attackLine.visible = false
-		else:
-			# line of sight blocked. cant attack
-			attackTimer.stop()
-			aimingIndicator.visible = false
-			attackLine.visible = false
-		
-		
-func ScanForAttackTargets():
-	# acquire attack targets
-	var targets = attackArea.get_overlapping_bodies()
-	attackTarget = null
-			
-	if len(targets) == 0:
-		attackLine.visible = false
-	else:
-		# find closest target
-		var minDist = 10000
-		for item in targets:
-			# only consider those within line of sight
-			var dist = position.distance_to(item.position)
-			if dist < minDist:
-				minDist = dist
-				attackTarget = item
-				var text = "Hit Chance: " + str(int(endAccuracy * 100 - attackTarget.evasion * 100)) + "\n"
-				text += "ACC: " + str(int(endAccuracy * 100)) + "\n"
-				text += "EVA: " + str(int(attackTarget.evasion * 100)) + "\n"
-				attackTargetMarker.get_node("Label").text = text
-		
-		attackRaycast.target_position = attackTarget.position - position
-
+	"""
 
 func Attack():
 	if isDead:
@@ -330,11 +267,6 @@ func EquipNewItem(item: Item, where: int):
 	inventoryWeight += item.data.weight
 	
 	UpdateStats()
-
-
-# use the item located at index in inventory
-func UseItemAt(index):
-	pass
 
 
 func UpdateStats():
@@ -408,19 +340,6 @@ func SetAttackLine():
 		attackLine.set_point_position(1, attackTarget.position - position)
 		PointArmAt(attackTarget.position)
 
-
-func ShowSelectionUI(val = true):
-	selectionCircle.visible = val
-		
-		
-func ChangeTargetPosition(where):
-	super.ChangeTargetPosition(where)
-	PointArmAt(where)
-	interactionObject = null
-	isInteractionOpen = false
-	emit_signal("update_interaction_ui")
-	self.running = false
-	
 
 func OnDeath():
 	if isDead:
@@ -590,7 +509,3 @@ func PrintMiscStats() -> String:
 	output += "LV: " + str(level) + "\n"
 	output += str(experiencePoints) + "/" + str(requiredEXP) + "\n"
 	return output
-
-
-func _on_visible_on_screen_notifier_2d_screen(extra_arg_0):
-	isInScreen = extra_arg_0
