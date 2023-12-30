@@ -108,13 +108,16 @@ func ReceiveHit(from, amount, penetration = 0, isRadiationDamage = false):
 		ChangeTargetPosition(attackTarget.position)
 		
 	if super.ReceiveHit(from, amount, penetration, isRadiationDamage):
-		var temp = Game.MakeEnemyHitEffect(global_position, from.position.direction_to(position).angle())
+		var temp = Game.MakeEnemyHitEffect(global_position, from.global_position.direction_to(global_position).angle())
 		temp.emitting = true
 		
 	if health <= 0:
 		OnDeath()
 		if not isRadiationDamage:
-			MakeExpOrb(from)
+			if from is Survivor:
+				MakeExpOrb(from)
+			elif from is AreaEffect:
+				MakeExpOrb(from.get_parent())
 
 
 func DropItem():

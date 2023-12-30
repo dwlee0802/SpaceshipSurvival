@@ -20,3 +20,6 @@ res://Data/2_Head/1_Hazmat_Helmet.tres
 res://Data/1_Ranged/6_Assault_Rifle.tres
 res://Data/1_Ranged/1_Submachine_Gun.tres
 res://Scripts/spaceship.gd
+res://Scripts/DraggableItemSlot.gd
+res://Scripts/draggable_window.gd
+res://Scripts/unit.gd

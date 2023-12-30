@@ -8,8 +8,6 @@ var endAccuracy: float = 0
 
 @onready var bulletScene = preload("res://Scenes/bullet.tscn")
 
-@onready var attackLine = $AttackLine
-
 @onready var attackTimer = $AttackTimer
 
 @onready var armSprite = $ArmSprite
@@ -357,16 +355,6 @@ func UpdateStats():
 func PointArmAt(pos):
 	# turn towards target
 	armSprite.rotation = global_position.angle_to_point(pos)
-	
-
-func SetAttackLine():
-	if attackTarget == null:
-		attackLine.visible = false
-	else:
-		# set attack line
-		attackLine.visible = true
-		attackLine.set_point_position(1, attackTarget.position - position)
-		PointArmAt(attackTarget.position)
 
 
 func OnDeath():

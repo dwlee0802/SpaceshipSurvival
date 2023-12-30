@@ -11,7 +11,7 @@ var mouseOnThis: bool = false
 signal item_dropped
 
 
-func _process(delta):
+func _process(_delta):
 	if mouseOnThis:
 		self_modulate = Color.AQUA
 	else:
