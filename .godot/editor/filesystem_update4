@@ -24,3 +24,4 @@ res://Scripts/module.gd
 res://Scenes/module.tscn
 res://Scenes/nuclear_reactor.tscn
 res://Scenes/infirmary.tscn
+res://Scripts/spaceship.gd
