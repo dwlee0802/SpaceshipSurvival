@@ -28,7 +28,7 @@ func _process(_delta):
 	if timeToFix > 0:
 		modulate = Color.RED
 		fixTimeLabel.visible = true
-		fixTimeLabel.text = str(int(timeToFix))
+		fixTimeLabel.text = str(int(timeToFix* 10) / 10.0)
 	else:
 		modulate = Color.WHITE
 		fixTimeLabel.visible = false
@@ -42,4 +42,5 @@ func Fix(delta):
 	if timeToFix > 0:
 		return false
 	else:
+		print("fixed!")
 		return true

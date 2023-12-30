@@ -6,8 +6,8 @@
 script = ExtResource("1_y302a")
 throwRange = 350
 effectRadius = 150
-damageMin = 20
-damageMax = 100
+damageMin = 50
+damageMax = 150
 stunDuration = 0
 knockBack = 350
 name = "Lob Grenade"

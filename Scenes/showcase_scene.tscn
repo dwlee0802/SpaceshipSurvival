@@ -888,6 +888,7 @@ offset_bottom = -136.0
 stretch_mode = 2
 
 [node name="CraftingStationUI" type="Button" parent="Camera/Canvas"]
+visible = false
 offset_left = 840.0
 offset_top = 234.0
 offset_right = 1192.0

@@ -173,6 +173,7 @@ func _process(delta):
 		#pass
 	
 	UpdateHealthBar()
+	PointArmAt(get_global_mouse_position())
 	
 
 func _physics_process(delta):
@@ -226,6 +227,11 @@ func _physics_process(delta):
 		interactionObject = null
 		UserInterfaceManager.CloseInteractionWindows()
 	
+	if Input.is_action_pressed("interact"):
+		if interactionObject != null:
+			print(interactionObject.name)
+			interactionObject.Fix(delta)
+			
 	"""
 	# interactions with interactable objects
 	if  (not isMoving) and (interactionTarget != null):
@@ -258,7 +264,7 @@ func _unhandled_input(event):
 				attacking = true
 			else:
 				attacking = false
-		
+	
 
 # need to make it so that the angle is offset based on accuracy
 func Attack():
@@ -268,7 +274,7 @@ func Attack():
 	newBullet.from = self
 	newBullet.position = global_position
 	newBullet.rotation = global_position.angle_to_point(get_global_mouse_position())
-
+	muzzleFlashSprite.visible = true
 		
 # takes in where, which slot to put item into, and what, which is the index of the item being moved inside inventory.
 func EquipItemFromInventory(what: int, where: int):

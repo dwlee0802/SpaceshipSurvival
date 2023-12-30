@@ -19,7 +19,7 @@ func _ready():
 	expAmount = 0
 	
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if fly:
 		position += position.direction_to(target.position) * FOLLOW_SPEED
 	

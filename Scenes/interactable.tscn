@@ -12,7 +12,7 @@ resource_local_to_scene = true
 size = Vector2(50, 69)
 
 [node name="Interactable" type="StaticBody2D"]
-collision_layer = 4
+collision_layer = 8
 collision_mask = 0
 physics_material_override = SubResource("PhysicsMaterial_elui1")
 script = ExtResource("1_i626h")

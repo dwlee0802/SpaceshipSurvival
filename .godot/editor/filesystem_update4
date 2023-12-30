@@ -23,3 +23,5 @@ res://Scripts/spaceship.gd
 res://Scripts/DraggableItemSlot.gd
 res://Scripts/draggable_window.gd
 res://Scripts/unit.gd
+res://Scripts/resouce_orb.gd
+res://Data/Skills/2_Lob_Grenade.tres
