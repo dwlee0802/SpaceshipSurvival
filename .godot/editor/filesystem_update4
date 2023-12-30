@@ -19,3 +19,7 @@ res://Scenes/interactable.tscn
 res://Scripts/interactable.gd
 res://Scripts/item_container.gd
 res://Scripts/UserInterfaceManager.gd
+res://Scenes/disassembly.tscn
+res://Scenes/crafting_station.tscn
+res://Scripts/crafting_station.gd
+res://Scripts/disassembly.gd

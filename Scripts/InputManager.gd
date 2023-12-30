@@ -312,6 +312,8 @@ func _on_interaction_button_pressed():
 		UserInterfaceManager.containerUI.visible = true
 	elif obj is Disassembly:
 		UserInterfaceManager.disassemblyUI.visible = true
+	elif obj is CraftingStation:
+		UserInterfaceManager.craftingStationUI.visible = true
 		
 
 func _on_container_closebutton_pressed():

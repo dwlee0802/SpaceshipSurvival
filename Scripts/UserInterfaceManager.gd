@@ -406,6 +406,7 @@ static func UpdateInteractionUI(unit):
 static func CloseInteractionWindows():
 	containerUI.visible = false
 	disassemblyUI.visible = false
+	craftingStationUI.visible = false
 
 
 # update equipment UI with item's data
