@@ -367,31 +367,38 @@ static func UpdateInformationUI(unit: Survivor):
 	informationUIHealth.text = unit.PrintHealthStats()
 	informationUICombat.text = unit.PrintCombatStats()
 	informationUIMisc.text = unit.PrintMiscStats()
-	
-	
-# changes interaction button in unit ui to show what type is interacting
-static func UpdateInteractionUI(unit):
+
+
+static func UpdateInteractionButton(unit):
 	var object = unit.interactionObject
-	CloseInteractionWindows()
 	if object == null:
 		# hide interaction UI button
 		unitUI.get_node("InteractionButton").visible = false
 		return
-		
+	
 	if object is ItemContainer:
 		var button = unitUI.get_node("InteractionButton")
 		button.visible = true
 		button.text = "Container"
-		UpdateContainerUI(object)
 	elif object is Disassembly:
 		var button = unitUI.get_node("InteractionButton")
 		button.visible = true
 		button.text = "Disassembly"
-		UpdateDisassemblyInfo()
 	elif object is CraftingStation:
 		var button = unitUI.get_node("InteractionButton")
 		button.visible = true
 		button.text = "Crafting Station"
+		
+		
+# changes interaction button in unit ui to show what type is interacting
+static func UpdateInteractionUI(unit):
+	var object = unit.interactionObject
+		
+	if object is ItemContainer:
+		UpdateContainerUI(object)
+	elif object is Disassembly:
+		UpdateDisassemblyInfo()
+	elif object is CraftingStation:
 		UpdateCraftingUI(ItemType.Melee)
 		
 

@@ -275,8 +275,6 @@ func _on_inventory_button_pressed():
 		UserInterfaceManager.inventoryUI.visible = true
 	else:
 		UserInterfaceManager.inventoryUI.visible = false
-	
-	Game.survivor.isInventoryOpen = not Game.survivor.isInventoryOpen
 
 
 func _on_disassemble_button_pressed():
@@ -306,38 +304,26 @@ func _on_information_button_pressed():
 
 func _on_info_closebutton_pressed():
 	UserInterfaceManager.informationUI.visible = false
-	Game.survivor.isInfoOpen = false
 
 
 func _on_interaction_button_pressed():
 	var obj = Game.survivor.interactionObject
-	if obj == null:
-		UserInterfaceManager.CloseInteractionWindows()
-	else:
-		if obj is ItemContainer:
-			UserInterfaceManager.containerUI.visible = not UserInterfaceManager.containerUI.visible
-			Game.survivor.isInteractionOpen = UserInterfaceManager.containerUI.visible
-		if obj is Disassembly:
-			UserInterfaceManager.disassemblyUI.visible = not UserInterfaceManager.disassemblyUI.visible
-			Game.survivor.isInteractionOpen = UserInterfaceManager.disassemblyUI.visible
-		if obj is CraftingStation:
-			UserInterfaceManager.craftingStationUI.visible = not UserInterfaceManager.craftingStationUI.visible
-			Game.survivor.isInteractionOpen = UserInterfaceManager.craftingStationUI.visible
-			
+	if obj is ItemContainer:
+		UserInterfaceManager.containerUI.visible = true
+	elif obj is Disassembly:
+		UserInterfaceManager.disassemblyUI.visible = true
+		
 
 func _on_container_closebutton_pressed():
 	UserInterfaceManager.containerUI.visible = false
-	Game.survivor.isInteractionOpen = false
 
 
 func _on_inventory_closebutton_pressed():
 	UserInterfaceManager.inventoryUI.visible = false
-	Game.survivor.isInventoryOpen = false
 
 
 func _on_crafting_station_closebutton_pressed():
 	UserInterfaceManager.craftingStationUI.visible = false
-	Game.survivor.isInteractionOpen = false
 
 
 # use skill
