@@ -9,6 +9,7 @@ script = ExtResource("1_1thg8")
 ammoPerShot = 1
 reloadTime = 3.0
 magazineCapacity = 12
+movementPenalty = 1.5
 range = 500
 minDamage = 50
 maxDamage = 200

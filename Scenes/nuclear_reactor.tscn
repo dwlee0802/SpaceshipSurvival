@@ -40,4 +40,7 @@ process_callback = 0
 wait_time = 2.0
 autostart = true
 
+[node name="ErrorCooldownTimer" type="Timer" parent="."]
+wait_time = 30.0
+
 [connection signal="timeout" from="RadiationDamageTimer" to="." method="_on_radiation_damage_timer_timeout"]

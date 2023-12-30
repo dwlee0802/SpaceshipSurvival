@@ -18,3 +18,9 @@ res://Data/1_Ranged/4_Sniper_Rifle.tres
 res://Data/1_Ranged/5_Shotgun.tres
 res://Data/1_Ranged/6_Assault_Rifle.tres
 res://Data/ranged_data.gd
+res://Scripts/enemy.gd
+res://Scripts/unit.gd
+res://Scripts/module.gd
+res://Scenes/module.tscn
+res://Scenes/nuclear_reactor.tscn
+res://Scenes/infirmary.tscn

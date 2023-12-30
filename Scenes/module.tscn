@@ -12,3 +12,8 @@ autostart = true
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 process_callback = 0
 autostart = true
+
+[node name="ErrorCooldownTimer" type="Timer" parent="."]
+wait_time = 30.0
+
+[connection signal="timeout" from="ErrorCooldownTimer" to="." method="_on_error_cooldown_timer_timeout"]

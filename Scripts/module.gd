@@ -20,6 +20,8 @@ var spawnPoints = []
 
 var overviewMarker
 
+var recentlyHadError: bool = false
+
 
 func _ready():
 	for item in interactablesNode.get_children():
@@ -70,8 +72,17 @@ func CheckOperational():
 
 
 func GenerateErrors():
+	if recentlyHadError:
+		return
+		
 	for item in interactables:
 		if item.timeToFix <= 0:
 			if randf() < errorRate:
 				item.timeToFix = randi_range(5, 15)
 	
+	recentlyHadError = true
+	$ErrorCooldownTimer.start()
+	
+
+func _on_error_cooldown_timer_timeout():
+	recentlyHadError = false

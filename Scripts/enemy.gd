@@ -69,8 +69,9 @@ func _physics_process(delta):
 		if roamTimer.is_stopped():
 			roamTimer.start()
 		
-	if isMoving:
+	if true:
 		if position.distance_to(target_position) < STOP_DIST:
+			velocity = Vector2.ZERO
 			isMoving = false
 			return
 				
@@ -78,13 +79,15 @@ func _physics_process(delta):
 		if CheckDirectPath(target_position):
 			# update target position realtime
 			navUpdateTimer.stop()
-			velocity = position.direction_to(target_position) * speed * speedModifier + knockBack
+			velocity = position.direction_to(target_position) * speed * speedModifier
 		else:
 			# if not, pathfinding.
 			ChangeTargetPosition(target_position)
 			if navUpdateTimer.is_stopped():
 				navUpdateTimer.start()
-			
+				
+		velocity += knockBack
+		
 		move_and_slide()
 	
 
