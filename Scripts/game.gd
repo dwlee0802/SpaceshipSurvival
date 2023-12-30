@@ -71,11 +71,11 @@ static func MakeExplosionEffect(where):
 	return newEff
 
 
-static func MakeEnemyHitEffect(where, to):
+static func MakeEnemyHitEffect(where, angle):
 	var newEff = enemyHitEffectScene.instantiate()
 	gameScene.add_child(newEff)
 	newEff.global_position = where
-	newEff.direction = to.global_position.normalized() * -1
+	newEff.rotation = angle
 	return newEff
 	
 

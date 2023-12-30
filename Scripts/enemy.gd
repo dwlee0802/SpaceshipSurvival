@@ -12,8 +12,8 @@ var placedItemScene = preload("res://Scenes/placed_item.tscn")
 static var expOrb = preload("res://Scenes/exp_orb.tscn")
 static var resourceOrb = preload("res://Scenes/resouce_orb.tscn")
 
-var itemDropProbability: float = 0.5
-var resourceDropProbability: float = 0.5
+var itemDropProbability: float = 0.01
+var resourceDropProbability: float = 0.1
 
 @onready var alertArea = $AlertArea
 @onready var detectionArea = $DetectionArea
@@ -108,7 +108,7 @@ func ReceiveHit(from, amount, penetration = 0, isRadiationDamage = false):
 		ChangeTargetPosition(attackTarget.position)
 		
 	if super.ReceiveHit(from, amount, penetration, isRadiationDamage):
-		var temp = Game.MakeEnemyHitEffect(global_position, from)
+		var temp = Game.MakeEnemyHitEffect(global_position, from.position.direction_to(position).angle())
 		temp.emitting = true
 		
 	if health <= 0:
