@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://c5nyr1fhytbkv"]
+[gd_scene load_steps=38 format=3 uid="uid://c5nyr1fhytbkv"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_8rs23"]
 [ext_resource type="PackedScene" uid="uid://bglyxpx5ldmya" path="res://Scenes/showcase_spaceship.tscn" id="2_cyxog"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://Scripts/InputManager.gd" id="13_rwdrv"]
 [ext_resource type="PackedScene" uid="uid://crk54pclkvhi" path="res://Scenes/survivor.tscn" id="15_4sls7"]
 [ext_resource type="Resource" uid="uid://bnncpbvnspnx5" path="res://Data/Skills/0_Adrenalin_Rush.tres" id="16_atbyv"]
+[ext_resource type="Resource" uid="uid://d51whjtkivtv" path="res://Data/Survivors/0_Veteran.tres" id="16_fioqq"]
 [ext_resource type="Resource" uid="uid://dj20wnavxfafh" path="res://Data/Skills/2_Lob_Grenade.tres" id="17_glgvd"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_k1ai1"]
@@ -46,9 +47,7 @@ unicode = 101
 events = [SubResource("InputEventKey_ca4cy")]
 
 [sub_resource type="InputEventKey" id="InputEventKey_f6pi5"]
-device = -1
-keycode = 90
-unicode = 122
+keycode = 49
 
 [sub_resource type="Shortcut" id="Shortcut_hmhhn"]
 events = [SubResource("InputEventKey_f6pi5")]
@@ -58,8 +57,8 @@ size = Vector2(70, 70)
 
 [sub_resource type="InputEventKey" id="InputEventKey_xk656"]
 device = -1
-keycode = 88
-unicode = 120
+keycode = 50
+unicode = 50
 
 [sub_resource type="Shortcut" id="Shortcut_7g5vs"]
 events = [SubResource("InputEventKey_xk656")]
@@ -1597,6 +1596,7 @@ shape = SubResource("RectangleShape2D_vbgc8")
 
 [node name="Survivor" parent="." instance=ExtResource("15_4sls7")]
 position = Vector2(-162, 54)
+survivorData = ExtResource("16_fioqq")
 skillSlot_1 = ExtResource("16_atbyv")
 skillSlot_2 = ExtResource("17_glgvd")
 speed = 250
@@ -1606,6 +1606,8 @@ speed = 250
 [connection signal="toggled" from="Camera/Canvas/UnitUI/CombatBehavior/MoveAndShoot" to="InputManager" method="_on_move_and_shoot_toggled"]
 [connection signal="toggled" from="Camera/Canvas/UnitUI/CombatBehavior/FireAtWill" to="InputManager" method="_on_fire_at_will_toggled"]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InteractionButton" to="InputManager" method="_on_interaction_button_pressed"]
+[connection signal="pressed" from="Camera/Canvas/UnitUI/SkillButtons/SkillButton1" to="InputManager" method="_on_skill_button_pressed" binds= [0]]
+[connection signal="pressed" from="Camera/Canvas/UnitUI/SkillButtons/SkillButton2" to="InputManager" method="_on_skill_button_pressed" binds= [1]]
 [connection signal="button_down" from="Camera/Canvas/DisassemblyUI" to="Camera/Canvas/DisassemblyUI" method="_on_button_down"]
 [connection signal="button_up" from="Camera/Canvas/DisassemblyUI" to="Camera/Canvas/DisassemblyUI" method="_on_button_up"]
 [connection signal="pressed" from="Camera/Canvas/DisassemblyUI/DisassembleButton" to="InputManager" method="_on_disassemble_button_pressed"]

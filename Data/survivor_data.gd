@@ -6,7 +6,7 @@ class_name SurvivorData
 @export var spriteTexture: Texture
 
 # base stats
-@export var speed: float = 150
+@export var speed: float = 200
 @export var accuracy: float
 @export var strength: float
 @export var maxHealth: float

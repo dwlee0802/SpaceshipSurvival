@@ -293,13 +293,8 @@ func _on_disassemble_button_pressed():
 
 
 func _on_information_button_pressed():
-	if Game.survivor.isInfoOpen:
-		UserInterfaceManager.informationUI.visible = false
-	else:
-		UserInterfaceManager.UpdateInformationUI(Game.survivor)
-		UserInterfaceManager.informationUI.visible = true
-		
-	Game.survivor.isInfoOpen = not Game.survivor.isInfoOpen
+	UserInterfaceManager.UpdateInformationUI(Game.survivor)
+	UserInterfaceManager.informationUI.visible = true
 
 
 func _on_info_closebutton_pressed():

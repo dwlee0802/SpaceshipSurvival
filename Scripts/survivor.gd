@@ -8,7 +8,6 @@ var endAccuracy: float = 0
 
 @onready var bulletScene = preload("res://Scenes/bullet.tscn")
 
-@onready var attackArea = $AttackArea
 @onready var attackLine = $AttackLine
 
 @onready var attackTimer = $AttackTimer
@@ -340,6 +339,9 @@ func UpdateStats():
 	if primarySlot != null:
 		inventoryWeight += primarySlot.data.weight
 	
+	# set to base speed
+	speed = survivorData.speed
+	
 	# modify speed based on inventory weight
 	if inventoryWeight > inventoryCapacity:
 		speedModifier = 1 - (inventoryWeight - inventoryCapacity) / float(inventoryCapacity)
@@ -347,6 +349,11 @@ func UpdateStats():
 			speedModifier = 0
 	else:
 		speedModifier = 1
+	
+	speed *= speedModifier
+	
+	if isRunning:
+		speed *= 1.5
 	
 	self.attackSpeedModifier = 1
 	self.defenseModifier = 1
@@ -359,7 +366,6 @@ func UpdateStats():
 
 	if primary != null:
 		attackTimer.wait_time = (1 / primary.data.attacksPerSecond + randf_range(-0.01,0.01))/self.attackSpeedModifier
-		get_node("AttackArea").get_node("CollisionShape2D").shape.set_radius(primary.data.range)
 		endAccuracy = accuracy + primary.data.accuracy
 	
 
@@ -530,7 +536,7 @@ func PrintHealthStats() -> String:
 
 func PrintCombatStats() -> String:
 	var output = "Combat Stats:\n"
-	output += "Speed: " + str(speed * (speedModifier + int(self.running))) + "\n"
+	output += "Speed: " + str(int(speed)) + "\n"
 	output += "Strength: " + str(strength) + "\n"
 	output += "Accuracy: " + str(int(endAccuracy * 100) / 100) + "%\n"
 	output += "Evasion" + str(int(evasion * 100) / 100) + "%\n"

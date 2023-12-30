@@ -23,3 +23,6 @@ res://Scenes/disassembly.tscn
 res://Scenes/crafting_station.tscn
 res://Scripts/crafting_station.gd
 res://Scripts/disassembly.gd
+res://Data/1_Ranged/1_Submachine_Gun.tres
+res://Data/survivor_data.gd
+res://Data/Survivors/0_Veteran.tres

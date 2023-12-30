@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://crk54pclkvhi"]
+[gd_scene load_steps=13 format=3 uid="uid://crk54pclkvhi"]
 
 [ext_resource type="Script" path="res://Scripts/survivor.gd" id="1_ag083"]
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="2_3n7u2"]
@@ -8,10 +8,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nmrp8"]
 resource_local_to_scene = true
 size = Vector2(40, 40)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_4duku"]
-resource_local_to_scene = true
-radius = 600.0
 
 [sub_resource type="Gradient" id="Gradient_2kiva"]
 offsets = PackedFloat32Array(0, 0.75)
@@ -91,14 +87,6 @@ texture = ExtResource("2_10b6v")
 
 [node name="BodyCollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_nmrp8")
-
-[node name="AttackArea" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(0, -44)
-shape = SubResource("CircleShape2D_4duku")
 
 [node name="AttackTimer" type="Timer" parent="."]
 process_callback = 0
