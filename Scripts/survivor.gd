@@ -49,9 +49,6 @@ var inventoryCapacity: int = 20
 
 # unit stats
 
-# modifies reload time
-var reloadSpeed: float = 1
-
 # oxygen level in body. Starts to lose health when it reaches zero
 var oxygen: float = 100
 
@@ -109,6 +106,13 @@ var attacking: bool = false
 
 var spread: float = 0
 
+# modifies reload time
+var reloadSpeed: float = 1
+var reloading: bool = false
+var magazineCount: int = 0
+@onready var reloadTimer = $ReloadTimer
+@onready var reloadUI = $ReloadProcess
+
 
 func _ready():
 	super._ready()
@@ -130,7 +134,7 @@ func _ready():
 func _process(delta):
 	if isDead:
 		return
-	
+	print(attacking)
 	ReduceBuffDurations(delta)
 	
 	oxygen -= delta * 3
@@ -177,6 +181,12 @@ func _process(delta):
 	UpdateHealthBar()
 	PointArmAt(get_global_mouse_position())
 	
+	if reloading:
+		reloadUI.visible = true
+		reloadUI.progress = reloadTimer.time_left / reloadTimer.wait_time * 100
+	else:
+		reloadUI.visible = false
+		
 
 func _physics_process(delta):
 	if isDead:
@@ -205,9 +215,16 @@ func _physics_process(delta):
 	else:
 		isRunning = false
 		
+	attacking = false
+	if Input.is_action_pressed("attack_primary"):
+		attacking = true
+				
+	# reload
+	if Input.is_action_pressed("reload"):
+		Reload()
 		
 	# Shot input
-	if attacking and attackCooldown == false:
+	if attacking and attackCooldown == false and reloading == false:
 		attackTimer.start(1/primarySlot.data.attacksPerSecond)
 		attackCooldown = true
 		Attack()
@@ -257,18 +274,14 @@ func _physics_process(delta):
 			emit_signal("update_unit_inventory_ui")
 	"""
 	
-
-func _unhandled_input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			if event.pressed:
-				attacking = true
-			else:
-				attacking = false
 	
-
 # need to make it so that the angle is offset based on accuracy
 func Attack():
+	# check if need reload
+	if magazineCount <= 0:
+		Reload()
+		return
+		
 	var newBullet = bulletScene.instantiate()
 	Game.gameScene.add_child(newBullet)
 	newBullet.weapon = primarySlot
@@ -277,8 +290,16 @@ func Attack():
 	newBullet.rotation = global_position.angle_to_point(get_global_mouse_position()) + randf_range(-spread, spread)
 	print(newBullet.rotation)
 	muzzleFlashSprite.visible = true
-		
-		
+	
+	magazineCount -= 1
+	
+	
+func Reload():
+	if not reloading and primarySlot.type == ItemType.Ranged:
+		$ReloadTimer.start(primarySlot.data.reloadTime * reloadSpeed)
+		reloading = true
+	
+	
 # takes in where, which slot to put item into, and what, which is the index of the item being moved inside inventory.
 func EquipItemFromInventory(what: int, where: int):
 	equipmentSlots[where] = what
@@ -546,3 +567,9 @@ func PrintMiscStats() -> String:
 
 func _on_attack_timer_timeout():
 	attackCooldown = false
+
+
+func _on_reload_timer_timeout():
+	reloading = false
+	magazineCount = primarySlot.data.magazineCapacity
+	Spaceship.ConsumeAmmo(primarySlot.data.ammoPerReload)

@@ -1,3 +1,5 @@
+Label
+TextureRect
 Timer
 CollisionShape2D
 Area2D
@@ -7,8 +9,6 @@ AnimationPlayer
 Sprite2D
 VisibleOnScreenNotifier2D
 Panel
-Label
 Button
 Spaceship
 Node2D
-TextureButton

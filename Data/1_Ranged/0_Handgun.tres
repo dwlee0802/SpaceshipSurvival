@@ -6,9 +6,9 @@
 
 [resource]
 script = ExtResource("1_1thg8")
-ammoPerShot = 1
+ammoPerReload = 0
 reloadTime = 3.0
-magazineCapacity = 12
+magazineCapacity = 9
 movementPenalty = 1.5
 range = 500
 minDamage = 50

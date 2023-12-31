@@ -65,14 +65,6 @@ func _unhandled_input(event):
 				UserInterfaceManager.UpdateSpaceshipOverviewUI(false)
 	
 
-func _on_move_and_shoot_toggled(button_pressed):
-	Game.survivor.moveAndShoot = button_pressed
-
-
-func _on_fire_at_will_toggled(button_pressed):
-	Game.survivor.fireAtWill = button_pressed
-
-
 func _on_equip_button_pressed():
 	var selectedItemIndex: int = UserInterfaceManager.itemList.get_selected_items()[0]
 	
