@@ -140,6 +140,8 @@ func _ready():
 	maxHealth = 200
 	health = maxHealth
 	
+	Reload()
+	
 
 func _process(delta):
 	if isDead:

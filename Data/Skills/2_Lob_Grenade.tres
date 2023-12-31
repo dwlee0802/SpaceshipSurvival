@@ -13,5 +13,5 @@ knockBack = 350
 name = "Lob Grenade"
 ID = 2
 description = "Throw a grenade at target, dealing area damage."
-cooldownTime = 5.0
+cooldownTime = 4.0
 duration = 0.0

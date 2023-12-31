@@ -125,8 +125,10 @@ func ReceiveHit(from, amount, penetration = 0, isRadiationDamage = false):
 	
 	# apply knockback
 	if from is Survivor:
-		knockBack += -1 * position.direction_to(from.global_position) * from.primarySlot.data.knockBack
-	
+		knockBack += -1 * global_position.direction_to(from.global_position) * from.primarySlot.data.knockBack
+	elif from is AreaEffect:
+		knockBack += -1 * global_position.direction_to(from.global_position) * from.data.knockBack
+	print("knock back: " + str(knockBack))
 	animationPlayer.play("hit_animation")
 	
 	return true

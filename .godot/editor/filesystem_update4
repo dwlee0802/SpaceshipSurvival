@@ -6,3 +6,8 @@ res://Scripts/survivor.gd
 res://Scripts/area_effect.gd
 res://Data/buff_skill.gd
 res://Scenes/crosshair.tscn
+res://Data/1_Ranged/0_Handgun.tres
+res://Data/1_Ranged/1_Submachine_Gun.tres
+res://Scripts/enemy.gd
+res://Data/Skills/2_Lob_Grenade.tres
+res://Scripts/unit.gd

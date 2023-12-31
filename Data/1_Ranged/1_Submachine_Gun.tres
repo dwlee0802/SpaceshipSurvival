@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_f66qo")
-ammoPerShot = 2
-reloadTime = 4.0
+ammoPerReload = 0
+reloadTime = 2.5
 magazineCapacity = 25
 movementPenalty = 1.3
 range = 700

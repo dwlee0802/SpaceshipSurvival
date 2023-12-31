@@ -45,7 +45,7 @@ func _physics_process(delta):
 	
 	# knock back damping
 	if knockBack.length() > 0:
-		knockBack = knockBack.normalized() * (knockBack.length() - delta * 1000)
+		knockBack = knockBack.normalized() * (knockBack.length() - delta * 800)
 	else:
 		knockBack = Vector2.ZERO
 		
@@ -79,15 +79,13 @@ func _physics_process(delta):
 		if CheckDirectPath(target_position):
 			# update target position realtime
 			navUpdateTimer.stop()
-			velocity = position.direction_to(target_position) * speed * speedModifier
+			velocity = position.direction_to(target_position) * speed * speedModifier + knockBack
 		else:
 			# if not, pathfinding.
 			ChangeTargetPosition(target_position)
 			if navUpdateTimer.is_stopped():
 				navUpdateTimer.start()
 				
-		velocity += knockBack
-		
 		move_and_slide()
 	
 

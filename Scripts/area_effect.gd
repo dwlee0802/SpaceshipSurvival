@@ -89,7 +89,7 @@ func _on_duration_timer_timeout():
 func Effect():
 	var results = effectArea.get_overlapping_bodies()
 	for item in results:
-		if not CheckLineOfSight(position, item.position):
+		if not CheckLineOfSight(global_position, item.global_position):
 			continue
 			
 		var dir = global_position.direction_to(item.position)
