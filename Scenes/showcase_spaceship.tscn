@@ -416,6 +416,36 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1
 
+[node name="Label2" type="Label" parent="Label2"]
+offset_left = -477.0
+offset_top = -29.0
+offset_right = -70.0
+offset_bottom = 123.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 13
+text = "Portal
+Allows quick relocation to its pair portal
+Has 30 second cooldown
+Press E to use"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Label3" type="Label" parent="Label2"]
+offset_left = 1228.0
+offset_top = -27.0
+offset_right = 1635.0
+offset_bottom = 125.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 13
+text = "Portal
+Allows quick relocation to its pair portal
+Has 30 second cooldown
+Press E to use"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
 [node name="Teleporter" parent="." node_paths=PackedStringArray("otherPortal") instance=ExtResource("12_kyl6j")]
 position = Vector2(-1011.71, 49.8878)
 otherPortal = NodePath("Teleporter")
