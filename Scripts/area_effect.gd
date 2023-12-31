@@ -58,7 +58,7 @@ func _process(delta):
 				durationTimer.start()
 	
 
-func _unhandled_input(event):
+func _input(event):
 	if effectSprite.visible == false:
 		return
 	if event is InputEventMouseButton:
@@ -105,3 +105,7 @@ func CheckLineOfSight(start, end, mask = 16):
 		return true
 	else:
 		return false
+
+
+func _exit_tree():
+	Game.survivor.usingSkill = false

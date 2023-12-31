@@ -15,5 +15,5 @@ defenseModifier = 1.0
 name = "Marksmen's Eye"
 ID = 1
 description = "Increase focus for higher accuracy."
-cooltime = 5.0
+cooldownTime = 5.0
 duration = 3.0

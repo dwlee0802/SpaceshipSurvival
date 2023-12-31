@@ -5,6 +5,8 @@ var placedItem = preload("res://Scenes/placed_item.tscn")
 
 static var InputManagerInstance
 
+var currentSkillObject = null
+
 
 func _ready():
 	InputManagerInstance = self
@@ -39,6 +41,18 @@ func _process(delta):
 	callable = Callable(UserInterfaceManager, "UpdateSkillButtons")
 	callable.call(Game.survivor)
 	
+	# disable skill buttons if they are on cooldown
+	if Game.survivor.skillReady_1:
+		UserInterfaceManager.skillButton_1.disabled = false
+	else:
+		UserInterfaceManager.skillButton_1.disabled = true	
+	UserInterfaceManager.skillButton_cd_1.size.y = Game.survivor.skillCooldownTimer1.time_left / Game.survivor.skillCooldownTimer1.wait_time * 70
+	if Game.survivor.skillReady_2:
+		UserInterfaceManager.skillButton_2.disabled = false
+	else:
+		UserInterfaceManager.skillButton_2.disabled = true
+	UserInterfaceManager.skillButton_cd_2.size.y = Game.survivor.skillCooldownTimer2.time_left / Game.survivor.skillCooldownTimer2.wait_time * 70
+
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
@@ -334,9 +348,10 @@ func _on_skill_button_pressed(extra_arg_0):
 		newAreaEff.SetData(skillData)
 		newAreaEff.reparent(Game.survivor)
 		newAreaEff.skill_used.connect(Game.survivor.ApplySkillCooldown)
-	
+		Game.survivor.usingSkill = true
 	if skillData is BuffSkill:
 		var newBuffObject = BuffObject.new()
 		newBuffObject.data = skillData
 		newBuffObject.durationLeft = newBuffObject.data.duration
 		Game.survivor.AddBuff(newBuffObject)
+		Game.survivor.ApplySkillCooldown(skillData)

@@ -5,7 +5,7 @@ class_name Skill
 @export var ID: int
 @export_multiline var description: String
 @export var texture: Texture2D
-@export var cooltime: float = 0
+@export var cooldownTime: float = 0
 @export var duration: float = 0
 
 func Effect(user, target = null):

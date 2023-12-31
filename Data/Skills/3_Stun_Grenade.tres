@@ -13,5 +13,5 @@ knockBack = 0
 name = "Stun Grenade"
 ID = 3
 description = "Shock and awe."
-cooltime = 5.0
+cooldownTime = 5.0
 duration = 0.0

@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_y302a")
-throwRange = 350
+throwRange = 500
 effectRadius = 150
 damageMin = 50
 damageMax = 150
@@ -13,5 +13,5 @@ knockBack = 350
 name = "Lob Grenade"
 ID = 2
 description = "Throw a grenade at target, dealing area damage."
-cooltime = 5.0
+cooldownTime = 5.0
 duration = 0.0

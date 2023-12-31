@@ -1,6 +1,6 @@
-Label
 TextureRect
 Timer
+Label
 CollisionShape2D
 Area2D
 CharacterBody2D

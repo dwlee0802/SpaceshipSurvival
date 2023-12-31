@@ -15,5 +15,5 @@ defenseModifier = 0.0
 name = "Defensive Stance"
 ID = 1
 description = "Increase defense."
-cooltime = 5.0
+cooldownTime = 5.0
 duration = 4.0

@@ -15,5 +15,5 @@ defenseModifier = 0.0
 name = "Adrenalin Rush"
 ID = 0
 description = "Rush of adrenalin. Boosts movement speed and attack speed."
-cooltime = 5.0
+cooldownTime = 5.0
 duration = 5.0

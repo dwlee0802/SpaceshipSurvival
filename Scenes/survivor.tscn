@@ -218,8 +218,16 @@ bg_color = Color(0.501961, 0.501961, 0.501961, 1)
 bar_color = Color(0.847059, 0.521569, 0, 1)
 ring = true
 
+[node name="SkillCooldownTimer1" type="Timer" parent="."]
+one_shot = true
+
+[node name="SkillCooldownTimer2" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
 [connection signal="timeout" from="OxygenTimer" to="." method="_on_oxygen_timer_timeout"]
 [connection signal="timeout" from="TemperatureTimer" to="." method="_on_temperature_timer_timeout"]
 [connection signal="timeout" from="NutritionTimer" to="." method="_on_nutrition_timer_timeout"]
+[connection signal="timeout" from="SkillCooldownTimer1" to="." method="_on_skill_cooldown_timer_timeout" binds= [0]]
+[connection signal="timeout" from="SkillCooldownTimer2" to="." method="_on_skill_cooldown_timer_timeout" binds= [1]]

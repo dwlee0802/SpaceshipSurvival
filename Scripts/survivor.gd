@@ -92,8 +92,16 @@ var level: int = 1
 var requiredEXP: int = 500
 @onready var levelUpEffect = $LevelUpEffect/AnimationPlayer
 
+
+# skill related stuff
 @export var skillSlot_1: Skill
 @export var skillSlot_2: Skill
+
+@onready var skillCooldownTimer1 = $SkillCooldownTimer1
+var skillReady_1: bool = true
+@onready var skillCooldownTimer2 = $SkillCooldownTimer2
+var skillReady_2: bool = true
+
 
 var push_dir: Vector2 = Vector2(0, 0)
 var push_strength: float = 0.0
@@ -112,6 +120,8 @@ var reloading: bool = false
 var magazineCount: int = 0
 @onready var reloadTimer = $ReloadTimer
 @onready var reloadUI = $ReloadProcess
+
+var usingSkill: bool = false
 
 
 func _ready():
@@ -134,7 +144,7 @@ func _ready():
 func _process(delta):
 	if isDead:
 		return
-	print(attacking)
+		
 	ReduceBuffDurations(delta)
 	
 	oxygen -= delta * 3
@@ -224,7 +234,7 @@ func _physics_process(delta):
 		Reload()
 		
 	# Shot input
-	if attacking and attackCooldown == false and reloading == false:
+	if attacking and attackCooldown == false and reloading == false and not usingSkill:
 		attackTimer.start(1/primarySlot.data.attacksPerSecond)
 		attackCooldown = true
 		Attack()
@@ -288,7 +298,6 @@ func Attack():
 	newBullet.from = self
 	newBullet.position = global_position
 	newBullet.rotation = global_position.angle_to_point(get_global_mouse_position()) + randf_range(-spread, spread)
-	print(newBullet.rotation)
 	muzzleFlashSprite.visible = true
 	
 	magazineCount -= 1
@@ -388,7 +397,7 @@ func UpdateStats():
 		spread *= 2
 	elif velocity != Vector2.ZERO:
 		spread *= primary.data.movementPenalty
-
+	
 
 func PointArmAt(pos):
 	# turn towards target
@@ -491,8 +500,12 @@ func ReduceBuffDurations(delta):
 		
 		
 func ApplySkillCooldown(skill: Skill):
-	print(skill.name)
-	pass
+	if skill == skillSlot_1:
+		skillCooldownTimer1.start(skill.cooldownTime)
+		skillReady_1 = false
+	elif skill == skillSlot_2:
+		skillCooldownTimer2.start(skill.cooldownTime)
+		skillReady_2 = false
 	
 	
 func _to_string():
@@ -573,3 +586,11 @@ func _on_reload_timer_timeout():
 	reloading = false
 	magazineCount = primarySlot.data.magazineCapacity
 	Spaceship.ConsumeAmmo(primarySlot.data.ammoPerReload)
+
+
+# skill cooldown over. enable them
+func _on_skill_cooldown_timer_timeout(extra_arg_0):
+	if extra_arg_0 == 0:
+		skillReady_1 = true
+	elif extra_arg_0 == 1:
+		skillReady_2 = true

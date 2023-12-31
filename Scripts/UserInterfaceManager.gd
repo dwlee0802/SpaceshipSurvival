@@ -70,6 +70,10 @@ static var bodySlot
 static var equipmentUI
 
 static var skillButtons
+static var skillButton_1
+static var skillButton_2
+static var skillButton_cd_1
+static var skillButton_cd_2
 
 
 # Called when the node enters the scene tree for the first time.
@@ -111,7 +115,11 @@ func _ready():
 	equipmentUI = $UnitUI/EquipmentUI
 	
 	skillButtons = unitUI.get_node("SkillButtons")
-	
+	skillButton_1 = skillButtons.get_node("SkillButton1")
+	skillButton_2 = skillButtons.get_node("SkillButton2")
+	skillButton_cd_1 = skillButtons.get_node("SkillButton1/Cooldown")
+	skillButton_cd_2 = skillButtons.get_node("SkillButton2/Cooldown")
+
 
 # change scale x of progress bar based on progress
 static func UpdateTravelProgressUI(cur, maxVal):
