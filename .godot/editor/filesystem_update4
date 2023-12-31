@@ -1,10 +1,12 @@
-res://Scripts/area_effect.gd
-res://Scenes/area_effect.tscn
-res://Scripts/close_button.tres
 res://Scenes/showcase_scene.tscn
+res://Scripts/close_button.tres
 res://Scenes/survivor.tscn
 res://Scenes/crosshair.tscn
 res://Scenes/showcase_spaceship.tscn
 res://Scenes/module.tscn
 res://Scenes/interactable.tscn
 res://Scenes/item_container.tscn
+res://Scenes/area_effect.tscn
+res://Scenes/portal.tscn
+res://Scenes/portal.gd
+res://Scripts/InputManager.gd

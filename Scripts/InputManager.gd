@@ -310,6 +310,9 @@ func _on_interaction_button_pressed():
 		UserInterfaceManager.disassemblyUI.visible = true
 	elif obj is CraftingStation:
 		UserInterfaceManager.craftingStationUI.visible = true
+	elif obj is Portal:
+		Game.survivor.global_position = obj.otherPortal.global_position
+		obj.otherPortal.Fix(0)
 		
 
 func _on_container_closebutton_pressed():
