@@ -4,10 +4,12 @@
 
 [resource]
 script = ExtResource("1_poo8v")
-ammoPerShot = 3
+ammoPerReload = 3
 reloadTime = 6.0
 magazineCapacity = 5
+projectileSpeed = 1800.0
 movementPenalty = 4.0
+isLaserWeapon = false
 range = 4000
 minDamage = 280
 maxDamage = 500

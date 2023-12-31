@@ -1,5 +1,5 @@
-TextureRect
 Timer
+TextureRect
 Label
 CollisionShape2D
 Area2D

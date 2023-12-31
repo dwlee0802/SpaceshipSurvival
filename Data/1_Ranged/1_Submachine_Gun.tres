@@ -1,14 +1,15 @@
-[gd_resource type="Resource" script_class="RangedWeapon" load_steps=2 format=3 uid="uid://ba3pvdqw5wfbu"]
+[gd_resource type="Resource" script_class="RangedWeapon" load_steps=3 format=3 uid="uid://ba3pvdqw5wfbu"]
 
 [ext_resource type="Script" path="res://Data/ranged_data.gd" id="1_f66qo"]
+[ext_resource type="Texture2D" uid="uid://dc1x1d8as2tc1" path="res://Art/Weapons/mp5_art.png" id="2_85s1r"]
 
 [resource]
 script = ExtResource("1_f66qo")
-ammoPerReload = 0
-reloadTime = 2.5
+ammoPerReload = 2
+reloadTime = 2.0
 magazineCapacity = 25
 movementPenalty = 1.3
-range = 700
+range = 800
 minDamage = 50
 maxDamage = 100
 attacksPerSecond = 8.0
@@ -19,5 +20,6 @@ type = 1
 name = "Submachine Gun"
 ID = 1
 description = "Balanced automatic weapon with decent firepower."
+texture = ExtResource("2_85s1r")
 componentValue = 100
-weight = 5
+weight = 4

@@ -1,14 +1,17 @@
-[gd_resource type="Resource" script_class="RangedWeapon" load_steps=2 format=3 uid="uid://7txy7bjmpmct"]
+[gd_resource type="Resource" script_class="RangedWeapon" load_steps=3 format=3 uid="uid://7txy7bjmpmct"]
 
 [ext_resource type="Script" path="res://Data/ranged_data.gd" id="1_r1t4y"]
+[ext_resource type="Texture2D" uid="uid://dyvrva15v6h8n" path="res://Art/Weapons/ak47_art.png" id="2_245nb"]
 
 [resource]
 script = ExtResource("1_r1t4y")
-ammoPerShot = 2
-reloadTime = 4.0
-magazineCapacity = 8
-movementPenalty = 1.5
-range = 500
+ammoPerReload = 3
+reloadTime = 3.0
+magazineCapacity = 30
+projectileSpeed = 1200.0
+movementPenalty = 2.0
+isLaserWeapon = false
+range = 1000
 minDamage = 150
 maxDamage = 300
 attacksPerSecond = 6.0
@@ -18,6 +21,7 @@ knockBack = 300
 type = 1
 name = "Assault Rifle"
 ID = 5
-description = "The solution for close quarter combat."
-componentValue = 100
+description = "Standard issue rifle."
+texture = ExtResource("2_245nb")
+componentValue = 150
 weight = 5

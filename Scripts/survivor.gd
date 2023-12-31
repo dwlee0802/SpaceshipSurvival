@@ -291,7 +291,7 @@ func _physics_process(delta):
 # need to make it so that the angle is offset based on accuracy
 func Attack():
 	# check if need reload
-	if magazineCount <= 0:
+	if magazineCount <= 0 and not primarySlot.data.isLaserWeapon:
 		Reload()
 		return
 		
@@ -302,8 +302,10 @@ func Attack():
 	newBullet.position = global_position
 	newBullet.rotation = global_position.angle_to_point(get_global_mouse_position()) + randf_range(-spread, spread)
 	muzzleFlashSprite.visible = true
+	newBullet.speed = primarySlot.data.projectileSpeed
 	
-	magazineCount -= 1
+	if not primarySlot.data.isLaserWeapon:
+		magazineCount -= 1
 	
 	
 func Reload():

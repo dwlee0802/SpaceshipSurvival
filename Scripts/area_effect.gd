@@ -16,6 +16,8 @@ var projectileScene = load("res://Scenes/projectile.tscn")
 var projectileObject
 var projectileSpeed: int = 500
 
+@onready var allowAttackTimer = $AttackAllowTimer
+
 
 func SetData(skill: Skill):
 	data = skill
@@ -56,7 +58,9 @@ func _process(delta):
 			# it lasts for a while on the map
 			else:
 				durationTimer.start()
-	
+		
+		if allowAttackTimer.is_stopped():
+			allowAttackTimer.start()
 
 func _input(event):
 	if effectSprite.visible == false:
@@ -72,6 +76,7 @@ func _input(event):
 				else:
 					queue_free()
 				effectSprite.visible = false
+			
 
 
 func CheckRange():
@@ -109,4 +114,8 @@ func CheckLineOfSight(start, end, mask = 16):
 
 
 func _exit_tree():
+	Game.survivor.usingSkill = false
+
+
+func _on_attack_allow_timer_timeout():
 	Game.survivor.usingSkill = false
