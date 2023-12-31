@@ -283,7 +283,8 @@ func _physics_process(delta):
 			interactionTarget = null
 			emit_signal("update_unit_inventory_ui")
 	"""
-	
+
+
 	
 # need to make it so that the angle is offset based on accuracy
 func Attack():

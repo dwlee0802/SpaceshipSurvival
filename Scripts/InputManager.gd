@@ -55,11 +55,6 @@ func _process(delta):
 
 
 func _unhandled_input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			if event.pressed:
-				pass
-				
 	if event is InputEventKey:
 		if event.pressed:
 			# show spaceship overview UI
@@ -333,8 +328,10 @@ func _on_crafting_station_closebutton_pressed():
 # apply cooldown
 func _on_skill_button_pressed(extra_arg_0):
 	var skillData: Skill
+	
 	if extra_arg_0 == 0:
 		skillData = Game.survivor.skillSlot_1
+			
 	if extra_arg_0 == 1:
 		skillData = Game.survivor.skillSlot_2
 	
@@ -344,11 +341,15 @@ func _on_skill_button_pressed(extra_arg_0):
 	
 	# set waiting for projectile target location true
 	if skillData is ProjectileSkill:
+		if currentSkillObject != null and is_instance_valid(currentSkillObject):
+			currentSkillObject.queue_free()
+			
 		var newAreaEff: AreaEffect = Game.MakeAreaEffect()
 		newAreaEff.SetData(skillData)
 		newAreaEff.reparent(Game.survivor)
 		newAreaEff.skill_used.connect(Game.survivor.ApplySkillCooldown)
 		Game.survivor.usingSkill = true
+		currentSkillObject = newAreaEff
 	if skillData is BuffSkill:
 		var newBuffObject = BuffObject.new()
 		newBuffObject.data = skillData

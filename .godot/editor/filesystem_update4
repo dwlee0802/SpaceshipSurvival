@@ -4,3 +4,5 @@ res://Scripts/InputManager.gd
 res://Scenes/survivor.tscn
 res://Scripts/survivor.gd
 res://Scripts/area_effect.gd
+res://Data/buff_skill.gd
+res://Scenes/crosshair.tscn

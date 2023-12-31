@@ -442,6 +442,7 @@ offset_left = 673.0
 offset_top = 139.0
 offset_right = 743.0
 offset_bottom = 209.0
+toggle_mode = true
 shortcut = SubResource("Shortcut_hmhhn")
 texture_normal = SubResource("PlaceholderTexture2D_askhj")
 stretch_mode = 1
@@ -471,6 +472,7 @@ offset_left = 758.0
 offset_top = 139.0
 offset_right = 828.0
 offset_bottom = 209.0
+toggle_mode = true
 shortcut = SubResource("Shortcut_7g5vs")
 texture_normal = SubResource("PlaceholderTexture2D_askhj")
 
