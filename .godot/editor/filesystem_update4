@@ -1,2 +1,11 @@
 res://Scenes/area_skill.tscn
 res://Scripts/close_button.tres
+res://Scenes/showcase_scene.tscn
+res://Scenes/survivor.tscn
+res://Scenes/crosshair.tscn
+res://Scenes/showcase_spaceship.tscn
+res://Scenes/module.tscn
+res://Scenes/portal.tscn
+res://Scenes/item_container.tscn
+res://Scenes/interactable.tscn
+res://Scenes/projectile.tscn
