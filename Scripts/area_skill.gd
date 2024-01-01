@@ -61,6 +61,7 @@ func _process(delta):
 		if allowAttackTimer.is_stopped():
 			allowAttackTimer.start()
 
+
 func _input(event):
 	if effectSprite.visible == false:
 		return
