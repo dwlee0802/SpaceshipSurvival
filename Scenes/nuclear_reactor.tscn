@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://jyq0yd0540h7"]
+[gd_scene load_steps=6 format=3 uid="uid://jyq0yd0540h7"]
 
 [ext_resource type="Script" path="res://Scripts/nuclear_reactor.gd" id="1_mwexp"]
 [ext_resource type="Texture2D" uid="uid://2j00antvhw4x" path="res://Art/circle-256.png" id="3_k7pw5"]
+[ext_resource type="Texture2D" uid="uid://01v652ba6af3" path="res://Art/nuclear_reactor_icon.png" id="4_6k41x"]
 [ext_resource type="PackedScene" uid="uid://7co56rfrnp0b" path="res://Scenes/spawn_point.tscn" id="4_q5x1s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r5d18"]
@@ -42,5 +43,13 @@ autostart = true
 
 [node name="ErrorCooldownTimer" type="Timer" parent="."]
 wait_time = 30.0
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("3_k7pw5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite"]
+texture_filter = 1
+texture = ExtResource("4_6k41x")
 
 [connection signal="timeout" from="RadiationDamageTimer" to="." method="_on_radiation_damage_timer_timeout"]

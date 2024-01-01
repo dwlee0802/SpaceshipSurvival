@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba5ksnjdkp3wn"]
+
+[ext_resource type="Script" path="res://Scripts/module.gd" id="1_fs2ot"]
+[ext_resource type="Texture2D" uid="uid://dugwv0bcmg1yj" path="res://Art/oxygen_generator_icon.png" id="2_nf3qs"]
+
+[node name="OxygenGenerator" type="Node2D"]
+script = ExtResource("1_fs2ot")
+
+[node name="ErrorTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+process_callback = 0
+autostart = true
+
+[node name="ErrorCooldownTimer" type="Timer" parent="."]
+wait_time = 30.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_nf3qs")
+
+[connection signal="timeout" from="ErrorCooldownTimer" to="." method="_on_error_cooldown_timer_timeout"]
