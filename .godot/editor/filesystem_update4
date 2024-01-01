@@ -1,3 +1,2 @@
-res://Scenes/projectile.tscn
+res://Scenes/area_skill.tscn
 res://Scripts/close_button.tres
-res://Scripts/area_skill.gd
