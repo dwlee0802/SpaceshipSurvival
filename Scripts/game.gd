@@ -14,7 +14,7 @@ static var deathEffect = preload("res://Scenes/death_particle_effect.tscn")
 
 static var enemyHitEffectScene = preload("res://Scenes/hit_particle_effect.tscn")
 
-static var areaEffectScene = preload("res://Scenes/area_effect.tscn")
+static var areaEffectScene = preload("res://Scenes/area_skill.tscn")
 
 static var explostionEffect = preload("res://Scenes/explosion_effect.tscn")
 

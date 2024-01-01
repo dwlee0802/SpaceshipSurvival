@@ -1,2 +1,3 @@
-res://Scenes/area_effect.tscn
 res://Scripts/close_button.tres
+res://Scenes/area_skill.tscn
+res://Scripts/game.gd
