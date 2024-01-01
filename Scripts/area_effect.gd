@@ -12,7 +12,6 @@ var durationTimer: Timer
 
 signal skill_used
 
-var projectileScene = load("res://Scenes/projectile.tscn")
 var projectileObject
 var projectileSpeed: int = 500
 
@@ -26,7 +25,7 @@ func SetData(skill: Skill):
 	effectSprite = $EffectSprite
 	start_position = position
 	durationTimer = $DurationTimer
-	projectileObject = projectileScene.instantiate()
+	projectileObject = Game.MakeProjectile()
 	add_sibling(projectileObject)
 
 

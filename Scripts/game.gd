@@ -18,6 +18,8 @@ static var areaEffectScene = preload("res://Scenes/area_effect.tscn")
 
 static var explostionEffect = preload("res://Scenes/explosion_effect.tscn")
 
+static var projectileScene = preload("res://Scenes/projectile.tscn")
+
 static var gameScene: Game
 
 static var spaceship
@@ -83,6 +85,10 @@ static func MakeAreaEffect():
 	var newAreaEffect = areaEffectScene.instantiate()
 	gameScene.add_child(newAreaEffect)
 	return newAreaEffect
+	
+
+static func MakeProjectile():
+	return projectileScene.instantiate()
 	
 	
 static func UpdateStockMax():
