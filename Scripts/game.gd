@@ -9,16 +9,16 @@ static var MAX_ENEMY_COUNT: int = 10
 
 static var time: float = 0
 
-static var damagePopup = preload("res://Scenes/damage_popup.tscn")
-static var deathEffect = preload("res://Scenes/death_particle_effect.tscn")
+static var damagePopup = load("res://Scenes/damage_popup.tscn")
+static var deathEffect = load("res://Scenes/death_particle_effect.tscn")
 
-static var enemyHitEffectScene = preload("res://Scenes/hit_particle_effect.tscn")
+static var enemyHitEffectScene = load("res://Scenes/hit_particle_effect.tscn")
 
-static var areaEffectScene = preload("res://Scenes/area_skill.tscn")
+static var areaEffectScene = load("res://Scenes/area_skill.tscn")
 
-static var explostionEffect = preload("res://Scenes/explosion_effect.tscn")
+static var explostionEffect = load("res://Scenes/explosion_effect.tscn")
 
-static var projectileScene = preload("res://Scenes/projectile.tscn")
+static var projectileScene = load("res://Scenes/projectile.tscn")
 
 static var gameScene: Game
 
