@@ -11,7 +11,7 @@ func _process(delta):
 	if timeToFix > 0:
 		timeToFix -= delta
 		if timeToFix < 0:
-			timeToFix = delta
+			timeToFix = 0
 			
 	super._process(delta)
 
