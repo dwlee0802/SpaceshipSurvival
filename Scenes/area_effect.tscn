@@ -1,25 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://fllka081kk6d"]
+[gd_scene load_steps=4 format=3 uid="uid://df2jlx5jsnpb"]
 
-[ext_resource type="Script" path="res://Scripts/area_effect.gd" id="1_x1gka"]
-[ext_resource type="Texture2D" uid="uid://2j00antvhw4x" path="res://Art/circle-256.png" id="2_x2k0i"]
+[ext_resource type="Texture2D" uid="uid://2j00antvhw4x" path="res://Art/circle-256.png" id="1_0nwts"]
+[ext_resource type="Script" path="res://Scripts/area_effect.gd" id="1_aanx3"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_181av"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_rrfnx"]
 radius = 126.0
 
 [node name="AreaEffect" type="Node2D"]
-script = ExtResource("1_x1gka")
+script = ExtResource("1_aanx3")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_181av")
+shape = SubResource("CircleShape2D_rrfnx")
 debug_color = Color(0.917647, 0.258824, 0.321569, 0.419608)
 
 [node name="EffectSprite" type="Sprite2D" parent="."]
 self_modulate = Color(0.603922, 0.603922, 0.603922, 0.439216)
-texture = ExtResource("2_x2k0i")
+texture = ExtResource("1_0nwts")
 
 [node name="DurationTimer" type="Timer" parent="."]
 process_callback = 0
@@ -28,6 +28,3 @@ process_callback = 0
 process_callback = 0
 wait_time = 0.2
 one_shot = true
-
-[connection signal="timeout" from="DurationTimer" to="." method="_on_duration_timer_timeout"]
-[connection signal="timeout" from="AttackAllowTimer" to="." method="_on_attack_allow_timer_timeout"]
