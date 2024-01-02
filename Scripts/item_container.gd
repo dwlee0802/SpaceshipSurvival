@@ -11,9 +11,15 @@ var capacity: int = 20
 
 @export var spawnAmmo: bool = false
 @export var spawnFood: bool = false
+@export var spawnComponents: bool = false
 @export var spawnWeapons: bool = false
 @export var spawnArmor: bool = false
 @export var spawnConsumables: bool = false
+
+var opened: bool = false
+
+@export var opened_texture: Texture
+@export var closed_texture : Texture
 
 
 # Called when the node enters the scene tree for the first time.
@@ -75,4 +81,8 @@ func _on_timer_timeout():
 
 
 func Fix(delta):
+	if opened == false:
+		$Sprite2D.texture = opened_texture
+		opened = true
+		
 	return true

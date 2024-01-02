@@ -1568,7 +1568,7 @@ offset_bottom = -50.6235
 [node name="Placed Item" parent="." instance=ExtResource("20_ym5kj")]
 position = Vector2(41.3954, 29.7167)
 itemType = 1
-itemID = 4
+itemID = 6
 
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InformationButton" to="InputManager" method="_on_information_button_pressed"]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InventoryButton" to="InputManager" method="_on_inventory_button_pressed"]

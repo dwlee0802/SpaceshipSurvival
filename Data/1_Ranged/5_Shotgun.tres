@@ -1,13 +1,18 @@
-[gd_resource type="Resource" script_class="RangedWeapon" load_steps=2 format=3 uid="uid://bbapmhp2rmcua"]
+[gd_resource type="Resource" script_class="RangedWeapon" load_steps=3 format=3 uid="uid://bbapmhp2rmcua"]
 
 [ext_resource type="Script" path="res://Data/ranged_data.gd" id="1_wnmo1"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ig7gb"]
+size = Vector2(50, 50)
 
 [resource]
 script = ExtResource("1_wnmo1")
 ammoPerReload = 2
 reloadTime = 4.0
 magazineCapacity = 8
+projectileSpeed = 900.0
 movementPenalty = 1.2
+isLaserWeapon = false
 range = 200
 minDamage = 1
 maxDamage = 300
@@ -19,5 +24,6 @@ type = 1
 name = "Shotgun"
 ID = 5
 description = "The solution for close quarter combat."
+texture = SubResource("PlaceholderTexture2D_ig7gb")
 componentValue = 100
 weight = 5

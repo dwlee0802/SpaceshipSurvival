@@ -21,6 +21,8 @@ func _process(_delta):
 	if available:
 		modulate = Color.GREEN
 		available = false
+	else:
+		modulate = Color.WHITE
 		
 	if fixTimeLabel == null:
 		return

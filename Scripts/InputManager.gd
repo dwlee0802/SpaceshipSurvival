@@ -317,6 +317,7 @@ func _on_interaction_button_pressed():
 	elif obj is PlacedItem:
 		Game.survivor.AddItem(obj.item)
 		obj.queue_free()
+		UpdateUnitInventoryUI()
 		
 
 func _on_container_closebutton_pressed():

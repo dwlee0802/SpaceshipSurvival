@@ -1,9 +1,2 @@
-res://Scenes/spaceship_v1.tscn
-res://Scripts/InputManager.gd
-res://Scenes/showcase_scene.tscn
-res://Scripts/close_button.tres
 res://Scenes/showcase_spaceship.tscn
-res://Scenes/oxygen_generator.tscn
-res://Scenes/temperature_control.tscn
-res://Scenes/placed_item.tscn
-res://Scripts/placed_item.gd
+res://Scripts/close_button.tres

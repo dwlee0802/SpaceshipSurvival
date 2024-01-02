@@ -14,6 +14,10 @@ config/name="SpaceshipSurvival"
 run/main_scene="res://Scenes/showcase_scene.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 
+[debug]
+
+settings/stdout/print_fps=true
+
 [display]
 
 window/size/viewport_width=1366

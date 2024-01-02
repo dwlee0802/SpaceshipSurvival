@@ -23,17 +23,17 @@ var attackSpeedModifier: float = 1
 
 var attackTarget
 
-@onready var nav: NavigationAgent2D = $NavigationAgent2D
+var nav: NavigationAgent2D
 
 @onready var target_position: Vector2 = position
 
 var knockBack: Vector2 = Vector2.ZERO
 
-@onready var navRaycast = $NavigationRaycasts/RayCast2D
-@onready var navRaycast2 = $NavigationRaycasts/RayCast2D2
-@onready var navRaycast3 = $NavigationRaycasts/RayCast2D3
-@onready var navRaycast4 = $NavigationRaycasts/RayCast2D4
-@onready var navRaycast5 = $NavigationRaycasts/RayCast2D5
+var navRaycast
+var navRaycast2
+var navRaycast3
+var navRaycast4
+var navRaycast5
 
 @onready var healthBar = $HealthBar/HealthBar
 
@@ -55,7 +55,12 @@ var buffs = []
 
 func _ready():
 	overviewMarker = UserInterfaceManager.MakeMarkerOnSpaceshipOverview()
-	
+	navRaycast = get_node_or_null("NavigationRaycasts/RayCast2D")
+	navRaycast2 = get_node_or_null("NavigationRaycasts/RayCast2D2")
+	navRaycast3 = get_node_or_null("NavigationRaycasts/RayCast2D3")
+	navRaycast4 = get_node_or_null("NavigationRaycasts/RayCast2D4")
+	navRaycast5 = get_node_or_null("NavigationRaycasts/RayCast2D5")
+	nav = get_node_or_null("NavigationAgent2D")
 
 func _physics_process(delta):
 	# update marker on spaceship overview UI
