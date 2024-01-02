@@ -26,3 +26,4 @@ res://Data/4_Consumable/2_Canned_Coffee.tres
 res://Scripts/interactable.gd
 res://Scenes/crosshair.tscn
 res://Scenes/area_skill.tscn
+res://Scripts/area_skill.gd
