@@ -95,3 +95,8 @@ func Fix(delta):
 		opened = true
 		
 	return true
+
+
+# spawns and disperses resource orbs when it is first opened
+func SpawnResources():
+	pass

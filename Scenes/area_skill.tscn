@@ -9,6 +9,7 @@
 script = ExtResource("1_xqfxo")
 
 [node name="AttackAllowTimer" type="Timer" parent="."]
+wait_time = 0.01
 
 [node name="DurationTimer" type="Timer" parent="."]
 
