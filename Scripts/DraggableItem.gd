@@ -10,6 +10,11 @@ var item: Item
 var previousSlot
 
 
+func _ready():
+	if item.data.texture != null:
+		texture_normal = item.data.texture
+
+
 func make_drag_preview(at_position: Vector2) -> Control:
 	var t := TextureRect.new()
 	t.texture = texture_normal

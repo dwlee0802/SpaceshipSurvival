@@ -7,7 +7,9 @@ var contents = []
 var weight: int = 0
 var capacity: int = 20
 
-@export var randomizeContent: bool = false
+@export var randomizeContent: bool = true
+
+@export var randomizeContentAmount: int = true
 
 @export var spawnAmmo: bool = false
 @export var spawnFood: bool = false
@@ -20,6 +22,8 @@ var opened: bool = false
 
 @export var opened_texture: Texture
 @export var closed_texture : Texture
+
+static var MAX_ITEM_COUNT: int = 4
 
 
 # Called when the node enters the scene tree for the first time.
@@ -39,21 +43,26 @@ func _process(delta):
 
 func FillContentsRandomly():
 	if randomizeContent:
-		var count = randi_range(1,4)
+		var count = randi_range(1, ItemContainer.MAX_ITEM_COUNT)
+		var options = []
+		if spawnWeapons:
+			options.append(ItemType.Ranged)
+			options.append(ItemType.Melee)
+		if spawnArmor:
+			options.append(ItemType.Head)
+			options.append(ItemType.Body)
+		if spawnConsumables:
+			options.append(ItemType.Consumable)
+			
 		for i in range(count):
 			# pick item type
-			var itemType = randi_range(0, 4)
+			var itemType = options.pick_random()
+			
 			if itemType == 0:
+				# excluding fists(0,0)
 				AddItem(Item.new(itemType, randi_range(1, len(DataManager.resources[ItemType.Melee]) - 1)))
-			if itemType == 1:
-				AddItem(Item.new(itemType, randi_range(0, len(DataManager.resources[ItemType.Ranged]) - 1)))
-			if itemType == 2:
-				AddItem(Item.new(itemType, randi_range(0, len(DataManager.resources[ItemType.Head]) - 1)))
-			if itemType == 3:
-				AddItem(Item.new(itemType, randi_range(0, len(DataManager.resources[ItemType.Body]) - 1)))
-			if itemType == 4:
-				AddItem(Item.new(itemType, randi_range(0, len(DataManager.resources[ItemType.Consumable]) - 1)))
-
+			else:
+				AddItem(Item.new(itemType, randi_range(0, len(DataManager.resources[itemType]) - 1)))
 
 func AddItem(item: Item):
 	if weight + item.data.weight <= capacity:

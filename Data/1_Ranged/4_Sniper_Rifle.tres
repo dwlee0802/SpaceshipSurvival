@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="RangedWeapon" load_steps=2 format=3 uid="uid://1voatj4rb3k7"]
+[gd_resource type="Resource" script_class="RangedWeapon" load_steps=3 format=3 uid="uid://1voatj4rb3k7"]
 
 [ext_resource type="Script" path="res://Data/ranged_data.gd" id="1_poo8v"]
+[ext_resource type="Texture2D" uid="uid://cajvgygumx5cn" path="res://Art/Weapons/sniper_rifle_temp.jpg" id="2_b8iv6"]
 
 [resource]
 script = ExtResource("1_poo8v")
@@ -21,5 +22,6 @@ type = 1
 name = "Sniper Rifle"
 ID = 4
 description = "One shot one kill."
+texture = ExtResource("2_b8iv6")
 componentValue = 100
 weight = 6

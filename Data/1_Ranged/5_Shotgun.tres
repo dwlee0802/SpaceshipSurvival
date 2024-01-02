@@ -1,9 +1,7 @@
 [gd_resource type="Resource" script_class="RangedWeapon" load_steps=3 format=3 uid="uid://bbapmhp2rmcua"]
 
 [ext_resource type="Script" path="res://Data/ranged_data.gd" id="1_wnmo1"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ig7gb"]
-size = Vector2(50, 50)
+[ext_resource type="Texture2D" uid="uid://ctk85sjq70r2v" path="res://Art/Weapons/shotgun_temp.jpg" id="2_231b1"]
 
 [resource]
 script = ExtResource("1_wnmo1")
@@ -24,6 +22,6 @@ type = 1
 name = "Shotgun"
 ID = 5
 description = "The solution for close quarter combat."
-texture = SubResource("PlaceholderTexture2D_ig7gb")
+texture = ExtResource("2_231b1")
 componentValue = 100
 weight = 5

@@ -1,9 +1,7 @@
 [gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://2fillm0k6d0d"]
 
 [ext_resource type="Script" path="res://Data/weapon_data.gd" id="1_qs3rv"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xusvr"]
-size = Vector2(20, 20)
+[ext_resource type="Texture2D" uid="uid://c7ykn87ec2foj" path="res://Art/Weapons/fists_temp.png" id="2_25qwi"]
 
 [resource]
 script = ExtResource("1_qs3rv")
@@ -18,6 +16,6 @@ type = 0
 name = "Fists"
 ID = 0
 description = "The weapon humans are born with."
-texture = SubResource("PlaceholderTexture2D_xusvr")
+texture = ExtResource("2_25qwi")
 componentValue = 0
 weight = 0

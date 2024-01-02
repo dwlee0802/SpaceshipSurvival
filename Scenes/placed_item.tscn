@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0ywywvfjijmg"]
+[gd_scene load_steps=5 format=3 uid="uid://d0ywywvfjijmg"]
 
 [ext_resource type="Script" path="res://Scripts/placed_item.gd" id="1_76e7l"]
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="2_gygfq"]
@@ -7,9 +7,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ff65x"]
 size = Vector2(50, 50)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tjjtn"]
-size = Vector2(40, 40)
 
 [node name="Placed Item" type="StaticBody2D"]
 collision_layer = 8
@@ -27,5 +24,10 @@ self_modulate = Color(0.658824, 0.670588, 0, 0.388235)
 scale = Vector2(50, 50)
 texture = ExtResource("2_gygfq")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_tjjtn")
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+expand_mode = 1
+stretch_mode = 5

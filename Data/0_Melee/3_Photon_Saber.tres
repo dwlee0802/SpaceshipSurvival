@@ -1,9 +1,7 @@
 [gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://uj4r1hce5rn0"]
 
 [ext_resource type="Script" path="res://Data/weapon_data.gd" id="1_nju4y"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xusvr"]
-size = Vector2(20, 20)
+[ext_resource type="Texture2D" uid="uid://bk8crn2ifmga2" path="res://Art/Weapons/photon_saber_temp.png" id="2_tap1l"]
 
 [resource]
 script = ExtResource("1_nju4y")
@@ -18,6 +16,6 @@ type = 0
 name = "Photon Saber"
 ID = 3
 description = "A sword of light."
-texture = SubResource("PlaceholderTexture2D_xusvr")
+texture = ExtResource("2_tap1l")
 componentValue = 100
 weight = 5

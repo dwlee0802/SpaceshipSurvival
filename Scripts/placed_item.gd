@@ -19,7 +19,7 @@ func _ready():
 		itemType = item.type
 		itemID = item.data.ID
 	
-	$Sprite2D.texture = item.data.texture
+	$TextureRect.texture = item.data.texture
 	
 
 func _to_string():

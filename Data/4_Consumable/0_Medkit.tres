@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Consumable" load_steps=2 format=3 uid="uid://bqn6wcfnq2nhu"]
+[gd_resource type="Resource" script_class="Consumable" load_steps=3 format=3 uid="uid://bqn6wcfnq2nhu"]
 
 [ext_resource type="Script" path="res://Data/consumable_data.gd" id="1_suhjv"]
+[ext_resource type="Texture2D" uid="uid://dfo0xn7tmpgim" path="res://Art/medkit_sprite.png" id="2_py0o7"]
 
 [resource]
 script = ExtResource("1_suhjv")
@@ -9,5 +10,6 @@ type = 4
 name = "Medkit"
 ID = 0
 description = "First aid."
+texture = ExtResource("2_py0o7")
 componentValue = 30
 weight = 2

@@ -403,7 +403,8 @@ static func UpdateInteractionUI(unit):
 	var object = unit.interactionObject
 		
 	if object is ItemContainer:
-		UpdateContainerUI(object)
+		if object.opened == true:
+			UpdateContainerUI(object)
 	elif object is Disassembly:
 		UpdateDisassemblyInfo()
 	elif object is CraftingStation:

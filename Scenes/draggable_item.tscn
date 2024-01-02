@@ -19,7 +19,7 @@ action_mode = 0
 button_mask = 2
 keep_pressed_outside = true
 texture_normal = SubResource("PlaceholderTexture2D_jdnop")
-stretch_mode = 0
+stretch_mode = 5
 script = ExtResource("1_o0o36")
 
 [node name="TEMP_itemName" type="Label" parent="."]

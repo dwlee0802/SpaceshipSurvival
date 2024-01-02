@@ -306,51 +306,54 @@ autowrap_mode = 1
 
 [node name="ItemContainer" parent="Containers" instance=ExtResource("10_6mb6o")]
 position = Vector2(-413, 249)
-randomizeContent = true
+spawnWeapons = true
 
 [node name="ItemContainer2" parent="Containers" instance=ExtResource("10_6mb6o")]
 position = Vector2(-246, 252)
-randomizeContent = true
+spawnWeapons = true
+spawnArmor = true
 
 [node name="ItemContainer3" parent="Containers" instance=ExtResource("10_6mb6o")]
 position = Vector2(-76, 251)
-randomizeContent = true
+spawnArmor = true
 
 [node name="ItemContainer4" parent="Containers" instance=ExtResource("10_6mb6o")]
 position = Vector2(90, 252)
-randomizeContent = true
+spawnArmor = true
+spawnConsumables = true
 
 [node name="ItemContainer5" parent="Containers" instance=ExtResource("10_6mb6o")]
 position = Vector2(264, 249)
-randomizeContent = true
+spawnConsumables = true
 
 [node name="ItemContainer6" parent="Containers" instance=ExtResource("10_6mb6o")]
 position = Vector2(398, 246)
-randomizeContent = true
+spawnWeapons = true
+spawnConsumables = true
 
 [node name="ItemContainer7" parent="Containers" instance=ExtResource("10_6mb6o")]
 position = Vector2(-411, 397)
-randomizeContent = true
+spawnWeapons = true
 
 [node name="ItemContainer9" parent="Containers" instance=ExtResource("10_6mb6o")]
 position = Vector2(-256, 395)
-randomizeContent = true
+spawnWeapons = true
 
 [node name="ItemContainer10" parent="Containers" instance=ExtResource("10_6mb6o")]
 position = Vector2(-79, 394)
-randomizeContent = true
+spawnArmor = true
 
 [node name="ItemContainer8" parent="Containers" instance=ExtResource("10_6mb6o")]
 position = Vector2(59, 388)
-randomizeContent = true
+spawnArmor = true
 
 [node name="ItemContainer11" parent="Containers" instance=ExtResource("10_6mb6o")]
 position = Vector2(214, 386)
-randomizeContent = true
+spawnConsumables = true
 
 [node name="ItemContainer12" parent="Containers" instance=ExtResource("10_6mb6o")]
 position = Vector2(391, 385)
-randomizeContent = true
+spawnConsumables = true
 
 [node name="Label3" type="Label" parent="."]
 offset_left = -139.0
