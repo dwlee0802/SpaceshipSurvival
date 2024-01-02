@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends Interactable
 
 class_name PlacedItem
 
@@ -9,12 +9,22 @@ var item: Item
 
 
 func _ready():
-	if item != null:
+	if itemType < 0 or itemID < 0:
+		print("Placed item's type and index invalid!")
+		queue_free()
+		
+	if item == null:
+		item = Item.new(itemType, itemID)
+	else:
 		itemType = item.type
-
+		itemID = item.data.ID
 
 func _to_string():
 	var output = "Placed Item\n"
 	output += item.data.name
 		
 	return output
+
+
+func Fix(delta):
+	return true

@@ -314,6 +314,9 @@ func _on_interaction_button_pressed():
 		if obj.timeToFix <= 0 and obj.otherPortal.timeToFix <= 0:
 			Game.survivor.global_position = obj.otherPortal.global_position
 			obj.otherPortal.Fix(0)
+	elif obj is PlacedItem:
+		Game.survivor.AddItem(obj.item)
+		obj.queue_free()
 		
 
 func _on_container_closebutton_pressed():
