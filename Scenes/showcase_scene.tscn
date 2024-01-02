@@ -423,6 +423,8 @@ asdf
 12123"
 
 [node name="InteractionButton" type="Button" parent="Camera/Canvas/UnitUI"]
+top_level = true
+z_index = -10
 layout_mode = 0
 offset_left = 225.0
 offset_top = 4.0
@@ -1529,6 +1531,13 @@ scale = Vector2(0.503803, 0.469087)
 color = Color(0.447059, 0, 0.054902, 0.47451)
 polygon = PackedVector2Array(-22, 0, 22, 0, 22, -55, 40, -55, -1, -86, -39, -53, -22, -53)
 
+[node name="Crosshair" parent="Camera/Canvas" instance=ExtResource("19_5ra7j")]
+offset_left = -50.6577
+offset_top = -50.6235
+offset_right = -50.6577
+offset_bottom = -50.6235
+mouse_filter = 2
+
 [node name="Spaceship" parent="." instance=ExtResource("2_cyxog")]
 
 [node name="DataManager" type="Node" parent="."]
@@ -1557,12 +1566,6 @@ survivorData = ExtResource("16_fioqq")
 skillSlot_1 = ExtResource("16_atbyv")
 skillSlot_2 = ExtResource("17_glgvd")
 speed = 250
-
-[node name="Crosshair" parent="." instance=ExtResource("19_5ra7j")]
-offset_left = -50.6577
-offset_top = -50.6235
-offset_right = -50.6577
-offset_bottom = -50.6235
 
 [node name="Placed Item" parent="." instance=ExtResource("20_ym5kj")]
 position = Vector2(41.3954, 29.7167)

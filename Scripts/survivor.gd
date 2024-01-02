@@ -253,7 +253,7 @@ func _physics_process(delta):
 	if results.size() >= 1:
 		results[0].available = true
 		interactionObject = results[0]
-			
+		
 		UserInterfaceManager.UpdateInteractionUI(self)
 	else:
 		interactionObject = null
