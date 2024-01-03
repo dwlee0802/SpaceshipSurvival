@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="RangedWeapon" load_steps=3 format=3 uid="uid://i7dglcx22nnc"]
+[gd_resource type="Resource" script_class="RangedWeapon" load_steps=4 format=3 uid="uid://i7dglcx22nnc"]
 
 [ext_resource type="Script" path="res://Data/ranged_data.gd" id="1_1thg8"]
+[ext_resource type="AudioStream" uid="uid://cjuitc7xtt1af" path="res://Audio/handgun_shooting_sound.mp3" id="1_x8ubk"]
 [ext_resource type="Texture2D" uid="uid://bk2q4ru7soh65" path="res://Art/Weapons/handgun_art.png" id="2_m5uiy"]
 
 [resource]
@@ -8,7 +9,10 @@ script = ExtResource("1_1thg8")
 ammoPerReload = 1
 reloadTime = 1.0
 magazineCapacity = 9
+projectileSpeed = 900.0
 movementPenalty = 1.5
+isLaserWeapon = false
+projectilesPerShot = 1
 range = 600
 minDamage = 50
 maxDamage = 200
@@ -16,6 +20,7 @@ attacksPerSecond = 2.0
 penetration = 0.2
 accuracy = 0.95
 knockBack = 200
+attack_sound = ExtResource("1_x8ubk")
 type = 1
 name = "Handgun"
 ID = 0

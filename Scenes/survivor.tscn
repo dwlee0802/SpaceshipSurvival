@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://crk54pclkvhi"]
+[gd_scene load_steps=18 format=3 uid="uid://crk54pclkvhi"]
 
 [ext_resource type="Script" path="res://Scripts/survivor.gd" id="1_ag083"]
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="2_3n7u2"]
 [ext_resource type="Texture2D" uid="uid://bphgupljd61uk" path="res://Art/ump45_temp_sprite.png" id="2_10b6v"]
 [ext_resource type="Texture2D" uid="uid://2j00antvhw4x" path="res://Art/circle-256.png" id="3_5uyep"]
 [ext_resource type="Script" path="res://radial/addons/radial_progress/RadialProgress.gd" id="5_oyvpn"]
+[ext_resource type="AudioStream" uid="uid://cjuitc7xtt1af" path="res://Audio/handgun_shooting_sound.mp3" id="6_6yoha"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nmrp8"]
 resource_local_to_scene = true
@@ -279,6 +280,12 @@ one_shot = true
 process_callback = 0
 wait_time = 0.5
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_6yoha")
+volume_db = -12.0
+pitch_scale = 0.9
+max_polyphony = 5
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

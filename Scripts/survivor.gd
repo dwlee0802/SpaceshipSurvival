@@ -128,6 +128,10 @@ var usingSkill: bool = false
 var meleeCooldown: bool = false
 
 
+# sound
+@onready var audioPlayer: AudioStreamPlayer = $AudioStreamPlayer
+
+
 func _ready():
 	super._ready()
 	inventory.resize(MAX_INVENTORY_COUNT)
@@ -316,7 +320,13 @@ func Attack():
 		
 		if not primarySlot.data.isLaserWeapon:
 			magazineCount -= 1
-			
+		
+		# shooting sound effect
+		audioPlayer.play()
+		
+		# screen shake
+		Camera.ShakeScreen(3,3)
+		
 		# check if need reload
 		if magazineCount <= 0 and not primarySlot.data.isLaserWeapon:
 			Reload()
@@ -364,7 +374,7 @@ func UpdateStats():
 	
 	if primarySlot != null:
 		primary = primarySlot
-		
+	
 	var head = headSlot
 	var body = bodySlot
 	

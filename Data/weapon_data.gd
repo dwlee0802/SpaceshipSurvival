@@ -8,3 +8,5 @@ class_name Weapon
 @export var penetration: float
 @export var accuracy: float
 @export var knockBack: int
+
+@export var attack_sound: AudioStream

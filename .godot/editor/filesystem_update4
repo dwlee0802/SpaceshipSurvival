@@ -8,3 +8,7 @@ res://Data/survivor_data.gd
 res://Data/Survivors/0_Veteran.tres
 res://Data/1_Ranged/7_Double_Barrel_Shotgun.tres
 res://Data/1_Ranged/5_Combat_Shotgun.tres
+res://Data/weapon_data.gd
+res://Data/1_Ranged/0_Handgun.tres
+res://default_bus_layout.tres
+res://Data/1_Ranged/3_Laser_Rifle.tres

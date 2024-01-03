@@ -13,6 +13,7 @@ magazineCapacity = 1
 projectileSpeed = 2000.0
 movementPenalty = 1.0
 isLaserWeapon = true
+projectilesPerShot = 1
 range = 10000
 minDamage = 20
 maxDamage = 40
