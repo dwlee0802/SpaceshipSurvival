@@ -235,8 +235,9 @@ func _physics_process(delta):
 	if Input.is_action_pressed("attack_primary"):
 		attacking = true
 	
-	if attacking == false and Input.is_action_pressed("attack_melee"):
+	if Input.is_action_pressed("attack_melee"):
 		MeleeAttack()
+		attacking = false
 		
 	# reload
 	if Input.is_action_pressed("reload"):
