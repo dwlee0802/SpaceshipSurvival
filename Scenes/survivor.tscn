@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://crk54pclkvhi"]
+[gd_scene load_steps=17 format=3 uid="uid://crk54pclkvhi"]
 
 [ext_resource type="Script" path="res://Scripts/survivor.gd" id="1_ag083"]
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="2_3n7u2"]
@@ -8,7 +8,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nmrp8"]
 resource_local_to_scene = true
-size = Vector2(40, 40)
+size = Vector2(45, 45)
 
 [sub_resource type="Gradient" id="Gradient_2kiva"]
 offsets = PackedFloat32Array(0, 0.75)
@@ -18,6 +18,9 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_2kiva")
 fill = 1
 fill_from = Vector2(0.506098, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ec0a8"]
+size = Vector2(100, 20)
 
 [sub_resource type="Animation" id="Animation_o6jsv"]
 resource_name = "hit_animation"
@@ -34,9 +37,41 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_sv65b"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_cdeqg"]
+resource_name = "melee_thrust_attack_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmSprite/MeleeAttackIndicator:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(1, 0.435275, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(20, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArmSprite/MeleeAttackIndicator:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xqt6f"]
 _data = {
-"hit_animation": SubResource("Animation_o6jsv")
+"RESET": SubResource("Animation_sv65b"),
+"hit_animation": SubResource("Animation_o6jsv"),
+"melee_thrust_attack_animation": SubResource("Animation_cdeqg")
 }
 
 [sub_resource type="Animation" id="Animation_kumx6"]
@@ -131,6 +166,21 @@ scale = Vector2(1, 1.5)
 color = Color(0.294118, 0.294118, 0.294118, 0.4)
 polygon = PackedVector2Array(0, 0, 25, 10, 25, 0, 25, -10)
 
+[node name="MeleeAttackArea" type="Area2D" parent="ArmSprite"]
+position = Vector2(10, 0)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArmSprite/MeleeAttackArea"]
+position = Vector2(65, 0)
+shape = SubResource("RectangleShape2D_ec0a8")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="MeleeAttackIndicator" type="Polygon2D" parent="ArmSprite"]
+visible = false
+self_modulate = Color(0.996078, 0.0235294, 0, 0.690196)
+polygon = PackedVector2Array(25, -13, 25, 13, 43.7779, 9.65796, 98.8432, -0.142443)
+
 [node name="OxygenTimer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
@@ -200,6 +250,7 @@ libraries = {
 speed_scale = 4.0
 
 [node name="InteractionArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 8
 
@@ -224,6 +275,11 @@ one_shot = true
 [node name="SkillCooldownTimer2" type="Timer" parent="."]
 one_shot = true
 
+[node name="MeleeAttackTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.5
+one_shot = true
+
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
 [connection signal="timeout" from="OxygenTimer" to="." method="_on_oxygen_timer_timeout"]
@@ -231,3 +287,4 @@ one_shot = true
 [connection signal="timeout" from="NutritionTimer" to="." method="_on_nutrition_timer_timeout"]
 [connection signal="timeout" from="SkillCooldownTimer1" to="." method="_on_skill_cooldown_timer_timeout" binds= [0]]
 [connection signal="timeout" from="SkillCooldownTimer2" to="." method="_on_skill_cooldown_timer_timeout" binds= [1]]
+[connection signal="timeout" from="MeleeAttackTimer" to="." method="_on_melee_attack_timer_timeout"]

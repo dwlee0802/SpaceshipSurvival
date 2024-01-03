@@ -123,6 +123,10 @@ var magazineCount: int = 0
 
 var usingSkill: bool = false
 
+@onready var meleeAttackArea = $ArmSprite/MeleeAttackArea
+@onready var meleeAttackTimer = $MeleeAttackTimer
+var meleeCooldown: bool = false
+
 
 func _ready():
 	super._ready()
@@ -230,7 +234,10 @@ func _physics_process(delta):
 	attacking = false
 	if Input.is_action_pressed("attack_primary"):
 		attacking = true
-				
+	
+	if attacking == false and Input.is_action_pressed("attack_melee"):
+		MeleeAttack()
+		
 	# reload
 	if Input.is_action_pressed("reload"):
 		Reload()
@@ -314,6 +321,18 @@ func Reload():
 		$ReloadTimer.start(primarySlot.data.reloadTime * reloadSpeed)
 		reloading = true
 	
+
+func MeleeAttack():
+	if meleeCooldown:
+		return
+	
+	var results = meleeAttackArea.get_overlapping_bodies()
+	for item in results:
+		if item is Enemy:
+			item.ReceiveHit(self, randi_range(20, 40), 0, false, 200)
+	meleeCooldown = true
+	meleeAttackTimer.start()
+	animationPlayer.play("melee_thrust_attack_animation")
 	
 # takes in where, which slot to put item into, and what, which is the index of the item being moved inside inventory.
 func EquipItemFromInventory(what: int, where: int):
@@ -600,3 +619,7 @@ func _on_skill_cooldown_timer_timeout(extra_arg_0):
 		skillReady_1 = true
 	elif extra_arg_0 == 1:
 		skillReady_2 = true
+
+
+func _on_melee_attack_timer_timeout():
+	meleeCooldown = false

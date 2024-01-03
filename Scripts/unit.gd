@@ -107,7 +107,7 @@ func UpdateHealthBar():
 	healthBar.size.x = health/maxHealth * healthBarSize
 
 
-func ReceiveHit(from, amount, penetration = 0, isRadiationDamage = false):
+func ReceiveHit(from, amount, penetration = 0, isRadiationDamage = false, knockBackAmount = 0):
 	print("Init: ", amount)
 	var endDefense
 	if not isRadiationDamage:
@@ -130,10 +130,13 @@ func ReceiveHit(from, amount, penetration = 0, isRadiationDamage = false):
 	
 	# apply knockback
 	if from is Survivor:
-		knockBack += -1 * global_position.direction_to(from.global_position) * from.primarySlot.data.knockBack
+		if knockBackAmount != 0:
+			knockBack += -1 * global_position.direction_to(from.global_position) * knockBackAmount
+		else:
+			knockBack += -1 * global_position.direction_to(from.global_position) * from.primarySlot.data.knockBack
 	elif from is AreaEffect:
 		knockBack += -1 * global_position.direction_to(from.global_position) * from.data.knockBack
-	print("knock back: " + str(knockBack))
+
 	animationPlayer.play("hit_animation")
 	
 	return true

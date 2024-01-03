@@ -102,13 +102,13 @@ func OnDeath():
 	queue_free()
 
 
-func ReceiveHit(from, amount, penetration = 0, isRadiationDamage = false):
+func ReceiveHit(from, amount, penetration = 0, isRadiationDamage = false, knockBackAmount = 0):
 	# if attack target is null, move towards attacker
 	if attackTarget == null and from is Survivor:
 		attackTarget = from
 		ChangeTargetPosition(attackTarget.position)
 		
-	if super.ReceiveHit(from, amount, penetration, isRadiationDamage):
+	if super.ReceiveHit(from, amount, penetration, isRadiationDamage, knockBackAmount):
 		var temp = Game.MakeEnemyHitEffect(global_position, from.global_position.direction_to(global_position).angle())
 		temp.emitting = true
 		
