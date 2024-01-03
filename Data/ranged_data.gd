@@ -11,3 +11,5 @@ class_name RangedWeapon
 @export var movementPenalty: float = 1
 
 @export var isLaserWeapon: bool = false
+
+@export var projectilesPerShot: int = 1

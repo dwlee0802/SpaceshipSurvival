@@ -22,6 +22,9 @@ fill_from = Vector2(0.506098, 0.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ec0a8"]
 size = Vector2(100, 20)
 
+[sub_resource type="Animation" id="Animation_sv65b"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_o6jsv"]
 resource_name = "hit_animation"
 tracks/0/type = "value"
@@ -36,9 +39,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
 }
-
-[sub_resource type="Animation" id="Animation_sv65b"]
-length = 0.001
 
 [sub_resource type="Animation" id="Animation_cdeqg"]
 resource_name = "melee_thrust_attack_animation"

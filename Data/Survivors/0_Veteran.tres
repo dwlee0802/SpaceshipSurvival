@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="SurvivorData" load_steps=3 format=3 uid="uid://d51whjtkivtv"]
+[gd_resource type="Resource" script_class="SurvivorData" load_steps=4 format=3 uid="uid://d51whjtkivtv"]
 
 [ext_resource type="Texture2D" uid="uid://bphgupljd61uk" path="res://Art/ump45_temp_sprite.png" id="1_cndn7"]
 [ext_resource type="Script" path="res://Data/survivor_data.gd" id="1_mp5xf"]
+[ext_resource type="Resource" uid="uid://b1sbu7c50jvw7" path="res://Data/1_Ranged/7_Double_Barrel_Shotgun.tres" id="3_papkx"]
 
 [resource]
 script = ExtResource("1_mp5xf")
@@ -11,4 +12,5 @@ spriteTexture = ExtResource("1_cndn7")
 speed = 200.0
 accuracy = 0.0
 strength = 0.0
-maxHealth = 0.0
+maxHealth = 250.0
+startingPrimary = ExtResource("3_papkx")

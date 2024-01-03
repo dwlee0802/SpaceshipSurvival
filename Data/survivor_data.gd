@@ -10,3 +10,5 @@ class_name SurvivorData
 @export var accuracy: float
 @export var strength: float
 @export var maxHealth: float
+
+@export var startingPrimary: Weapon

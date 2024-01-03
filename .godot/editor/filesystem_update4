@@ -1,4 +1,10 @@
 res://Scenes/showcase_scene.tscn
 res://Scripts/close_button.tres
+res://Data/ranged_data.gd
+res://Data/1_Ranged/5_Shotgun.tres
 res://Scripts/survivor.gd
 res://Scenes/survivor.tscn
+res://Data/survivor_data.gd
+res://Data/Survivors/0_Veteran.tres
+res://Data/1_Ranged/7_Double_Barrel_Shotgun.tres
+res://Data/1_Ranged/5_Combat_Shotgun.tres

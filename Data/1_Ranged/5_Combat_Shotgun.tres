@@ -1,27 +1,28 @@
 [gd_resource type="Resource" script_class="RangedWeapon" load_steps=3 format=3 uid="uid://bbapmhp2rmcua"]
 
-[ext_resource type="Script" path="res://Data/ranged_data.gd" id="1_wnmo1"]
-[ext_resource type="Texture2D" uid="uid://ctk85sjq70r2v" path="res://Art/Weapons/shotgun_temp.jpg" id="2_231b1"]
+[ext_resource type="Script" path="res://Data/ranged_data.gd" id="1_oypux"]
+[ext_resource type="Texture2D" uid="uid://ctk85sjq70r2v" path="res://Art/Weapons/shotgun_temp.jpg" id="2_kce6j"]
 
 [resource]
-script = ExtResource("1_wnmo1")
+script = ExtResource("1_oypux")
 ammoPerReload = 2
 reloadTime = 4.0
 magazineCapacity = 8
 projectileSpeed = 900.0
 movementPenalty = 1.2
 isLaserWeapon = false
+projectilesPerShot = 5
 range = 200
 minDamage = 1
-maxDamage = 300
-attacksPerSecond = 1.0
+maxDamage = 60
+attacksPerSecond = 2.0
 penetration = 0.5
 accuracy = 1.0
-knockBack = 300
+knockBack = 100
 type = 1
-name = "Shotgun"
+name = "Combat Shotgun"
 ID = 5
 description = "The solution for close quarter combat."
-texture = ExtResource("2_231b1")
+texture = ExtResource("2_kce6j")
 componentValue = 100
 weight = 5

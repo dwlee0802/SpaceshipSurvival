@@ -130,23 +130,27 @@ var meleeCooldown: bool = false
 
 func _ready():
 	super._ready()
-
 	inventory.resize(MAX_INVENTORY_COUNT)
 	
 	overviewMarker.self_modulate = Color.GREEN
 	
-	EquipNewItem(Item.new(1,1), SlotType.Primary)
+	LoadSurvivorData()
 	
 	AddItem(Item.new(4,0))
 	UpdateStats()
 	
 	# start with full health
-	maxHealth = 200
 	health = maxHealth
 	
 	Reload()
 	
 
+# modifies starting stats based on the chosen survivor
+func LoadSurvivorData():
+	maxHealth = survivorData.maxHealth
+	primarySlot = Item.new(survivorData.startingPrimary.type, survivorData.startingPrimary.ID)
+	
+	
 func _process(delta):
 	if isDead:
 		return
@@ -299,22 +303,23 @@ func _physics_process(delta):
 	
 # need to make it so that the angle is offset based on accuracy
 func Attack():
-	# check if need reload
-	if magazineCount <= 0 and not primarySlot.data.isLaserWeapon:
-		Reload()
-		return
+	if primarySlot.data is RangedWeapon:
+		for i in range(primarySlot.data.projectilesPerShot):
+			var newBullet = bulletScene.instantiate()
+			Game.gameScene.add_child(newBullet)
+			newBullet.weapon = primarySlot
+			newBullet.from = self
+			newBullet.position = global_position
+			newBullet.rotation = global_position.angle_to_point(get_global_mouse_position()) + randf_range(-spread, spread)
+			muzzleFlashSprite.visible = true
+			newBullet.speed = primarySlot.data.projectileSpeed
 		
-	var newBullet = bulletScene.instantiate()
-	Game.gameScene.add_child(newBullet)
-	newBullet.weapon = primarySlot
-	newBullet.from = self
-	newBullet.position = global_position
-	newBullet.rotation = global_position.angle_to_point(get_global_mouse_position()) + randf_range(-spread, spread)
-	muzzleFlashSprite.visible = true
-	newBullet.speed = primarySlot.data.projectileSpeed
-	
-	if not primarySlot.data.isLaserWeapon:
-		magazineCount -= 1
+		if not primarySlot.data.isLaserWeapon:
+			magazineCount -= 1
+			
+		# check if need reload
+		if magazineCount <= 0 and not primarySlot.data.isLaserWeapon:
+			Reload()
 	
 	
 func Reload():
