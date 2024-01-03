@@ -101,7 +101,7 @@ func Effect():
 		if item is Survivor:
 			dir = Vector2.ZERO
 		item.ReceiveHit(self, randi_range(data.damageMin, data.damageMax), 0)
-	
+		
 	
 func CheckLineOfSight(start, end, mask = 16):
 	var space = get_viewport().world_2d.direct_space_state

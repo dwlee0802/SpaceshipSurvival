@@ -12,3 +12,7 @@ res://Data/weapon_data.gd
 res://Data/1_Ranged/0_Handgun.tres
 res://default_bus_layout.tres
 res://Data/1_Ranged/3_Laser_Rifle.tres
+res://Scenes/enemy.tscn
+res://Scripts/enemy.gd
+res://Scenes/area_skill.tscn
+res://Scripts/area_skill.gd

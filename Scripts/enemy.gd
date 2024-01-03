@@ -22,6 +22,9 @@ var resourceDropProbability: float = 0.5
 
 @onready var roamTimer = $RoamTimer
 
+@onready var audioPlayer = $AudioStreamPlayer2D
+
+
 func _ready():
 	super._ready()
 	
@@ -68,6 +71,8 @@ func _physics_process(delta):
 	if not isMoving:
 		if roamTimer.is_stopped():
 			roamTimer.start()
+		if audioPlayer.playing:
+			audioPlayer.stop()
 		
 	if true:
 		if position.distance_to(target_position) < STOP_DIST:
@@ -85,7 +90,10 @@ func _physics_process(delta):
 			ChangeTargetPosition(target_position)
 			if navUpdateTimer.is_stopped():
 				navUpdateTimer.start()
-				
+
+		if not audioPlayer.playing:
+			audioPlayer.play()
+						
 		move_and_slide()
 	
 
