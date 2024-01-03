@@ -28,6 +28,9 @@ var opened: bool = false
 static var MAX_ITEM_COUNT: int = 4
 static var MAX_RESOURCE_COUNT: int = 10
 
+# sound
+@onready var audioPlayer: AudioStreamPlayer = $AudioStreamPlayer
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -97,6 +100,7 @@ func Fix(delta):
 		$Sprite2D.texture = opened_texture
 		opened = true
 		SpawnResources()
+		audioPlayer.play()
 	return true
 
 

@@ -16,3 +16,5 @@ res://Scenes/enemy.tscn
 res://Scripts/enemy.gd
 res://Scenes/area_skill.tscn
 res://Scripts/area_skill.gd
+res://Scenes/item_container.tscn
+res://Scripts/item_container.gd

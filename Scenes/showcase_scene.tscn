@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://c5nyr1fhytbkv"]
+[gd_scene load_steps=40 format=3 uid="uid://c5nyr1fhytbkv"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_8rs23"]
 [ext_resource type="PackedScene" uid="uid://bglyxpx5ldmya" path="res://Scenes/showcase_spaceship.tscn" id="2_cyxog"]
@@ -20,7 +20,6 @@
 [ext_resource type="Resource" uid="uid://dj20wnavxfafh" path="res://Data/Skills/2_Lob_Grenade.tres" id="17_glgvd"]
 [ext_resource type="PackedScene" uid="uid://du8uipcd8d8ow" path="res://Scenes/crosshair.tscn" id="19_5ra7j"]
 [ext_resource type="PackedScene" uid="uid://d0ywywvfjijmg" path="res://Scenes/placed_item.tscn" id="20_ym5kj"]
-[ext_resource type="Texture2D" uid="uid://cpxds8r82l1d4" path="res://Art/background_temp.jpg" id="21_1evme"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_k1ai1"]
 allow_unpress = true
@@ -1580,7 +1579,6 @@ offset_top = -2613.0
 offset_right = -368.0
 offset_bottom = -453.0
 scale = Vector2(2, 2)
-texture = ExtResource("21_1evme")
 
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InformationButton" to="InputManager" method="_on_information_button_pressed"]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InventoryButton" to="InputManager" method="_on_inventory_button_pressed"]
