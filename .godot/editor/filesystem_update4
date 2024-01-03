@@ -18,3 +18,4 @@ res://Scenes/area_skill.tscn
 res://Scripts/area_skill.gd
 res://Scenes/item_container.tscn
 res://Scripts/item_container.gd
+res://Scenes/resouce_orb.tscn
