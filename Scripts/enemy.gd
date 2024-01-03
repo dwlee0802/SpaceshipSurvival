@@ -13,7 +13,7 @@ static var expOrb = preload("res://Scenes/exp_orb.tscn")
 static var resourceOrb = preload("res://Scenes/resouce_orb.tscn")
 
 var itemDropProbability: float = 0.01
-var resourceDropProbability: float = 0.1
+var resourceDropProbability: float = 0.5
 
 @onready var alertArea = $AlertArea
 @onready var detectionArea = $DetectionArea
@@ -133,6 +133,7 @@ func DropResource():
 	var newOrb = resourceOrb.instantiate()
 	get_tree().root.add_child(newOrb)
 	newOrb.position = global_position + Vector2(randi_range(-20, 20), randi_range(-20, 20))
+	newOrb.target_position = newOrb.position
 	
 
 func _on_nav_update_timer_timeout():

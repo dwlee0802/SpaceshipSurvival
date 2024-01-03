@@ -2,6 +2,8 @@ extends Interactable
 
 class_name ItemContainer
 
+static var resourceOrb = preload("res://Scenes/resouce_orb.tscn")
+
 var contents = []
 
 var weight: int = 0
@@ -24,6 +26,7 @@ var opened: bool = false
 @export var closed_texture : Texture
 
 static var MAX_ITEM_COUNT: int = 4
+static var MAX_RESOURCE_COUNT: int = 10
 
 
 # Called when the node enters the scene tree for the first time.
@@ -93,10 +96,15 @@ func Fix(delta):
 	if opened == false:
 		$Sprite2D.texture = opened_texture
 		opened = true
-		
+		SpawnResources()
 	return true
 
 
 # spawns and disperses resource orbs when it is first opened
 func SpawnResources():
-	pass
+	var amount = randi_range(0, MAX_RESOURCE_COUNT)
+	for i in range(amount):
+		var newOrb = resourceOrb.instantiate()
+		get_tree().root.add_child(newOrb)
+		newOrb.position = global_position
+		newOrb.target_position = global_position + Vector2(randi_range(-50, 50), randi_range(-50, 50))

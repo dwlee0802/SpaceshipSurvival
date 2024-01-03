@@ -10,6 +10,9 @@ radius = 100.0
 script = ExtResource("1_x2ril")
 
 [node name="PickupTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.5
+one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(0, 1, 1, 1)
@@ -17,9 +20,9 @@ scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_ltxys")
 
 [node name="PickupArea" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
 shape = SubResource("CircleShape2D_bpw2m")
 
 [connection signal="timeout" from="PickupTimer" to="." method="_on_pickup_timer_timeout"]
-[connection signal="body_entered" from="PickupArea" to="." method="_on_pickup_area_body_entered"]

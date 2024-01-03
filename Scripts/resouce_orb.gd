@@ -4,6 +4,14 @@ var componentAmount: int = 0
 var foodAmount: int = 0
 var ammoAmount: int = 0
 
+var pickupReady: bool = false
+
+var target_position: Vector2
+
+@onready var pickupArea = $PickupArea
+@onready var pickupTimer = $PickupTimer
+
+
 func _ready():
 	var rng = randi()
 	if rng % 3 == 1:
@@ -17,19 +25,33 @@ func _ready():
 		$Sprite2D.self_modulate = Color.DARK_ORANGE
 		
 	expAmount = 0
+	target_position = global_position
 	
 
 func _physics_process(_delta):
-	if fly:
-		position += position.direction_to(target.position) * FOLLOW_SPEED
-	
-		if position.distance_to(target.position) < 5:
+	if pickupReady and fly:
+		global_position += global_position.direction_to(target.global_position) * FOLLOW_SPEED
+
+		if global_position.distance_to(target.global_position) < 5:
 			Spaceship.ConsumeComponents(-componentAmount)
 			Spaceship.ConsumeFood(-foodAmount)
 			Spaceship.ConsumeAmmo(-ammoAmount)
 			queue_free()
 	
-	
-func _on_pickup_area_body_entered(body):
-	target = body
-	fly = true
+	else:
+		# wait for pickup if at target position
+		if global_position.distance_to(target_position) < 10:
+			if pickupReady == false and pickupTimer.is_stopped():
+				pickupTimer.start()
+		elif pickupReady == false:
+			global_position += global_position.direction_to(target_position) * FOLLOW_SPEED
+			
+		if fly == false:
+			var results = pickupArea.get_overlapping_bodies()
+			if len(results) > 0:
+				fly = true
+				target = results[0]
+			
+
+func _on_pickup_timer_timeout():
+	pickupReady = true
