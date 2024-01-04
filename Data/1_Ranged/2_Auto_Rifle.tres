@@ -6,11 +6,12 @@
 [resource]
 script = ExtResource("1_6cha1")
 ammoPerReload = 3
-reloadTime = 4.0
+reloadTime = 3.0
 magazineCapacity = 10
 projectileSpeed = 1400.0
 movementPenalty = 4.0
 isLaserWeapon = false
+projectilesPerShot = 1
 range = 1000
 minDamage = 200
 maxDamage = 350

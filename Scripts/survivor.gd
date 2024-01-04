@@ -376,6 +376,10 @@ func UpdateStats():
 	if primarySlot != null:
 		primary = primarySlot
 	
+	if primary.data is RangedWeapon:
+		if magazineCount > primary.data.magazineCapacity:
+			magazineCount = primary.data.magazineCapacity
+			
 	var head = headSlot
 	var body = bodySlot
 	
