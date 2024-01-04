@@ -7,7 +7,7 @@ extends Control
 func _process(delta):
 	global_position = get_global_mouse_position()
 	label.text = str(Game.survivor.magazineCount)
-	ApplySpread()
+	#ApplySpread()
 
 
 # increase size based on survivor's spread
