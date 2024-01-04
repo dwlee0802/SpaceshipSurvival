@@ -177,7 +177,7 @@ func _process(delta):
 		
 	sleep -= delta * 0.1
 	if sleep < 0:
-		sleep = 0
+		StartSleeping()
 	if sleep > 100:
 		sleep = 100
 	
@@ -412,9 +412,9 @@ func UpdateStats():
 	else:
 		speedModifier = 1
 	
-	if sleep < 25:
+	if sleep < 20:
 		speedModifier -= 0.2
-	if sleep > 75:
+	if sleep > 95:
 		speedModifier += 0.2
 		
 	speed *= speedModifier
@@ -443,9 +443,9 @@ func UpdateStats():
 	elif velocity != Vector2.ZERO:
 		spread *= primary.data.movementPenalty
 	
-	if sleep < 25:
+	if sleep < 20:
 		spread *= 2
-	elif sleep > 75:
+	elif sleep > 95:
 		spread *= 0.5
 		
 
