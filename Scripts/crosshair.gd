@@ -17,6 +17,5 @@ func ApplySpread():
 	var survivor = Game.survivor
 	var newSize = 50 + 100 * survivor.spread * 57 / 45
 	image.size = Vector2(newSize, newSize)
-	print(newSize)
 	# center image
 	image.position = Vector2(-newSize / 2, -newSize / 2)
