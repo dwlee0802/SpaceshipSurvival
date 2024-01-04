@@ -137,6 +137,7 @@ var sleeping: bool = false
 var sleepingCooldown: bool = false
 @onready var sleepingCooldownTimer: Timer = $SleepCooldownTimer
 @onready var sleepingParticleEffect = $SleepingParticleEffect
+var sleepGainModifier: float = 1
 
 
 func _ready():
@@ -176,7 +177,7 @@ func _process(delta):
 	if oxygen > 100:
 		oxygen = 100
 		
-	sleep -= delta * 0.1
+	sleep -= delta * 0.1 * sleepGainModifier
 	if sleep < 0:
 		StartSleeping()
 	if sleep > 100:
