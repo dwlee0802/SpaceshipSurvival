@@ -142,6 +142,12 @@ static func UseInventoryItem(draggable):
 					unit.oxygen = 100
 				else:
 					unit.oxygen += item.data.amount
+			# Coffee Can
+			if item.data.ID == 2:
+				if unit.sleep + item.data.amount > 100:
+					unit.sleep = 100
+				else:
+					unit.sleep += item.data.amount
 		# equip gear
 		if item.data.type == ItemType.Head:
 			# check if slot is empty

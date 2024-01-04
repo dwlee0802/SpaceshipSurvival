@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://crk54pclkvhi"]
+[gd_scene load_steps=19 format=3 uid="uid://crk54pclkvhi"]
 
 [ext_resource type="Script" path="res://Scripts/survivor.gd" id="1_ag083"]
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="2_3n7u2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://2j00antvhw4x" path="res://Art/circle-256.png" id="3_5uyep"]
 [ext_resource type="Script" path="res://radial/addons/radial_progress/RadialProgress.gd" id="5_oyvpn"]
 [ext_resource type="AudioStream" uid="uid://cjuitc7xtt1af" path="res://Audio/handgun_shooting_sound.mp3" id="6_6yoha"]
+[ext_resource type="Texture2D" uid="uid://cjr1k7a45t3d6" path="res://Art/sleep_particle.png" id="7_gpqyj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nmrp8"]
 resource_local_to_scene = true
@@ -287,6 +288,26 @@ volume_db = -12.0
 pitch_scale = 0.9
 max_polyphony = 5
 
+[node name="SleepCooldownTimer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+
+[node name="SleepingParticleEffect" type="CPUParticles2D" parent="."]
+position = Vector2(0, -23)
+emitting = false
+amount = 3
+lifetime = 0.5
+speed_scale = 0.3
+texture = ExtResource("7_gpqyj")
+emission_shape = 1
+emission_sphere_radius = 10.0
+direction = Vector2(0, 1)
+gravity = Vector2(0, -400)
+angular_velocity_min = -20.0
+angular_velocity_max = 20.0
+scale_amount_min = 0.12
+scale_amount_max = 0.15
+
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
 [connection signal="timeout" from="OxygenTimer" to="." method="_on_oxygen_timer_timeout"]
@@ -295,3 +316,4 @@ max_polyphony = 5
 [connection signal="timeout" from="SkillCooldownTimer1" to="." method="_on_skill_cooldown_timer_timeout" binds= [0]]
 [connection signal="timeout" from="SkillCooldownTimer2" to="." method="_on_skill_cooldown_timer_timeout" binds= [1]]
 [connection signal="timeout" from="MeleeAttackTimer" to="." method="_on_melee_attack_timer_timeout"]
+[connection signal="timeout" from="SleepCooldownTimer" to="." method="_on_sleep_cooldown_timer_timeout"]

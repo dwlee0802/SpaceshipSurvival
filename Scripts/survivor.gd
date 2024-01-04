@@ -60,7 +60,7 @@ var nutrition: float = 100
 # 2 inventory cap for 1 strength
 var strength: int = 10
 
-var sleep: float = 100
+var sleep: float = 20
 
 var isDead: bool = false
 
@@ -131,6 +131,12 @@ var meleeCooldown: bool = false
 # sound
 @onready var audioPlayer: AudioStreamPlayer = $AudioStreamPlayer
 
+# sleeping
+var sleeping: bool = false
+var sleepingCooldown: bool = false
+@onready var sleepingCooldownTimer: Timer = $SleepCooldownTimer
+@onready var sleepingParticleEffect = $SleepingParticleEffect
+
 
 func _ready():
 	super._ready()
@@ -169,7 +175,7 @@ func _process(delta):
 	if oxygen > 100:
 		oxygen = 100
 		
-	sleep -= delta * 0.25
+	sleep -= delta * 0.1
 	if sleep < 0:
 		sleep = 0
 	if sleep > 100:
@@ -222,6 +228,24 @@ func _physics_process(delta):
 	
 	muzzleFlashSprite.visible = false
 	
+	if Input.is_action_pressed("sleep") and sleepingCooldown == false:
+		StartSleeping()
+	
+	# can't wake up til sleep reaches 100
+	# can cancel if above 50
+	if sleeping:
+		sleep += delta * 5
+		if sleep >= 100:
+			sleep = 100
+			sleeping = false
+			sleepingParticleEffect.emitting = false
+		elif sleep >= 50:
+			if Input.is_action_pressed("move_down") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_down") or Input.is_action_pressed("move_up"):
+				sleeping = false
+				sleepingParticleEffect.emitting = false
+		else:
+			return
+		
 	# player controls
 	velocity = Vector2.ZERO # The player's movement vector.
 	# Movement input
@@ -278,31 +302,6 @@ func _physics_process(delta):
 	if Input.is_action_pressed("interact"):
 		if interactionObject != null:
 			interactionObject.Fix(delta)
-			
-	"""
-	# interactions with interactable objects
-	if  (not isMoving) and (interactionTarget != null):
-		# unit has reached the interaction Target
-		if interactionTarget is Interactable:
-			if interactionTarget.Fix(delta):
-				# interaction target is operational
-				interactionObject = interactionTarget
-				interactionTarget = null
-				emit_signal("update_unit_inventory_ui")
-				emit_signal("update_interaction_ui")
-				#isInteractionOpen = true
-				#isInventoryOpen = true
-			else:
-				PointArmAt(interactionTarget.global_position)
-		if interactionTarget is PlacedItem:
-			# pick up item
-			print(interactionTarget)
-			AddItem(interactionTarget.item)
-			interactionTarget.queue_free()
-			interactionTarget = null
-			emit_signal("update_unit_inventory_ui")
-	"""
-
 
 	
 # need to make it so that the angle is offset based on accuracy
@@ -413,6 +412,11 @@ func UpdateStats():
 	else:
 		speedModifier = 1
 	
+	if sleep < 25:
+		speedModifier -= 0.2
+	if sleep > 75:
+		speedModifier += 0.2
+		
 	speed *= speedModifier
 	
 	if isRunning:
@@ -439,6 +443,11 @@ func UpdateStats():
 	elif velocity != Vector2.ZERO:
 		spread *= primary.data.movementPenalty
 	
+	if sleep < 25:
+		spread *= 2
+	elif sleep > 75:
+		spread *= 0.5
+		
 
 func PointArmAt(pos):
 	# turn towards target
@@ -455,6 +464,19 @@ func OnDeath():
 	$ArmSprite.visible = false
 	
 
+func StartSleeping():
+	if sleeping == true:
+		return
+		
+	sleeping = true
+	sleepingCooldown = true
+	
+	if sleepingCooldownTimer.is_stopped():
+		sleepingCooldownTimer.start()
+	
+	sleepingParticleEffect.emitting = true
+	
+	
 # simulates breathing in
 func _on_oxygen_timer_timeout():
 	oxygen += 10 * Spaceship.oxygenLevel / 100.0
@@ -639,3 +661,7 @@ func _on_skill_cooldown_timer_timeout(extra_arg_0):
 
 func _on_melee_attack_timer_timeout():
 	meleeCooldown = false
+
+
+func _on_sleep_cooldown_timer_timeout():
+	sleepingCooldown = false

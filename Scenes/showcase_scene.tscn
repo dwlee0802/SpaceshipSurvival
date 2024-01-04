@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://c5nyr1fhytbkv"]
+[gd_scene load_steps=41 format=3 uid="uid://c5nyr1fhytbkv"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_8rs23"]
 [ext_resource type="PackedScene" uid="uid://bglyxpx5ldmya" path="res://Scenes/showcase_spaceship.tscn" id="2_cyxog"]
@@ -45,8 +45,14 @@ device = -1
 keycode = 69
 unicode = 101
 
+[sub_resource type="InputEventKey" id="InputEventKey_3xrmd"]
+device = -1
+shift_pressed = true
+keycode = 69
+unicode = 69
+
 [sub_resource type="Shortcut" id="Shortcut_fmohv"]
-events = [SubResource("InputEventKey_ca4cy")]
+events = [SubResource("InputEventKey_ca4cy"), SubResource("InputEventKey_3xrmd")]
 
 [sub_resource type="InputEventKey" id="InputEventKey_f6pi5"]
 keycode = 49

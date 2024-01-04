@@ -147,7 +147,7 @@ static func UpdateUnitBarUI(unit: Survivor):
 	healthBar.size.x = unit.health / unit.maxHealth * BAR_LENGTH
 	oxygenBar.size.x = unit.oxygen / 100 * BAR_LENGTH
 	temperatureBar.size.x = unit.bodyTemperature / 50 * BAR_LENGTH
-	sleepBar.size.x = unit.sleep / 600 * BAR_LENGTH
+	sleepBar.size.x = unit.sleep / 100 * BAR_LENGTH
 	nutritionBar.size.x = unit.nutrition / 100 * BAR_LENGTH
 	expBar.size.x = float(unit.experiencePoints) / unit.requiredEXP * EXP_BAR_LENGTH
 	

@@ -5,11 +5,11 @@
 
 [resource]
 script = ExtResource("1_0awbg")
-amount = 35.0
+amount = 25.0
 type = 4
 name = "Canned Coffee"
 ID = 2
 description = "Coffee in a can."
 texture = ExtResource("2_jn658")
-componentValue = 30
+componentValue = 20
 weight = 3
