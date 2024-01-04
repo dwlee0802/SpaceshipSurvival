@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/survivor.gd" id="1_ag083"]
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="2_3n7u2"]
-[ext_resource type="Texture2D" uid="uid://bphgupljd61uk" path="res://Art/ump45_temp_sprite.png" id="2_10b6v"]
+[ext_resource type="Texture2D" uid="uid://b73ufowo7dwvi" path="res://Art/slime_body.png" id="2_7elj5"]
 [ext_resource type="Texture2D" uid="uid://2j00antvhw4x" path="res://Art/circle-256.png" id="3_5uyep"]
 [ext_resource type="Script" path="res://radial/addons/radial_progress/RadialProgress.gd" id="5_oyvpn"]
 [ext_resource type="AudioStream" uid="uid://cjuitc7xtt1af" path="res://Audio/handgun_shooting_sound.mp3" id="6_6yoha"]
@@ -119,9 +119,9 @@ script = ExtResource("1_ag083")
 speed = 150
 
 [node name="BodySprite" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(-2.86102e-06, -10.5)
-scale = Vector2(0.322581, 0.349754)
-texture = ExtResource("2_10b6v")
+texture = ExtResource("2_7elj5")
 
 [node name="BodyCollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_nmrp8")
@@ -182,6 +182,9 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 visible = false
 self_modulate = Color(0.996078, 0.0235294, 0, 0.690196)
 polygon = PackedVector2Array(25, -13, 25, 13, 43.7779, 9.65796, 98.8432, -0.142443)
+
+[node name="AttackPoint" type="Marker2D" parent="ArmSprite"]
+position = Vector2(58, 0)
 
 [node name="OxygenTimer" type="Timer" parent="."]
 wait_time = 3.0

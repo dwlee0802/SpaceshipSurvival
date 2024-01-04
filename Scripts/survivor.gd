@@ -12,6 +12,7 @@ var endAccuracy: float = 0
 
 @onready var armSprite = $ArmSprite
 @onready var muzzleFlashSprite = $ArmSprite/MuzzleFlash
+@onready var attackPoint = $ArmSprite/AttackPoint
 
 @onready var noAmmoLabel = $NoAmmoLabel
 
@@ -276,7 +277,7 @@ func _physics_process(delta):
 		Reload()
 		
 	# Shot input
-	if attacking and attackCooldown == false and reloading == false and not usingSkill:
+	if attacking and attackCooldown == false and reloading == false and not usingSkill and not sleeping:
 		attackTimer.start(1/primarySlot.data.attacksPerSecond)
 		attackCooldown = true
 		Attack()
@@ -312,8 +313,8 @@ func Attack():
 			Game.gameScene.add_child(newBullet)
 			newBullet.weapon = primarySlot
 			newBullet.from = self
-			newBullet.position = global_position
-			newBullet.rotation = global_position.angle_to_point(get_global_mouse_position()) + randf_range(-spread, spread)
+			newBullet.position = attackPoint.global_position
+			newBullet.rotation = attackPoint.global_position.angle_to_point(get_global_mouse_position()) + randf_range(-spread, spread)
 			muzzleFlashSprite.visible = true
 			newBullet.speed = primarySlot.data.projectileSpeed
 		
@@ -338,7 +339,7 @@ func Reload():
 	
 
 func MeleeAttack():
-	if meleeCooldown:
+	if meleeCooldown or sleeping:
 		return
 	
 	var results = meleeAttackArea.get_overlapping_bodies()
