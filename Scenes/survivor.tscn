@@ -119,6 +119,7 @@ script = ExtResource("1_ag083")
 speed = 150
 
 [node name="BodySprite" type="Sprite2D" parent="."]
+self_modulate = Color(0, 1, 0.988235, 1)
 texture_filter = 1
 position = Vector2(-2.86102e-06, -10.5)
 texture = ExtResource("2_7elj5")
@@ -143,6 +144,7 @@ scale = Vector2(38, 10)
 texture = ExtResource("2_3n7u2")
 
 [node name="MuzzleFlash" type="Sprite2D" parent="ArmSprite"]
+visible = false
 self_modulate = Color(1, 0, 0, 1)
 position = Vector2(55, -0.500001)
 scale = Vector2(0.101563, 0.0507812)
