@@ -306,15 +306,21 @@ autowrap_mode = 1
 
 [node name="ItemContainer" parent="Containers" instance=ExtResource("10_6mb6o")]
 position = Vector2(-413, 249)
+spawnFood = false
+spawnComponents = false
 spawnWeapons = true
 
 [node name="ItemContainer2" parent="Containers" instance=ExtResource("10_6mb6o")]
 position = Vector2(-246, 252)
+spawnAmmo = false
+spawnComponents = false
 spawnWeapons = true
 spawnArmor = true
 
 [node name="ItemContainer3" parent="Containers" instance=ExtResource("10_6mb6o")]
 position = Vector2(-76, 251)
+spawnAmmo = false
+spawnFood = false
 spawnArmor = true
 
 [node name="ItemContainer4" parent="Containers" instance=ExtResource("10_6mb6o")]
@@ -333,14 +339,20 @@ spawnConsumables = true
 
 [node name="ItemContainer7" parent="Containers" instance=ExtResource("10_6mb6o")]
 position = Vector2(-411, 397)
+spawnFood = false
+spawnComponents = false
 spawnWeapons = true
 
 [node name="ItemContainer9" parent="Containers" instance=ExtResource("10_6mb6o")]
 position = Vector2(-256, 395)
+spawnAmmo = false
+spawnComponents = false
 spawnWeapons = true
 
 [node name="ItemContainer10" parent="Containers" instance=ExtResource("10_6mb6o")]
 position = Vector2(-79, 394)
+spawnAmmo = false
+spawnFood = false
 spawnArmor = true
 
 [node name="ItemContainer8" parent="Containers" instance=ExtResource("10_6mb6o")]

@@ -333,7 +333,7 @@ func Attack():
 	
 	
 func Reload():
-	if not reloading and primarySlot.type == ItemType.Ranged:
+	if not reloading and primarySlot.type == ItemType.Ranged and magazineCount != primarySlot.data.magazineCapacity:
 		$ReloadTimer.start(primarySlot.data.reloadTime * reloadSpeed)
 		reloading = true
 	

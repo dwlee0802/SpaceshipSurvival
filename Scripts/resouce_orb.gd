@@ -13,7 +13,15 @@ var target_position: Vector2
 
 
 func _ready():
+	expAmount = 0
+	target_position = global_position
+	
+
+func SetType(random = true, type = 0):
 	var rng = randi()
+	if random == false:
+		rng = type
+		
 	if rng % 3 == 1:
 		componentAmount = randi_range(1, 10)
 		$Sprite2D.self_modulate = Color.GOLD
@@ -23,11 +31,8 @@ func _ready():
 	else:
 		ammoAmount = randi_range(10, 30)
 		$Sprite2D.self_modulate = Color.DARK_ORANGE
-		
-	expAmount = 0
-	target_position = global_position
 	
-
+	
 func _physics_process(_delta):
 	if pickupReady and fly:
 		global_position += global_position.direction_to(target.global_position) * FOLLOW_SPEED

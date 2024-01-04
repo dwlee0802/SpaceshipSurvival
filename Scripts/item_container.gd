@@ -13,9 +13,11 @@ var capacity: int = 20
 
 @export var randomizeContentAmount: int = true
 
-@export var spawnAmmo: bool = false
-@export var spawnFood: bool = false
-@export var spawnComponents: bool = false
+@export var dropResources: bool = true
+
+@export var spawnAmmo: bool = true
+@export var spawnFood: bool = true
+@export var spawnComponents: bool = true
 @export var spawnWeapons: bool = false
 @export var spawnArmor: bool = false
 @export var spawnConsumables: bool = false
@@ -99,16 +101,26 @@ func Fix(delta):
 	if opened == false:
 		$Sprite2D.texture = opened_texture
 		opened = true
-		SpawnResources()
+		if dropResources:
+			SpawnResources()
 		audioPlayer.play()
 	return true
 
 
 # spawns and disperses resource orbs when it is first opened
 func SpawnResources():
+	var types = []
+	if spawnAmmo:
+		types.append(0)
+	if spawnComponents:
+		types.append(1)
+	if spawnFood:
+		types.append(2)
+		
 	var amount = randi_range(0, MAX_RESOURCE_COUNT)
 	for i in range(amount):
 		var newOrb = resourceOrb.instantiate()
 		get_tree().root.add_child(newOrb)
 		newOrb.position = global_position
 		newOrb.target_position = global_position + Vector2(randi_range(-50, 50), randi_range(-50, 50))
+		newOrb.SetType(false, types.pick_random())

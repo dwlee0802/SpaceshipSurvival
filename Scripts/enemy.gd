@@ -142,6 +142,7 @@ func DropResource():
 	get_tree().root.add_child(newOrb)
 	newOrb.position = global_position + Vector2(randi_range(-20, 20), randi_range(-20, 20))
 	newOrb.target_position = newOrb.position
+	newOrb.SetType()
 	
 
 func _on_nav_update_timer_timeout():
