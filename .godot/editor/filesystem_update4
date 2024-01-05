@@ -2,3 +2,9 @@ res://Scenes/showcase_scene.tscn
 res://Scripts/close_button.tres
 res://Scripts/survivor.gd
 res://Scenes/survivor.tscn
+res://Scripts/resouce_orb.gd
+res://Scripts/infirmary.gd
+res://Data/1_Ranged/0_Handgun.tres
+res://Scenes/sleep_accelerator.tscn
+res://Scenes/sleep_accelerator.gd
+res://Scripts/InputManager.gd

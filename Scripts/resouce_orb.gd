@@ -15,7 +15,7 @@ var target_position: Vector2
 func _ready():
 	expAmount = 0
 	target_position = global_position
-	
+	SetType()
 
 func SetType(random = true, type = 0):
 	var rng = randi()

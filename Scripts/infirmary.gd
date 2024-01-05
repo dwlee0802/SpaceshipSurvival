@@ -8,5 +8,4 @@ func _on_heal_timer_timeout():
 			return
 		for item in moduleArea.get_overlapping_bodies():
 			var amount = randi_range(5, 15)
-			if item.health + amount <= item.maxHealth:
-				item.ReceiveHit(-amount)
+			item.HealHealth(amount)

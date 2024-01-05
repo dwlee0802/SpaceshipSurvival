@@ -166,7 +166,7 @@ func LoadSurvivorData():
 func _process(delta):
 	if isDead:
 		return
-		
+	print(sleepGainModifier)
 	ReduceBuffDurations(delta)
 	
 	oxygen -= delta * 3
@@ -245,6 +245,7 @@ func _physics_process(delta):
 			if Input.is_action_pressed("move_down") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_down") or Input.is_action_pressed("move_up"):
 				sleeping = false
 				sleepingParticleEffect.emitting = false
+				sleepGainModifier = 1
 		else:
 			return
 		
@@ -473,8 +474,8 @@ func OnDeath():
 	$ArmSprite.visible = false
 	
 
-func StartSleeping():
-	if sleeping == true:
+func StartSleeping(modifier = 1):
+	if sleeping == true or sleepingCooldown:
 		return
 		
 	sleeping = true
@@ -484,6 +485,7 @@ func StartSleeping():
 		sleepingCooldownTimer.start()
 	
 	sleepingParticleEffect.emitting = true
+	sleepGainModifier = modifier
 	
 	
 # simulates breathing in
