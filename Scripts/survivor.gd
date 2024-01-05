@@ -166,7 +166,7 @@ func LoadSurvivorData():
 func _process(delta):
 	if isDead:
 		return
-	print(sleepGainModifier)
+		
 	ReduceBuffDurations(delta)
 	
 	oxygen -= delta * 3
@@ -236,7 +236,7 @@ func _physics_process(delta):
 	# can't wake up til sleep reaches 100
 	# can cancel if above 50
 	if sleeping:
-		sleep += delta * 5
+		sleep += delta * 2
 		if sleep >= 100:
 			sleep = 100
 			sleeping = false
@@ -309,6 +309,9 @@ func _physics_process(delta):
 	
 # need to make it so that the angle is offset based on accuracy
 func Attack():
+	if sleeping:
+		return
+		
 	if primarySlot.data is RangedWeapon:
 		for i in range(primarySlot.data.projectilesPerShot):
 			var newBullet = bulletScene.instantiate()
@@ -486,7 +489,13 @@ func StartSleeping(modifier = 1):
 	
 	sleepingParticleEffect.emitting = true
 	sleepGainModifier = modifier
-	
+	if modifier > 1:
+		sleepingParticleEffect.amount = 6
+		sleepingParticleEffect.gravity = Vector2(0, -800)
+	else:
+		sleepingParticleEffect.amount = 3
+		sleepingParticleEffect.gravity = Vector2(0, -400)
+		
 	
 # simulates breathing in
 func _on_oxygen_timer_timeout():
