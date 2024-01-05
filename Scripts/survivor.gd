@@ -456,6 +456,9 @@ func UpdateStats():
 		
 
 func PointArmAt(pos):
+	if sleeping:
+		return
+		
 	# turn towards target
 	armSprite.rotation = global_position.angle_to_point(pos)
 
