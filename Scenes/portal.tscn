@@ -1,8 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://b2qulxltbeyuq"]
 
-[ext_resource type="Script" path="res://Scenes/portal.gd" id="1_csqvh"]
+[ext_resource type="Script" path="res://Scripts/portal.gd" id="1_csqvh"]
 [ext_resource type="Texture2D" uid="uid://cnuxca4r5u03f" path="res://Art/teleporter_art.png" id="2_1ik55"]
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="3_6g2r8"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cdjpr"]
 resource_local_to_scene = true

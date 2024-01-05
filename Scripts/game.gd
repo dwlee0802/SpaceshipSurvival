@@ -17,6 +17,7 @@ static var enemyHitEffectScene = load("res://Scenes/hit_particle_effect.tscn")
 static var areaEffectScene = load("res://Scenes/area_skill.tscn")
 
 static var explostionEffect = load("res://Scenes/explosion_effect.tscn")
+static var explostionSound = load("res://Scenes/sound_effect.tscn")
 
 static var projectileScene = load("res://Scenes/projectile.tscn")
 
@@ -68,8 +69,11 @@ static func MakeEnemyDeathEffect(where):
 
 static func MakeExplosionEffect(where):
 	var newEff = explostionEffect.instantiate()
+	var newSound = explostionSound.instantiate()
 	newEff.global_position = where
 	gameScene.add_child(newEff)
+	newSound.global_position = where
+	gameScene.add_child(newSound)
 	return newEff
 
 

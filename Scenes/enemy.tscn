@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://brrbmb154h7yh"]
+[gd_scene load_steps=15 format=3 uid="uid://brrbmb154h7yh"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_l4svj"]
 [ext_resource type="Texture2D" uid="uid://b73ufowo7dwvi" path="res://Art/slime_body.png" id="2_b03gy"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c7n5o1jyngey" path="res://Art/slime_eye.png" id="4_708lm"]
 [ext_resource type="PackedScene" uid="uid://cv86y8rjo4hb1" path="res://Scenes/hit_particle_effect.tscn" id="5_ijfqr"]
 [ext_resource type="AudioStream" uid="uid://boa1od2fnft7d" path="res://Audio/slime_0.ogg" id="7_p2us5"]
+[ext_resource type="AudioStream" uid="uid://d3nmtkd24vtdp" path="res://Audio/slime_hit.ogg" id="8_mhdnr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ashq5"]
 size = Vector2(40, 40)
@@ -184,6 +185,11 @@ stream = ExtResource("7_p2us5")
 volume_db = -10.0
 max_distance = 500.0
 attenuation = 1.93187
+max_polyphony = 3
+
+[node name="HitSoundEffectPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_mhdnr")
+max_distance = 1500.0
 max_polyphony = 3
 
 [connection signal="timeout" from="NavUpdateTimer" to="." method="_on_nav_update_timer_timeout"]

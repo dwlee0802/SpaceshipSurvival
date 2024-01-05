@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cvuq64ejyylwr"]
 
-[ext_resource type="Script" path="res://Scenes/sleep_accelerator.gd" id="1_sohwd"]
+[ext_resource type="Script" path="res://Scripts/sleep_accelerator.gd" id="1_smxeh"]
 [ext_resource type="Texture2D" uid="uid://bjl3wlb8vxpiu" path="res://Art/bed_temp.jpg" id="2_h3igu"]
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="3_uyw5t"]
 [ext_resource type="Texture2D" uid="uid://2j00antvhw4x" path="res://Art/circle-256.png" id="4_5hti7"]
@@ -15,7 +15,7 @@ size = Vector2(50, 69)
 collision_layer = 8
 collision_mask = 0
 physics_material_override = SubResource("PhysicsMaterial_elui1")
-script = ExtResource("1_sohwd")
+script = ExtResource("1_smxeh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

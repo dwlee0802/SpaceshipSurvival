@@ -23,6 +23,7 @@ var resourceDropProbability: float = 0.5
 @onready var roamTimer = $RoamTimer
 
 @onready var audioPlayer = $AudioStreamPlayer2D
+@onready var hitSoundPlayer = $HitSoundEffectPlayer
 
 
 func _ready():
@@ -127,7 +128,9 @@ func ReceiveHit(from, amount, penetration = 0, isRadiationDamage = false, knockB
 				MakeExpOrb(from)
 			elif from is AreaEffect:
 				MakeExpOrb(from.get_parent())
-
+				
+	hitSoundPlayer.play()
+	
 
 func DropItem():
 	var newItem = placedItemScene.instantiate()
