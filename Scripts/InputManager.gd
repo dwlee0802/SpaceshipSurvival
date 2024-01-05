@@ -325,7 +325,7 @@ func _on_interaction_button_pressed():
 		obj.queue_free()
 		UpdateUnitInventoryUI()
 	elif obj is SleepAccelerator:
-		Game.survivor.StartSleeping(SleepAccelerator.accelerationAmount)
+		Game.survivor.StartSleeping(obj.accelerationAmount)
 		
 
 func _on_container_closebutton_pressed():

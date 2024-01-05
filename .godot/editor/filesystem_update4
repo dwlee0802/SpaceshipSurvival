@@ -8,3 +8,4 @@ res://Data/1_Ranged/0_Handgun.tres
 res://Scenes/sleep_accelerator.tscn
 res://Scenes/sleep_accelerator.gd
 res://Scripts/InputManager.gd
+res://Scenes/bed.tscn
