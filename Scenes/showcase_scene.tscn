@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://c5nyr1fhytbkv"]
+[gd_scene load_steps=62 format=3 uid="uid://c5nyr1fhytbkv"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_8rs23"]
 [ext_resource type="PackedScene" uid="uid://bglyxpx5ldmya" path="res://Scenes/showcase_spaceship.tscn" id="2_cyxog"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="3_ycj52"]
 [ext_resource type="Script" path="res://Scripts/UserInterfaceManager.gd" id="4_r8yfc"]
 [ext_resource type="Texture2D" uid="uid://cmboiyqntn0ou" path="res://Art/Skills/grenade_icon_temp.png" id="5_0auu8"]
-[ext_resource type="Texture2D" uid="uid://ctk85sjq70r2v" path="res://Art/Weapons/shotgun_temp.jpg" id="5_7kqq4"]
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="5_lwbxl"]
 [ext_resource type="Texture2D" uid="uid://bexkhiplgn4sy" path="res://Art/crowbar_placeholder.png" id="6_0ecve"]
 [ext_resource type="Script" path="res://Scenes/HealthBar.gd" id="6_as7pn"]
@@ -415,21 +414,6 @@ offset_left = 96.0
 offset_top = -35.0
 offset_right = 456.0
 offset_bottom = -6.0
-
-[node name="TextureRect" type="TextureRect" parent="Camera/Canvas/UnitUI/BuffIconContainer"]
-layout_mode = 2
-texture = ExtResource("5_7kqq4")
-expand_mode = 3
-
-[node name="TextureRect2" type="TextureRect" parent="Camera/Canvas/UnitUI/BuffIconContainer"]
-layout_mode = 2
-texture = ExtResource("5_7kqq4")
-expand_mode = 3
-
-[node name="TextureRect3" type="TextureRect" parent="Camera/Canvas/UnitUI/BuffIconContainer"]
-layout_mode = 2
-texture = ExtResource("5_7kqq4")
-expand_mode = 3
 
 [node name="PrimaryWeaponUI" type="Panel" parent="Camera/Canvas"]
 texture_filter = 1

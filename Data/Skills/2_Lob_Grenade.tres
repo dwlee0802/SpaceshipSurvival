@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ProjectileSkill" load_steps=3 format=3 uid="uid://dj20wnavxfafh"]
 
 [ext_resource type="Script" path="res://Data/projectile_skill.gd" id="1_y302a"]
-[ext_resource type="Texture2D" uid="uid://d1w0t1vuy8uh6" path="res://Art/Skills/grenade_icon_temp.png" id="2_iyeob"]
+[ext_resource type="Texture2D" uid="uid://cmboiyqntn0ou" path="res://Art/Skills/grenade_icon_temp.png" id="2_iyeob"]
 
 [resource]
 script = ExtResource("1_y302a")

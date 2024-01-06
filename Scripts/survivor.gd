@@ -61,7 +61,7 @@ var nutrition: float = 100
 # 2 inventory cap for 1 strength
 var strength: int = 10
 
-var sleep: float = 20
+var sleep: float = 50
 
 var isDead: bool = false
 
@@ -435,7 +435,7 @@ func UpdateStats():
 	self.attackSpeedModifier = 1
 	self.defenseModifier = 1
 	
-	for item: BuffObject in self.buffs:
+	for item: BuffIcon in UserInterfaceManager.buffIconUI.get_children():
 		speed *= 1 + item.data.speedModifer
 		self.attackSpeedModifier += item.data.attackSpeedModifier
 		endAccuracy += item.data.accuracyAmount
@@ -448,10 +448,11 @@ func UpdateStats():
 	# update weapon bullet spread
 	spread = 2 * atan(25.0/primary.data.range)
 	
-	if isRunning:
-		spread *= 2
-	elif velocity != Vector2.ZERO:
-		spread *= primary.data.movementPenalty
+	if primary is RangedWeapon:
+		if isRunning:
+			spread *= 2
+		elif velocity != Vector2.ZERO:
+			spread *= primary.data.movementPenalty
 	
 	if sleep < 20:
 		spread *= 2
@@ -577,11 +578,25 @@ func ReduceBuffDurations(delta):
 	var buffsSize = self.buffs.size()
 	for i in range(buffsSize):
 		var index = buffsSize - 1 - i
+		if not self.buffs[index].timeSensitive:
+			continue
 		self.buffs[index].durationLeft -= delta
 		if self.buffs[index].durationLeft < 0:
 			self.buffs.remove_at(index)
 		
+	
+func ApplyBuff(skill: Skill, timeSensitive = true):
+	if not (skill is BuffSkill):
+		return
 		
+	var newBuffObject = UserInterfaceManager.AddBuffIcon()
+	newBuffObject.data = skill
+	newBuffObject.texture = skill.texture
+	
+	if timeSensitive:
+		newBuffObject.timer.start(skill.duration)
+	
+	
 func ApplySkillCooldown(skill: Skill):
 	if skill == skillSlot_1:
 		skillCooldownTimer1.start(skill.cooldownTime)

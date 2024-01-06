@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="BuffSkill" load_steps=2 format=3 uid="uid://clevvesuhnx0d"]
+
+[ext_resource type="Script" path="res://Data/buff_skill.gd" id="1_xrrdd"]
+
+[resource]
+script = ExtResource("1_xrrdd")
+speedAmount = 0.0
+speedModifer = 1.0
+attackSpeedAmount = 0.0
+attackSpeedModifier = 1.0
+accuracyAmount = 0.0
+accuracyModifier = 1.0
+defenseAmount = 0.0
+defenseModifier = 1.0
+reloadModifier = 1.0
+damagePerSecond = 0.5
+name = "Suffocation"
+ID = 0
+description = "Can't Breathe."
+cooldownTime = 0.0
+duration = 0.0

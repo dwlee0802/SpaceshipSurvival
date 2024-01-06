@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="BuffSkill" load_steps=2 format=3 uid="uid://bnncpbvnspnx5"]
+[gd_resource type="Resource" script_class="BuffSkill" load_steps=3 format=3 uid="uid://bnncpbvnspnx5"]
 
 [ext_resource type="Script" path="res://Data/buff_skill.gd" id="1_jdfwn"]
+[ext_resource type="Texture2D" uid="uid://m0746end0dlt" path="res://Art/Skills/adrenalin_temp.png" id="2_5ydxs"]
 
 [resource]
 script = ExtResource("1_jdfwn")
@@ -12,8 +13,11 @@ accuracyAmount = 0.0
 accuracyModifier = 1.0
 defenseAmount = 0.0
 defenseModifier = 0.0
+reloadModifier = 1.0
+damagePerSecond = 0.0
 name = "Adrenalin Rush"
 ID = 0
 description = "Rush of adrenalin. Boosts movement speed and attack speed."
+texture = ExtResource("2_5ydxs")
 cooldownTime = 5.0
 duration = 5.0

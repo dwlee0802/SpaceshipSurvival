@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="RangedWeapon" load_steps=3 format=3 uid="uid://b1sbu7c50jvw7"]
 
 [ext_resource type="Script" path="res://Data/ranged_data.gd" id="1_n1gir"]
-[ext_resource type="Texture2D" uid="uid://ctk85sjq70r2v" path="res://Art/Weapons/shotgun_temp.jpg" id="2_6bbf1"]
+[ext_resource type="Texture2D" uid="uid://dukwsudawru48" path="res://Art/Weapons/double_barrel_shotgun_temp.jpg" id="2_yfqc8"]
 
 [resource]
 script = ExtResource("1_n1gir")
@@ -23,6 +23,6 @@ type = 1
 name = "Double Barrel Shotgun"
 ID = 7
 description = "The classic."
-texture = ExtResource("2_6bbf1")
+texture = ExtResource("2_yfqc8")
 componentValue = 100
 weight = 5

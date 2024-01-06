@@ -343,8 +343,8 @@ func _on_crafting_station_closebutton_pressed():
 # use skill
 # apply cooldown
 func _on_skill_button_pressed(extra_arg_0):
-	var skillData: Skill
 	print(extra_arg_0)
+	var skillData: Skill
 	if extra_arg_0 == 0:
 		skillData = Game.survivor.skillSlot_1
 			
@@ -367,8 +367,5 @@ func _on_skill_button_pressed(extra_arg_0):
 		Game.survivor.usingSkill = true
 		currentSkillObject = newAreaEff
 	if skillData is BuffSkill:
-		var newBuffObject = BuffObject.new()
-		newBuffObject.data = skillData
-		newBuffObject.durationLeft = newBuffObject.data.duration
-		Game.survivor.AddBuff(newBuffObject)
+		Game.survivor.ApplyBuff(skillData)
 		Game.survivor.ApplySkillCooldown(skillData)

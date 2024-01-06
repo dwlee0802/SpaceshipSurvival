@@ -1,8 +1,7 @@
-[gd_scene load_steps=45 format=3 uid="uid://cqm1wa5t73skr"]
+[gd_scene load_steps=44 format=3 uid="uid://cqm1wa5t73skr"]
 
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="1_68gml"]
 [ext_resource type="Script" path="res://Scripts/UserInterfaceManager.gd" id="2_cfvxg"]
-[ext_resource type="Texture2D" uid="uid://ctk85sjq70r2v" path="res://Art/Weapons/shotgun_temp.jpg" id="3_b804l"]
 [ext_resource type="Texture2D" uid="uid://2j00antvhw4x" path="res://Art/circle-256.png" id="3_vwdlq"]
 [ext_resource type="Texture2D" uid="uid://bexkhiplgn4sy" path="res://Art/crowbar_placeholder.png" id="4_bt76j"]
 [ext_resource type="Texture2D" uid="uid://ddgm7rgp5c517" path="res://Art/spaceship_image.png" id="5_c1t43"]
@@ -221,6 +220,7 @@ rotation = 3.14159
 texture = ExtResource("1_68gml")
 
 [node name="ShortcutLabel" type="Panel" parent="UnitUI/SkillButtons/SkillButton2"]
+layout_mode = 0
 offset_left = 1.0
 offset_top = 46.0
 offset_right = 22.0
@@ -236,6 +236,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="SkillButton3" type="TextureButton" parent="UnitUI/SkillButtons"]
+layout_mode = 0
 offset_left = 162.0
 offset_right = 232.0
 offset_bottom = 70.0
@@ -264,6 +265,7 @@ rotation = 3.14159
 texture = ExtResource("1_68gml")
 
 [node name="ShortcutLabel" type="Panel" parent="UnitUI/SkillButtons/SkillButton3"]
+layout_mode = 0
 offset_left = 1.0
 offset_top = 46.0
 offset_right = 22.0
@@ -383,21 +385,6 @@ offset_left = 96.0
 offset_top = -35.0
 offset_right = 456.0
 offset_bottom = -6.0
-
-[node name="TextureRect" type="TextureRect" parent="UnitUI/BuffIconContainer"]
-layout_mode = 2
-texture = ExtResource("3_b804l")
-expand_mode = 3
-
-[node name="TextureRect2" type="TextureRect" parent="UnitUI/BuffIconContainer"]
-layout_mode = 2
-texture = ExtResource("3_b804l")
-expand_mode = 3
-
-[node name="TextureRect3" type="TextureRect" parent="UnitUI/BuffIconContainer"]
-layout_mode = 2
-texture = ExtResource("3_b804l")
-expand_mode = 3
 
 [node name="PrimaryWeaponUI" type="Panel" parent="."]
 texture_filter = 1

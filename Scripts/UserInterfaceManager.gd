@@ -77,6 +77,7 @@ static var skillButton_cd_1
 static var skillButton_cd_2
 
 static var buffIconUI
+static var buffIconScene = load("res://Scenes/buff_icon.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -118,7 +119,7 @@ func _ready():
 	skillButton_2 = skillButtons.get_node("SkillButton2")
 	skillButton_cd_1 = skillButtons.get_node("SkillButton1/Cooldown")
 	skillButton_cd_2 = skillButtons.get_node("SkillButton2/Cooldown")
-
+	
 
 # change scale x of progress bar based on progress
 static func UpdateTravelProgressUI(cur, maxVal):
@@ -449,6 +450,12 @@ static func UpdateSkillButtons(unit: Survivor):
 		var button = skillButtons.get_node("SkillButton2/Label")
 		button.text = skill_2.name
 		skillButtons.get_node("SkillButton2").visible = true
+	
+	
+static func AddBuffIcon():
+	var newIcon = UserInterfaceManager.buffIconScene.instantiate()
+	buffIconUI.add_child(newIcon)
+	return newIcon
 	
 	
 func _on_disassembly_closebutton_pressed():

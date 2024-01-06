@@ -14,3 +14,5 @@ class_name BuffSkill
 @export var defenseModifier: float = 1
 
 @export var reloadModifier: float = 1
+
+@export var damagePerSecond: float = 0

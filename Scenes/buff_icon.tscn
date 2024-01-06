@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dni4ndtf8hcm"]
+
+[ext_resource type="Texture2D" uid="uid://ctk85sjq70r2v" path="res://Art/Weapons/shotgun_temp.jpg" id="1_jn573"]
+[ext_resource type="Script" path="res://Scripts/buff_icon.gd" id="2_vgkh3"]
+
+[node name="BuffIcon" type="TextureRect"]
+texture = ExtResource("1_jn573")
+expand_mode = 3
+script = ExtResource("2_vgkh3")
+
+[node name="BuffDurationTimer" type="Timer" parent="."]
+process_callback = 0
+
+[connection signal="timeout" from="BuffDurationTimer" to="." method="_on_buff_duration_timer_timeout"]
