@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Scripts/data_manager.gd" id="2_v3v3t"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="3_ycj52"]
 [ext_resource type="Script" path="res://Scripts/UserInterfaceManager.gd" id="4_r8yfc"]
-[ext_resource type="Texture2D" uid="uid://d1w0t1vuy8uh6" path="res://Art/Skills/grenade_icon_temp.png" id="5_0auu8"]
+[ext_resource type="Texture2D" uid="uid://cmboiyqntn0ou" path="res://Art/Skills/grenade_icon_temp.png" id="5_0auu8"]
 [ext_resource type="Texture2D" uid="uid://ctk85sjq70r2v" path="res://Art/Weapons/shotgun_temp.jpg" id="5_7kqq4"]
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="5_lwbxl"]
 [ext_resource type="Texture2D" uid="uid://bexkhiplgn4sy" path="res://Art/crowbar_placeholder.png" id="6_0ecve"]
