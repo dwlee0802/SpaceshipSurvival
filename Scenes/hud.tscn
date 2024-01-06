@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cqm1wa5t73skr"]
+[gd_scene load_steps=37 format=3 uid="uid://cqm1wa5t73skr"]
 
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="1_68gml"]
 [ext_resource type="Script" path="res://Scripts/UserInterfaceManager.gd" id="2_cfvxg"]
@@ -19,39 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://dugwv0bcmg1yj" path="res://Art/oxygen_generator_icon.png" id="13_6hnan"]
 [ext_resource type="Texture2D" uid="uid://bjl3wlb8vxpiu" path="res://Art/bed_temp.jpg" id="14_uov8j"]
 [ext_resource type="Texture2D" uid="uid://bt2acio8mtfea" path="res://Art/temperature_icon.png" id="19_gf5eb"]
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_e58cv"]
-allow_unpress = true
-
-[sub_resource type="InputEventKey" id="InputEventKey_wok48"]
-device = -1
-keycode = 73
-unicode = 105
-
-[sub_resource type="Shortcut" id="Shortcut_4ri6e"]
-events = [SubResource("InputEventKey_wok48")]
-
-[sub_resource type="InputEventKey" id="InputEventKey_4a3vl"]
-device = -1
-keycode = 66
-unicode = 98
-
-[sub_resource type="Shortcut" id="Shortcut_nx7dp"]
-events = [SubResource("InputEventKey_4a3vl")]
-
-[sub_resource type="InputEventKey" id="InputEventKey_ca4cy"]
-device = -1
-keycode = 69
-unicode = 101
-
-[sub_resource type="InputEventKey" id="InputEventKey_3xrmd"]
-device = -1
-shift_pressed = true
-keycode = 69
-unicode = 69
-
-[sub_resource type="Shortcut" id="Shortcut_n1o74"]
-events = [SubResource("InputEventKey_ca4cy"), SubResource("InputEventKey_3xrmd")]
 
 [sub_resource type="InputEventKey" id="InputEventKey_f6pi5"]
 keycode = 49
@@ -99,247 +66,40 @@ _data = {
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_t3pin"]
 
-[node name="HUD" type="CanvasLayer"]
+[sub_resource type="InputEventKey" id="InputEventKey_wok48"]
+device = -1
+keycode = 73
+unicode = 105
 
-[node name="UnitUI" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_left = 15.0
-offset_top = 542.0
-offset_right = 55.0
-offset_bottom = 582.0
+[sub_resource type="Shortcut" id="Shortcut_4ri6e"]
+events = [SubResource("InputEventKey_wok48")]
 
-[node name="Background" type="Panel" parent="UnitUI"]
-layout_mode = 0
-offset_left = -11.0
-offset_top = 39.0
-offset_right = 349.0
-offset_bottom = 222.0
+[sub_resource type="InputEventKey" id="InputEventKey_4a3vl"]
+device = -1
+keycode = 66
+unicode = 98
 
-[node name="HealthBar" type="Control" parent="UnitUI"]
-anchors_preset = 0
-offset_left = 129.0
-offset_top = 48.0
-offset_right = 169.0
-offset_bottom = 88.0
+[sub_resource type="Shortcut" id="Shortcut_nx7dp"]
+events = [SubResource("InputEventKey_4a3vl")]
 
-[node name="Label" type="Label" parent="UnitUI/HealthBar"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_font_sizes/font_size = 12
-text = "Health"
+[sub_resource type="InputEventKey" id="InputEventKey_ca4cy"]
+device = -1
+keycode = 69
+unicode = 101
 
-[node name="Background" type="TextureRect" parent="UnitUI/HealthBar"]
-self_modulate = Color(0.215686, 0.215686, 0.215686, 1)
-layout_mode = 0
-offset_top = 15.0
-offset_right = 200.0
-offset_bottom = 25.0
-texture = ExtResource("1_68gml")
+[sub_resource type="InputEventKey" id="InputEventKey_3xrmd"]
+device = -1
+shift_pressed = true
+keycode = 69
+unicode = 69
 
-[node name="TextureRect" type="TextureRect" parent="UnitUI/HealthBar"]
-self_modulate = Color(1, 0, 0, 1)
-layout_mode = 0
-offset_top = 15.0
-offset_right = 145.0
-offset_bottom = 25.0
-texture = ExtResource("1_68gml")
+[sub_resource type="Shortcut" id="Shortcut_n1o74"]
+events = [SubResource("InputEventKey_ca4cy"), SubResource("InputEventKey_3xrmd")]
 
-[node name="NutritionBar" type="Control" parent="UnitUI"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 129.0
-offset_top = 73.0
-offset_right = 169.0
-offset_bottom = 113.0
-
-[node name="Label" type="Label" parent="UnitUI/NutritionBar"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_font_sizes/font_size = 12
-text = "Nutrition
-"
-
-[node name="Background" type="TextureRect" parent="UnitUI/NutritionBar"]
-self_modulate = Color(0.215686, 0.215686, 0.215686, 1)
-layout_mode = 0
-offset_top = 15.0
-offset_right = 200.0
-offset_bottom = 25.0
-texture = ExtResource("1_68gml")
-
-[node name="TextureRect" type="TextureRect" parent="UnitUI/NutritionBar"]
-self_modulate = Color(0, 1, 0, 1)
-layout_mode = 0
-offset_top = 15.0
-offset_right = 123.0
-offset_bottom = 25.0
-texture = ExtResource("1_68gml")
-
-[node name="OxygenBar" type="Control" parent="UnitUI"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 129.0
-offset_top = 98.0
-offset_right = 169.0
-offset_bottom = 138.0
-
-[node name="Label" type="Label" parent="UnitUI/OxygenBar"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_font_sizes/font_size = 12
-text = "Oxygen"
-
-[node name="Background" type="TextureRect" parent="UnitUI/OxygenBar"]
-self_modulate = Color(0.215686, 0.215686, 0.215686, 1)
-layout_mode = 0
-offset_top = 15.0
-offset_right = 200.0
-offset_bottom = 25.0
-texture = ExtResource("1_68gml")
-
-[node name="TextureRect" type="TextureRect" parent="UnitUI/OxygenBar"]
-self_modulate = Color(0, 1, 1, 1)
-layout_mode = 0
-offset_top = 15.0
-offset_right = 186.0
-offset_bottom = 25.0
-texture = ExtResource("1_68gml")
-
-[node name="MoodBar" type="Control" parent="UnitUI"]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_left = 129.0
-offset_top = 124.0
-offset_right = 169.0
-offset_bottom = 164.0
-
-[node name="Label" type="Label" parent="UnitUI/MoodBar"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_font_sizes/font_size = 12
-text = "Mood"
-
-[node name="Background" type="TextureRect" parent="UnitUI/MoodBar"]
-self_modulate = Color(0.215686, 0.215686, 0.215686, 1)
-layout_mode = 0
-offset_top = 15.0
-offset_right = 200.0
-offset_bottom = 25.0
-texture = ExtResource("1_68gml")
-
-[node name="TextureRect" type="TextureRect" parent="UnitUI/MoodBar"]
-self_modulate = Color(0.921569, 0.913725, 0, 1)
-layout_mode = 0
-offset_top = 15.0
-offset_right = 69.0
-offset_bottom = 25.0
-texture = ExtResource("1_68gml")
-
-[node name="SleepBar" type="Control" parent="UnitUI"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 129.0
-offset_top = 124.0
-offset_right = 169.0
-offset_bottom = 164.0
-
-[node name="Label" type="Label" parent="UnitUI/SleepBar"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_font_sizes/font_size = 12
-text = "Sleep"
-
-[node name="Background" type="TextureRect" parent="UnitUI/SleepBar"]
-self_modulate = Color(0.215686, 0.215686, 0.215686, 1)
-layout_mode = 0
-offset_top = 15.0
-offset_right = 200.0
-offset_bottom = 25.0
-texture = ExtResource("1_68gml")
-
-[node name="TextureRect" type="TextureRect" parent="UnitUI/SleepBar"]
-self_modulate = Color(0.431373, 0.243137, 1, 1)
-layout_mode = 0
-offset_top = 15.0
-offset_right = 146.0
-offset_bottom = 25.0
-texture = ExtResource("1_68gml")
-
-[node name="TemperatureBar" type="Control" parent="UnitUI"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 129.0
-offset_top = 149.0
-offset_right = 169.0
-offset_bottom = 189.0
-
-[node name="Label" type="Label" parent="UnitUI/TemperatureBar"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_font_sizes/font_size = 12
-text = "Temperature"
-
-[node name="Background" type="TextureRect" parent="UnitUI/TemperatureBar"]
-self_modulate = Color(0.215686, 0.215686, 0.215686, 1)
-layout_mode = 0
-offset_top = 15.0
-offset_right = 200.0
-offset_bottom = 25.0
-texture = ExtResource("1_68gml")
-
-[node name="TextureRect" type="TextureRect" parent="UnitUI/TemperatureBar"]
-self_modulate = Color(0.792157, 0.490196, 0.431373, 1)
-layout_mode = 0
-offset_top = 15.0
-offset_right = 105.0
-offset_bottom = 25.0
-texture = ExtResource("1_68gml")
-
-[node name="InformationButton" type="Button" parent="UnitUI"]
-layout_mode = 0
-offset_left = -10.0
-offset_top = 4.0
-offset_right = 91.0
-offset_bottom = 35.0
-toggle_mode = true
-button_group = SubResource("ButtonGroup_e58cv")
-shortcut = SubResource("Shortcut_4ri6e")
-text = "Information"
-
-[node name="InventoryButton" type="Button" parent="UnitUI"]
-layout_mode = 0
-offset_left = 93.0
-offset_top = 4.0
-offset_right = 223.0
-offset_bottom = 35.0
-toggle_mode = true
-button_group = SubResource("ButtonGroup_e58cv")
-shortcut = SubResource("Shortcut_nx7dp")
-text = "Inventory 00/00"
-
-[node name="InteractionButton" type="Button" parent="UnitUI"]
-top_level = true
-layout_mode = 0
-offset_left = 240.0
-offset_top = 546.0
-offset_right = 364.0
-offset_bottom = 577.0
-shortcut = SubResource("Shortcut_n1o74")
-text = "Interaction"
-
-[node name="Canvas" type="CanvasLayer" parent="."]
+[node name="Canvas" type="CanvasLayer"]
 script = ExtResource("2_cfvxg")
 
-[node name="UnitHUD" type="Control" parent="."]
+[node name="UnitUI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -353,12 +113,12 @@ offset_bottom = -19.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Panel" type="Panel" parent="UnitHUD"]
+[node name="Panel" type="Panel" parent="UnitUI"]
 layout_mode = 0
 offset_right = 325.0
 offset_bottom = 149.0
 
-[node name="UnitPortrait" type="TextureRect" parent="UnitHUD"]
+[node name="UnitPortrait" type="TextureRect" parent="UnitUI"]
 layout_mode = 1
 offset_left = 9.0
 offset_top = -24.0
@@ -366,7 +126,7 @@ offset_right = 89.0
 offset_bottom = 79.0
 texture = ExtResource("1_68gml")
 
-[node name="SkillButtons" type="Control" parent="UnitHUD"]
+[node name="SkillButtons" type="Control" parent="UnitUI"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -377,7 +137,7 @@ offset_right = -25.0
 offset_bottom = 80.0
 grow_horizontal = 0
 
-[node name="SkillButton1" type="TextureButton" parent="UnitHUD/SkillButtons"]
+[node name="SkillButton1" type="TextureButton" parent="UnitUI/SkillButtons"]
 layout_mode = 2
 offset_left = 10.0
 offset_right = 80.0
@@ -387,7 +147,7 @@ shortcut = SubResource("Shortcut_mwxa5")
 texture_normal = SubResource("PlaceholderTexture2D_eq82b")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="UnitHUD/SkillButtons/SkillButton1"]
+[node name="Label" type="Label" parent="UnitUI/SkillButtons/SkillButton1"]
 layout_mode = 0
 offset_right = 70.0
 offset_bottom = 69.0
@@ -395,7 +155,7 @@ theme_override_font_sizes/font_size = 12
 text = "skill 1"
 autowrap_mode = 1
 
-[node name="Cooldown" type="TextureRect" parent="UnitHUD/SkillButtons/SkillButton1"]
+[node name="Cooldown" type="TextureRect" parent="UnitUI/SkillButtons/SkillButton1"]
 editor_description = "Modify Y to show cooldown"
 self_modulate = Color(0, 0, 0, 0.643137)
 layout_mode = 0
@@ -406,14 +166,14 @@ offset_bottom = 71.0
 rotation = 3.14159
 texture = ExtResource("1_68gml")
 
-[node name="ShortcutLabel" type="Panel" parent="UnitHUD/SkillButtons/SkillButton1"]
+[node name="ShortcutLabel" type="Panel" parent="UnitUI/SkillButtons/SkillButton1"]
 layout_mode = 0
 offset_left = 1.0
 offset_top = 46.0
 offset_right = 22.0
 offset_bottom = 68.0
 
-[node name="Label2" type="Label" parent="UnitHUD/SkillButtons/SkillButton1/ShortcutLabel"]
+[node name="Label2" type="Label" parent="UnitUI/SkillButtons/SkillButton1/ShortcutLabel"]
 layout_mode = 0
 offset_right = 21.0
 offset_bottom = 23.0
@@ -421,7 +181,7 @@ text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SkillButton2" type="TextureButton" parent="UnitHUD/SkillButtons"]
+[node name="SkillButton2" type="TextureButton" parent="UnitUI/SkillButtons"]
 layout_mode = 2
 offset_left = 86.0
 offset_right = 156.0
@@ -431,7 +191,7 @@ shortcut = SubResource("Shortcut_1fyej")
 texture_normal = SubResource("PlaceholderTexture2D_eq82b")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="UnitHUD/SkillButtons/SkillButton2"]
+[node name="Label" type="Label" parent="UnitUI/SkillButtons/SkillButton2"]
 layout_mode = 0
 offset_right = 70.0
 offset_bottom = 70.0
@@ -439,7 +199,7 @@ theme_override_font_sizes/font_size = 12
 text = "skill 2"
 autowrap_mode = 1
 
-[node name="Cooldown" type="TextureRect" parent="UnitHUD/SkillButtons/SkillButton2"]
+[node name="Cooldown" type="TextureRect" parent="UnitUI/SkillButtons/SkillButton2"]
 editor_description = "Modify Y to show cooldown"
 self_modulate = Color(0, 0, 0, 0.643137)
 layout_mode = 0
@@ -450,13 +210,13 @@ offset_bottom = 71.0
 rotation = 3.14159
 texture = ExtResource("1_68gml")
 
-[node name="ShortcutLabel" type="Panel" parent="UnitHUD/SkillButtons/SkillButton2"]
+[node name="ShortcutLabel" type="Panel" parent="UnitUI/SkillButtons/SkillButton2"]
 offset_left = 1.0
 offset_top = 46.0
 offset_right = 22.0
 offset_bottom = 68.0
 
-[node name="Label2" type="Label" parent="UnitHUD/SkillButtons/SkillButton2/ShortcutLabel"]
+[node name="Label2" type="Label" parent="UnitUI/SkillButtons/SkillButton2/ShortcutLabel"]
 layout_mode = 0
 offset_right = 21.0
 offset_bottom = 23.0
@@ -465,7 +225,7 @@ text = "2
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SkillButton3" type="TextureButton" parent="UnitHUD/SkillButtons"]
+[node name="SkillButton3" type="TextureButton" parent="UnitUI/SkillButtons"]
 offset_left = 162.0
 offset_right = 232.0
 offset_bottom = 70.0
@@ -474,7 +234,7 @@ shortcut = SubResource("Shortcut_1fyej")
 texture_normal = SubResource("PlaceholderTexture2D_eq82b")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="UnitHUD/SkillButtons/SkillButton3"]
+[node name="Label" type="Label" parent="UnitUI/SkillButtons/SkillButton3"]
 layout_mode = 0
 offset_right = 70.0
 offset_bottom = 70.0
@@ -482,7 +242,7 @@ theme_override_font_sizes/font_size = 12
 text = "skill 3"
 autowrap_mode = 1
 
-[node name="Cooldown" type="TextureRect" parent="UnitHUD/SkillButtons/SkillButton3"]
+[node name="Cooldown" type="TextureRect" parent="UnitUI/SkillButtons/SkillButton3"]
 editor_description = "Modify Y to show cooldown"
 self_modulate = Color(0, 0, 0, 0.643137)
 layout_mode = 0
@@ -493,13 +253,13 @@ offset_bottom = 71.0
 rotation = 3.14159
 texture = ExtResource("1_68gml")
 
-[node name="ShortcutLabel" type="Panel" parent="UnitHUD/SkillButtons/SkillButton3"]
+[node name="ShortcutLabel" type="Panel" parent="UnitUI/SkillButtons/SkillButton3"]
 offset_left = 1.0
 offset_top = 46.0
 offset_right = 22.0
 offset_bottom = 68.0
 
-[node name="Label2" type="Label" parent="UnitHUD/SkillButtons/SkillButton3/ShortcutLabel"]
+[node name="Label2" type="Label" parent="UnitUI/SkillButtons/SkillButton3/ShortcutLabel"]
 layout_mode = 0
 offset_right = 21.0
 offset_bottom = 23.0
@@ -507,7 +267,7 @@ text = "3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HealthBar" type="Control" parent="UnitHUD"]
+[node name="HealthBar" type="Control" parent="UnitUI"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -521,14 +281,14 @@ offset_bottom = -34.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Label" type="Label" parent="UnitHUD/HealthBar"]
+[node name="Label" type="Label" parent="UnitUI/HealthBar"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 12
 text = "HP 00 / 00"
 
-[node name="Background" type="TextureRect" parent="UnitHUD/HealthBar"]
+[node name="Background" type="TextureRect" parent="UnitUI/HealthBar"]
 self_modulate = Color(0.215686, 0.215686, 0.215686, 1)
 layout_mode = 0
 offset_top = 15.0
@@ -536,7 +296,7 @@ offset_right = 300.0
 offset_bottom = 25.0
 texture = ExtResource("1_68gml")
 
-[node name="TextureRect" type="TextureRect" parent="UnitHUD/HealthBar"]
+[node name="TextureRect" type="TextureRect" parent="UnitUI/HealthBar"]
 self_modulate = Color(0.733333, 0, 0, 1)
 layout_mode = 0
 offset_top = 15.0
@@ -544,7 +304,7 @@ offset_right = 157.0
 offset_bottom = 25.0
 texture = ExtResource("1_68gml")
 
-[node name="ExperienceBar" type="Control" parent="UnitHUD"]
+[node name="ExperienceBar" type="Control" parent="UnitUI"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -558,7 +318,7 @@ offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Label" type="Label" parent="UnitHUD/ExperienceBar"]
+[node name="Label" type="Label" parent="UnitUI/ExperienceBar"]
 layout_mode = 0
 offset_top = 2.0
 offset_right = 40.0
@@ -566,7 +326,7 @@ offset_bottom = 25.0
 theme_override_font_sizes/font_size = 10
 text = "EXP 00 / 00"
 
-[node name="Background" type="TextureRect" parent="UnitHUD/ExperienceBar"]
+[node name="Background" type="TextureRect" parent="UnitUI/ExperienceBar"]
 self_modulate = Color(0.215686, 0.215686, 0.215686, 1)
 layout_mode = 0
 offset_top = 15.0
@@ -574,7 +334,7 @@ offset_right = 300.0
 offset_bottom = 20.0
 texture = ExtResource("1_68gml")
 
-[node name="TextureRect" type="TextureRect" parent="UnitHUD/ExperienceBar"]
+[node name="TextureRect" type="TextureRect" parent="UnitUI/ExperienceBar"]
 self_modulate = Color(0.380392, 0.709804, 1, 1)
 layout_mode = 0
 offset_top = 15.0
@@ -582,7 +342,7 @@ offset_right = 129.0
 offset_bottom = 20.0
 texture = ExtResource("1_68gml")
 
-[node name="InfoPanel" type="Panel" parent="UnitHUD"]
+[node name="InfoPanel" type="Panel" parent="UnitUI"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -596,7 +356,7 @@ offset_bottom = -1.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="InfoLabel" type="Label" parent="UnitHUD/InfoPanel"]
+[node name="InfoLabel" type="Label" parent="UnitUI/InfoPanel"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 5.0
@@ -607,24 +367,24 @@ text = "SPD: 200
 Accuracy: 100
 Defense: 20%"
 
-[node name="FlowContainer" type="HBoxContainer" parent="UnitHUD"]
+[node name="BuffIconContainer" type="HBoxContainer" parent="UnitUI"]
 layout_mode = 0
 offset_left = 96.0
 offset_top = -35.0
 offset_right = 456.0
 offset_bottom = -6.0
 
-[node name="TextureRect" type="TextureRect" parent="UnitHUD/FlowContainer"]
+[node name="TextureRect" type="TextureRect" parent="UnitUI/BuffIconContainer"]
 layout_mode = 2
 texture = ExtResource("3_b804l")
 expand_mode = 3
 
-[node name="TextureRect2" type="TextureRect" parent="UnitHUD/FlowContainer"]
+[node name="TextureRect2" type="TextureRect" parent="UnitUI/BuffIconContainer"]
 layout_mode = 2
 texture = ExtResource("3_b804l")
 expand_mode = 3
 
-[node name="TextureRect3" type="TextureRect" parent="UnitHUD/FlowContainer"]
+[node name="TextureRect3" type="TextureRect" parent="UnitUI/BuffIconContainer"]
 layout_mode = 2
 texture = ExtResource("3_b804l")
 expand_mode = 3
@@ -693,7 +453,7 @@ offset_bottom = 16.0
 texture = ExtResource("1_68gml")
 
 [node name="ProgressBar" type="TextureRect" parent="TravelProgressUI"]
-self_modulate = Color(0, 1, 0, 1)
+self_modulate = Color(0, 0, 1, 1)
 layout_mode = 0
 offset_top = 1.0
 offset_right = 123.0
@@ -744,7 +504,7 @@ libraries = {
 autoplay = "spaceship_flame_animation"
 speed_scale = 4.0
 
-[node name="ShipStatusUI" type="Control" parent="TravelProgressUI"]
+[node name="SpaceshipStatusUI" type="Control" parent="TravelProgressUI"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 5
@@ -756,7 +516,7 @@ offset_right = 199.5
 offset_bottom = 90.0
 grow_horizontal = 2
 
-[node name="OxygenGeneratorStatus" type="TextureRect" parent="TravelProgressUI/ShipStatusUI"]
+[node name="OxygenGeneratorStatus" type="TextureRect" parent="TravelProgressUI/SpaceshipStatusUI"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -769,7 +529,7 @@ texture = ExtResource("5_ek0cc")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NuclearReactorStatus" type="TextureRect" parent="TravelProgressUI/ShipStatusUI"]
+[node name="NuclearReactorStatus" type="TextureRect" parent="TravelProgressUI/SpaceshipStatusUI"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -782,7 +542,7 @@ texture = ExtResource("6_blnu8")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TemperatureStatus" type="TextureRect" parent="TravelProgressUI/ShipStatusUI"]
+[node name="TemperatureStatus" type="TextureRect" parent="TravelProgressUI/SpaceshipStatusUI"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -1795,9 +1555,33 @@ offset_right = 172.0
 offset_bottom = 68.0
 text = "Components: 000/100"
 
+[node name="InformationButton" type="Button" parent="."]
+offset_left = 327.0
+offset_top = 638.0
+offset_right = 467.0
+offset_bottom = 673.0
+shortcut = SubResource("Shortcut_4ri6e")
+text = "Information"
+
+[node name="InventoryButton" type="Button" parent="."]
+offset_left = 327.0
+offset_top = 675.0
+offset_right = 467.0
+offset_bottom = 710.0
+shortcut = SubResource("Shortcut_nx7dp")
+text = "Inventory 00/00"
+
+[node name="InteractionButton" type="Button" parent="."]
+top_level = true
+offset_left = 327.0
+offset_top = 713.0
+offset_right = 467.0
+offset_bottom = 748.0
+shortcut = SubResource("Shortcut_n1o74")
+text = "Interaction"
+
 [connection signal="button_down" from="DisassemblyUI" to="DisassemblyUI" method="_on_button_down"]
 [connection signal="button_up" from="DisassemblyUI" to="DisassemblyUI" method="_on_button_up"]
-[connection signal="pressed" from="DisassemblyUI/Closebutton" to="Canvas" method="_on_disassembly_closebutton_pressed"]
 [connection signal="button_down" from="CraftingStationUI" to="CraftingStationUI" method="_on_button_down"]
 [connection signal="button_up" from="CraftingStationUI" to="CraftingStationUI" method="_on_button_up"]
 [connection signal="button_down" from="ContainerUI" to="ContainerUI" method="_on_button_down"]

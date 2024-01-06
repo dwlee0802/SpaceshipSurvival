@@ -18,6 +18,7 @@ static var nutritionBar
 
 static var expBar
 
+#TODO change constant to fit new UI
 static var BAR_LENGTH = 200
 static var EXP_BAR_LENGTH = 320
 
@@ -75,44 +76,42 @@ static var skillButton_2
 static var skillButton_cd_1
 static var skillButton_cd_2
 
+static var buffIconUI
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	travelProgressUI = $TravelProgressUI
-	spaceshipStatusUI = $SpaceshipStatusUI
-	healthBar = $UnitUI/HealthBar/TextureRect
-	oxygenBar = $UnitUI/OxygenBar/TextureRect
-	temperatureBar = $UnitUI/TemperatureBar/TextureRect
-	sleepBar = $UnitUI/SleepBar/TextureRect
-	nutritionBar = $UnitUI/NutritionBar/TextureRect
-	expBar = $UnitUI/ExperienceBar/TextureRect
+	spaceshipStatusUI = $TravelProgressUI/SpaceshipStatusUI
 	unitUI = $UnitUI
-	infoPanelButton = $UnitUI/InformationButton
-	inventoryPanelButton = $UnitUI/InventoryButton
+	healthBar = $UnitUI/HealthBar/TextureRect
+	expBar = $UnitUI/ExperienceBar/TextureRect
 	foodStockLabel = $ResourcesUI/FoodStockLabel
 	ammoStockLabel = $ResourcesUI/AmmoStockLabel
 	componentsStockLabel = $ResourcesUI/ComponentsStockLabel
 	spaceshipOverviewUI = $SpaceshipOverviewUI
 	spaceshipOverviewPanel = $SpaceshipOverviewUI/SpaceshipOverviewPanel
-	craftingStationUI = $CraftingStationUI
-	
 	inventoryUI = $InventoryUI
 	inventoryGrid = inventoryUI.get_node("InventoryGrid")
 	containerUI = $ContainerUI
 	containerGrid = containerUI.get_node("ContainerGrid")
-	
+	craftingStationUI = $CraftingStationUI
+	equipmentUI = $PrimaryWeaponUI
 	disassemblyUI = $DisassemblyUI
-	
+	primarySlot = $InventoryUI/PrimarySlot/DraggableItem
+	headSlot = $InventoryUI/HeadSlot/DraggableItem
+	bodySlot = $InventoryUI/BodySlot/DraggableItem
 	informationUI = $InformationUI
 	informationUIHealth = $InformationUI/HealthStats
 	informationUICombat = $InformationUI/CombatStats
 	informationUIMisc = $InformationUI/MiscStats
-	
-	primarySlot = $InventoryUI/PrimarySlot/DraggableItem
-	headSlot = $InventoryUI/HeadSlot/DraggableItem
-	bodySlot = $InventoryUI/BodySlot/DraggableItem
-	
-	equipmentUI = $UnitUI/EquipmentUI
+	infoPanelButton = $InformationButton
+	inventoryPanelButton = $InventoryButton
+	oxygenBar = $RadialStatusUI/OxygenBar
+	temperatureBar = $RadialStatusUI/TemperatureBar
+	sleepBar = $RadialStatusUI/SleepBar
+	nutritionBar = $RadialStatusUI/NutritionBar
+	buffIconUI = $UnitUI/BuffIconContainer
 	
 	skillButtons = unitUI.get_node("SkillButtons")
 	skillButton_1 = skillButtons.get_node("SkillButton1")

@@ -7,3 +7,4 @@ res://Scenes/sound_effect.tscn
 res://Scenes/enemy.tscn
 res://Scenes/infirmary.tscn
 res://Scenes/hud.tscn
+res://Scripts/UserInterfaceManager.gd
