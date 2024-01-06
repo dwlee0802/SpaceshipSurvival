@@ -15,3 +15,4 @@ res://Scenes/RadialStatusUI.gd
 res://Scripts/game.gd
 res://Scenes/temperature_control.tscn
 res://Scenes/showcase_spaceship.tscn
+res://Scripts/infirmary.gd

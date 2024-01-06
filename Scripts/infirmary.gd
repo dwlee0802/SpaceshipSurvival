@@ -2,6 +2,11 @@ extends Module
 
 @onready var moduleArea = $ModuleArea
 
+
+func _process(delta):
+	recentlyHadError = true
+	
+	
 func _on_heal_timer_timeout():
 	if moduleArea != null:
 		if not isOperational:

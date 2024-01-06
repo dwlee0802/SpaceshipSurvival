@@ -7,6 +7,7 @@ script = ExtResource("1_mgwp1")
 
 [node name="ErrorTimer" type="Timer" parent="."]
 wait_time = 30.0
+autostart = true
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 process_callback = 0
