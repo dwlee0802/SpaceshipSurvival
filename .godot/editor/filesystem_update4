@@ -1,10 +1,7 @@
-res://Scenes/spaceship_v1.tscn
-res://Scripts/close_button.tres
-res://SoundEffect.gd
-res://Scenes/sound_effect.tscn
-res://Scripts/game.gd
 res://Scenes/showcase_scene.tscn
+res://Scripts/close_button.tres
 res://Scenes/survivor.tscn
 res://Scenes/bed.tscn
+res://Scenes/spaceship_v1.tscn
+res://Scenes/sound_effect.tscn
 res://Scenes/enemy.tscn
-res://Scripts/enemy.gd
