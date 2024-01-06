@@ -40,6 +40,8 @@ size = Vector2(70, 70)
 [sub_resource type="InputEventKey" id="InputEventKey_xk656"]
 device = -1
 keycode = 50
+physical_keycode = 50
+key_label = 50
 unicode = 50
 
 [sub_resource type="Shortcut" id="Shortcut_1fyej"]

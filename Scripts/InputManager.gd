@@ -344,7 +344,7 @@ func _on_crafting_station_closebutton_pressed():
 # apply cooldown
 func _on_skill_button_pressed(extra_arg_0):
 	var skillData: Skill
-	
+	print(extra_arg_0)
 	if extra_arg_0 == 0:
 		skillData = Game.survivor.skillSlot_1
 			

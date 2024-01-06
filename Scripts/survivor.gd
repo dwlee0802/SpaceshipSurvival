@@ -154,7 +154,7 @@ func _ready():
 	# start with full health
 	health = maxHealth
 	
-	Reload()
+	magazineCount = primarySlot.data.magazineCapacity
 	
 
 # modifies starting stats based on the chosen survivor
@@ -177,7 +177,7 @@ func _process(delta):
 	if oxygen > 100:
 		oxygen = 100
 		
-	sleep -= delta * 0.1 * sleepGainModifier
+	sleep -= delta * 0.1
 	if sleep < 0:
 		StartSleeping()
 	if sleep > 100:
@@ -236,7 +236,7 @@ func _physics_process(delta):
 	# can't wake up til sleep reaches 100
 	# can cancel if above 50
 	if sleeping:
-		sleep += delta * 2
+		sleep += delta * sleepGainModifier
 		if sleep >= 100:
 			sleep = 100
 			sleeping = false

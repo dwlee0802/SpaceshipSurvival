@@ -16,3 +16,12 @@ res://Scripts/game.gd
 res://Scenes/temperature_control.tscn
 res://Scenes/showcase_spaceship.tscn
 res://Scripts/infirmary.gd
+res://Data/1_Ranged/3_Laser_Rifle.tres
+res://Scripts/survivor.gd
+res://Scripts/InputManager.gd
+res://Data/Skills/2_Lob_Grenade.tres
+res://Scripts/nuclear_reactor.gd
+res://Scenes/nuclear_reactor.tscn
+res://Scenes/PrimaryWeaponUI.gd
+res://Scenes/HealthBar.gd
+res://Scenes/ExperienceBar.gd

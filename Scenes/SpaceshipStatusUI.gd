@@ -28,7 +28,7 @@ func _process(delta):
 	else:
 		oxygenIcon.texture = oxygen_g
 		
-	if not Spaceship.modules[Spaceship.ModuleName.Nuclear_Reactor].isOperational:
+	if not Spaceship.modules[Spaceship.ModuleName.Temperature_Control].isOperational:
 		tempIcon.texture = temp_r
 	else:
 		tempIcon.texture = temp_g

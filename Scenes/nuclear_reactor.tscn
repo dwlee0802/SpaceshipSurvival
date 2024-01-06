@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://01v652ba6af3" path="res://Art/nuclear_reactor_icon.png" id="4_6k41x"]
 [ext_resource type="PackedScene" uid="uid://7co56rfrnp0b" path="res://Scenes/spawn_point.tscn" id="4_q5x1s"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_r5d18"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_85cof"]
 radius = 50.0
 
 [node name="NuclearReactor" type="Node2D"]
@@ -24,10 +24,11 @@ collision_layer = 0
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RadiationArea"]
-shape = SubResource("CircleShape2D_r5d18")
+shape = SubResource("CircleShape2D_85cof")
 
 [node name="Sprite2D" type="Sprite2D" parent="RadiationArea"]
 self_modulate = Color(0.470588, 0.92549, 0.486275, 0.266667)
+z_index = 10
 texture_filter = 1
 scale = Vector2(0.390625, 0.390625)
 texture = ExtResource("3_k7pw5")

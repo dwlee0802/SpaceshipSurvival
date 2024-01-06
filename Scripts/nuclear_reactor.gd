@@ -7,7 +7,7 @@ extends Module
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if not isOperational:
-		radiationArea.shape.radius += delta * 2
+		radiationArea.shape.radius += delta * 4
 	else:
 		if radiationArea.shape.radius > 1:
 			radiationArea.shape.radius -= 1
