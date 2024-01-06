@@ -8,3 +8,10 @@ res://Scenes/enemy.tscn
 res://Scenes/infirmary.tscn
 res://Scenes/hud.tscn
 res://Scripts/UserInterfaceManager.gd
+res://Data/Survivors/0_Veteran.tres
+res://Scenes/SpaceshipStatusUI.gd
+res://Scripts/spaceship.gd
+res://Scenes/RadialStatusUI.gd
+res://Scripts/game.gd
+res://Scenes/temperature_control.tscn
+res://Scenes/showcase_spaceship.tscn

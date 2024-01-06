@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cqm1wa5t73skr"]
+[gd_scene load_steps=45 format=3 uid="uid://cqm1wa5t73skr"]
 
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="1_68gml"]
 [ext_resource type="Script" path="res://Scripts/UserInterfaceManager.gd" id="2_cfvxg"]
@@ -7,18 +7,26 @@
 [ext_resource type="Texture2D" uid="uid://bexkhiplgn4sy" path="res://Art/crowbar_placeholder.png" id="4_bt76j"]
 [ext_resource type="Texture2D" uid="uid://ddgm7rgp5c517" path="res://Art/spaceship_image.png" id="5_c1t43"]
 [ext_resource type="Texture2D" uid="uid://c3rnfyrad7eem" path="res://Art/spaceship status icons/oxygen_icon_g.png" id="5_ek0cc"]
+[ext_resource type="Script" path="res://Scenes/SpaceshipStatusUI.gd" id="6_8d314"]
 [ext_resource type="Texture2D" uid="uid://budtyhboo41qt" path="res://Art/spaceship status icons/nuclear_icon_g.png" id="6_blnu8"]
 [ext_resource type="Script" path="res://Scripts/draggable_window.gd" id="6_nvp05"]
 [ext_resource type="Texture2D" uid="uid://d3vbcqlfmqiuj" path="res://Art/spaceship status icons/temp_icon_g.png" id="7_5kx04"]
 [ext_resource type="Shortcut" uid="uid://bcj08ui1vldhx" path="res://Scripts/close_button.tres" id="7_5st57"]
+[ext_resource type="Texture2D" uid="uid://c5r8dyndrq0q1" path="res://Art/spaceship status icons/oxygen_icon_r.png" id="7_87o5d"]
 [ext_resource type="PackedScene" uid="uid://co0ec0725c4fq" path="res://Scenes/draggable_item_slot.tscn" id="8_bvnni"]
+[ext_resource type="Texture2D" uid="uid://cha0v1r82c6sj" path="res://Art/spaceship status icons/oxygen_icon_y.png" id="9_ost5t"]
 [ext_resource type="Script" path="res://Scripts/drop_item_slot.gd" id="9_rxb75"]
 [ext_resource type="PackedScene" uid="uid://du8uipcd8d8ow" path="res://Scenes/crosshair.tscn" id="10_owfhv"]
+[ext_resource type="Texture2D" uid="uid://clp067dl8deyp" path="res://Art/spaceship status icons/nuclear_icon_r.png" id="10_t52or"]
 [ext_resource type="Script" path="res://Addons/radial_progress/RadialProgress.gd" id="11_u1ow2"]
 [ext_resource type="Texture2D" uid="uid://cq07ymw7mik3n" path="res://Art/nutrition_icon.png" id="12_878vm"]
+[ext_resource type="Texture2D" uid="uid://d3gsx63xuqw3s" path="res://Art/spaceship status icons/nuclear_icon_y.png" id="12_wonb0"]
 [ext_resource type="Texture2D" uid="uid://dugwv0bcmg1yj" path="res://Art/oxygen_generator_icon.png" id="13_6hnan"]
+[ext_resource type="Texture2D" uid="uid://dmhu5o68cvax1" path="res://Art/spaceship status icons/temp_icon_r.png" id="13_6jgng"]
 [ext_resource type="Texture2D" uid="uid://bjl3wlb8vxpiu" path="res://Art/bed_temp.jpg" id="14_uov8j"]
+[ext_resource type="Texture2D" uid="uid://qlq07octvqqp" path="res://Art/spaceship status icons/temp_icon_y.png" id="15_f5q5i"]
 [ext_resource type="Texture2D" uid="uid://bt2acio8mtfea" path="res://Art/temperature_icon.png" id="19_gf5eb"]
+[ext_resource type="Script" path="res://Scenes/RadialStatusUI.gd" id="22_bnhy5"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_f6pi5"]
 keycode = 49
@@ -515,6 +523,16 @@ offset_top = 50.0
 offset_right = 199.5
 offset_bottom = 90.0
 grow_horizontal = 2
+script = ExtResource("6_8d314")
+oxygen_r = ExtResource("7_87o5d")
+oxygen_g = ExtResource("5_ek0cc")
+oxygen_y = ExtResource("9_ost5t")
+nuclear_r = ExtResource("10_t52or")
+nuclear_g = ExtResource("6_blnu8")
+nuclear_y = ExtResource("12_wonb0")
+temp_r = ExtResource("13_6jgng")
+temp_g = ExtResource("7_5kx04")
+temp_y = ExtResource("15_f5q5i")
 
 [node name="OxygenGeneratorStatus" type="TextureRect" parent="TravelProgressUI/SpaceshipStatusUI"]
 layout_mode = 1
@@ -1393,6 +1411,7 @@ offset_top = -264.0
 offset_right = 101.0
 offset_bottom = 107.0
 grow_vertical = 2
+script = ExtResource("22_bnhy5")
 
 [node name="NutritionBar" type="Control" parent="RadialStatusUI"]
 layout_mode = 1

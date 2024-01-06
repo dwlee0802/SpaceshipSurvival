@@ -39,7 +39,7 @@ static var shipSpeed: int = 1
 static var distanceTraveled: int = 0
 static var DISTANCE_TO_DESTINATION: int = 60 * 20
 
-@export var modules = {}
+static var modules = {}
 
 enum ModuleName {Nuclear_Reactor, Oxygen_Generator, Temperature_Control, Infirmary, Kitchen, Bridge, Engine_Room, Electricity_Room}
 
@@ -51,9 +51,9 @@ static var spaceship
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	spaceship = self
-	modules[ModuleName.Oxygen_Generator] = $Modules/OxygenGenerator
-	modules[ModuleName.Temperature_Control] = $Modules/TemperatureControl
-	modules[ModuleName.Nuclear_Reactor] = $Modules/NuclearReactor
+	Spaceship.modules[ModuleName.Oxygen_Generator] = $Modules/OxygenGenerator
+	Spaceship.modules[ModuleName.Temperature_Control] = $Modules/TemperatureControl
+	Spaceship.modules[ModuleName.Nuclear_Reactor] = $Modules/NuclearReactor
 	#modules[ModuleName.Infirmary] = $Modules/Infirmary
 	
 
@@ -79,7 +79,7 @@ func _on_travel_timer_timeout():
 
 
 func _on_temperature_timer_timeout():
-	if not modules[ModuleName.Temperature_Control].isOperational:
+	if not Spaceship.modules[ModuleName.Temperature_Control].isOperational:
 		temperature -= 0.01
 	elif temperature < 25:
 		temperature += 0.1
@@ -88,7 +88,7 @@ func _on_temperature_timer_timeout():
 
 
 func _on_oxygen_timer_timeout():
-	if not modules[ModuleName.Oxygen_Generator].isOperational:
+	if not Spaceship.modules[ModuleName.Oxygen_Generator].isOperational:
 		oxygenLevel -= 0.01
 	else:
 		oxygenLevel += 2

@@ -2,7 +2,7 @@ extends Node2D
 
 class_name Game
 
-static var survivor
+static var survivor : Survivor
 
 static var enemies = []
 static var MAX_ENEMY_COUNT: int = 10
@@ -23,7 +23,7 @@ static var projectileScene = load("res://Scenes/projectile.tscn")
 
 static var gameScene: Game
 
-static var spaceship
+static var spaceship : Spaceship
 
 const AMMO_PER_STR: int = 200
 const FOOD_PER_STR: int = 2

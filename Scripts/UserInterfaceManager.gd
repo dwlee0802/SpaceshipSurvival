@@ -130,25 +130,15 @@ static func UpdateTravelProgressUI(cur, maxVal):
 	travelProgressUI.get_node("SpaceshipIcon/ProgressPercentLabel").text = str(int(float(cur)/maxVal * 100)) + "%"
 
 
+#TODO need to update to new UI
 # change ship status UI info
 static func UpdateSpaceshipStatusUI(oxygen, temp):
-	var oxygenLabel = spaceshipStatusUI.get_node("OxygenLevel/Label")
-	oxygenLabel.text = str(oxygen) + "%"
-	if oxygen < 50:
-		oxygenLabel.self_modulate = Color.RED
-	else:
-		oxygenLabel.self_modulate = Color.WHITE
-		
-	spaceshipStatusUI.get_node("TemperatureLevel/Label").text = str(temp) + "C"
-	spaceshipStatusUI.get_node("OverviewLabel").text = Spaceship.PrintModuleStatus()
+	return
 	
+	
+# TODO update to new UI
 static func UpdateUnitBarUI(unit: Survivor):
-	healthBar.size.x = unit.health / unit.maxHealth * BAR_LENGTH
-	oxygenBar.size.x = unit.oxygen / 100 * BAR_LENGTH
-	temperatureBar.size.x = unit.bodyTemperature / 50 * BAR_LENGTH
-	sleepBar.size.x = unit.sleep / 100 * BAR_LENGTH
-	nutritionBar.size.x = unit.nutrition / 100 * BAR_LENGTH
-	expBar.size.x = float(unit.experiencePoints) / unit.requiredEXP * EXP_BAR_LENGTH
+	return
 	
 
 # toggles the entire unit ui element
@@ -425,7 +415,7 @@ static func UpdateEquipmentUI(item: Item):
 		data = DataManager.resources[ItemType.Melee][0]
 	else:
 		data = item.data
-	equipmentUI.get_node("WeaponName").text = data.name
+	#equipmentUI.get_node("WeaponName").text = data.name
 	if item != null and item.data.texture != null:
 		equipmentUI.get_node("WeaponImage").texture = data.texture
 	else:
@@ -440,7 +430,7 @@ static func UpdateEquipmentUI(item: Item):
 	output += "Attack speed: " + str(data.attacksPerSecond) + " per second.\n"
 	output += "Accuracy: " + str(data.accuracy) + "\n"
 	output += "Knock Back: " + str(data.knockBack) + "\n"
-	equipmentUI.get_node("WeaponStats").text = output
+	#equipmentUI.get_node("WeaponStats").text = outputs
 	
 
 static func UpdateSkillButtons(unit: Survivor):
