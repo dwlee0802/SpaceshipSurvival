@@ -294,6 +294,12 @@ one_shot = true
 [node name="SkillCooldownTimer2" type="Timer" parent="."]
 one_shot = true
 
+[node name="SkillCooldownTimer3" type="Timer" parent="."]
+one_shot = true
+
+[node name="SkillCooldownTimer4" type="Timer" parent="."]
+one_shot = true
+
 [node name="MeleeAttackTimer" type="Timer" parent="."]
 process_callback = 0
 wait_time = 0.5
@@ -332,5 +338,7 @@ scale_amount_max = 0.15
 [connection signal="timeout" from="NutritionTimer" to="." method="_on_nutrition_timer_timeout"]
 [connection signal="timeout" from="SkillCooldownTimer1" to="." method="_on_skill_cooldown_timer_timeout" binds= [0]]
 [connection signal="timeout" from="SkillCooldownTimer2" to="." method="_on_skill_cooldown_timer_timeout" binds= [1]]
+[connection signal="timeout" from="SkillCooldownTimer3" to="." method="_on_skill_cooldown_timer_timeout" binds= [2]]
+[connection signal="timeout" from="SkillCooldownTimer4" to="." method="_on_skill_cooldown_timer_timeout" binds= [3]]
 [connection signal="timeout" from="MeleeAttackTimer" to="." method="_on_melee_attack_timer_timeout"]
 [connection signal="timeout" from="SleepCooldownTimer" to="." method="_on_sleep_cooldown_timer_timeout"]

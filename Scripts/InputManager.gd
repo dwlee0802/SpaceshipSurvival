@@ -350,6 +350,12 @@ func _on_skill_button_pressed(extra_arg_0):
 			
 	if extra_arg_0 == 1:
 		skillData = Game.survivor.skillSlot_2
+		
+	if extra_arg_0 == 2:
+		skillData = Game.survivor.skillSlot_3
+			
+	if extra_arg_0 == 3:
+		skillData = Game.survivor.skillSlot_4
 	
 	if skillData == null:
 		print("Skilldata null!")

@@ -97,11 +97,17 @@ var requiredEXP: int = 500
 # skill related stuff
 @export var skillSlot_1: Skill
 @export var skillSlot_2: Skill
+@export var skillSlot_3: Skill
+@export var skillSlot_4: Skill
 
 @onready var skillCooldownTimer1 = $SkillCooldownTimer1
 var skillReady_1: bool = true
 @onready var skillCooldownTimer2 = $SkillCooldownTimer2
 var skillReady_2: bool = true
+@onready var skillCooldownTimer3 = $SkillCooldownTimer3
+var skillReady_3: bool = true
+@onready var skillCooldownTimer4 = $SkillCooldownTimer4
+var skillReady_4: bool = true
 
 
 var push_dir: Vector2 = Vector2(0, 0)
@@ -590,8 +596,7 @@ func ApplyBuff(skill: Skill, timeSensitive = true):
 		return
 		
 	var newBuffObject = UserInterfaceManager.AddBuffIcon()
-	newBuffObject.data = skill
-	newBuffObject.texture = skill.texture
+	newBuffObject.SetData(skill)
 	
 	if timeSensitive:
 		newBuffObject.timer.start(skill.duration)
@@ -604,6 +609,12 @@ func ApplySkillCooldown(skill: Skill):
 	elif skill == skillSlot_2:
 		skillCooldownTimer2.start(skill.cooldownTime)
 		skillReady_2 = false
+	elif skill == skillSlot_3:
+		skillCooldownTimer3.start(skill.cooldownTime)
+		skillReady_3 = false
+	elif skill == skillSlot_4:
+		skillCooldownTimer4.start(skill.cooldownTime)
+		skillReady_4 = false
 	
 	
 func _to_string():
@@ -692,6 +703,10 @@ func _on_skill_cooldown_timer_timeout(extra_arg_0):
 		skillReady_1 = true
 	elif extra_arg_0 == 1:
 		skillReady_2 = true
+	elif extra_arg_0 == 2:
+		skillReady_3 = true
+	elif extra_arg_0 == 3:
+		skillReady_4 = true
 
 
 func _on_melee_attack_timer_timeout():

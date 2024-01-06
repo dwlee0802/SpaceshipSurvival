@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://c5nyr1fhytbkv"]
+[gd_scene load_steps=63 format=3 uid="uid://c5nyr1fhytbkv"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_8rs23"]
 [ext_resource type="PackedScene" uid="uid://bglyxpx5ldmya" path="res://Scenes/showcase_spaceship.tscn" id="2_cyxog"]
@@ -42,6 +42,7 @@
 [ext_resource type="Texture2D" uid="uid://dugwv0bcmg1yj" path="res://Art/oxygen_generator_icon.png" id="27_j4bcx"]
 [ext_resource type="Texture2D" uid="uid://bjl3wlb8vxpiu" path="res://Art/bed_temp.jpg" id="28_mtvlw"]
 [ext_resource type="Texture2D" uid="uid://bt2acio8mtfea" path="res://Art/temperature_icon.png" id="29_y62vi"]
+[ext_resource type="Resource" uid="uid://wcnoearsoegm" path="res://Data/Skills/5_Defensive_Stance.tres" id="40_p3srw"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_f6pi5"]
 keycode = 49
@@ -1646,6 +1647,7 @@ position = Vector2(-162, 54)
 survivorData = ExtResource("16_fioqq")
 skillSlot_1 = ExtResource("16_atbyv")
 skillSlot_2 = ExtResource("17_glgvd")
+skillSlot_3 = ExtResource("40_p3srw")
 speed = 250
 
 [node name="Placed Item" parent="." instance=ExtResource("20_ym5kj")]
