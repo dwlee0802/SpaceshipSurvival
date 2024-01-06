@@ -1,7 +1,8 @@
-[gd_scene load_steps=36 format=3 uid="uid://cqm1wa5t73skr"]
+[gd_scene load_steps=38 format=3 uid="uid://cqm1wa5t73skr"]
 
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="1_68gml"]
 [ext_resource type="Script" path="res://Scripts/UserInterfaceManager.gd" id="2_cfvxg"]
+[ext_resource type="Texture2D" uid="uid://ctk85sjq70r2v" path="res://Art/Weapons/shotgun_temp.jpg" id="3_b804l"]
 [ext_resource type="Texture2D" uid="uid://2j00antvhw4x" path="res://Art/circle-256.png" id="3_vwdlq"]
 [ext_resource type="Texture2D" uid="uid://bexkhiplgn4sy" path="res://Art/crowbar_placeholder.png" id="4_bt76j"]
 [ext_resource type="Texture2D" uid="uid://ddgm7rgp5c517" path="res://Art/spaceship_image.png" id="5_c1t43"]
@@ -17,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cq07ymw7mik3n" path="res://Art/nutrition_icon.png" id="12_878vm"]
 [ext_resource type="Texture2D" uid="uid://dugwv0bcmg1yj" path="res://Art/oxygen_generator_icon.png" id="13_6hnan"]
 [ext_resource type="Texture2D" uid="uid://bjl3wlb8vxpiu" path="res://Art/bed_temp.jpg" id="14_uov8j"]
+[ext_resource type="Texture2D" uid="uid://bt2acio8mtfea" path="res://Art/temperature_icon.png" id="19_gf5eb"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_e58cv"]
 allow_unpress = true
@@ -604,6 +606,28 @@ theme_override_font_sizes/font_size = 10
 text = "SPD: 200
 Accuracy: 100
 Defense: 20%"
+
+[node name="FlowContainer" type="HBoxContainer" parent="UnitHUD"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = -35.0
+offset_right = 456.0
+offset_bottom = -6.0
+
+[node name="TextureRect" type="TextureRect" parent="UnitHUD/FlowContainer"]
+layout_mode = 2
+texture = ExtResource("3_b804l")
+expand_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="UnitHUD/FlowContainer"]
+layout_mode = 2
+texture = ExtResource("3_b804l")
+expand_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="UnitHUD/FlowContainer"]
+layout_mode = 2
+texture = ExtResource("3_b804l")
+expand_mode = 3
 
 [node name="PrimaryWeaponUI" type="Panel" parent="."]
 texture_filter = 1
@@ -1730,7 +1754,7 @@ offset_right = 15.0
 offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("14_uov8j")
+texture = ExtResource("19_gf5eb")
 expand_mode = 1
 
 [node name="ResourcesUI" type="Control" parent="."]
