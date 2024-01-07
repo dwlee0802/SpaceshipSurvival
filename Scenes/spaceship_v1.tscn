@@ -128,6 +128,21 @@ position = Vector2(1124, -1295)
 [node name="ItemContainer" parent="AmmoStorage" instance=ExtResource("13_trqhm")]
 position = Vector2(-3056.81, 328.112)
 
+[node name="ItemContainer2" parent="AmmoStorage" instance=ExtResource("13_trqhm")]
+position = Vector2(-3057, 394)
+
+[node name="ItemContainer3" parent="AmmoStorage" instance=ExtResource("13_trqhm")]
+position = Vector2(-2966.81, 327)
+
+[node name="ItemContainer4" parent="AmmoStorage" instance=ExtResource("13_trqhm")]
+position = Vector2(-2967, 392.888)
+
+[node name="ItemContainer5" parent="AmmoStorage" instance=ExtResource("13_trqhm")]
+position = Vector2(-2878.81, 325)
+
+[node name="ItemContainer6" parent="AmmoStorage" instance=ExtResource("13_trqhm")]
+position = Vector2(-2879, 390.888)
+
 [connection signal="timeout" from="TravelTimer" to="." method="_on_travel_timer_timeout"]
 [connection signal="timeout" from="TemperatureTimer" to="." method="_on_temperature_timer_timeout"]
 [connection signal="timeout" from="OxygenTimer" to="." method="_on_oxygen_timer_timeout"]
