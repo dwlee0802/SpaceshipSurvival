@@ -53,6 +53,11 @@ func _process(delta):
 	else:
 		UserInterfaceManager.skillButton_2.disabled = true
 	UserInterfaceManager.skillButton_cd_2.size.y = Game.survivor.skillCooldownTimer2.time_left / Game.survivor.skillCooldownTimer2.wait_time * 70
+	if Game.survivor.skillReady_3:
+		UserInterfaceManager.skillButton_3.disabled = false
+	else:
+		UserInterfaceManager.skillButton_3.disabled = true
+	UserInterfaceManager.skillButton_cd_3.size.y = Game.survivor.skillCooldownTimer3.time_left / Game.survivor.skillCooldownTimer3.wait_time * 70
 
 
 func _unhandled_input(event):

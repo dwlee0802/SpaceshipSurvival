@@ -123,6 +123,7 @@ func _ready():
 	skillButton_3 = skillButtons.get_node("SkillButton3")
 	skillButton_cd_1 = skillButtons.get_node("SkillButton1/Cooldown")
 	skillButton_cd_2 = skillButtons.get_node("SkillButton2/Cooldown")
+	skillButton_cd_3 = skillButtons.get_node("SkillButton3/Cooldown")
 	
 
 # change scale x of progress bar based on progress

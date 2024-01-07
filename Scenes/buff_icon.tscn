@@ -18,8 +18,10 @@ process_callback = 0
 editor_description = "Modify Y to show cooldown"
 self_modulate = Color(0, 0, 0, 0.643137)
 layout_mode = 1
-offset_right = 10.0
-offset_bottom = 10.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 20.0
+offset_bottom = 20.0
 rotation = 3.14159
 texture = ExtResource("3_ldoyp")
 
