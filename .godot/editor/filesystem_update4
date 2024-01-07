@@ -1,11 +1,11 @@
-res://Scripts/InputManager.gd
-res://Scenes/showcase_scene.tscn
+res://Scenes/enemy.tscn
 res://Scripts/close_button.tres
+res://Scripts/enemy.gd
+res://Scenes/showcase_scene.tscn
 res://Scenes/survivor.tscn
 res://Scenes/bed.tscn
 res://Scenes/spaceship_v1.tscn
 res://Scenes/sound_effect.tscn
-res://Scenes/enemy.tscn
 res://Scenes/hud.tscn
 res://Scenes/infirmary.tscn
 res://Scenes/temperature_control.tscn
@@ -13,9 +13,4 @@ res://Scenes/showcase_spaceship.tscn
 res://Scenes/nuclear_reactor.tscn
 res://Scenes/oxygen_generator.tscn
 res://Scenes/buff_icon.tscn
-res://Data/Survivors/0_Veteran.tres
-res://Data/Skills/5_Defensive_Stance.tres
-res://Data/Skills/6_Taunt.tres
-res://Scripts/buff_icon.gd
-res://Data/Skills/0_Adrenalin_Rush.tres
-res://Scripts/UserInterfaceManager.gd
+res://Data/1_Ranged/4_Sniper_Rifle.tres

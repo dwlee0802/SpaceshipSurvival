@@ -76,7 +76,7 @@ func _physics_process(delta):
 			audioPlayer.stop()
 		
 	if true:
-		if position.distance_to(target_position) < STOP_DIST:
+		if isMoving and position.distance_to(target_position) < STOP_DIST:
 			velocity = Vector2.ZERO
 			isMoving = false
 			return
@@ -113,8 +113,8 @@ func OnDeath():
 
 func ReceiveHit(from, amount, penetration = 0, isRadiationDamage = false, knockBackAmount = 0):
 	# if attack target is null, move towards attacker
-	if attackTarget == null and from is Survivor:
-		attackTarget = from
+	if attackTarget == null and from is Survivor or from is AreaEffect:
+		attackTarget = Game.survivor
 		ChangeTargetPosition(attackTarget.position)
 		
 	if super.ReceiveHit(from, amount, penetration, isRadiationDamage, knockBackAmount):
