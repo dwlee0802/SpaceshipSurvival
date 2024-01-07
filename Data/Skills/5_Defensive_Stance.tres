@@ -1,11 +1,12 @@
-[gd_resource type="Resource" script_class="BuffSkill" load_steps=2 format=3 uid="uid://wcnoearsoegm"]
+[gd_resource type="Resource" script_class="BuffSkill" load_steps=3 format=3 uid="uid://wcnoearsoegm"]
 
 [ext_resource type="Script" path="res://Data/buff_skill.gd" id="1_42xxc"]
+[ext_resource type="Texture2D" uid="uid://bbgpgjnp465kr" path="res://Art/Skills/shield_icon.png" id="2_30llv"]
 
 [resource]
 script = ExtResource("1_42xxc")
 speedAmount = 0.0
-speedModifer = 1.0
+speedModifer = 0.0
 attackSpeedAmount = 0.0
 attackSpeedModifier = 1.0
 accuracyAmount = 0.0
@@ -17,5 +18,6 @@ damagePerSecond = 0.0
 name = "Defensive Stance"
 ID = 5
 description = "Increase defense."
+texture = ExtResource("2_30llv")
 cooldownTime = 5.0
 duration = 4.0

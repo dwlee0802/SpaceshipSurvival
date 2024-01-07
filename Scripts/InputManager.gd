@@ -40,6 +40,7 @@ func _process(delta):
 	callable.call(Game.survivor.primarySlot)
 	callable = Callable(UserInterfaceManager, "UpdateSkillButtons")
 	callable.call(Game.survivor)
+	UserInterfaceManager.UpdateInfoPanel()
 	
 	# disable skill buttons if they are on cooldown
 	if Game.survivor.skillReady_1:

@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_k6bji")
 speedAmount = 0.0
-speedModifer = 1.0
+speedModifer = 0.0
 attackSpeedAmount = 0.0
 attackSpeedModifier = 1.0
 accuracyAmount = 0.0

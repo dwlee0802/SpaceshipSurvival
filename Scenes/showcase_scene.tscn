@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://c5nyr1fhytbkv"]
+[gd_scene load_steps=66 format=3 uid="uid://c5nyr1fhytbkv"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_8rs23"]
 [ext_resource type="PackedScene" uid="uid://bglyxpx5ldmya" path="res://Scenes/showcase_spaceship.tscn" id="2_cyxog"]
@@ -66,6 +66,20 @@ unicode = 64
 
 [sub_resource type="Shortcut" id="Shortcut_bh65y"]
 events = [SubResource("InputEventKey_c32yv"), SubResource("InputEventKey_0o5oh")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_2cih1"]
+device = -1
+keycode = 51
+unicode = 51
+
+[sub_resource type="InputEventKey" id="InputEventKey_pkaul"]
+device = -1
+shift_pressed = true
+keycode = 51
+unicode = 35
+
+[sub_resource type="Shortcut" id="Shortcut_odn1d"]
+events = [SubResource("InputEventKey_2cih1"), SubResource("InputEventKey_pkaul")]
 
 [sub_resource type="Animation" id="Animation_ahy6d"]
 resource_name = "spaceship_flame_animation"
@@ -190,6 +204,7 @@ stretch_mode = 0
 layout_mode = 0
 offset_right = 70.0
 offset_bottom = 69.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 12
 text = "skill 1"
 autowrap_mode = 1
@@ -270,6 +285,7 @@ layout_mode = 0
 offset_left = 162.0
 offset_right = 232.0
 offset_bottom = 70.0
+shortcut = SubResource("Shortcut_odn1d")
 texture_normal = SubResource("PlaceholderTexture2D_eq82b")
 stretch_mode = 0
 
@@ -277,6 +293,7 @@ stretch_mode = 0
 layout_mode = 0
 offset_right = 70.0
 offset_bottom = 70.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 12
 text = "skill 3"
 autowrap_mode = 1
@@ -392,7 +409,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 1.0
-offset_top = -122.0
+offset_top = -127.0
 offset_right = 130.0
 offset_bottom = -1.0
 grow_horizontal = 0
@@ -1665,6 +1682,7 @@ accelerationAmount = 10.0
 
 [connection signal="pressed" from="Camera/Canvas/UnitUI/SkillButtons/SkillButton1" to="InputManager" method="_on_skill_button_pressed" binds= [0]]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/SkillButtons/SkillButton2" to="InputManager" method="_on_skill_button_pressed" binds= [1]]
+[connection signal="pressed" from="Camera/Canvas/UnitUI/SkillButtons/SkillButton3" to="InputManager" method="_on_skill_button_pressed" binds= [2]]
 [connection signal="button_down" from="Camera/Canvas/DisassemblyUI" to="Camera/Canvas/DisassemblyUI" method="_on_button_down"]
 [connection signal="button_up" from="Camera/Canvas/DisassemblyUI" to="Camera/Canvas/DisassemblyUI" method="_on_button_up"]
 [connection signal="pressed" from="Camera/Canvas/DisassemblyUI/Closebutton" to="Camera/Canvas" method="_on_disassembly_closebutton_pressed"]

@@ -71,10 +71,12 @@ static var bodySlot
 static var equipmentUI
 
 static var skillButtons
-static var skillButton_1
-static var skillButton_2
+static var skillButton_1: TextureButton
+static var skillButton_2: TextureButton
+static var skillButton_3: TextureButton
 static var skillButton_cd_1
 static var skillButton_cd_2
+static var skillButton_cd_3
 
 static var buffIconUI
 static var buffIconScene = load("res://Scenes/buff_icon.tscn")
@@ -106,6 +108,7 @@ func _ready():
 	informationUIHealth = $InformationUI/HealthStats
 	informationUICombat = $InformationUI/CombatStats
 	informationUIMisc = $InformationUI/MiscStats
+	infoPanel = $UnitUI/InfoPanel/InfoLabel
 	infoPanelButton = $InformationButton
 	inventoryPanelButton = $InventoryButton
 	oxygenBar = $RadialStatusUI/OxygenBar
@@ -117,6 +120,7 @@ func _ready():
 	skillButtons = unitUI.get_node("SkillButtons")
 	skillButton_1 = skillButtons.get_node("SkillButton1")
 	skillButton_2 = skillButtons.get_node("SkillButton2")
+	skillButton_3 = skillButtons.get_node("SkillButton3")
 	skillButton_cd_1 = skillButtons.get_node("SkillButton1/Cooldown")
 	skillButton_cd_2 = skillButtons.get_node("SkillButton2/Cooldown")
 	
@@ -365,6 +369,10 @@ static func UpdateInformationUI(unit: Survivor):
 	informationUIHealth.text = unit.PrintHealthStats()
 	informationUICombat.text = unit.PrintCombatStats()
 	informationUIMisc.text = unit.PrintMiscStats()
+	
+	
+static func UpdateInfoPanel():
+	infoPanel.text = Game.survivor.PrintCombatStats()
 
 
 static func UpdateInteractionButton(unit):
@@ -436,21 +444,32 @@ static func UpdateEquipmentUI(item: Item):
 
 static func UpdateSkillButtons(unit: Survivor):
 	if unit.skillSlot_1 == null:
-		skillButtons.get_node("SkillButton1").visible = false
+		skillButton_1.visible = false
 	else:
 		var skill_1: Skill = unit.skillSlot_1
 		var button = skillButtons.get_node("SkillButton1/Label")
 		button.text = skill_1.name
-		skillButtons.get_node("SkillButton1").visible = true
+		skillButton_1.visible = true
+		skillButton_1.texture_normal = skill_1.texture
 		
 	if unit.skillSlot_2 == null:
-		skillButtons.get_node("SkillButton2").visible = false
+		skillButton_2.visible = false
 	else:
 		var skill_2: Skill = unit.skillSlot_2
 		var button = skillButtons.get_node("SkillButton2/Label")
 		button.text = skill_2.name
-		skillButtons.get_node("SkillButton2").visible = true
-	
+		skillButton_2.visible = true
+		skillButton_2.texture_normal = skill_2.texture
+		
+	if unit.skillSlot_3 == null:
+		skillButton_3.visible = false
+	else:
+		var skill_3: Skill = unit.skillSlot_3
+		var button = skillButtons.get_node("SkillButton3/Label")
+		button.text = skill_3.name
+		skillButton_3.visible = true
+		skillButton_3.texture_normal = skill_3.texture
+		
 	
 static func AddBuffIcon():
 	var newIcon = UserInterfaceManager.buffIconScene.instantiate()

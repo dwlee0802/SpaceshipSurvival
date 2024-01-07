@@ -12,3 +12,8 @@ class_name SurvivorData
 @export var maxHealth: float
 
 @export var startingPrimary: Weapon
+
+@export var skill_1: Skill
+@export var skill_2: Skill
+@export var skill_3: Skill
+@export var skill_4: Skill
