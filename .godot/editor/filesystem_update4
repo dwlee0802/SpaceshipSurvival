@@ -16,3 +16,5 @@ res://Scenes/buff_icon.tscn
 res://Data/Survivors/0_Veteran.tres
 res://Data/Skills/5_Defensive_Stance.tres
 res://Data/Skills/6_Taunt.tres
+res://Scripts/buff_icon.gd
+res://Data/Skills/0_Adrenalin_Rush.tres

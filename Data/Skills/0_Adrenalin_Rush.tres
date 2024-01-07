@@ -20,4 +20,4 @@ ID = 0
 description = "Rush of adrenalin. Boosts movement speed and attack speed."
 texture = ExtResource("2_5ydxs")
 cooldownTime = 5.0
-duration = 5.0
+duration = 3.0
