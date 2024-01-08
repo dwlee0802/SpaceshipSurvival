@@ -1752,6 +1752,7 @@ accelerationAmount = 10.0
 [connection signal="button_down" from="Camera/Canvas/CraftingStationUI" to="Camera/Canvas/CraftingStationUI" method="_on_button_down"]
 [connection signal="button_up" from="Camera/Canvas/CraftingStationUI" to="Camera/Canvas/CraftingStationUI" method="_on_button_up"]
 [connection signal="item_selected" from="Camera/Canvas/CraftingStationUI/ItemList" to="InputManager" method="_on_craft_menu_item_list_item_selected"]
+[connection signal="pressed" from="Camera/Canvas/CraftingStationUI/PrintButton" to="InputManager" method="_on_print_button_pressed"]
 [connection signal="pressed" from="Camera/Canvas/CraftingStationUI/MeleeButton" to="InputManager" method="_on_crafting_menu_button_pressed" binds= [0]]
 [connection signal="pressed" from="Camera/Canvas/CraftingStationUI/RangedButton" to="InputManager" method="_on_crafting_menu_button_pressed" binds= [1]]
 [connection signal="pressed" from="Camera/Canvas/CraftingStationUI/HeadButton" to="InputManager" method="_on_crafting_menu_button_pressed" binds= [2]]

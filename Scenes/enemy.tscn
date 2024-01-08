@@ -192,8 +192,7 @@ max_polyphony = 3
 stream = ExtResource("8_mhdnr")
 volume_db = 15.0
 pitch_scale = 2.0
-max_distance = 1500.0
-max_polyphony = 3
+max_distance = 1000.0
 
 [connection signal="timeout" from="NavUpdateTimer" to="." method="_on_nav_update_timer_timeout"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
