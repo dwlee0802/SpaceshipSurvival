@@ -111,5 +111,14 @@ static func GainExperiencePoints(_main, amount):
 	survivor.AddExperiencePoints(amount)
 
 
-func _on_restart_button_pressed():
-	get_tree().reload_current_scene()
+# restart game
+# destroy all enemies
+# return survivor to initial state
+# reroll item containers
+# remove errors in modules
+static func Restart():
+	gameScene.get_tree().reload_current_scene()
+	Spaceship.distanceTraveled = 0
+	Spaceship.ammoStock = 0
+	Spaceship.componentStock = 0
+	Spaceship.foodStock = 0

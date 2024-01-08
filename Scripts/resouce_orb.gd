@@ -34,7 +34,7 @@ func SetType(random = true, type = 0):
 	
 	
 func _physics_process(_delta):
-	if pickupReady and fly:
+	if pickupReady and fly and is_instance_valid(target):
 		global_position += global_position.direction_to(target.global_position) * FOLLOW_SPEED
 
 		if global_position.distance_to(target.global_position) < 5:

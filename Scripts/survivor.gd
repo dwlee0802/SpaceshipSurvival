@@ -290,11 +290,11 @@ func _physics_process(delta):
 		attackCooldown = true
 		Attack()
 		
-	# Normalize velocity if move along x and y together
+	# Normalize velocity
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 		#move_trail_effect.emitting = true # Play movement trail effect
-	# Limit the player movement, add your character scale if needed
+		
 	move_and_slide()
 	
 	
@@ -482,6 +482,7 @@ func OnDeath():
 	print("survivor dead!")
 	$BodyCollisionShape.set_deferred("disabled", true)
 	$ArmSprite.visible = false
+	UserInterfaceManager.gameOverScreen.visible = true
 	
 
 func StartSleeping(modifier = 1):

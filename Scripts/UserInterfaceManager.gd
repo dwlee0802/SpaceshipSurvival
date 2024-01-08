@@ -81,6 +81,8 @@ static var skillButton_cd_3
 static var buffIconUI
 static var buffIconScene = load("res://Scenes/buff_icon.tscn")
 
+static var gameOverScreen
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -116,6 +118,7 @@ func _ready():
 	sleepBar = $RadialStatusUI/SleepBar
 	nutritionBar = $RadialStatusUI/NutritionBar
 	buffIconUI = $UnitUI/BuffIconContainer
+	gameOverScreen = $GameOverScreen
 	
 	skillButtons = unitUI.get_node("SkillButtons")
 	skillButton_1 = skillButtons.get_node("SkillButton1")
@@ -200,7 +203,14 @@ static func UpdateCraftingUI(type):
 static func UpdateCraftingItemInfo():
 	var selectedIndex = craftingStationUI.get_node("ItemList").get_selected_items()[0]
 	var output = ""
+	
+	# skip fists
+	if selectedIndex == 0 and craftingStationUIType == ItemType.Melee:
+		selectedIndex += 1
+		
 	var data =  DataManager.resources[craftingStationUIType][selectedIndex]
+	
+		
 	output += data.name + "\n"
 	output += "Cost: " + str(data.componentValue) + " components\n"
 	craftingStationUI.get_node("ItemInfo").text = output
@@ -484,3 +494,8 @@ func _on_disassembly_closebutton_pressed():
 	
 func _on_close_interaction_window_button_pressed():
 	CloseInteractionWindows()
+
+
+func _on_restart_button_pressed():
+	print("restart game")
+	Game.Restart()

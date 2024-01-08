@@ -66,7 +66,7 @@ func FillContentsRandomly():
 			# pick item type
 			var itemType = options.pick_random()
 			
-			if itemType == 0:
+			if itemType == ItemType.Melee:
 				# excluding fists(0,0)
 				AddItem(Item.new(itemType, randi_range(1, len(DataManager.resources[ItemType.Melee]) - 1)))
 			else:

@@ -43,8 +43,9 @@ func _process(delta):
 	else:
 		projectileObject.visible = true
 		projectileObject.global_position += projectileObject.position.direction_to(target_position) * projectileSpeed * delta
-
-		if projectileObject.position.distance_squared_to(target_position) < 20:
+		global_position = projectileObject.global_position
+		
+		if projectileObject.global_position.distance_squared_to(target_position) < 20:
 			projectileObject.queue_free()
 			# it is a one time effect skill
 			if data.duration == 0:
@@ -97,7 +98,7 @@ func Effect():
 		if not CheckLineOfSight(global_position, item.global_position):
 			continue
 			
-		var dir = global_position.direction_to(item.position)
+		var dir = global_position.direction_to(item.global_position)
 		if item is Survivor:
 			dir = Vector2.ZERO
 		item.ReceiveHit(self, randi_range(data.damageMin, data.damageMax), 0)

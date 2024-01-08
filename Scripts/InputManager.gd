@@ -28,7 +28,7 @@ func _ready():
 	UserInterfaceManager.disassemblyUI.get_node("DraggableItemSlot").item_dropped.connect(UserInterfaceManager.UpdateDisassemblyInfo)
 	UserInterfaceManager.disassemblyUI.get_node("DraggableItemSlot").item_dropped.connect(ApplyUnitInventory)
 	UserInterfaceManager.UpdateDisassemblyInfo()
-
+	_on_crafting_menu_button_pressed(0)
 
 func _process(delta):
 	UserInterfaceManager.ToggleUnitUI(true)

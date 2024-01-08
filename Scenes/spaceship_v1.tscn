@@ -21,7 +21,6 @@ size = Vector2(548, 492)
 script = ExtResource("1_rdtlq")
 
 [node name="TravelTimer" type="Timer" parent="."]
-wait_time = 0.1
 autostart = true
 
 [node name="TemperatureTimer" type="Timer" parent="."]

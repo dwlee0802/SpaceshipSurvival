@@ -37,7 +37,7 @@ static var maxComponentStock: int = 400
 # added every second to distance traveled. When it reaches a certain amount, the player wins
 static var shipSpeed: int = 1
 static var distanceTraveled: int = 0
-static var DISTANCE_TO_DESTINATION: int = 60 * 20
+static var DISTANCE_TO_DESTINATION: int = 60 * 30
 
 static var modules = {}
 
