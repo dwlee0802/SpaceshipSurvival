@@ -4,6 +4,7 @@ class_name RangedWeapon
 @export var ammoPerReload: int
 @export var reloadTime: float
 @export var magazineCapacity: int
+@export var totalAmmo: int
 
 @export var projectileSpeed: float = 900.0
 
