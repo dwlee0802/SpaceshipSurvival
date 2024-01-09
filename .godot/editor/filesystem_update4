@@ -32,3 +32,4 @@ res://Scenes/draggable_item.tscn
 res://Scripts/DraggableItem.gd
 res://Scripts/item.gd
 res://Scenes/RadialStatusUI.gd
+res://Data/4_Consumable/3_Water_Bottle.tres
