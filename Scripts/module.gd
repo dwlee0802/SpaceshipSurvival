@@ -33,24 +33,27 @@ func _ready():
 	
 	$ErrorTimer.timeout.connect(GenerateErrors)
 	$EnemySpawnTimer.timeout.connect(RollEnemySpawn)
-	overviewMarker = UserInterfaceManager.MakeMarkerOnSpaceshipOverview()
-	overviewMarker.self_modulate = Color.RED
-	overviewMarker.position = global_position / 5.80708
-	overviewMarker.get_node("Label").text = "!"
-	overviewMarker.visible = false
+	#overviewMarker = UserInterfaceManager.MakeMarkerOnSpaceshipOverview()
+	#overviewMarker.self_modulate = Color.RED
+	#overviewMarker.position = global_position / 5.80708
+	#overviewMarker.get_node("Label").text = "!"
+	#overviewMarker.visible = false
 
 
 func _process(_delta):
 	isOperational = CheckOperational()
 	
 	# update overview UI if something changed
-	if overviewMarker.visible == isOperational:
-		overviewMarker.visible = not isOperational
-		UserInterfaceManager.UpdateSpaceshipOverviewText()
+	#if overviewMarker.visible == isOperational:
+		#overviewMarker.visible = not isOperational
+		#UserInterfaceManager.UpdateSpaceshipOverviewText()
 		
 	
 func RollEnemySpawn():
 	if Game.enemies.size() > Game.MAX_ENEMY_COUNT:
+		return
+		
+	if spawnPoints.size() == 0:
 		return
 		
 	if randf() < respawnRate:

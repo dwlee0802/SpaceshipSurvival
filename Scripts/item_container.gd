@@ -61,6 +61,9 @@ func FillContentsRandomly():
 			options.append(ItemType.Body)
 		if spawnConsumables:
 			options.append(ItemType.Consumable)
+		
+		if options.size() == 0:
+			return
 			
 		for i in range(count):
 			# pick item type
@@ -71,6 +74,7 @@ func FillContentsRandomly():
 				AddItem(Item.new(itemType, randi_range(1, len(DataManager.resources[ItemType.Melee]) - 1)))
 			else:
 				AddItem(Item.new(itemType, randi_range(0, len(DataManager.resources[itemType]) - 1)))
+
 
 func AddItem(item: Item):
 	if weight + item.data.weight <= capacity:

@@ -107,11 +107,15 @@ otherPortal = NodePath("../Teleporter")
 [node name="Infirmary" parent="Modules" instance=ExtResource("9_x25hc")]
 position = Vector2(1557, -284)
 
-[node name="Area2D" type="Area2D" parent="Modules/Infirmary"]
+[node name="ModuleArea" type="Area2D" parent="Modules/Infirmary"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Modules/Infirmary/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Modules/Infirmary/ModuleArea"]
 position = Vector2(-3, 15)
 shape = SubResource("RectangleShape2D_v5dev")
+
+[node name="Interactables" type="Node2D" parent="Modules/Infirmary"]
+
+[node name="SpawnPoints" type="Node2D" parent="Modules/Infirmary"]
 
 [node name="CraftingStation" parent="Modules" instance=ExtResource("10_j3g41")]
 position = Vector2(1127, -1414)
@@ -126,21 +130,138 @@ position = Vector2(1124, -1295)
 
 [node name="ItemContainer" parent="AmmoStorage" instance=ExtResource("13_trqhm")]
 position = Vector2(-3056.81, 328.112)
+spawnFood = false
+spawnComponents = false
 
 [node name="ItemContainer2" parent="AmmoStorage" instance=ExtResource("13_trqhm")]
 position = Vector2(-3057, 394)
+spawnFood = false
+spawnComponents = false
 
 [node name="ItemContainer3" parent="AmmoStorage" instance=ExtResource("13_trqhm")]
 position = Vector2(-2966.81, 327)
+spawnFood = false
+spawnComponents = false
 
 [node name="ItemContainer4" parent="AmmoStorage" instance=ExtResource("13_trqhm")]
 position = Vector2(-2967, 392.888)
+spawnFood = false
+spawnComponents = false
 
 [node name="ItemContainer5" parent="AmmoStorage" instance=ExtResource("13_trqhm")]
 position = Vector2(-2878.81, 325)
+spawnFood = false
+spawnComponents = false
 
 [node name="ItemContainer6" parent="AmmoStorage" instance=ExtResource("13_trqhm")]
 position = Vector2(-2879, 390.888)
+spawnFood = false
+spawnComponents = false
+
+[node name="FoodStorage" type="Node2D" parent="."]
+position = Vector2(2111, 1375)
+
+[node name="ItemContainer" parent="FoodStorage" instance=ExtResource("13_trqhm")]
+position = Vector2(-3056.81, 328.112)
+spawnAmmo = false
+spawnComponents = false
+
+[node name="ItemContainer2" parent="FoodStorage" instance=ExtResource("13_trqhm")]
+position = Vector2(-3057, 394)
+spawnAmmo = false
+spawnComponents = false
+
+[node name="ItemContainer3" parent="FoodStorage" instance=ExtResource("13_trqhm")]
+position = Vector2(-2966.81, 327)
+spawnAmmo = false
+spawnComponents = false
+
+[node name="ItemContainer4" parent="FoodStorage" instance=ExtResource("13_trqhm")]
+position = Vector2(-2967, 392.888)
+spawnAmmo = false
+spawnComponents = false
+
+[node name="ItemContainer5" parent="FoodStorage" instance=ExtResource("13_trqhm")]
+position = Vector2(-2878.81, 325)
+spawnAmmo = false
+spawnComponents = false
+
+[node name="ItemContainer6" parent="FoodStorage" instance=ExtResource("13_trqhm")]
+position = Vector2(-2879, 390.888)
+spawnAmmo = false
+spawnComponents = false
+
+[node name="GeneralStorage" type="Node2D" parent="."]
+position = Vector2(3834, -2615)
+
+[node name="ItemContainer" parent="GeneralStorage" instance=ExtResource("13_trqhm")]
+position = Vector2(-3056.81, 328.112)
+spawnConsumables = true
+
+[node name="ItemContainer2" parent="GeneralStorage" instance=ExtResource("13_trqhm")]
+position = Vector2(-3057, 394)
+spawnConsumables = true
+
+[node name="ItemContainer3" parent="GeneralStorage" instance=ExtResource("13_trqhm")]
+position = Vector2(-2966.81, 327)
+spawnConsumables = true
+
+[node name="ItemContainer4" parent="GeneralStorage" instance=ExtResource("13_trqhm")]
+position = Vector2(-2967, 392.888)
+spawnConsumables = true
+
+[node name="ItemContainer5" parent="GeneralStorage" instance=ExtResource("13_trqhm")]
+position = Vector2(-2878.81, 325)
+spawnConsumables = true
+
+[node name="ItemContainer6" parent="GeneralStorage" instance=ExtResource("13_trqhm")]
+position = Vector2(-2879, 390.888)
+spawnConsumables = true
+
+[node name="Armory" type="Node2D" parent="."]
+position = Vector2(3834, -2615)
+
+[node name="ItemContainer" parent="Armory" instance=ExtResource("13_trqhm")]
+position = Vector2(-1502.81, 2425.11)
+spawnFood = false
+spawnWeapons = true
+spawnArmor = true
+spawnConsumables = true
+
+[node name="ItemContainer2" parent="Armory" instance=ExtResource("13_trqhm")]
+position = Vector2(-1503, 2491)
+spawnFood = false
+spawnWeapons = true
+spawnArmor = true
+spawnConsumables = true
+
+[node name="ItemContainer3" parent="Armory" instance=ExtResource("13_trqhm")]
+position = Vector2(-1412.81, 2424)
+spawnFood = false
+spawnWeapons = true
+spawnArmor = true
+spawnConsumables = true
+
+[node name="ItemContainer4" parent="Armory" instance=ExtResource("13_trqhm")]
+position = Vector2(-1413, 2489.89)
+spawnFood = false
+spawnWeapons = true
+spawnArmor = true
+spawnConsumables = true
+
+[node name="ItemContainer5" parent="Armory" instance=ExtResource("13_trqhm")]
+position = Vector2(-1324.81, 2422)
+spawnFood = false
+spawnWeapons = true
+spawnArmor = true
+spawnConsumables = true
+
+[node name="ItemContainer6" parent="Armory" instance=ExtResource("13_trqhm")]
+position = Vector2(-1325, 2487.89)
+spawnFood = false
+spawnWeapons = true
+spawnArmor = true
+spawnConsumables = true
 
 [connection signal="timeout" from="TravelTimer" to="." method="_on_travel_timer_timeout"]
 [connection signal="timeout" from="TemperatureTimer" to="." method="_on_temperature_timer_timeout"]

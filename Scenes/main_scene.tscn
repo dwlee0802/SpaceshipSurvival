@@ -1,0 +1,1758 @@
+[gd_scene load_steps=63 format=3 uid="uid://bub7ow8c286kq"]
+
+[ext_resource type="Script" path="res://Scripts/game.gd" id="1_gh626"]
+[ext_resource type="Script" path="res://Scripts/camera.gd" id="2_42p05"]
+[ext_resource type="Script" path="res://Scripts/UserInterfaceManager.gd" id="3_3dsyq"]
+[ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="4_8biv3"]
+[ext_resource type="Texture2D" uid="uid://cmboiyqntn0ou" path="res://Art/Skills/grenade_icon_temp.png" id="5_keych"]
+[ext_resource type="Script" path="res://Scenes/HealthBar.gd" id="6_xgpx5"]
+[ext_resource type="Script" path="res://Scenes/ExperienceBar.gd" id="7_g4kuf"]
+[ext_resource type="Script" path="res://Scenes/PrimaryWeaponUI.gd" id="8_8gkk3"]
+[ext_resource type="Texture2D" uid="uid://bexkhiplgn4sy" path="res://Art/crowbar_placeholder.png" id="9_rlg1c"]
+[ext_resource type="Texture2D" uid="uid://2j00antvhw4x" path="res://Art/circle-256.png" id="10_ml6g8"]
+[ext_resource type="Script" path="res://Scenes/SpaceshipStatusUI.gd" id="11_0374k"]
+[ext_resource type="Texture2D" uid="uid://c5r8dyndrq0q1" path="res://Art/spaceship status icons/oxygen_icon_r.png" id="12_iae3l"]
+[ext_resource type="Texture2D" uid="uid://c3rnfyrad7eem" path="res://Art/spaceship status icons/oxygen_icon_g.png" id="13_yp84b"]
+[ext_resource type="Texture2D" uid="uid://cha0v1r82c6sj" path="res://Art/spaceship status icons/oxygen_icon_y.png" id="14_gyxrw"]
+[ext_resource type="Texture2D" uid="uid://clp067dl8deyp" path="res://Art/spaceship status icons/nuclear_icon_r.png" id="15_cltxs"]
+[ext_resource type="Texture2D" uid="uid://budtyhboo41qt" path="res://Art/spaceship status icons/nuclear_icon_g.png" id="16_a34m1"]
+[ext_resource type="Texture2D" uid="uid://d3gsx63xuqw3s" path="res://Art/spaceship status icons/nuclear_icon_y.png" id="17_evuap"]
+[ext_resource type="Texture2D" uid="uid://dmhu5o68cvax1" path="res://Art/spaceship status icons/temp_icon_r.png" id="18_m7iqn"]
+[ext_resource type="Texture2D" uid="uid://d3vbcqlfmqiuj" path="res://Art/spaceship status icons/temp_icon_g.png" id="19_lwxyv"]
+[ext_resource type="Texture2D" uid="uid://qlq07octvqqp" path="res://Art/spaceship status icons/temp_icon_y.png" id="20_yv6md"]
+[ext_resource type="Texture2D" uid="uid://ddgm7rgp5c517" path="res://Art/spaceship_image.png" id="21_ah7y8"]
+[ext_resource type="Script" path="res://Scripts/draggable_window.gd" id="22_kxhjh"]
+[ext_resource type="Shortcut" uid="uid://bcj08ui1vldhx" path="res://Scripts/close_button.tres" id="23_8sx1y"]
+[ext_resource type="PackedScene" uid="uid://co0ec0725c4fq" path="res://Scenes/draggable_item_slot.tscn" id="24_rmaqr"]
+[ext_resource type="Script" path="res://Scripts/drop_item_slot.gd" id="25_kji2c"]
+[ext_resource type="PackedScene" uid="uid://du8uipcd8d8ow" path="res://Scenes/crosshair.tscn" id="26_3nxfe"]
+[ext_resource type="Script" path="res://Scenes/RadialStatusUI.gd" id="27_d5bko"]
+[ext_resource type="Script" path="res://Addons/radial_progress/RadialProgress.gd" id="28_u5je6"]
+[ext_resource type="Texture2D" uid="uid://cq07ymw7mik3n" path="res://Art/nutrition_icon.png" id="29_cr0dt"]
+[ext_resource type="Texture2D" uid="uid://dugwv0bcmg1yj" path="res://Art/oxygen_generator_icon.png" id="30_es6kk"]
+[ext_resource type="Texture2D" uid="uid://bjl3wlb8vxpiu" path="res://Art/bed_temp.jpg" id="31_d3xh5"]
+[ext_resource type="Texture2D" uid="uid://bt2acio8mtfea" path="res://Art/temperature_icon.png" id="32_hcwq8"]
+[ext_resource type="Script" path="res://Scripts/data_manager.gd" id="34_fq4r5"]
+[ext_resource type="PackedScene" uid="uid://cbkwj1bwfbsuj" path="res://Scenes/spaceship_v1.tscn" id="35_fp47c"]
+[ext_resource type="Script" path="res://Scripts/InputManager.gd" id="35_qx4ch"]
+[ext_resource type="PackedScene" uid="uid://crk54pclkvhi" path="res://Scenes/survivor.tscn" id="36_62t7b"]
+[ext_resource type="Resource" uid="uid://d51whjtkivtv" path="res://Data/Survivors/0_Veteran.tres" id="37_3ivte"]
+[ext_resource type="Resource" uid="uid://bnncpbvnspnx5" path="res://Data/Skills/0_Adrenalin_Rush.tres" id="38_dk2qq"]
+[ext_resource type="Resource" uid="uid://dj20wnavxfafh" path="res://Data/Skills/2_Lob_Grenade.tres" id="39_ujnlw"]
+[ext_resource type="Resource" uid="uid://wcnoearsoegm" path="res://Data/Skills/5_Defensive_Stance.tres" id="40_w8hr6"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_f6pi5"]
+keycode = 49
+
+[sub_resource type="Shortcut" id="Shortcut_mwxa5"]
+events = [SubResource("InputEventKey_f6pi5")]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_eq82b"]
+size = Vector2(70, 70)
+
+[sub_resource type="InputEventKey" id="InputEventKey_c32yv"]
+device = -1
+keycode = 50
+unicode = 50
+
+[sub_resource type="InputEventKey" id="InputEventKey_0o5oh"]
+device = -1
+shift_pressed = true
+keycode = 50
+unicode = 64
+
+[sub_resource type="Shortcut" id="Shortcut_bh65y"]
+events = [SubResource("InputEventKey_c32yv"), SubResource("InputEventKey_0o5oh")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_2cih1"]
+device = -1
+keycode = 51
+unicode = 51
+
+[sub_resource type="InputEventKey" id="InputEventKey_pkaul"]
+device = -1
+shift_pressed = true
+keycode = 51
+unicode = 35
+
+[sub_resource type="Shortcut" id="Shortcut_odn1d"]
+events = [SubResource("InputEventKey_2cih1"), SubResource("InputEventKey_pkaul")]
+
+[sub_resource type="Animation" id="Animation_ahy6d"]
+resource_name = "spaceship_flame_animation"
+length = 0.5
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpaceshipInnerFlame:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(3, 2), Vector2(3, 1), Vector2(3, 2), Vector2(3, 3), Vector2(3, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pr1aw"]
+_data = {
+"spaceship_flame_animation": SubResource("Animation_ahy6d")
+}
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_see1r"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_7n5p2"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_t3pin"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_wok48"]
+device = -1
+keycode = 73
+unicode = 105
+
+[sub_resource type="Shortcut" id="Shortcut_4ri6e"]
+events = [SubResource("InputEventKey_wok48")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_4a3vl"]
+device = -1
+keycode = 66
+unicode = 98
+
+[sub_resource type="Shortcut" id="Shortcut_nx7dp"]
+events = [SubResource("InputEventKey_4a3vl")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_ca4cy"]
+device = -1
+keycode = 69
+unicode = 101
+
+[sub_resource type="InputEventKey" id="InputEventKey_3xrmd"]
+device = -1
+shift_pressed = true
+keycode = 69
+unicode = 69
+
+[sub_resource type="Shortcut" id="Shortcut_n1o74"]
+events = [SubResource("InputEventKey_ca4cy"), SubResource("InputEventKey_3xrmd")]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbgc8"]
+size = Vector2(100, 100)
+
+[node name="ShowcaseGame" type="Node2D"]
+script = ExtResource("1_gh626")
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(-43, -23)
+script = ExtResource("2_42p05")
+
+[node name="Canvas" type="CanvasLayer" parent="Camera"]
+script = ExtResource("3_3dsyq")
+
+[node name="UnitUI" type="Control" parent="Camera/Canvas"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -213.0
+offset_top = -168.0
+offset_right = 113.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Panel" type="Panel" parent="Camera/Canvas/UnitUI"]
+layout_mode = 0
+offset_right = 325.0
+offset_bottom = 149.0
+
+[node name="UnitPortrait" type="TextureRect" parent="Camera/Canvas/UnitUI"]
+layout_mode = 1
+offset_left = 9.0
+offset_top = -24.0
+offset_right = 89.0
+offset_bottom = 79.0
+texture = ExtResource("4_8biv3")
+
+[node name="SkillButtons" type="Control" parent="Camera/Canvas/UnitUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -241.0
+offset_top = 10.0
+offset_right = -25.0
+offset_bottom = 80.0
+grow_horizontal = 0
+
+[node name="SkillButton1" type="TextureButton" parent="Camera/Canvas/UnitUI/SkillButtons"]
+layout_mode = 2
+offset_left = 10.0
+offset_right = 80.0
+offset_bottom = 70.0
+shortcut = SubResource("Shortcut_mwxa5")
+texture_normal = SubResource("PlaceholderTexture2D_eq82b")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Camera/Canvas/UnitUI/SkillButtons/SkillButton1"]
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 69.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "skill 1"
+autowrap_mode = 1
+
+[node name="Cooldown" type="TextureRect" parent="Camera/Canvas/UnitUI/SkillButtons/SkillButton1"]
+editor_description = "Modify Y to show cooldown"
+self_modulate = Color(0, 0, 0, 0.643137)
+layout_mode = 0
+offset_left = 70.0
+offset_top = 70.0
+offset_right = 140.0
+offset_bottom = 71.0
+rotation = 3.14159
+texture = ExtResource("4_8biv3")
+
+[node name="ShortcutLabel" type="Panel" parent="Camera/Canvas/UnitUI/SkillButtons/SkillButton1"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 46.0
+offset_right = 22.0
+offset_bottom = 68.0
+
+[node name="Label2" type="Label" parent="Camera/Canvas/UnitUI/SkillButtons/SkillButton1/ShortcutLabel"]
+layout_mode = 0
+offset_right = 21.0
+offset_bottom = 23.0
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SkillButton2" type="TextureButton" parent="Camera/Canvas/UnitUI/SkillButtons"]
+layout_mode = 2
+offset_left = 86.0
+offset_right = 156.0
+offset_bottom = 70.0
+shortcut = SubResource("Shortcut_bh65y")
+texture_normal = ExtResource("5_keych")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Camera/Canvas/UnitUI/SkillButtons/SkillButton2"]
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "skill 2"
+autowrap_mode = 1
+
+[node name="Cooldown" type="TextureRect" parent="Camera/Canvas/UnitUI/SkillButtons/SkillButton2"]
+editor_description = "Modify Y to show cooldown"
+self_modulate = Color(0, 0, 0, 0.643137)
+layout_mode = 0
+offset_left = 70.0
+offset_top = 70.0
+offset_right = 140.0
+offset_bottom = 71.0
+rotation = 3.14159
+texture = ExtResource("4_8biv3")
+
+[node name="ShortcutLabel" type="Panel" parent="Camera/Canvas/UnitUI/SkillButtons/SkillButton2"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 46.0
+offset_right = 22.0
+offset_bottom = 68.0
+
+[node name="Label2" type="Label" parent="Camera/Canvas/UnitUI/SkillButtons/SkillButton2/ShortcutLabel"]
+layout_mode = 0
+offset_right = 21.0
+offset_bottom = 23.0
+text = "2
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SkillButton3" type="TextureButton" parent="Camera/Canvas/UnitUI/SkillButtons"]
+layout_mode = 0
+offset_left = 162.0
+offset_right = 232.0
+offset_bottom = 70.0
+shortcut = SubResource("Shortcut_odn1d")
+texture_normal = SubResource("PlaceholderTexture2D_eq82b")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Camera/Canvas/UnitUI/SkillButtons/SkillButton3"]
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "skill 3"
+autowrap_mode = 1
+
+[node name="Cooldown" type="TextureRect" parent="Camera/Canvas/UnitUI/SkillButtons/SkillButton3"]
+editor_description = "Modify Y to show cooldown"
+self_modulate = Color(0, 0, 0, 0.643137)
+layout_mode = 0
+offset_left = 70.0
+offset_top = 70.0
+offset_right = 140.0
+offset_bottom = 71.0
+rotation = 3.14159
+texture = ExtResource("4_8biv3")
+
+[node name="ShortcutLabel" type="Panel" parent="Camera/Canvas/UnitUI/SkillButtons/SkillButton3"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 46.0
+offset_right = 22.0
+offset_bottom = 68.0
+
+[node name="Label2" type="Label" parent="Camera/Canvas/UnitUI/SkillButtons/SkillButton3/ShortcutLabel"]
+layout_mode = 0
+offset_right = 21.0
+offset_bottom = 23.0
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HealthBar" type="Control" parent="Camera/Canvas/UnitUI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -60.0
+offset_right = 151.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("6_xgpx5")
+
+[node name="Label" type="Label" parent="Camera/Canvas/UnitUI/HealthBar"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 12
+text = "HP 00 / 00"
+
+[node name="Background" type="TextureRect" parent="Camera/Canvas/UnitUI/HealthBar"]
+self_modulate = Color(0.215686, 0.215686, 0.215686, 1)
+layout_mode = 0
+offset_top = 15.0
+offset_right = 300.0
+offset_bottom = 25.0
+texture = ExtResource("4_8biv3")
+
+[node name="TextureRect" type="TextureRect" parent="Camera/Canvas/UnitUI/HealthBar"]
+self_modulate = Color(0.733333, 0, 0, 1)
+layout_mode = 0
+offset_top = 15.0
+offset_right = 157.0
+offset_bottom = 25.0
+texture = ExtResource("4_8biv3")
+
+[node name="ExperienceBar" type="Control" parent="Camera/Canvas/UnitUI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -29.0
+offset_right = 151.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("7_g4kuf")
+
+[node name="Label" type="Label" parent="Camera/Canvas/UnitUI/ExperienceBar"]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 40.0
+offset_bottom = 25.0
+theme_override_font_sizes/font_size = 10
+text = "EXP 00 / 00"
+
+[node name="Background" type="TextureRect" parent="Camera/Canvas/UnitUI/ExperienceBar"]
+self_modulate = Color(0.215686, 0.215686, 0.215686, 1)
+layout_mode = 0
+offset_top = 15.0
+offset_right = 300.0
+offset_bottom = 20.0
+texture = ExtResource("4_8biv3")
+
+[node name="TextureRect" type="TextureRect" parent="Camera/Canvas/UnitUI/ExperienceBar"]
+self_modulate = Color(0.380392, 0.709804, 1, 1)
+layout_mode = 0
+offset_top = 15.0
+offset_right = 129.0
+offset_bottom = 20.0
+texture = ExtResource("4_8biv3")
+
+[node name="InfoPanel" type="Panel" parent="Camera/Canvas/UnitUI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -127.0
+offset_right = 130.0
+offset_bottom = -1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="InfoLabel" type="Label" parent="Camera/Canvas/UnitUI/InfoPanel"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 5.0
+offset_right = 125.0
+offset_bottom = 118.0
+theme_override_font_sizes/font_size = 10
+text = "SPD: 200
+Accuracy: 100
+Defense: 20%"
+
+[node name="BuffIconContainer" type="HBoxContainer" parent="Camera/Canvas/UnitUI"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = -35.0
+offset_right = 456.0
+offset_bottom = -6.0
+
+[node name="PrimaryWeaponUI" type="Panel" parent="Camera/Canvas"]
+texture_filter = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -141.0
+offset_top = -108.0
+offset_right = -23.0
+offset_bottom = -27.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("8_8gkk3")
+
+[node name="WeaponImage" type="TextureRect" parent="Camera/Canvas/PrimaryWeaponUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_rlg1c")
+expand_mode = 1
+
+[node name="AmmoCountLabel" type="Label" parent="Camera/Canvas/PrimaryWeaponUI"]
+self_modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -55.0
+offset_top = -29.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 20
+text = "00/00"
+
+[node name="TravelProgressUI" type="Control" parent="Camera/Canvas"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_top = 32.0
+offset_right = 401.0
+offset_bottom = 57.0
+grow_horizontal = 2
+pivot_offset = Vector2(400, 0)
+
+[node name="Background" type="TextureRect" parent="Camera/Canvas/TravelProgressUI"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+offset_right = 800.0
+offset_bottom = 16.0
+texture = ExtResource("4_8biv3")
+
+[node name="ProgressBar" type="TextureRect" parent="Camera/Canvas/TravelProgressUI"]
+self_modulate = Color(0, 0, 1, 1)
+layout_mode = 0
+offset_top = 1.0
+offset_right = 123.0
+offset_bottom = 15.0
+texture = ExtResource("4_8biv3")
+
+[node name="SpaceshipIcon" type="TextureRect" parent="Camera/Canvas/TravelProgressUI"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = -1.0
+offset_right = 135.0
+offset_bottom = 17.0
+texture = ExtResource("4_8biv3")
+expand_mode = 1
+
+[node name="ProgressPercentLabel" type="Label" parent="Camera/Canvas/TravelProgressUI/SpaceshipIcon"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = -26.0
+offset_right = 40.0
+text = "00.00%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpaceshipFlame" type="TextureRect" parent="Camera/Canvas/TravelProgressUI/SpaceshipIcon"]
+self_modulate = Color(0.658824, 0, 0, 1)
+layout_mode = 0
+offset_left = -20.0
+offset_top = 3.0
+offset_bottom = 15.0
+texture = ExtResource("10_ml6g8")
+expand_mode = 1
+
+[node name="SpaceshipInnerFlame" type="TextureRect" parent="Camera/Canvas/TravelProgressUI/SpaceshipIcon/SpaceshipFlame"]
+self_modulate = Color(1, 1, 0.568627, 1)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 19.0
+offset_bottom = 10.0
+texture = ExtResource("10_ml6g8")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera/Canvas/TravelProgressUI/SpaceshipIcon/SpaceshipFlame"]
+libraries = {
+"": SubResource("AnimationLibrary_pr1aw")
+}
+autoplay = "spaceship_flame_animation"
+speed_scale = 4.0
+
+[node name="SpaceshipStatusUI" type="Control" parent="Camera/Canvas/TravelProgressUI"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.5
+offset_top = 50.0
+offset_right = 199.5
+offset_bottom = 90.0
+grow_horizontal = 2
+script = ExtResource("11_0374k")
+oxygen_r = ExtResource("12_iae3l")
+oxygen_g = ExtResource("13_yp84b")
+oxygen_y = ExtResource("14_gyxrw")
+nuclear_r = ExtResource("15_cltxs")
+nuclear_g = ExtResource("16_a34m1")
+nuclear_y = ExtResource("17_evuap")
+temp_r = ExtResource("18_m7iqn")
+temp_g = ExtResource("19_lwxyv")
+temp_y = ExtResource("20_yv6md")
+
+[node name="OxygenGeneratorStatus" type="TextureRect" parent="Camera/Canvas/TravelProgressUI/SpaceshipStatusUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+texture = ExtResource("13_yp84b")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NuclearReactorStatus" type="TextureRect" parent="Camera/Canvas/TravelProgressUI/SpaceshipStatusUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_right = -40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+texture = ExtResource("16_a34m1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TemperatureStatus" type="TextureRect" parent="Camera/Canvas/TravelProgressUI/SpaceshipStatusUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 40.0
+offset_right = 80.0
+offset_bottom = 40.0
+grow_horizontal = 2
+texture = ExtResource("19_lwxyv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SpaceshipOverviewUI" type="Control" parent="Camera/Canvas"]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -545.0
+offset_top = -301.0
+offset_right = -545.0
+offset_bottom = -301.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Panel" parent="Camera/Canvas/SpaceshipOverviewUI"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 14.0
+offset_right = 1086.0
+offset_bottom = 599.0
+
+[node name="ModuleStatus" type="Label" parent="Camera/Canvas/SpaceshipOverviewUI"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 38.0
+offset_right = 435.0
+offset_bottom = 448.0
+text = "Modules:
+Nuclear Reactor 1: Normal
+Nuclear Reactor 2: Normal
+Nuclear Reactor 3: Normal
+Infirmary: Normal
+Oxygen Generator: Normal
+Temperature Control: Normal
+
+"
+
+[node name="SpaceshipOverviewPanel" type="TextureRect" parent="Camera/Canvas/SpaceshipOverviewUI"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 293.0
+offset_top = 53.0
+offset_right = 1423.0
+offset_bottom = 806.0
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(34, -5)
+texture = ExtResource("21_ah7y8")
+
+[node name="DisassemblyUI" type="Button" parent="Camera/Canvas"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.5
+offset_top = -124.0
+offset_right = 107.5
+offset_bottom = 124.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+script = ExtResource("22_kxhjh")
+
+[node name="Background" type="Panel" parent="Camera/Canvas/DisassemblyUI"]
+layout_mode = 0
+offset_right = 214.0
+offset_bottom = 247.0
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="Camera/Canvas/DisassemblyUI"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 10.0
+offset_right = 100.0
+offset_bottom = 33.0
+text = "Disassembly"
+
+[node name="DisassemblyInfoLabel" type="Label" parent="Camera/Canvas/DisassemblyUI"]
+layout_mode = 0
+offset_top = 128.0
+offset_right = 199.0
+offset_bottom = 177.0
+theme_override_font_sizes/font_size = 13
+text = "Item Components Value:
+Expected output: 00 - 00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DisassembleButton" type="Button" parent="Camera/Canvas/DisassemblyUI"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 188.0
+offset_right = 153.0
+offset_bottom = 219.0
+text = "Disassemble"
+
+[node name="ResultLabel" type="Label" parent="Camera/Canvas/DisassemblyUI"]
+visible = false
+layout_mode = 0
+offset_left = 15.0
+offset_top = 230.0
+offset_right = 193.0
+offset_bottom = 253.0
+theme_override_font_sizes/font_size = 12
+text = "Result: 00 Components"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Closebutton" type="Button" parent="Camera/Canvas/DisassemblyUI"]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 8.0
+offset_right = 209.0
+offset_bottom = 30.0
+theme_override_font_sizes/font_size = 10
+shortcut = ExtResource("23_8sx1y")
+text = "Close"
+
+[node name="DraggableItemSlot" parent="Camera/Canvas/DisassemblyUI" instance=ExtResource("24_rmaqr")]
+layout_mode = 1
+offset_left = 69.0
+offset_top = 62.0
+offset_right = -96.0
+offset_bottom = -136.0
+stretch_mode = 2
+
+[node name="CraftingStationUI" type="Button" parent="Camera/Canvas"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = -143.0
+offset_right = 176.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+script = ExtResource("22_kxhjh")
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="Panel" parent="Camera/Canvas/CraftingStationUI"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = -3.0
+offset_right = 354.0
+offset_bottom = 289.0
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="Camera/Canvas/CraftingStationUI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Crafting Station"
+
+[node name="ItemList" type="ItemList" parent="Camera/Canvas/CraftingStationUI"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 75.0
+offset_right = 187.0
+offset_bottom = 279.0
+
+[node name="TextureRect" type="TextureRect" parent="Camera/Canvas/CraftingStationUI"]
+layout_mode = 0
+offset_left = 229.0
+offset_top = 55.0
+offset_right = 309.0
+offset_bottom = 135.0
+texture = SubResource("PlaceholderTexture2D_see1r")
+
+[node name="ItemInfo" type="Label" parent="Camera/Canvas/CraftingStationUI"]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 141.0
+offset_right = 335.0
+offset_bottom = 252.0
+theme_override_font_sizes/font_size = 11
+text = "Selected Item Info
+Selected Item Info
+Selected Item Info
+Selected Item Info
+Selected Item Info
+Selected Item Info"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PrintButton" type="Button" parent="Camera/Canvas/CraftingStationUI"]
+layout_mode = 0
+offset_left = 238.0
+offset_top = 255.0
+offset_right = 305.0
+offset_bottom = 281.0
+theme_override_font_sizes/font_size = 13
+text = "Print"
+
+[node name="MeleeButton" type="Button" parent="Camera/Canvas/CraftingStationUI"]
+layout_mode = 0
+offset_top = 25.0
+offset_right = 40.0
+offset_bottom = 47.0
+theme_override_font_sizes/font_size = 10
+toggle_mode = true
+button_group = SubResource("ButtonGroup_7n5p2")
+text = "Melee"
+
+[node name="RangedButton" type="Button" parent="Camera/Canvas/CraftingStationUI"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 25.0
+offset_right = 88.0
+offset_bottom = 47.0
+theme_override_font_sizes/font_size = 10
+toggle_mode = true
+button_group = SubResource("ButtonGroup_7n5p2")
+text = "Ranged"
+
+[node name="HeadButton" type="Button" parent="Camera/Canvas/CraftingStationUI"]
+layout_mode = 0
+offset_top = 50.0
+offset_right = 40.0
+offset_bottom = 72.0
+theme_override_font_sizes/font_size = 10
+toggle_mode = true
+button_group = SubResource("ButtonGroup_7n5p2")
+text = "Head"
+
+[node name="BodyButton" type="Button" parent="Camera/Canvas/CraftingStationUI"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 50.0
+offset_right = 82.0
+offset_bottom = 72.0
+theme_override_font_sizes/font_size = 10
+toggle_mode = true
+button_group = SubResource("ButtonGroup_7n5p2")
+text = "Body"
+
+[node name="ConsumableButton" type="Button" parent="Camera/Canvas/CraftingStationUI"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 50.0
+offset_right = 158.0
+offset_bottom = 72.0
+theme_override_font_sizes/font_size = 10
+toggle_mode = true
+button_group = SubResource("ButtonGroup_7n5p2")
+text = "Consumables
+"
+
+[node name="Closebutton" type="Button" parent="Camera/Canvas/CraftingStationUI"]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 3.0
+offset_right = 350.0
+offset_bottom = 25.0
+theme_override_font_sizes/font_size = 10
+shortcut = ExtResource("23_8sx1y")
+text = "Close"
+
+[node name="ModifierUI" type="Control" parent="Camera/Canvas"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 560.0
+offset_top = 223.0
+offset_right = 858.0
+offset_bottom = 543.0
+
+[node name="Background" type="Panel" parent="Camera/Canvas/ModifierUI"]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 319.0
+
+[node name="Title" type="Label" parent="Camera/Canvas/ModifierUI"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 10.0
+offset_right = 100.0
+offset_bottom = 33.0
+text = "Modifier"
+
+[node name="TargetItemIcon" type="TextureRect" parent="Camera/Canvas/ModifierUI"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 68.0
+offset_right = 190.0
+offset_bottom = 158.0
+texture = SubResource("PlaceholderTexture2D_t3pin")
+
+[node name="DisassemblyInfoLabel" type="Label" parent="Camera/Canvas/ModifierUI"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = 187.0
+offset_right = 299.0
+offset_bottom = 236.0
+text = "Required Component Cost: 0000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DisassembleButton" type="Button" parent="Camera/Canvas/ModifierUI"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 245.0
+offset_right = 198.0
+offset_bottom = 276.0
+text = "Upgrade"
+
+[node name="ResultLabel" type="Label" parent="Camera/Canvas/ModifierUI"]
+visible = false
+layout_mode = 0
+offset_left = 60.0
+offset_top = 283.0
+offset_right = 238.0
+offset_bottom = 306.0
+text = "Result: 00 Components"
+
+[node name="Closebutton" type="Button" parent="Camera/Canvas/ModifierUI"]
+layout_mode = 0
+offset_left = 263.0
+offset_top = 4.0
+offset_right = 297.0
+offset_bottom = 26.0
+theme_override_font_sizes/font_size = 10
+text = "Close"
+
+[node name="ContainerUI" type="Button" parent="Camera/Canvas"]
+visible = false
+offset_left = 734.0
+offset_top = 234.0
+offset_right = 1100.0
+offset_bottom = 510.0
+flat = true
+script = ExtResource("22_kxhjh")
+
+[node name="Panel" type="Panel" parent="Camera/Canvas/ContainerUI"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -5.0
+offset_right = 362.0
+offset_bottom = 272.0
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="Camera/Canvas/ContainerUI"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 6.0
+offset_right = 93.0
+offset_bottom = 29.0
+text = "Container"
+
+[node name="Closebutton" type="Button" parent="Camera/Canvas/ContainerUI"]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 6.0
+offset_right = 354.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 10
+shortcut = ExtResource("23_8sx1y")
+text = "Close"
+
+[node name="ContainerGrid" type="GridContainer" parent="Camera/Canvas/ContainerUI"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 40.0
+offset_right = 342.0
+offset_bottom = 255.0
+columns = 6
+
+[node name="DraggableItemSlot" parent="Camera/Canvas/ContainerUI/ContainerGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot2" parent="Camera/Canvas/ContainerUI/ContainerGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot3" parent="Camera/Canvas/ContainerUI/ContainerGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot4" parent="Camera/Canvas/ContainerUI/ContainerGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot5" parent="Camera/Canvas/ContainerUI/ContainerGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot6" parent="Camera/Canvas/ContainerUI/ContainerGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot7" parent="Camera/Canvas/ContainerUI/ContainerGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot8" parent="Camera/Canvas/ContainerUI/ContainerGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot9" parent="Camera/Canvas/ContainerUI/ContainerGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot10" parent="Camera/Canvas/ContainerUI/ContainerGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot11" parent="Camera/Canvas/ContainerUI/ContainerGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot12" parent="Camera/Canvas/ContainerUI/ContainerGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot13" parent="Camera/Canvas/ContainerUI/ContainerGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot14" parent="Camera/Canvas/ContainerUI/ContainerGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot15" parent="Camera/Canvas/ContainerUI/ContainerGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot16" parent="Camera/Canvas/ContainerUI/ContainerGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot17" parent="Camera/Canvas/ContainerUI/ContainerGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot18" parent="Camera/Canvas/ContainerUI/ContainerGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot19" parent="Camera/Canvas/ContainerUI/ContainerGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot20" parent="Camera/Canvas/ContainerUI/ContainerGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot21" parent="Camera/Canvas/ContainerUI/ContainerGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot22" parent="Camera/Canvas/ContainerUI/ContainerGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot23" parent="Camera/Canvas/ContainerUI/ContainerGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot24" parent="Camera/Canvas/ContainerUI/ContainerGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="InformationUI" type="Button" parent="Camera/Canvas"]
+visible = false
+offset_left = 160.0
+offset_top = 206.0
+offset_right = 512.0
+offset_bottom = 492.0
+flat = true
+script = ExtResource("22_kxhjh")
+
+[node name="Background" type="Panel" parent="Camera/Canvas/InformationUI"]
+layout_mode = 0
+offset_right = 354.0
+offset_bottom = 289.0
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="Camera/Canvas/InformationUI"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 135.0
+offset_bottom = 28.0
+text = "Unit Information"
+
+[node name="UnitPortrait" type="TextureRect" parent="Camera/Canvas/InformationUI"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 38.0
+offset_right = 100.0
+offset_bottom = 118.0
+texture = SubResource("PlaceholderTexture2D_see1r")
+
+[node name="Closebutton" type="Button" parent="Camera/Canvas/InformationUI"]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 3.0
+offset_right = 350.0
+offset_bottom = 25.0
+theme_override_font_sizes/font_size = 10
+shortcut = ExtResource("23_8sx1y")
+text = "Close"
+
+[node name="HealthStats" type="Label" parent="Camera/Canvas/InformationUI"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 128.0
+offset_right = 120.0
+offset_bottom = 239.0
+theme_override_font_sizes/font_size = 11
+text = "Health Stats:
+HP: 000/000
+Body Temp: 00C
+Oxygen: 00%
+Nutrition: 00%
+Sleep: 00%"
+
+[node name="CombatStats" type="Label" parent="Camera/Canvas/InformationUI"]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 128.0
+offset_right = 329.0
+offset_bottom = 277.0
+theme_override_font_sizes/font_size = 11
+text = "Combat Stats:
+Speed:
+Strength:
+Accuracy:
+Evasion:
+Defense:
+Knock-back Resist:
+Radiation Defense:"
+
+[node name="MiscStats" type="Label" parent="Camera/Canvas/InformationUI"]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 64.0
+offset_right = 188.0
+offset_bottom = 118.0
+theme_override_font_sizes/font_size = 9
+text = "Misc. Stats:
+Level: 00
+EXP: 0000/0000"
+
+[node name="LevelupUI" type="Button" parent="Camera/Canvas"]
+visible = false
+offset_left = 360.0
+offset_top = 249.0
+offset_right = 712.0
+offset_bottom = 535.0
+flat = true
+script = ExtResource("22_kxhjh")
+
+[node name="Background" type="Panel" parent="Camera/Canvas/LevelupUI"]
+layout_mode = 0
+offset_right = 354.0
+offset_bottom = 289.0
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="Camera/Canvas/LevelupUI"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 135.0
+offset_bottom = 28.0
+text = "Level Up!"
+
+[node name="UnitPortrait" type="TextureRect" parent="Camera/Canvas/LevelupUI"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 55.0
+offset_right = 204.0
+offset_bottom = 115.0
+texture = SubResource("PlaceholderTexture2D_see1r")
+
+[node name="PassButton" type="Button" parent="Camera/Canvas/LevelupUI"]
+layout_mode = 0
+offset_left = 243.0
+offset_top = 10.0
+offset_right = 347.0
+offset_bottom = 32.0
+theme_override_font_sizes/font_size = 10
+shortcut = ExtResource("23_8sx1y")
+text = "Pass (Lose 20% EXP)"
+
+[node name="Option1" type="Button" parent="Camera/Canvas/LevelupUI"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 137.0
+offset_right = 95.0
+offset_bottom = 168.0
+theme_override_font_sizes/font_size = 15
+text = "Option 1"
+
+[node name="Description" type="Label" parent="Camera/Canvas/LevelupUI/Option1"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 36.0
+offset_right = 95.0
+offset_bottom = 130.0
+theme_override_font_sizes/font_size = 12
+text = "Description
+asdfasdfasdfwdsfafsadfasdq"
+autowrap_mode = 3
+
+[node name="Option2" type="Button" parent="Camera/Canvas/LevelupUI"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 137.0
+offset_right = 211.0
+offset_bottom = 168.0
+theme_override_font_sizes/font_size = 15
+text = "Option 2"
+
+[node name="Description" type="Label" parent="Camera/Canvas/LevelupUI/Option2"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 36.0
+offset_right = 95.0
+offset_bottom = 130.0
+theme_override_font_sizes/font_size = 12
+text = "Description
+asdfasdfasdfwdsfafsadfasdq"
+autowrap_mode = 3
+
+[node name="Option3" type="Button" parent="Camera/Canvas/LevelupUI"]
+layout_mode = 0
+offset_left = 254.0
+offset_top = 137.0
+offset_right = 329.0
+offset_bottom = 168.0
+theme_override_font_sizes/font_size = 15
+text = "Option 3"
+
+[node name="Description" type="Label" parent="Camera/Canvas/LevelupUI/Option3"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 36.0
+offset_right = 95.0
+offset_bottom = 130.0
+theme_override_font_sizes/font_size = 12
+text = "Description
+asdfasdfasdfwdsfafsadfasdq"
+autowrap_mode = 3
+
+[node name="InventoryUI" type="Button" parent="Camera/Canvas"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -506.0
+offset_top = -158.0
+offset_right = 80.0
+offset_bottom = 155.0
+grow_horizontal = 2
+grow_vertical = 2
+keep_pressed_outside = true
+flat = true
+script = ExtResource("22_kxhjh")
+
+[node name="Panel" type="Panel" parent="Camera/Canvas/InventoryUI"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -1.0
+offset_right = 564.0
+offset_bottom = 310.0
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="Camera/Canvas/InventoryUI"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 6.0
+offset_right = 93.0
+offset_bottom = 29.0
+text = "Inventory"
+
+[node name="Closebutton" type="Button" parent="Camera/Canvas/InventoryUI"]
+layout_mode = 0
+offset_left = 521.0
+offset_top = 8.0
+offset_right = 555.0
+offset_bottom = 30.0
+theme_override_font_sizes/font_size = 10
+shortcut = ExtResource("23_8sx1y")
+text = "Close"
+
+[node name="InventoryGrid" type="GridContainer" parent="Camera/Canvas/InventoryUI"]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 69.0
+offset_right = 456.0
+offset_bottom = 284.0
+columns = 6
+
+[node name="DraggableItemSlot" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot2" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot3" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot4" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot5" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot6" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot7" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot8" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot9" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot10" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot11" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot12" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot13" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot14" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot15" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot16" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot17" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot18" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot19" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot20" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot21" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot22" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot23" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="DraggableItemSlot24" parent="Camera/Canvas/InventoryUI/InventoryGrid" instance=ExtResource("24_rmaqr")]
+layout_mode = 2
+
+[node name="HeadSlot" type="Label" parent="Camera/Canvas/InventoryUI"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 40.0
+offset_right = 84.0
+offset_bottom = 63.0
+text = "Head Slot"
+
+[node name="DraggableItem" parent="Camera/Canvas/InventoryUI/HeadSlot" instance=ExtResource("24_rmaqr")]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 30.0
+offset_right = -4.0
+offset_bottom = 57.0
+type = 0
+
+[node name="BodySlot" type="Label" parent="Camera/Canvas/InventoryUI"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 120.0
+offset_right = 84.0
+offset_bottom = 143.0
+text = "Body Slot"
+
+[node name="DraggableItem" parent="Camera/Canvas/InventoryUI/BodySlot" instance=ExtResource("24_rmaqr")]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 30.0
+offset_right = -4.0
+offset_bottom = 57.0
+type = 1
+
+[node name="PrimarySlot" type="Label" parent="Camera/Canvas/InventoryUI"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 200.0
+offset_right = 105.0
+offset_bottom = 223.0
+text = "Primary Slot"
+
+[node name="DraggableItem" parent="Camera/Canvas/InventoryUI/PrimarySlot" instance=ExtResource("24_rmaqr")]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 30.0
+offset_right = -25.0
+offset_bottom = 57.0
+type = 2
+
+[node name="DropSlot" type="Label" parent="Camera/Canvas/InventoryUI"]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 206.0
+offset_right = 551.0
+offset_bottom = 229.0
+text = "Drop Item"
+
+[node name="DraggableItem" parent="Camera/Canvas/InventoryUI/DropSlot" instance=ExtResource("24_rmaqr")]
+layout_mode = 1
+offset_left = 15.0
+offset_top = 24.0
+offset_right = -14.0
+offset_bottom = 51.0
+script = ExtResource("25_kji2c")
+
+[node name="LevelUpEffect" type="Polygon2D" parent="Camera/Canvas/InventoryUI/DropSlot"]
+position = Vector2(40, 30)
+rotation = 3.14159
+scale = Vector2(0.503803, 0.469087)
+color = Color(0.447059, 0, 0.054902, 0.47451)
+polygon = PackedVector2Array(-22, 0, 22, 0, 22, -55, 40, -55, -1, -86, -39, -53, -22, -53)
+
+[node name="Crosshair" parent="Camera/Canvas" instance=ExtResource("26_3nxfe")]
+offset_left = -32.0
+offset_top = -37.0
+offset_right = -1398.0
+offset_bottom = -805.0
+metadata/_edit_use_anchors_ = true
+
+[node name="RadialStatusUI" type="Control" parent="Camera/Canvas"]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 21.0
+offset_top = -264.0
+offset_right = 101.0
+offset_bottom = 107.0
+grow_vertical = 2
+script = ExtResource("27_d5bko")
+
+[node name="NutritionBar" type="Control" parent="Camera/Canvas/RadialStatusUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 60.0
+offset_right = 1.0
+offset_bottom = 61.0
+grow_horizontal = 2
+script = ExtResource("28_u5je6")
+radius = 25.0
+progress = 50.0
+bar_color = Color(0.188235, 0.772549, 0.184314, 1)
+ring = true
+
+[node name="Icon" type="TextureRect" parent="Camera/Canvas/RadialStatusUI/NutritionBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("29_cr0dt")
+
+[node name="OxygenBar" type="Control" parent="Camera/Canvas/RadialStatusUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 150.0
+offset_right = 1.0
+offset_bottom = 151.0
+grow_horizontal = 2
+script = ExtResource("28_u5je6")
+radius = 25.0
+progress = 40.0
+bar_color = Color(0.639216, 0.854902, 1, 1)
+ring = true
+
+[node name="Icon" type="TextureRect" parent="Camera/Canvas/RadialStatusUI/OxygenBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("30_es6kk")
+expand_mode = 1
+
+[node name="SleepBar" type="Control" parent="Camera/Canvas/RadialStatusUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 240.0
+offset_right = 1.0
+offset_bottom = 241.0
+grow_horizontal = 2
+script = ExtResource("28_u5je6")
+radius = 25.0
+progress = 40.0
+bar_color = Color(0.486275, 0.00392157, 0.870588, 1)
+ring = true
+
+[node name="Icon" type="TextureRect" parent="Camera/Canvas/RadialStatusUI/SleepBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("31_d3xh5")
+expand_mode = 1
+
+[node name="TemperatureBar" type="Control" parent="Camera/Canvas/RadialStatusUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 330.0
+offset_right = 1.0
+offset_bottom = 331.0
+grow_horizontal = 2
+script = ExtResource("28_u5je6")
+radius = 25.0
+progress = 50.0
+bar_color = Color(0.917647, 0.470588, 0, 1)
+ring = true
+
+[node name="Icon" type="TextureRect" parent="Camera/Canvas/RadialStatusUI/TemperatureBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("32_hcwq8")
+expand_mode = 1
+
+[node name="ResourcesUI" type="Control" parent="Camera/Canvas"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 28.0
+offset_top = 57.0
+offset_right = 68.0
+offset_bottom = 97.0
+
+[node name="Panel" type="Panel" parent="Camera/Canvas/ResourcesUI"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_right = 185.0
+offset_bottom = 70.0
+
+[node name="FoodStockLabel" type="Label" parent="Camera/Canvas/ResourcesUI"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 94.0
+offset_bottom = 30.0
+text = "Food: 00/20"
+
+[node name="AmmoStockLabel" type="Label" parent="Camera/Canvas/ResourcesUI"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 23.0
+offset_right = 125.0
+offset_bottom = 49.0
+text = "Ammo: 000/200"
+
+[node name="ComponentsStockLabel" type="Label" parent="Camera/Canvas/ResourcesUI"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 42.0
+offset_right = 172.0
+offset_bottom = 68.0
+text = "Components: 000/100"
+
+[node name="InformationButton" type="Button" parent="Camera/Canvas"]
+offset_left = 327.0
+offset_top = 638.0
+offset_right = 467.0
+offset_bottom = 673.0
+shortcut = SubResource("Shortcut_4ri6e")
+text = "Information"
+
+[node name="InventoryButton" type="Button" parent="Camera/Canvas"]
+offset_left = 327.0
+offset_top = 675.0
+offset_right = 467.0
+offset_bottom = 710.0
+shortcut = SubResource("Shortcut_nx7dp")
+text = "Inventory 00/00"
+
+[node name="InteractionButton" type="Button" parent="Camera/Canvas"]
+top_level = true
+offset_left = 327.0
+offset_top = 713.0
+offset_right = 467.0
+offset_bottom = 748.0
+shortcut = SubResource("Shortcut_n1o74")
+text = "Interaction"
+
+[node name="GameOverScreen" type="Control" parent="Camera/Canvas"]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -33.0
+offset_right = 26.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Camera/Canvas/GameOverScreen"]
+self_modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = -38.0
+offset_right = 34.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "YOU DIED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="Camera/Canvas/GameOverScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Restart"
+
+[node name="MainMenuButton" type="Button" parent="Camera/Canvas/GameOverScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = 39.0
+offset_right = 47.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Main Menu"
+
+[node name="Spaceship" parent="." instance=ExtResource("35_fp47c")]
+
+[node name="DataManager" type="Node" parent="."]
+script = ExtResource("34_fq4r5")
+
+[node name="InputManager" type="Node2D" parent="."]
+script = ExtResource("35_qx4ch")
+
+[node name="SelectionBox" type="Area2D" parent="InputManager"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="InputManager/SelectionBox"]
+self_modulate = Color(0, 1, 0.341176, 0.266667)
+top_level = true
+scale = Vector2(336, 157)
+texture = ExtResource("4_8biv3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InputManager/SelectionBox"]
+shape = SubResource("RectangleShape2D_vbgc8")
+
+[node name="Survivor" parent="." instance=ExtResource("36_62t7b")]
+position = Vector2(-139, 266)
+survivorData = ExtResource("37_3ivte")
+skillSlot_1 = ExtResource("38_dk2qq")
+skillSlot_2 = ExtResource("39_ujnlw")
+skillSlot_3 = ExtResource("40_w8hr6")
+speed = 250
+
+[connection signal="pressed" from="Camera/Canvas/UnitUI/SkillButtons/SkillButton1" to="InputManager" method="_on_skill_button_pressed" binds= [0]]
+[connection signal="pressed" from="Camera/Canvas/UnitUI/SkillButtons/SkillButton2" to="InputManager" method="_on_skill_button_pressed" binds= [1]]
+[connection signal="pressed" from="Camera/Canvas/UnitUI/SkillButtons/SkillButton3" to="InputManager" method="_on_skill_button_pressed" binds= [2]]
+[connection signal="button_down" from="Camera/Canvas/DisassemblyUI" to="Camera/Canvas/DisassemblyUI" method="_on_button_down"]
+[connection signal="button_up" from="Camera/Canvas/DisassemblyUI" to="Camera/Canvas/DisassemblyUI" method="_on_button_up"]
+[connection signal="pressed" from="Camera/Canvas/DisassemblyUI/Closebutton" to="Camera/Canvas" method="_on_disassembly_closebutton_pressed"]
+[connection signal="button_down" from="Camera/Canvas/CraftingStationUI" to="Camera/Canvas/CraftingStationUI" method="_on_button_down"]
+[connection signal="button_up" from="Camera/Canvas/CraftingStationUI" to="Camera/Canvas/CraftingStationUI" method="_on_button_up"]
+[connection signal="item_selected" from="Camera/Canvas/CraftingStationUI/ItemList" to="InputManager" method="_on_craft_menu_item_list_item_selected"]
+[connection signal="pressed" from="Camera/Canvas/CraftingStationUI/PrintButton" to="InputManager" method="_on_print_button_pressed"]
+[connection signal="pressed" from="Camera/Canvas/CraftingStationUI/MeleeButton" to="InputManager" method="_on_crafting_menu_button_pressed" binds= [0]]
+[connection signal="pressed" from="Camera/Canvas/CraftingStationUI/RangedButton" to="InputManager" method="_on_crafting_menu_button_pressed" binds= [1]]
+[connection signal="pressed" from="Camera/Canvas/CraftingStationUI/HeadButton" to="InputManager" method="_on_crafting_menu_button_pressed" binds= [2]]
+[connection signal="pressed" from="Camera/Canvas/CraftingStationUI/BodyButton" to="InputManager" method="_on_crafting_menu_button_pressed" binds= [3]]
+[connection signal="pressed" from="Camera/Canvas/CraftingStationUI/ConsumableButton" to="InputManager" method="_on_crafting_menu_button_pressed" binds= [4]]
+[connection signal="pressed" from="Camera/Canvas/CraftingStationUI/Closebutton" to="InputManager" method="_on_crafting_station_closebutton_pressed"]
+[connection signal="button_down" from="Camera/Canvas/ContainerUI" to="Camera/Canvas/ContainerUI" method="_on_button_down"]
+[connection signal="button_up" from="Camera/Canvas/ContainerUI" to="Camera/Canvas/ContainerUI" method="_on_button_up"]
+[connection signal="pressed" from="Camera/Canvas/ContainerUI/Closebutton" to="InputManager" method="_on_container_closebutton_pressed"]
+[connection signal="button_down" from="Camera/Canvas/InformationUI" to="Camera/Canvas/InformationUI" method="_on_button_down"]
+[connection signal="button_up" from="Camera/Canvas/InformationUI" to="Camera/Canvas/InformationUI" method="_on_button_up"]
+[connection signal="pressed" from="Camera/Canvas/InformationUI/Closebutton" to="InputManager" method="_on_info_closebutton_pressed"]
+[connection signal="button_down" from="Camera/Canvas/LevelupUI" to="Camera/Canvas/LevelupUI" method="_on_button_down"]
+[connection signal="button_up" from="Camera/Canvas/LevelupUI" to="Camera/Canvas/LevelupUI" method="_on_button_up"]
+[connection signal="button_down" from="Camera/Canvas/InventoryUI" to="Camera/Canvas/InventoryUI" method="_on_button_down"]
+[connection signal="button_up" from="Camera/Canvas/InventoryUI" to="Camera/Canvas/InventoryUI" method="_on_button_up"]
+[connection signal="pressed" from="Camera/Canvas/InventoryUI/Closebutton" to="InputManager" method="_on_inventory_closebutton_pressed"]
+[connection signal="pressed" from="Camera/Canvas/InformationButton" to="InputManager" method="_on_information_button_pressed"]
+[connection signal="pressed" from="Camera/Canvas/InventoryButton" to="InputManager" method="_on_inventory_button_pressed"]
+[connection signal="pressed" from="Camera/Canvas/InteractionButton" to="InputManager" method="_on_interaction_button_pressed"]
+[connection signal="pressed" from="Camera/Canvas/GameOverScreen/RestartButton" to="Camera/Canvas" method="_on_restart_button_pressed"]
