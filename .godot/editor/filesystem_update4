@@ -28,3 +28,6 @@ res://Data/1_Ranged/5_Combat_Shotgun.tres
 res://Data/1_Ranged/6_Assault_Rifle.tres
 res://Data/1_Ranged/7_Double_Barrel_Shotgun.tres
 res://Scripts/item_container.gd
+res://Scenes/draggable_item.tscn
+res://Scripts/DraggableItem.gd
+res://Scripts/item.gd

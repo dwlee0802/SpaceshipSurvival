@@ -36,3 +36,7 @@ func Reload():
 
 func RefillAmmo():
 	totalAmmo = data.totalAmmo
+	
+	
+func _to_string():
+	return super._to_string() + "\n" + str(Game.survivor.primarySlot.currentAmmo) + " / " + str(Game.survivor.primarySlot.data.magazineCapacity) + " (" + str(Game.survivor.primarySlot.totalAmmo) + ")"

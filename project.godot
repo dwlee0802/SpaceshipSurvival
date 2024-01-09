@@ -28,6 +28,10 @@ mouse_cursor/custom_image="res://Art/single_white_pixel.png"
 
 export/convert_text_resources_to_binary=false
 
+[gui]
+
+timers/tooltip_delay_sec=0.2
+
 [input]
 
 ui_accept={

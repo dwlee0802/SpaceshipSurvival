@@ -13,6 +13,7 @@ var previousSlot
 func _ready():
 	if item.data.texture != null:
 		texture_normal = item.data.texture
+	tooltip_text = str(item)
 
 
 func make_drag_preview(at_position: Vector2) -> Control:

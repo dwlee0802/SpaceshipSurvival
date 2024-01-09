@@ -18,5 +18,5 @@ func _init(_type, _id):
 
 func _to_string():
 	var output = data.name + "\n"
-	output += "Type: " + str(type) + "\nID: " + str(data.ID)
+	output += data.description
 	return output
