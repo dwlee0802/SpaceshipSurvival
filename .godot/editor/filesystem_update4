@@ -18,3 +18,6 @@ res://Scenes/item_container.tscn
 res://Scripts/data_manager.gd
 res://Scenes/showcase_scene.tscn
 res://Scripts/item_container.gd
+res://Scripts/survivor.gd
+res://Scripts/spaceship.gd
+res://Data/Status_Effect_Buffs/0_Suffocating.tres

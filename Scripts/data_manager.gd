@@ -15,6 +15,9 @@ var paths = [
 static var skillResources = []
 static var skillPath = "res://Data/Skills/"
 
+static var statusEffectResources = []
+static var statusPath = "res://Data/Status_Effect_Buffs/"
+
 
 # populate data by reading files
 func _ready():
@@ -43,3 +46,15 @@ func _ready():
 		filename = dir.get_next()
 	
 	print("Imported " + str(skillResources.size()) + " skill resources.")
+	
+	
+	dir = DirAccess.open(statusPath)
+	dir.list_dir_begin()
+	filename = dir.get_next()
+	
+	while filename != "":
+		var fullpath = statusPath + filename
+		statusEffectResources.append(load(fullpath))
+		filename = dir.get_next()
+	
+	print("Imported " + str(statusEffectResources.size()) + " status effect resources.")

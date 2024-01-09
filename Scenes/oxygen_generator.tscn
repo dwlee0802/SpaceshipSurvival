@@ -7,7 +7,6 @@
 script = ExtResource("1_fs2ot")
 
 [node name="ErrorTimer" type="Timer" parent="."]
-wait_time = 10.0
 autostart = true
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]

@@ -51,7 +51,8 @@ var inventoryCapacity: int = 20
 # unit stats
 
 # oxygen level in body. Starts to lose health when it reaches zero
-var oxygen: float = 100
+var oxygen: float = 10
+var suffocating: bool = false
 
 var bodyTemperature: float = 36.5
 
@@ -176,10 +177,20 @@ func _process(delta):
 	ReduceBuffDurations(delta)
 	
 	oxygen -= delta * 3
+	
 	if oxygen < 0:
 		oxygen = 0
-	if oxygen == 0:
-		health -= delta
+		
+	if oxygen <= 0:
+		if not suffocating:
+			# add suffocation buff
+			ApplyBuff(DataManager.statusEffectResources[0], false)
+			suffocating = true
+	else:
+		if suffocating:
+			# remove status effect
+			RemoveBuff(DataManager.statusEffectResources[0])
+			
 	if oxygen > 100:
 		oxygen = 100
 		
@@ -601,7 +612,18 @@ func ApplyBuff(skill: Skill, timeSensitive = true):
 	
 	if timeSensitive:
 		newBuffObject.timer.start(skill.duration)
-	
+		
+
+func RemoveBuff(skill: Skill):
+	if not (skill is BuffSkill):
+		return
+	var buffs = UserInterfaceManager.buffIconUI.get_children()
+	for item in buffs:
+		# remove first instance of skill
+		if item.data == skill:
+			UserInterfaceManager.buffIconUI.remove_child(item)
+			return
+
 	
 func ApplySkillCooldown(skill: Skill):
 	if skill == skillSlot_1:

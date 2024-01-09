@@ -1,6 +1,9 @@
-[gd_resource type="Resource" script_class="BuffSkill" load_steps=2 format=3 uid="uid://clevvesuhnx0d"]
+[gd_resource type="Resource" script_class="BuffSkill" load_steps=3 format=3 uid="uid://clevvesuhnx0d"]
 
 [ext_resource type="Script" path="res://Data/buff_skill.gd" id="1_xrrdd"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_70s8n"]
+size = Vector2(50, 50)
 
 [resource]
 script = ExtResource("1_xrrdd")
@@ -17,5 +20,6 @@ damagePerSecond = 0.5
 name = "Suffocation"
 ID = 0
 description = "Can't Breathe."
+texture = SubResource("PlaceholderTexture2D_70s8n")
 cooldownTime = 0.0
 duration = 0.0
