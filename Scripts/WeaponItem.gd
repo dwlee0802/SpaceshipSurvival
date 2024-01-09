@@ -14,7 +14,7 @@ func _init(_type, _id):
 	
 
 func Shoot():
-	if currentAmmo > 0:
+	if currentAmmo > 0 and not data.isLaserWeapon:
 		currentAmmo -= 1
 		return true
 	else:
@@ -22,11 +22,15 @@ func Shoot():
 
 
 func Reload():
-	if totalAmmo >= data.magazineCapacity:
-		currentAmmo = data.magazineCapacity
-		totalAmmo -= data.magazineCapacity
+	if totalAmmo <= 0:
+		return
+		
+	var need = data.magazineCapacity - currentAmmo
+	if totalAmmo >= need:
+		currentAmmo += need
+		totalAmmo -= need
 	else:
-		currentAmmo = totalAmmo
+		currentAmmo += totalAmmo
 		totalAmmo = 0
 
 

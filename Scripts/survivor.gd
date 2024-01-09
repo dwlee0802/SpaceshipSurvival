@@ -166,7 +166,10 @@ func _ready():
 # modifies starting stats based on the chosen survivor
 func LoadSurvivorData():
 	maxHealth = survivorData.maxHealth
-	primarySlot = Item.new(survivorData.startingPrimary.type, survivorData.startingPrimary.ID)
+	if survivorData.startingPrimary is RangedWeapon:
+		primarySlot = Gun.new(survivorData.startingPrimary.type, survivorData.startingPrimary.ID)
+	else:
+		primarySlot = Item.new(survivorData.startingPrimary.type, survivorData.startingPrimary.ID)
 	
 	
 func _process(delta):
@@ -377,33 +380,31 @@ func Attack():
 	if sleeping:
 		return
 		
-	if primarySlot.data is RangedWeapon:
-		for i in range(primarySlot.data.projectilesPerShot):
-			var newBullet = bulletScene.instantiate()
-			Game.gameScene.add_child(newBullet)
-			newBullet.weapon = primarySlot
-			newBullet.from = self
-			newBullet.position = attackPoint.global_position
-			newBullet.rotation = attackPoint.global_position.angle_to_point(get_global_mouse_position()) + randf_range(-spread, spread)
-			muzzleFlashSprite.visible = true
-			newBullet.speed = primarySlot.data.projectileSpeed
-		
-		if not primarySlot.data.isLaserWeapon:
-			magazineCount -= 1
-		
-		# shooting sound effect
-		audioPlayer.play()
-		
-		# screen shake
-		Camera.ShakeScreen(3,3)
-		
-		# check if need reload
-		if magazineCount <= 0 and not primarySlot.data.isLaserWeapon:
-			Reload()
+	if primarySlot.data is RangedWeapon and primarySlot is Gun:
+		if primarySlot.Shoot():
+			for i in range(primarySlot.data.projectilesPerShot):
+				var newBullet = bulletScene.instantiate()
+				Game.gameScene.add_child(newBullet)
+				newBullet.weapon = primarySlot
+				newBullet.from = self
+				newBullet.position = attackPoint.global_position
+				newBullet.rotation = attackPoint.global_position.angle_to_point(get_global_mouse_position()) + randf_range(-spread, spread)
+				muzzleFlashSprite.visible = true
+				newBullet.speed = primarySlot.data.projectileSpeed
+			
+			# shooting sound effect
+			audioPlayer.play()
+			
+			# screen shake
+			Camera.ShakeScreen(3,3)
+			
+			# check if need reload
+			if primarySlot.currentAmmo <= 0 and not primarySlot.data.isLaserWeapon:
+				Reload()
 	
 	
 func Reload():
-	if not reloading and primarySlot.type == ItemType.Ranged and magazineCount != primarySlot.data.magazineCapacity:
+	if not reloading and primarySlot.type == ItemType.Ranged and primarySlot.currentAmmo != primarySlot.data.magazineCapacity and primarySlot.totalAmmo != 0:
 		$ReloadTimer.start(primarySlot.data.reloadTime * reloadSpeed)
 		reloading = true
 	
@@ -764,8 +765,8 @@ func _on_attack_timer_timeout():
 
 func _on_reload_timer_timeout():
 	reloading = false
-	magazineCount = primarySlot.data.magazineCapacity
-	Spaceship.ConsumeAmmo(primarySlot.data.ammoPerReload)
+	if primarySlot is Gun:
+		primarySlot.Reload()
 
 
 # skill cooldown over. enable them
