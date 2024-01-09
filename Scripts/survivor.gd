@@ -56,7 +56,8 @@ var suffocating: bool = false
 
 var bodyTemperature: float = 36.5
 
-var nutrition: float = 100
+var nutrition: float = 1
+var starving: bool = false
 
 # how strong this person is. Affects melee damage and inventory capacity
 # 2 inventory cap for 1 strength
@@ -206,8 +207,18 @@ func _process(delta):
 		nutrition = 0
 	if nutrition == 0:
 		health -= delta
+		
+	if nutrition <= 10:
+		if not starving:
+			# add suffocation buff
+			ApplyBuff(DataManager.statusEffectResources[1], false)
+			starving = true
+	else:
+		if starving:
+			# remove status effect
+			RemoveBuff(DataManager.statusEffectResources[1])
+			starving = false
 	
-	#
 	## high fever
 	#if bodyTemperature >= 42:
 		#health -= delta * 1

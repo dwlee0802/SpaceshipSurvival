@@ -21,3 +21,6 @@ res://Scripts/item_container.gd
 res://Scripts/survivor.gd
 res://Scripts/spaceship.gd
 res://Data/Status_Effect_Buffs/0_Suffocating.tres
+res://Data/Status_Effect_Buffs/1_Starving.tres
+res://Data/buff_skill.gd
+res://Data/Status_Effect_Buffs/1_Starvation.tres
