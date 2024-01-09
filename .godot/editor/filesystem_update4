@@ -31,3 +31,4 @@ res://Scripts/item_container.gd
 res://Scenes/draggable_item.tscn
 res://Scripts/DraggableItem.gd
 res://Scripts/item.gd
+res://Scenes/RadialStatusUI.gd

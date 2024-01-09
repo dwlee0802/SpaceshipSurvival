@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://bub7ow8c286kq"]
+[gd_scene load_steps=64 format=3 uid="uid://bub7ow8c286kq"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_gh626"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="2_42p05"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://dugwv0bcmg1yj" path="res://Art/oxygen_generator_icon.png" id="30_es6kk"]
 [ext_resource type="Texture2D" uid="uid://bjl3wlb8vxpiu" path="res://Art/bed_temp.jpg" id="31_d3xh5"]
 [ext_resource type="Texture2D" uid="uid://bt2acio8mtfea" path="res://Art/temperature_icon.png" id="32_hcwq8"]
+[ext_resource type="Texture2D" uid="uid://d2e68au5mf60e" path="res://Art/thirsty_icon.PNG" id="33_sh62h"]
 [ext_resource type="Script" path="res://Scripts/data_manager.gd" id="34_fq4r5"]
 [ext_resource type="PackedScene" uid="uid://cbkwj1bwfbsuj" path="res://Scenes/spaceship_v1.tscn" id="35_fp47c"]
 [ext_resource type="Script" path="res://Scripts/InputManager.gd" id="35_qx4ch"]
@@ -1568,6 +1569,37 @@ offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("32_hcwq8")
+expand_mode = 1
+
+[node name="ThirstBar" type="Control" parent="Camera/Canvas/RadialStatusUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 420.0
+offset_right = 1.0
+offset_bottom = 421.0
+grow_horizontal = 2
+script = ExtResource("28_u5je6")
+radius = 25.0
+progress = 50.0
+bar_color = Color(0, 0.360784, 0.996078, 1)
+ring = true
+
+[node name="Icon" type="TextureRect" parent="Camera/Canvas/RadialStatusUI/ThirstBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("33_sh62h")
 expand_mode = 1
 
 [node name="ResourcesUI" type="Control" parent="Camera/Canvas"]

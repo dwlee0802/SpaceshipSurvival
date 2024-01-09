@@ -142,7 +142,7 @@ var sleepingCooldown: bool = false
 var sleepGainModifier: float = 1
 
 # thirst
-var water: float = 0
+var water: float = 45
 var thirsty: bool = false
 
 
