@@ -72,8 +72,10 @@ func FillContentsRandomly():
 			if itemType == ItemType.Melee:
 				# excluding fists(0,0)
 				AddItem(Item.new(itemType, randi_range(1, len(DataManager.resources[ItemType.Melee]) - 1)))
+			elif itemType == ItemType.Ranged:
+				AddItem(Gun.new(itemType, randi_range(0, len(DataManager.resources[itemType]) - 1)))
 			else:
-				AddItem(Item.new(itemType, randi_range(0, len(DataManager.resources[itemType]) - 1)))
+				AddItem(Gun.new(itemType, randi_range(0, len(DataManager.resources[itemType]) - 1)))
 
 
 func AddItem(item: Item):

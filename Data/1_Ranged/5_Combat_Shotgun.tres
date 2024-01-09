@@ -8,6 +8,7 @@ script = ExtResource("1_oypux")
 ammoPerReload = 2
 reloadTime = 4.0
 magazineCapacity = 8
+totalAmmo = 40
 projectileSpeed = 1200.0
 movementPenalty = 1.2
 isLaserWeapon = false

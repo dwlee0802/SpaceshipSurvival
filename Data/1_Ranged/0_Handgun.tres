@@ -9,6 +9,7 @@ script = ExtResource("1_1thg8")
 ammoPerReload = 1
 reloadTime = 1.0
 magazineCapacity = 9
+totalAmmo = 50
 projectileSpeed = 900.0
 movementPenalty = 1.5
 isLaserWeapon = false

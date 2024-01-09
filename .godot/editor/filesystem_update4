@@ -21,3 +21,10 @@ res://Scenes/buff_icon.tscn
 res://Scenes/item_container.tscn
 res://Scenes/showcase_scene.tscn
 res://Data/1_Ranged/1_Submachine_Gun.tres
+res://Data/1_Ranged/2_Auto_Rifle.tres
+res://Data/1_Ranged/3_Laser_Rifle.tres
+res://Data/1_Ranged/4_Sniper_Rifle.tres
+res://Data/1_Ranged/5_Combat_Shotgun.tres
+res://Data/1_Ranged/6_Assault_Rifle.tres
+res://Data/1_Ranged/7_Double_Barrel_Shotgun.tres
+res://Scripts/item_container.gd
