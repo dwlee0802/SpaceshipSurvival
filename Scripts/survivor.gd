@@ -181,7 +181,7 @@ func _process(delta):
 	if oxygen < 0:
 		oxygen = 0
 		
-	if oxygen <= 0:
+	if oxygen <= 10:
 		if not suffocating:
 			# add suffocation buff
 			ApplyBuff(DataManager.statusEffectResources[0], false)
@@ -190,6 +190,7 @@ func _process(delta):
 		if suffocating:
 			# remove status effect
 			RemoveBuff(DataManager.statusEffectResources[0])
+			suffocating = false
 			
 	if oxygen > 100:
 		oxygen = 100

@@ -1,14 +1,12 @@
 [gd_resource type="Resource" script_class="BuffSkill" load_steps=3 format=3 uid="uid://clevvesuhnx0d"]
 
 [ext_resource type="Script" path="res://Data/buff_skill.gd" id="1_xrrdd"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_70s8n"]
-size = Vector2(50, 50)
+[ext_resource type="Texture2D" uid="uid://basnsyvkl2ihk" path="res://Art/Skills/suffocation_icon.jpg" id="2_dy0x2"]
 
 [resource]
 script = ExtResource("1_xrrdd")
 speedAmount = 0.0
-speedModifer = 1.0
+speedModifer = 0.1
 attackSpeedAmount = 0.0
 attackSpeedModifier = 1.0
 accuracyAmount = 0.0
@@ -20,6 +18,6 @@ damagePerSecond = 0.5
 name = "Suffocation"
 ID = 0
 description = "Can't Breathe."
-texture = SubResource("PlaceholderTexture2D_70s8n")
+texture = ExtResource("2_dy0x2")
 cooldownTime = 0.0
 duration = 0.0
