@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="BuffSkill" load_steps=3 format=3 uid="uid://y0molssqpnm5"]
+
+[ext_resource type="Script" path="res://Data/buff_skill.gd" id="1_mmmy3"]
+[ext_resource type="Texture2D" uid="uid://d1dih56853uds" path="res://Art/Skills/sleepy_icon.png" id="2_cvx2u"]
+
+[resource]
+script = ExtResource("1_mmmy3")
+speedAmount = 0.0
+speedModifer = 0.0
+attackSpeedAmount = 0.0
+attackSpeedModifier = 1.0
+accuracyAmount = 0.0
+accuracyModifier = 1.0
+defenseAmount = 0.0
+defenseModifier = 1.0
+reloadModifier = 1.0
+damagePerSecond = 0.0
+name = "Sleep Deprived"
+ID = 2
+description = "Sleepy. At risk of collapsing due to exhaustion."
+texture = ExtResource("2_cvx2u")
+cooldownTime = 0.0
+duration = 0.0

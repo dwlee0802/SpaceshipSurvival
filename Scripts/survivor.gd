@@ -63,17 +63,11 @@ var starving: bool = false
 # 2 inventory cap for 1 strength
 var strength: int = 10
 
-var sleep: float = 50
+var sleep: float = 5
+var sleepy: bool = false
 
 var isDead: bool = false
 
-
-# Combat Behavior
-var moveAndShoot: bool = true
-var fireAtWill: bool = true
-
-# survivors join the player's team by being rescued.
-var needsRescue: bool = true
 
 # update unit info ui
 # emitted when unit's stats are changed
@@ -147,6 +141,10 @@ var sleepingCooldown: bool = false
 @onready var sleepingParticleEffect = $SleepingParticleEffect
 var sleepGainModifier: float = 1
 
+# thirst
+var water: float = 0
+var thirsty: bool = false
+
 
 func _ready():
 	super._ready()
@@ -177,6 +175,8 @@ func _process(delta):
 		
 	ReduceBuffDurations(delta)
 	
+#region Oxygen
+	# natural oxygen consumption
 	oxygen -= delta * 3
 	
 	if oxygen < 0:
@@ -195,18 +195,36 @@ func _process(delta):
 			
 	if oxygen > 100:
 		oxygen = 100
+#endregion
 		
+#region Sleep
 	sleep -= delta * 0.1
-	if sleep < 0:
-		StartSleeping()
+	
+	if sleep < 10:
+		if sleepy == false:
+			# apply sleepy penalty
+			sleepy = true
+			ApplyBuff(DataManager.statusEffectResources[2], false)
+		
+		if sleep < 0:
+			sleep = 0
+			StartSleeping()
+	else:
+		if sleepy == true:
+			# remove sleepy penalty
+			sleepy = false
+			RemoveBuff(DataManager.statusEffectResources[2])
+	
+	# sleep max cap
 	if sleep > 100:
 		sleep = 100
 	
+#endregion
+
+#region Nutrition
 	nutrition -= delta
 	if nutrition < 0:
 		nutrition = 0
-	if nutrition == 0:
-		health -= delta
 		
 	if nutrition <= 10:
 		if not starving:
@@ -218,6 +236,24 @@ func _process(delta):
 			# remove status effect
 			RemoveBuff(DataManager.statusEffectResources[1])
 			starving = false
+#endregion
+	
+#region thirst
+	water -= delta
+	if water < 0:
+		water = 0
+		
+	if water <= 10:
+		if not thirsty:
+			# add suffocation buff
+			ApplyBuff(DataManager.statusEffectResources[3], false)
+			thirsty = true
+	else:
+		if thirsty:
+			# remove status effect
+			RemoveBuff(DataManager.statusEffectResources[3])
+			thirsty = false
+#endregion
 	
 	## high fever
 	#if bodyTemperature >= 42:
