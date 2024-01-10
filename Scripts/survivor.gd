@@ -180,8 +180,11 @@ func _process(delta):
 	
 #region Oxygen
 	# natural oxygen consumption
-	oxygen -= delta * 3
-	
+	if isRunning:
+		oxygen -= delta * 5
+	else:
+		oxygen -= delta * 3
+		
 	if oxygen < 0:
 		oxygen = 0
 		
@@ -575,7 +578,8 @@ func StartSleeping(modifier = 4):
 	
 # simulates breathing in
 func _on_oxygen_timer_timeout():
-	oxygen += 10 * Spaceship.oxygenLevel / 100.0
+	# regain full oxygen in 10 seconds
+	oxygen += 20 * Spaceship.oxygenLevel / 100.0
 	if headSlot != null:
 		oxygen += headSlot.data.oxygenGeneration
 	

@@ -91,7 +91,7 @@ func _on_oxygen_timer_timeout():
 	if not Spaceship.modules[ModuleName.Oxygen_Generator].isOperational:
 		oxygenLevel -= 0.01
 	else:
-		oxygenLevel += 2
+		oxygenLevel += 10
 	
 	if oxygenLevel < 0:
 		oxygenLevel = 0

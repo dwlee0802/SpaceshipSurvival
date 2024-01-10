@@ -201,7 +201,7 @@ polygon = PackedVector2Array(25, -13, 25, 13, 43.7779, 9.65796, 98.8432, -0.1424
 position = Vector2(58, 0)
 
 [node name="OxygenTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
 autostart = true
 
 [node name="TemperatureTimer" type="Timer" parent="."]
