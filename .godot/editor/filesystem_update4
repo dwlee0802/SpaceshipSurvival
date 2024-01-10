@@ -20,3 +20,5 @@ res://Scenes/item_container.tscn
 res://Scenes/draggable_item.tscn
 res://Scenes/drinking_station.tscn
 res://Scenes/interactable.tscn
+res://Scripts/dispenser.gd
+res://Scripts/interactable.gd

@@ -1,45 +1,36 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsrtahkje07ui"]
+[gd_scene load_steps=8 format=3 uid="uid://dsrtahkje07ui"]
 
-[ext_resource type="Script" path="res://Scenes/dispenser.gd" id="1_0ngsp"]
-[ext_resource type="Texture2D" uid="uid://ueh2f2ndukht" path="res://Art/interactable_temp_sprite.jpg" id="2_e263j"]
-[ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="3_y57bi"]
+[ext_resource type="Script" path="res://Scripts/dispenser.gd" id="1_h7npt"]
+[ext_resource type="Texture2D" uid="uid://cudhn6xl1ev6t" path="res://Art/ammo_icon.png" id="2_nsmy4"]
 [ext_resource type="Texture2D" uid="uid://2j00antvhw4x" path="res://Art/circle-256.png" id="4_h05ln"]
+[ext_resource type="AudioStream" uid="uid://bwl41r1y8ptgy" path="res://Audio/reload_sound_effect.mp3" id="5_4sksd"]
+[ext_resource type="AudioStream" uid="uid://ccdwhy0dho1ds" path="res://Audio/eating-sound-effect.mp3" id="6_27rwg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_elui1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c6x3d"]
 resource_local_to_scene = true
-size = Vector2(50, 69)
+size = Vector2(50, 50)
 
 [node name="Dispenser" type="StaticBody2D"]
 collision_layer = 8
 collision_mask = 0
 physics_material_override = SubResource("PhysicsMaterial_elui1")
-script = ExtResource("1_0ngsp")
+script = ExtResource("1_h7npt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0.415686, 0.415686, 0.415686, 1)
-position = Vector2(-7.62939e-06, -9.50001)
-scale = Vector2(0.144509, 0.146497)
-texture = ExtResource("2_e263j")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
-self_modulate = Color(0, 0.792157, 0.917647, 1)
-position = Vector2(0, -0.27)
-scale = Vector2(1, 0.34)
-texture = ExtResource("3_y57bi")
+texture = ExtResource("2_nsmy4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -9.5)
 shape = SubResource("RectangleShape2D_c6x3d")
 
 [node name="FixTimeLabel" type="Label" parent="."]
-self_modulate = Color(0, 0, 0, 1)
+self_modulate = Color(1, 0, 0, 1)
 texture_filter = 1
 offset_left = -20.0
-offset_top = -43.0
+offset_top = -31.0
 offset_right = 20.0
-offset_bottom = -17.0
+offset_bottom = -5.0
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -53,5 +44,13 @@ texture = ExtResource("4_h05ln")
 [node name="CooldownTimer" type="Timer" parent="."]
 process_callback = 0
 wait_time = 30.0
+
+[node name="AmmoRefillAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_4sksd")
+volume_db = -10.0
+
+[node name="FoodRefillAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_27rwg")
+volume_db = -5.0
 
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

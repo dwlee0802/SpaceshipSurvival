@@ -32,7 +32,7 @@ func _process(_delta):
 	if timeToFix > 0:
 		modulate = Color.RED
 		fixTimeLabel.visible = true
-		fixTimeLabel.text = str(int(timeToFix* 10) / 10.0)
+		fixTimeLabel.text = str(int(timeToFix * 10) / 10.0)
 	else:
 		modulate = Color.WHITE
 		fixTimeLabel.visible = false
