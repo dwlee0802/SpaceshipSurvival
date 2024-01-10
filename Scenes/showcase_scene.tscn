@@ -1776,7 +1776,6 @@ accelerationAmount = 5.0
 
 [node name="SleepAccelerator" parent="." instance=ExtResource("21_a1al4")]
 position = Vector2(1068, -222)
-accelerationAmount = 10.0
 
 [node name="DrinkingStation" parent="." instance=ExtResource("45_f7mxj")]
 position = Vector2(-456, -177)

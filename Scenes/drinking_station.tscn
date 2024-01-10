@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://coruw3cfxiam0"]
+[gd_scene load_steps=7 format=3 uid="uid://coruw3cfxiam0"]
 
 [ext_resource type="Script" path="res://Scenes/drinking_station.gd" id="1_hdqkq"]
 [ext_resource type="Texture2D" uid="uid://domuqu0umr13j" path="res://Art/drinking_station_icon.jpg" id="2_aamui"]
 [ext_resource type="Texture2D" uid="uid://2j00antvhw4x" path="res://Art/circle-256.png" id="4_lksnw"]
+[ext_resource type="AudioStream" uid="uid://31gsudlas4cg" path="res://Audio/drinking_sound_effect.mp3" id="4_sixed"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_elui1"]
 
@@ -42,3 +43,9 @@ visible = false
 position = Vector2(0, 53)
 scale = Vector2(0.0859375, 0.0859375)
 texture = ExtResource("4_lksnw")
+
+[node name="DrinkSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_sixed")
+volume_db = -5.0
+pitch_scale = 1.1
+max_polyphony = 2

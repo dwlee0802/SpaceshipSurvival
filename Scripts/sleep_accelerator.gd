@@ -1,7 +1,7 @@
 extends Interactable
 class_name SleepAccelerator
 
-@export var accelerationAmount: float = 2
+@export var accelerationAmount: float = 6
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -22,3 +22,9 @@ res://Scenes/drinking_station.tscn
 res://Scenes/interactable.tscn
 res://Scripts/dispenser.gd
 res://Scripts/interactable.gd
+res://Data/Status_Effect_Buffs/4_Recently_Slept.tres
+res://Scripts/survivor.gd
+res://Scenes/RadialStatusUI.gd
+res://Scripts/sleep_accelerator.gd
+res://Scenes/sleep_accelerator.tscn
+res://Scenes/drinking_station.gd

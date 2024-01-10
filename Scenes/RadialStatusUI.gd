@@ -9,8 +9,8 @@ extends Control
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	nutritionBar.progress = Game.survivor.nutrition
-	oxygenBar.progress = Game.survivor.oxygen
-	sleepBar.progress = Game.survivor.sleep
+	nutritionBar.progress = int(Game.survivor.nutrition)
+	oxygenBar.progress = int(Game.survivor.oxygen)
+	sleepBar.progress = int(Game.survivor.sleep)
 	tempBar.progress = 50 + (Game.survivor.bodyTemperature - 36.5)
-	thirstBar.progress = Game.survivor.water
+	thirstBar.progress = int(Game.survivor.water)

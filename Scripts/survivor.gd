@@ -139,7 +139,7 @@ var sleeping: bool = false
 var sleepingCooldown: bool = false
 @onready var sleepingCooldownTimer: Timer = $SleepCooldownTimer
 @onready var sleepingParticleEffect = $SleepingParticleEffect
-var sleepGainModifier: float = 1
+var sleepGainModifier: float = 4
 
 # thirst
 var water: float = 2
@@ -221,7 +221,6 @@ func _process(delta):
 	# sleep max cap
 	if sleep > 100:
 		sleep = 100
-	
 #endregion
 
 #region Nutrition
@@ -311,11 +310,17 @@ func _physics_process(delta):
 			sleep = 100
 			sleeping = false
 			sleepingParticleEffect.emitting = false
+			if sleepingCooldownTimer.is_stopped():
+				sleepingCooldownTimer.start()
+			ApplyBuff(DataManager.statusEffectResources[4])
 		elif sleep >= 50:
 			if Input.is_action_pressed("move_down") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_down") or Input.is_action_pressed("move_up"):
 				sleeping = false
 				sleepingParticleEffect.emitting = false
 				sleepGainModifier = 1
+				if sleepingCooldownTimer.is_stopped():
+					sleepingCooldownTimer.start()
+				ApplyBuff(DataManager.statusEffectResources[4])
 		else:
 			return
 		
@@ -547,19 +552,16 @@ func OnDeath():
 	UserInterfaceManager.gameOverScreen.visible = true
 	
 
-func StartSleeping(modifier = 1):
+func StartSleeping(modifier = 4):
 	if sleeping == true or sleepingCooldown:
 		return
 		
 	sleeping = true
 	sleepingCooldown = true
 	
-	if sleepingCooldownTimer.is_stopped():
-		sleepingCooldownTimer.start()
-	
 	sleepingParticleEffect.emitting = true
 	sleepGainModifier = modifier
-	if modifier > 1:
+	if modifier > 4:
 		sleepingParticleEffect.amount = 6
 		sleepingParticleEffect.gravity = Vector2(0, -800)
 	else:
@@ -789,3 +791,5 @@ func _on_melee_attack_timer_timeout():
 
 func _on_sleep_cooldown_timer_timeout():
 	sleepingCooldown = false
+	RemoveBuff(DataManager.statusEffectResources[4])
+	
