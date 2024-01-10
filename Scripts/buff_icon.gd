@@ -8,8 +8,8 @@ var data: BuffSkill
 
 
 func _process(delta):
-	cooldownIcon.size = Vector2(size.x, timer.time_left / timer.wait_time * size.x)
-	cooldownIcon.position = size
+	cooldownIcon.size = Vector2(size.x, (timer.wait_time - timer.time_left) / timer.wait_time * size.x)
+	#cooldownIcon.position = size
 	
 	
 func SetData(skillData: BuffSkill):
