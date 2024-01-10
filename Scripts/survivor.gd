@@ -241,7 +241,11 @@ func _process(delta):
 #endregion
 	
 #region thirst
-	water -= delta
+	if isRunning:
+		water -= 2 * delta
+	else:
+		water -= delta
+		
 	if water < 0:
 		water = 0
 	if water > 100:
@@ -336,7 +340,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
 	
-	if Input.is_action_pressed("run"):
+	if Input.is_action_pressed("run") and thirsty == false:
 		isRunning = true
 	else:
 		isRunning = false
@@ -748,7 +752,6 @@ func PrintCombatStats() -> String:
 	output += "Speed: " + str(int(speed)) + "\n"
 	output += "Strength: " + str(strength) + "\n"
 	output += "Accuracy: " + str(int(endAccuracy * 100) / 100) + "%\n"
-	output += "Evasion" + str(int(evasion * 100) / 100) + "%\n"
 	output += "Defense: " + str(int(defense * 100)) + "%\n"
 	output += "Rad. Defense: " + str(int(radiationDefense * 100) / 100) + "%\n"
 	

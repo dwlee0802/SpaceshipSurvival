@@ -16,6 +16,8 @@ func SetData(skillData: BuffSkill):
 	data = skillData
 	texture = data.texture
 	tooltip_text = data.description
+	if data.duration == 0:
+		cooldownIcon.visible = false
 	
 
 func _on_buff_duration_timer_timeout():

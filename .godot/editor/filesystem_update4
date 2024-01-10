@@ -29,3 +29,4 @@ res://Scripts/sleep_accelerator.gd
 res://Scenes/sleep_accelerator.tscn
 res://Scenes/drinking_station.gd
 res://Scripts/buff_icon.gd
+res://Data/Status_Effect_Buffs/3_Dehydrated.tres
