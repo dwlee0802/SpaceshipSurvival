@@ -142,7 +142,7 @@ var sleepingCooldown: bool = false
 var sleepGainModifier: float = 1
 
 # thirst
-var water: float = 45
+var water: float = 2
 var thirsty: bool = false
 
 
@@ -245,6 +245,8 @@ func _process(delta):
 	water -= delta
 	if water < 0:
 		water = 0
+	if water > 100:
+		water = 100
 		
 	if water <= 10:
 		if not thirsty:

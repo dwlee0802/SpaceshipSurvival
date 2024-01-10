@@ -11,6 +11,7 @@ var fixTimeLabel
 
 var available: bool = false
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	fixTimeLabel = get_node_or_null("FixTimeLabel")
