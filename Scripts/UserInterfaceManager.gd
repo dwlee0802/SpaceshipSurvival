@@ -200,6 +200,7 @@ static func UpdateCraftingUI(type):
 		optionList.add_item(item.name)
 
 
+# TODO update item icon
 static func UpdateCraftingItemInfo():
 	var selectedIndex = craftingStationUI.get_node("ItemList").get_selected_items()[0]
 	var output = ""

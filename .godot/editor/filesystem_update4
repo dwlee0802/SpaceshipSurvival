@@ -38,3 +38,5 @@ res://Scripts/item_container.gd
 res://Data/Status_Effect_Buffs/0_Suffocation.tres
 res://Data/Status_Effect_Buffs/1_Starvation.tres
 res://Addons/radial_progress/RadialProgress.gd
+res://temp.tscn
+res://Scripts/UserInterfaceManager.gd
