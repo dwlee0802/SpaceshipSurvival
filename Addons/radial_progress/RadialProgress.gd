@@ -85,4 +85,6 @@ func draw_ring_arc(center: Vector2, radius1: float, radius2: float,\
 	for i in range(nb_points, -1, -1):
 		var angle_point: float = a + float(i) * b
 		points_arc.push_back(center + Vector2(cos(angle_point), sin(angle_point)) * radius2)
+	if points_arc.size() == 0:
+		return
 	draw_polygon(points_arc, colors)
