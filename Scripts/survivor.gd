@@ -298,7 +298,7 @@ func _physics_process(delta):
 	if isDead:
 		return
 		
-	UpdateStats()
+	UpdateStats(delta)
 	
 	super._physics_process(delta)
 	
@@ -451,7 +451,7 @@ func EquipNewItem(item: Item, where: int):
 	UpdateStats()
 
 
-func UpdateStats():
+func UpdateStats(delta = 0):
 	# equip fists as default
 	var primary = Item.new(0,0)
 	
@@ -787,4 +787,14 @@ func _on_melee_attack_timer_timeout():
 func _on_sleep_cooldown_timer_timeout():
 	sleepingCooldown = false
 	RemoveBuff(DataManager.statusEffectResources[4])
+	
+
+func _on_status_effect_damage_timer_timeout():
+	var damageAmount: float = 0
+	for item: BuffIcon in UserInterfaceManager.buffIconUI.get_children():
+		damageAmount += item.data.damagePerSecond
+	
+	if damageAmount > 0:
+		ReceiveHit(self, damageAmount, 1000)
+	
 	

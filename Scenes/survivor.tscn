@@ -307,7 +307,7 @@ one_shot = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_6yoha")
-volume_db = -12.0
+volume_db = -15.0
 pitch_scale = 0.7
 max_polyphony = 5
 
@@ -331,6 +331,10 @@ angular_velocity_max = 20.0
 scale_amount_min = 0.12
 scale_amount_max = 0.15
 
+[node name="StatusEffectDamageTimer" type="Timer" parent="."]
+process_callback = 0
+autostart = true
+
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
 [connection signal="timeout" from="OxygenTimer" to="." method="_on_oxygen_timer_timeout"]
@@ -342,3 +346,4 @@ scale_amount_max = 0.15
 [connection signal="timeout" from="SkillCooldownTimer4" to="." method="_on_skill_cooldown_timer_timeout" binds= [3]]
 [connection signal="timeout" from="MeleeAttackTimer" to="." method="_on_melee_attack_timer_timeout"]
 [connection signal="timeout" from="SleepCooldownTimer" to="." method="_on_sleep_cooldown_timer_timeout"]
+[connection signal="timeout" from="StatusEffectDamageTimer" to="." method="_on_status_effect_damage_timer_timeout"]

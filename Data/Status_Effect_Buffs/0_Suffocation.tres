@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_xrrdd")
 speedAmount = 0.0
-speedModifer = 0.1
+speedModifer = 0.0
 attackSpeedAmount = 0.0
 attackSpeedModifier = 1.0
 accuracyAmount = 0.0
@@ -14,10 +14,10 @@ accuracyModifier = 1.0
 defenseAmount = 0.0
 defenseModifier = 1.0
 reloadModifier = 1.0
-damagePerSecond = 0.5
+damagePerSecond = 1.0
 name = "Suffocation"
 ID = 0
-description = "Can't Breathe."
+description = "Gasping for air. Takes damage over time. Running disabled."
 texture = ExtResource("2_dy0x2")
 cooldownTime = 0.0
 duration = 0.0
