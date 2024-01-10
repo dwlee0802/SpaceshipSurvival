@@ -160,8 +160,6 @@ func _ready():
 	# start with full health
 	health = maxHealth
 	
-	magazineCount = primarySlot.data.magazineCapacity
-	
 
 # modifies starting stats based on the chosen survivor
 func LoadSurvivorData():
@@ -501,11 +499,6 @@ func UpdateStats():
 			speedModifier = 0
 	else:
 		speedModifier = 1
-	
-	if sleep < 20:
-		speedModifier -= 0.2
-	if sleep > 95:
-		speedModifier += 0.2
 		
 	speed *= speedModifier
 	
@@ -533,11 +526,6 @@ func UpdateStats():
 			spread *= 2
 		elif velocity != Vector2.ZERO:
 			spread *= primary.data.movementPenalty
-	
-	if sleep < 20:
-		spread *= 2
-	elif sleep > 95:
-		spread *= 0.5
 		
 
 func PointArmAt(pos):

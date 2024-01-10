@@ -31,3 +31,7 @@ res://Scenes/drinking_station.gd
 res://Scripts/buff_icon.gd
 res://Data/Status_Effect_Buffs/3_Dehydrated.tres
 res://Scripts/spaceship.gd
+res://Scripts/WeaponItem.gd
+res://Scripts/InputManager.gd
+res://Data/4_Consumable/2_Canned_Coffee.tres
+res://Scripts/item_container.gd

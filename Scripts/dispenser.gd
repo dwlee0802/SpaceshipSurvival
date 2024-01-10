@@ -43,8 +43,8 @@ func Fix(delta):
 	elif type == DispenserType.Ammo:
 		if Game.survivor.primarySlot is Gun:
 			print("refill ammo")
-			Game.survivor.primarySlot.Reload()
 			Game.survivor.primarySlot.RefillAmmo()
+			Game.survivor.primarySlot.Reload()
 			ammoSoundEffect.play()
 		
 	cooldown = true

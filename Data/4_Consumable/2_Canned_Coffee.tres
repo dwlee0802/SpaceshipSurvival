@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_0awbg")
-amount = 25.0
+amount = 15.0
 type = 4
 name = "Canned Coffee"
 ID = 2

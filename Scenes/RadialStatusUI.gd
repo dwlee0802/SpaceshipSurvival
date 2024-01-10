@@ -12,5 +12,5 @@ func _process(delta):
 	nutritionBar.progress = int(Game.survivor.nutrition)
 	oxygenBar.progress = int(Game.survivor.oxygen)
 	sleepBar.progress = int(Game.survivor.sleep)
-	tempBar.progress = 50 + (Game.survivor.bodyTemperature - 36.5)
+	#tempBar.progress = 50 + (Game.survivor.bodyTemperature - 36.5)
 	thirstBar.progress = int(Game.survivor.water)

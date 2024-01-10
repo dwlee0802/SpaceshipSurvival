@@ -7,7 +7,7 @@ var currentAmmo: int
 func _init(_type, _id):
 	super._init(_type, _id)
 	if data is RangedWeapon:
-		totalAmmo = data.totalAmmo
+		totalAmmo = data.totalAmmo - data.magazineCapacity
 		currentAmmo = data.magazineCapacity
 	else:
 		print("ERROR! Non ranged weapon data in Gun object")

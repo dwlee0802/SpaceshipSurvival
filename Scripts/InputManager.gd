@@ -154,6 +154,12 @@ static func UseInventoryItem(draggable):
 					unit.sleep = 100
 				else:
 					unit.sleep += item.data.amount
+			# Water Bottle
+			if item.data.ID == 3:
+				if unit.water + item.data.amount > 100:
+					unit.water = 100
+				else:
+					unit.water += item.data.amount
 		# equip gear
 		if item.data.type == ItemType.Head:
 			# check if slot is empty

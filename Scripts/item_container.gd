@@ -75,7 +75,7 @@ func FillContentsRandomly():
 			elif itemType == ItemType.Ranged:
 				AddItem(Gun.new(itemType, randi_range(0, len(DataManager.resources[itemType]) - 1)))
 			else:
-				AddItem(Gun.new(itemType, randi_range(0, len(DataManager.resources[itemType]) - 1)))
+				AddItem(Item.new(itemType, randi_range(0, len(DataManager.resources[itemType]) - 1)))
 
 
 func AddItem(item: Item):
