@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://752qegp8qx8g"]
 
-[ext_resource type="Script" path="res://SoundEffect.gd" id="1_l66ch"]
+[ext_resource type="Script" path="res://Scripts/SoundEffect.gd" id="1_l66ch"]
 [ext_resource type="AudioStream" uid="uid://c2kst66pnyc0b" path="res://Audio/explosion_temp.mp3" id="2_e80yb"]
 
 [node name="SoundEffect" type="Node2D"]
