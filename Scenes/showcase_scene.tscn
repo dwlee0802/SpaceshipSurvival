@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://c5nyr1fhytbkv"]
+[gd_scene load_steps=69 format=3 uid="uid://c5nyr1fhytbkv"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_8rs23"]
 [ext_resource type="PackedScene" uid="uid://bglyxpx5ldmya" path="res://Scenes/showcase_spaceship.tscn" id="2_cyxog"]
@@ -45,6 +45,7 @@
 [ext_resource type="Texture2D" uid="uid://d2e68au5mf60e" path="res://Art/thirsty_icon.PNG" id="33_7t1wb"]
 [ext_resource type="Resource" uid="uid://wcnoearsoegm" path="res://Data/Skills/5_Defensive_Stance.tres" id="40_p3srw"]
 [ext_resource type="PackedScene" uid="uid://coruw3cfxiam0" path="res://Scenes/drinking_station.tscn" id="45_f7mxj"]
+[ext_resource type="PackedScene" uid="uid://dsrtahkje07ui" path="res://Scenes/dispenser.tscn" id="46_o86eg"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_f6pi5"]
 keycode = 49
@@ -1778,6 +1779,10 @@ accelerationAmount = 10.0
 
 [node name="DrinkingStation" parent="." instance=ExtResource("45_f7mxj")]
 position = Vector2(-456, -177)
+
+[node name="Dispenser" parent="." instance=ExtResource("46_o86eg")]
+position = Vector2(-252.117, -226.117)
+type = 1
 
 [connection signal="pressed" from="Camera/Canvas/UnitUI/SkillButtons/SkillButton1" to="InputManager" method="_on_skill_button_pressed" binds= [0]]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/SkillButtons/SkillButton2" to="InputManager" method="_on_skill_button_pressed" binds= [1]]

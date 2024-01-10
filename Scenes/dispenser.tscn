@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://dsrtahkje07ui"]
+
+[ext_resource type="Script" path="res://Scenes/dispenser.gd" id="1_0ngsp"]
+[ext_resource type="Texture2D" uid="uid://ueh2f2ndukht" path="res://Art/interactable_temp_sprite.jpg" id="2_e263j"]
+[ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="3_y57bi"]
+[ext_resource type="Texture2D" uid="uid://2j00antvhw4x" path="res://Art/circle-256.png" id="4_h05ln"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_elui1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c6x3d"]
+resource_local_to_scene = true
+size = Vector2(50, 69)
+
+[node name="Dispenser" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 0
+physics_material_override = SubResource("PhysicsMaterial_elui1")
+script = ExtResource("1_0ngsp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.415686, 0.415686, 0.415686, 1)
+position = Vector2(-7.62939e-06, -9.50001)
+scale = Vector2(0.144509, 0.146497)
+texture = ExtResource("2_e263j")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
+self_modulate = Color(0, 0.792157, 0.917647, 1)
+position = Vector2(0, -0.27)
+scale = Vector2(1, 0.34)
+texture = ExtResource("3_y57bi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -9.5)
+shape = SubResource("RectangleShape2D_c6x3d")
+
+[node name="FixTimeLabel" type="Label" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+offset_left = -20.0
+offset_top = -43.0
+offset_right = 20.0
+offset_bottom = -17.0
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InteractionPoint" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 53)
+scale = Vector2(0.0859375, 0.0859375)
+texture = ExtResource("4_h05ln")
+
+[node name="CooldownTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 30.0
+
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
