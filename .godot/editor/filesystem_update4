@@ -21,3 +21,6 @@ res://Scenes/drinking_station.tscn
 res://Scenes/interactable.tscn
 res://Scenes/dispenser.tscn
 res://Scenes/sleep_accelerator.tscn
+res://Scenes/drinking_station.gd
+res://Scenes/plumbing_station.tscn
+res://Scenes/plumbing_station.gd

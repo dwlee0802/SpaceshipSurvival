@@ -5,6 +5,8 @@ var isOperational: bool = true
 
 @onready var drinkSoundPlayer = $DrinkSoundPlayer
 
+static var plumbingOperational: bool = true
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
