@@ -192,12 +192,13 @@ static func UpdateCraftingUI(type):
 	optionList.clear()
 	var data = DataManager.resources[type]
 	var isFirst = true
-	for item in data:
+	for i in range(data.size()):
 		# skip first melee item (default fists item)
-		if isFirst and type == ItemType.Melee:
-			isFirst = false
-			continue
-		optionList.add_item(item.name)
+		if type == ItemType.Melee:
+			if i != 0:
+				optionList.add_item(data[i].name)
+		else:
+			optionList.add_item(data[i].name)
 
 
 # TODO update item icon
@@ -206,7 +207,7 @@ static func UpdateCraftingItemInfo():
 	var output = ""
 	
 	# skip fists
-	if selectedIndex == 0 and craftingStationUIType == ItemType.Melee:
+	if craftingStationUIType == ItemType.Melee:
 		selectedIndex += 1
 		
 	var data =  DataManager.resources[craftingStationUIType][selectedIndex]
@@ -215,6 +216,7 @@ static func UpdateCraftingItemInfo():
 	output += data.name + "\n"
 	output += "Cost: " + str(data.componentValue) + " components\n"
 	craftingStationUI.get_node("ItemInfo").text = output
+	craftingStationUI.get_node("TextureRect").texture = data.texture
 
 
 static func UpdateInventoryUI(unit: Survivor):	

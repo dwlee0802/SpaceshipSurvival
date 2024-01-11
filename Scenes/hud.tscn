@@ -69,11 +69,11 @@ _data = {
 "spaceship_flame_animation": SubResource("Animation_ahy6d")
 }
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_see1r"]
-
 [sub_resource type="ButtonGroup" id="ButtonGroup_7n5p2"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_t3pin"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_see1r"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_wok48"]
 device = -1
@@ -734,7 +734,6 @@ offset_left = 229.0
 offset_top = 55.0
 offset_right = 309.0
 offset_bottom = 135.0
-texture = SubResource("PlaceholderTexture2D_see1r")
 
 [node name="ItemInfo" type="Label" parent="CraftingStationUI"]
 layout_mode = 0
