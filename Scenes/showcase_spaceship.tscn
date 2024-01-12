@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bglyxpx5ldmya"]
+[gd_scene load_steps=30 format=3 uid="uid://bglyxpx5ldmya"]
 
 [ext_resource type="Script" path="res://Scripts/spaceship.gd" id="1_nfku8"]
 [ext_resource type="Texture2D" uid="uid://dj066sixgm20c" path="res://Art/tilemap_grayscale_packed.png" id="2_f45v2"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://2kdlobiaje25" path="res://Scenes/disassembly.tscn" id="8_gddit"]
 [ext_resource type="PackedScene" uid="uid://cg6fqh4d0bs3p" path="res://Scenes/crafting_station.tscn" id="9_i4xfj"]
 [ext_resource type="PackedScene" uid="uid://dbjf2k6mniw07" path="res://Scenes/item_container.tscn" id="10_6mb6o"]
-[ext_resource type="PackedScene" uid="uid://k5mqif4v2ldg" path="res://Scenes/resouce_orb.tscn" id="11_abaeg"]
 [ext_resource type="PackedScene" uid="uid://cw2r8g0mavdyx" path="res://Scenes/plumbing_room.tscn" id="11_qa6gt"]
 [ext_resource type="PackedScene" uid="uid://b2qulxltbeyuq" path="res://Scenes/portal.tscn" id="12_kyl6j"]
 
@@ -124,22 +123,6 @@ position = Vector2(-691, 413)
 [node name="Interactable" parent="Modules/NuclearReactor/Interactables" instance=ExtResource("4_i2hqx")]
 position = Vector2(-170, 7)
 
-[node name="SpawnPoints" type="Node2D" parent="Modules/NuclearReactor"]
-
-[node name="SpawnPoint" parent="Modules/NuclearReactor/SpawnPoints" instance=ExtResource("5_wsbnj")]
-position = Vector2(-366, -175)
-
-[node name="Label" type="Label" parent="Modules/NuclearReactor/SpawnPoints/SpawnPoint"]
-offset_left = 41.0
-offset_top = -37.0
-offset_right = 207.0
-offset_bottom = 38.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Spawn point where enemies spawn from."
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 1
-
 [node name="Label" type="Label" parent="Modules/NuclearReactor"]
 offset_left = 64.0
 offset_top = -42.0
@@ -162,23 +145,6 @@ position = Vector2(5, 174)
 [node name="Interactable" parent="Modules/OxygenGenerator/Interactables" instance=ExtResource("4_i2hqx")]
 position = Vector2(-8, -65)
 
-[node name="SpawnPoints" type="Node2D" parent="Modules/OxygenGenerator"]
-position = Vector2(5, 174)
-
-[node name="SpawnPoint" parent="Modules/OxygenGenerator/SpawnPoints" instance=ExtResource("5_wsbnj")]
-position = Vector2(397, 77)
-
-[node name="Label" type="Label" parent="Modules/OxygenGenerator/SpawnPoints/SpawnPoint"]
-offset_left = -206.0
-offset_top = -36.0
-offset_right = -40.0
-offset_bottom = 39.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Spawn point where enemies spawn from."
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 1
-
 [node name="Label" type="Label" parent="Modules/OxygenGenerator"]
 offset_left = 108.0
 offset_top = -2.0
@@ -198,22 +164,6 @@ position = Vector2(559, 321)
 [node name="Interactables" type="Node2D" parent="Modules/TemperatureControl"]
 
 [node name="Interactable" parent="Modules/TemperatureControl/Interactables" instance=ExtResource("4_i2hqx")]
-
-[node name="SpawnPoints" type="Node2D" parent="Modules/TemperatureControl"]
-
-[node name="SpawnPoint" parent="Modules/TemperatureControl/SpawnPoints" instance=ExtResource("5_wsbnj")]
-position = Vector2(381, 174)
-
-[node name="Label" type="Label" parent="Modules/TemperatureControl/SpawnPoints/SpawnPoint"]
-offset_left = 41.0
-offset_top = -37.0
-offset_right = 207.0
-offset_bottom = 38.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Spawn point where enemies spawn from."
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 1
 
 [node name="Label" type="Label" parent="Modules/TemperatureControl"]
 offset_left = 40.0
@@ -241,22 +191,6 @@ shape = SubResource("RectangleShape2D_d5fxx")
 
 [node name="Interactable" parent="Modules/Infirmary/Interactables" instance=ExtResource("4_i2hqx")]
 position = Vector2(-198, -99)
-
-[node name="SpawnPoints" type="Node2D" parent="Modules/Infirmary"]
-
-[node name="SpawnPoint" parent="Modules/Infirmary/SpawnPoints" instance=ExtResource("5_wsbnj")]
-position = Vector2(105, -133)
-
-[node name="Label" type="Label" parent="Modules/Infirmary/SpawnPoints/SpawnPoint"]
-offset_left = 41.0
-offset_top = -37.0
-offset_right = 207.0
-offset_bottom = 38.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Spawn point where enemies spawn from."
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 1
 
 [node name="Label" type="Label" parent="Modules/Infirmary"]
 offset_left = -158.0
@@ -396,42 +330,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1
 
-[node name="Resource Orb2" parent="." instance=ExtResource("11_abaeg")]
-position = Vector2(257, -305)
-
-[node name="Resource Orb4" parent="." instance=ExtResource("11_abaeg")]
-position = Vector2(343, -307)
-
-[node name="Resource Orb5" parent="." instance=ExtResource("11_abaeg")]
-position = Vector2(252, -243)
-
-[node name="Resource Orb6" parent="." instance=ExtResource("11_abaeg")]
-position = Vector2(340, -249)
-
-[node name="Resource Orb3" parent="." instance=ExtResource("11_abaeg")]
-position = Vector2(342, -191)
-
-[node name="Resource Orb7" parent="." instance=ExtResource("11_abaeg")]
-position = Vector2(203, -255)
-
-[node name="Resource Orb8" parent="." instance=ExtResource("11_abaeg")]
-position = Vector2(205, -310)
-
-[node name="Resource Orb9" parent="." instance=ExtResource("11_abaeg")]
-position = Vector2(252, -361)
-
-[node name="Resource Orb10" parent="." instance=ExtResource("11_abaeg")]
-position = Vector2(340, -367)
-
-[node name="Resource Orb11" parent="." instance=ExtResource("11_abaeg")]
-position = Vector2(298, -362)
-
-[node name="Resource Orb12" parent="." instance=ExtResource("11_abaeg")]
-position = Vector2(203, -364)
-
-[node name="Resource Orb" parent="." instance=ExtResource("11_abaeg")]
-position = Vector2(247, -193)
-
 [node name="Label2" type="Label" parent="."]
 offset_left = -570.0
 offset_top = -14.0
@@ -489,6 +387,12 @@ otherPortal = NodePath("../Teleporter")
 [node name="Teleporter" parent="." node_paths=PackedStringArray("otherPortal") instance=ExtResource("12_kyl6j")]
 position = Vector2(-1011.71, 49.8878)
 otherPortal = NodePath("../Teleporter2")
+
+[node name="SpawnPoint" parent="." instance=ExtResource("5_wsbnj")]
+position = Vector2(-656, 52)
+
+[node name="SpawnPoint2" parent="." instance=ExtResource("5_wsbnj")]
+position = Vector2(681, 39)
 
 [connection signal="timeout" from="TravelTimer" to="." method="_on_travel_timer_timeout"]
 [connection signal="timeout" from="TemperatureTimer" to="." method="_on_temperature_timer_timeout"]

@@ -3,7 +3,7 @@ extends Node2D
 static var enemyScene = preload("res://Scenes/enemy.tscn")
 
 # average amount of spawns per second
-static var spawnRate: float = 0.1
+static var spawnRate: float = 1
 
 
 # Called when the node enters the scene tree for the first time.
@@ -23,6 +23,9 @@ func _on_spawn_timer_timeout():
 	if spawnRate > randf():
 		# spawn enemy unit
 		var newUnit = enemyScene.instantiate()
+		newUnit.global_position = global_position
 		Game.enemies.append(newUnit)
 		Game.gameScene.add_child(newUnit)
-		newUnit.position = global_position
+		newUnit.reparent(Game.gameScene)
+		
+		print(name + " spawned an enemy at " + str(newUnit.global_position))

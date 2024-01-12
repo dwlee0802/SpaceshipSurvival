@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://jyq0yd0540h7"]
+[gd_scene load_steps=5 format=3 uid="uid://jyq0yd0540h7"]
 
 [ext_resource type="Script" path="res://Scripts/nuclear_reactor.gd" id="1_mwexp"]
 [ext_resource type="Texture2D" uid="uid://2j00antvhw4x" path="res://Art/circle-256.png" id="3_k7pw5"]
 [ext_resource type="Texture2D" uid="uid://01v652ba6af3" path="res://Art/nuclear_reactor_icon.png" id="4_6k41x"]
-[ext_resource type="PackedScene" uid="uid://7co56rfrnp0b" path="res://Scenes/spawn_point.tscn" id="4_q5x1s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_85cof"]
 radius = 50.0
@@ -32,10 +31,6 @@ z_index = 10
 texture_filter = 1
 scale = Vector2(0.390625, 0.390625)
 texture = ExtResource("3_k7pw5")
-
-[node name="SpawnPoint" parent="." instance=ExtResource("4_q5x1s")]
-visible = false
-position = Vector2(176, -1)
 
 [node name="RadiationDamageTimer" type="Timer" parent="."]
 process_callback = 0

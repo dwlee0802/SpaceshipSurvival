@@ -39,6 +39,8 @@ func _ready():
 	
 	target_position = global_position
 	
+	print(global_position)
+	
 
 # movement
 # if there is a direct path to target, update target position in realtime

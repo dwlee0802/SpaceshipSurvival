@@ -31,3 +31,4 @@ res://Scripts/module.gd
 res://Scripts/dispenser.gd
 res://Scripts/spawn_point.gd
 res://Scenes/spawn_point.tscn
+res://Scripts/enemy.gd
