@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://uncsu80dl4qi"]
+[gd_scene load_steps=6 format=3 uid="uid://uncsu80dl4qi"]
 
 [ext_resource type="Script" path="res://Scripts/sleep_accelerator.gd" id="1_2exim"]
-[ext_resource type="Texture2D" uid="uid://ueh2f2ndukht" path="res://Art/interactable_temp_sprite.jpg" id="2_5oq1f"]
-[ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="3_oa42b"]
+[ext_resource type="Texture2D" uid="uid://3leea38lja6j" path="res://Art/sleep_acc_icon.png" id="2_fi6ov"]
 [ext_resource type="Texture2D" uid="uid://2j00antvhw4x" path="res://Art/circle-256.png" id="4_u3yhx"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_elui1"]
@@ -19,16 +18,9 @@ script = ExtResource("1_2exim")
 accelerationAmount = 10.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0.415686, 0.415686, 0.415686, 1)
+texture_filter = 1
 position = Vector2(-7.62939e-06, -9.50001)
-scale = Vector2(0.144509, 0.146497)
-texture = ExtResource("2_5oq1f")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
-self_modulate = Color(0, 0.792157, 0.917647, 1)
-position = Vector2(0, -0.27)
-scale = Vector2(1, 0.34)
-texture = ExtResource("3_oa42b")
+texture = ExtResource("2_fi6ov")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -9.5)

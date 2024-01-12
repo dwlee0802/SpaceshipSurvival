@@ -25,3 +25,5 @@ res://Scripts/spaceship.gd
 res://Scenes/plumbing_room.tscn
 res://Scenes/plumbing_station.gd
 res://Scenes/drinking_station.gd
+res://Scenes/disassembly.tscn
+res://Scenes/crafting_station.tscn
