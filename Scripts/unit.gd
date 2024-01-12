@@ -61,7 +61,14 @@ func _ready():
 	navRaycast4 = get_node_or_null("NavigationRaycasts/RayCast2D4")
 	navRaycast5 = get_node_or_null("NavigationRaycasts/RayCast2D5")
 	nav = get_node_or_null("NavigationAgent2D")
+	health = maxHealth
 
+
+func SetMaxHealth(value):
+	maxHealth = value
+	health = maxHealth
+	
+	
 func _physics_process(delta):
 	# update marker on spaceship overview UI
 	overviewMarker.position = position / 5.80708

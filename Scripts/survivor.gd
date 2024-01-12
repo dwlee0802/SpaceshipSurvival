@@ -179,9 +179,9 @@ func _process(delta):
 #region Oxygen
 	# natural oxygen consumption
 	if isRunning:
-		oxygen -= delta * 5
+		oxygen -= delta * 4
 	else:
-		oxygen -= delta * 3
+		oxygen -= delta * 2
 		
 	if oxygen < 0:
 		oxygen = 0
@@ -225,7 +225,7 @@ func _process(delta):
 #endregion
 
 #region Nutrition
-	nutrition -= delta * 2
+	nutrition -= delta * 1
 	if nutrition < 0:
 		nutrition = 0
 		

@@ -47,6 +47,9 @@ signal destination_reached
 
 static var spaceship
 
+# percentage of game finished
+static var difficulty: int = 1
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -67,6 +70,8 @@ func _process(_delta):
 	UserInterfaceManager.UpdateFoodStockLabel(foodStock)
 	UserInterfaceManager.UpdateComponentStockLabel(componentStock)
 
+	Spaceship.difficulty = int((float(distanceTraveled) / DISTANCE_TO_DESTINATION) * 100)
+	
 
 func _on_travel_timer_timeout():
 	distanceTraveled += shipSpeed

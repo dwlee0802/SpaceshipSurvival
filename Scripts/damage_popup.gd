@@ -5,8 +5,7 @@ var lifespan: float = 1
 var offset: int = 10
 
 func _ready():
-	position += Vector2(randf_range(-1, 1) * offset, randf_range(-1, 1))
-	position += Vector2(-50, -25)
+	pass
 	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.

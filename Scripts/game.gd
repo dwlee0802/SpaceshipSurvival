@@ -41,7 +41,7 @@ func _ready():
 	
 
 func _process(_delta):
-	MAX_ENEMY_COUNT = 10 + 10 * (int(100 * Spaceship.distanceTraveled / Spaceship.DISTANCE_TO_DESTINATION)/5)
+	MAX_ENEMY_COUNT = 10 + 10 * (Spaceship.difficulty / 5)
 
 	
 static func UpdateEnemyTargetPosition():
@@ -55,7 +55,7 @@ static func UpdateEnemyTargetPosition():
 
 static func MakeDamagePopup(where, amount, color = Color.DARK_RED):
 	var newPopup = damagePopup.instantiate()
-	newPopup.position = where
+	newPopup.position = where + Vector2(randi_range(-20, 20), randi_range(-20, 20))
 	newPopup.modulate = color
 	if amount != 0:
 		newPopup.get_node("Label").text = "[center][b]" + str(amount) + "[/b][/center]"
@@ -127,3 +127,4 @@ static func Restart():
 	Spaceship.ammoStock = 0
 	Spaceship.componentStock = 0
 	Spaceship.foodStock = 0
+	Spaceship.modules[Spaceship.ModuleName.Nuclear_Reactor].SetRadiationArea(0)

@@ -29,5 +29,5 @@ func _on_spawn_timer_timeout():
 		Game.enemies.append(newUnit)
 		Game.gameScene.add_child(newUnit)
 		newUnit.reparent(Game.gameScene)
-		
+		newUnit.SetMaxHealth(100 + 20 * Spaceship.difficulty)
 		print(name + " spawned an enemy at " + str(newUnit.global_position))

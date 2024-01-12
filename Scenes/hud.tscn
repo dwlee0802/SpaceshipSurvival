@@ -49,35 +49,6 @@ unicode = 50
 [sub_resource type="Shortcut" id="Shortcut_1fyej"]
 events = [SubResource("InputEventKey_xk656")]
 
-[sub_resource type="Animation" id="Animation_ahy6d"]
-resource_name = "spaceship_flame_animation"
-length = 0.5
-loop_mode = 1
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpaceshipInnerFlame:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(3, 2), Vector2(3, 1), Vector2(3, 2), Vector2(3, 3), Vector2(3, 2)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pr1aw"]
-_data = {
-"spaceship_flame_animation": SubResource("Animation_ahy6d")
-}
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_7n5p2"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_t3pin"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_see1r"]
-
 [sub_resource type="InputEventKey" id="InputEventKey_wok48"]
 device = -1
 keycode = 73
@@ -107,6 +78,35 @@ unicode = 69
 
 [sub_resource type="Shortcut" id="Shortcut_n1o74"]
 events = [SubResource("InputEventKey_ca4cy"), SubResource("InputEventKey_3xrmd")]
+
+[sub_resource type="Animation" id="Animation_ahy6d"]
+resource_name = "spaceship_flame_animation"
+length = 0.5
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpaceshipInnerFlame:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(3, 2), Vector2(3, 1), Vector2(3, 2), Vector2(3, 3), Vector2(3, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pr1aw"]
+_data = {
+"spaceship_flame_animation": SubResource("Animation_ahy6d")
+}
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_7n5p2"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_t3pin"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_see1r"]
 
 [node name="Canvas" type="CanvasLayer"]
 script = ExtResource("2_cfvxg")
@@ -388,6 +388,34 @@ offset_left = 96.0
 offset_top = -35.0
 offset_right = 456.0
 offset_bottom = -6.0
+
+[node name="InformationButton" type="Button" parent="UnitUI"]
+layout_mode = 1
+offset_left = -143.0
+offset_top = 38.0
+offset_right = -3.0
+offset_bottom = 73.0
+shortcut = SubResource("Shortcut_4ri6e")
+text = "Information"
+
+[node name="InventoryButton" type="Button" parent="UnitUI"]
+layout_mode = 1
+offset_left = -143.0
+offset_top = 76.0
+offset_right = -3.0
+offset_bottom = 111.0
+shortcut = SubResource("Shortcut_nx7dp")
+text = "Inventory 00/00"
+
+[node name="InteractionButton" type="Button" parent="UnitUI"]
+top_level = true
+layout_mode = 1
+offset_left = 327.0
+offset_top = 713.0
+offset_right = 467.0
+offset_bottom = 748.0
+shortcut = SubResource("Shortcut_n1o74")
+text = "Interaction"
 
 [node name="PrimaryWeaponUI" type="Panel" parent="."]
 texture_filter = 1
@@ -1649,31 +1677,6 @@ offset_bottom = 26.0
 text = "Components: 000/100"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="InformationButton" type="Button" parent="."]
-offset_left = 327.0
-offset_top = 638.0
-offset_right = 467.0
-offset_bottom = 673.0
-shortcut = SubResource("Shortcut_4ri6e")
-text = "Information"
-
-[node name="InventoryButton" type="Button" parent="."]
-offset_left = 327.0
-offset_top = 675.0
-offset_right = 467.0
-offset_bottom = 710.0
-shortcut = SubResource("Shortcut_nx7dp")
-text = "Inventory 00/00"
-
-[node name="InteractionButton" type="Button" parent="."]
-top_level = true
-offset_left = 327.0
-offset_top = 713.0
-offset_right = 467.0
-offset_bottom = 748.0
-shortcut = SubResource("Shortcut_n1o74")
-text = "Interaction"
 
 [node name="GameOverScreen" type="Control" parent="."]
 layout_mode = 3

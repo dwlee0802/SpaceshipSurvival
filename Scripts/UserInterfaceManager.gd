@@ -111,8 +111,8 @@ func _ready():
 	informationUICombat = $InformationUI/CombatStats
 	informationUIMisc = $InformationUI/MiscStats
 	infoPanel = $UnitUI/InfoPanel/InfoLabel
-	infoPanelButton = $InformationButton
-	inventoryPanelButton = $InventoryButton
+	infoPanelButton = $UnitUI/InformationButton
+	inventoryPanelButton = $UnitUI/InventoryButton
 	oxygenBar = $RadialStatusUI/OxygenBar
 	temperatureBar = $RadialStatusUI/TemperatureBar
 	sleepBar = $RadialStatusUI/SleepBar
