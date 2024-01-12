@@ -9,7 +9,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c6x3d"]
 resource_local_to_scene = true
-size = Vector2(50, 69)
+size = Vector2(50, 51)
 
 [node name="DrinkingStation" type="StaticBody2D"]
 collision_layer = 8
@@ -23,7 +23,6 @@ position = Vector2(-7.62939e-06, -9.50001)
 texture = ExtResource("2_aamui")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -9.5)
 shape = SubResource("RectangleShape2D_c6x3d")
 

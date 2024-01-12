@@ -8,7 +8,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c6x3d"]
 resource_local_to_scene = true
-size = Vector2(50, 50)
+size = Vector2(100, 100)
 
 [node name="PlumbingRoom" type="StaticBody2D"]
 collision_layer = 8

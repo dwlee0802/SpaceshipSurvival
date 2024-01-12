@@ -25,7 +25,11 @@ func _ready():
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	fixTimeLabel.text = str(int(cooldownTimer.time_left * 10) / 10.0)
+	if cooldown:
+		fixTimeLabel.text = str(int(cooldownTimer.time_left * 10) / 10.0)
+		fixTimeLabel.visible = true
+	else:
+		fixTimeLabel.visible = true
 
 
 func _on_cooldown_timer_timeout():

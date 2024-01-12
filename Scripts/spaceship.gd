@@ -64,8 +64,6 @@ func _process(_delta):
 	UserInterfaceManager.UpdateAmmoStockLabel(ammoStock)
 	UserInterfaceManager.UpdateFoodStockLabel(foodStock)
 	UserInterfaceManager.UpdateComponentStockLabel(componentStock)
-	
-	Module.respawnRate = distanceTraveled / DISTANCE_TO_DESTINATION * 0.5 + 0.5
 
 
 func _on_travel_timer_timeout():

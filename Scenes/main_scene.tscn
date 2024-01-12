@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://bub7ow8c286kq"]
+[gd_scene load_steps=65 format=3 uid="uid://bub7ow8c286kq"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_gh626"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="2_42p05"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://dmhu5o68cvax1" path="res://Art/spaceship status icons/temp_icon_r.png" id="18_m7iqn"]
 [ext_resource type="Texture2D" uid="uid://d3vbcqlfmqiuj" path="res://Art/spaceship status icons/temp_icon_g.png" id="19_lwxyv"]
 [ext_resource type="Texture2D" uid="uid://qlq07octvqqp" path="res://Art/spaceship status icons/temp_icon_y.png" id="20_yv6md"]
+[ext_resource type="Texture2D" uid="uid://b37kuce675u7v" path="res://Art/spaceship status icons/plumbing_status_g.png" id="21_66sud"]
 [ext_resource type="Texture2D" uid="uid://ddgm7rgp5c517" path="res://Art/spaceship_image.png" id="21_ah7y8"]
 [ext_resource type="Script" path="res://Scripts/draggable_window.gd" id="22_kxhjh"]
 [ext_resource type="Shortcut" uid="uid://bcj08ui1vldhx" path="res://Scripts/close_button.tres" id="23_8sx1y"]
@@ -575,8 +576,8 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
+offset_left = -47.0
+offset_right = -7.0
 offset_bottom = 40.0
 grow_horizontal = 2
 texture = ExtResource("13_yp84b")
@@ -588,8 +589,8 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -80.0
-offset_right = -40.0
+offset_left = -107.0
+offset_right = -67.0
 offset_bottom = 40.0
 grow_horizontal = 2
 texture = ExtResource("16_a34m1")
@@ -601,11 +602,24 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 40.0
-offset_right = 80.0
+offset_left = 13.0
+offset_right = 53.0
 offset_bottom = 40.0
 grow_horizontal = 2
 texture = ExtResource("19_lwxyv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="WaterStatus" type="TextureRect" parent="Camera/Canvas/TravelProgressUI/SpaceshipStatusUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 73.0
+offset_right = 113.0
+offset_bottom = 40.0
+grow_horizontal = 2
+texture = ExtResource("21_66sud")
 expand_mode = 1
 stretch_mode = 5
 

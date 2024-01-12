@@ -2,15 +2,9 @@ extends Node2D
 
 class_name Module
 
-static var enemyScene = preload("res://Scenes/enemy.tscn")
-
 static var errorRate: float = 0.5
 
-@onready var interactablesNode = $Interactables
-@onready var spawnPointNode = $SpawnPoints
-
-# each module may spawn an enemy every 1 second. The probability is determined by respawnRate
-static var respawnRate: float = 0.01
+var interactablesNode
 
 var isOperational: bool = true
 
@@ -24,15 +18,13 @@ var recentlyHadError: bool = false
 
 
 func _ready():
-	for item in interactablesNode.get_children():
-		interactables.append(item)
+	interactablesNode = get_node_or_null("Interactables")
 	
-	if spawnPointNode != null:
-		for item in spawnPointNode.get_children():
-			spawnPoints.append(item)
+	if interactablesNode != null:
+		for item in interactablesNode.get_children():
+			interactables.append(item)
 	
 	$ErrorTimer.timeout.connect(GenerateErrors)
-	$EnemySpawnTimer.timeout.connect(RollEnemySpawn)
 	#overviewMarker = UserInterfaceManager.MakeMarkerOnSpaceshipOverview()
 	#overviewMarker.self_modulate = Color.RED
 	#overviewMarker.position = global_position / 5.80708
@@ -47,24 +39,7 @@ func _process(_delta):
 	#if overviewMarker.visible == isOperational:
 		#overviewMarker.visible = not isOperational
 		#UserInterfaceManager.UpdateSpaceshipOverviewText()
-		
 	
-func RollEnemySpawn():
-	if Game.enemies.size() > Game.MAX_ENEMY_COUNT:
-		return
-		
-	if spawnPoints.size() == 0:
-		return
-		
-	if randf() < respawnRate:
-		var newEnemy = enemyScene.instantiate()
-		get_parent().get_parent().add_child(newEnemy)
-		Game.enemies.append(newEnemy)
-		newEnemy.health = 200
-		newEnemy.maxHealth = 200
-		newEnemy.global_position = spawnPoints.pick_random().global_position
-		newEnemy.target_position = newEnemy.global_position
-
 
 func CheckOperational():
 	for item in interactables:

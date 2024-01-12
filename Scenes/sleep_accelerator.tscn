@@ -8,7 +8,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c6x3d"]
 resource_local_to_scene = true
-size = Vector2(50, 69)
+size = Vector2(152, 154)
 
 [node name="SleepAccelerator" type="StaticBody2D"]
 collision_layer = 8
@@ -20,18 +20,20 @@ accelerationAmount = 10.0
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-7.62939e-06, -9.50001)
+scale = Vector2(2, 2)
 texture = ExtResource("2_fi6ov")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -9.5)
+position = Vector2(1, -8)
 shape = SubResource("RectangleShape2D_c6x3d")
 
 [node name="FixTimeLabel" type="Label" parent="."]
+visible = false
 texture_filter = 1
-offset_left = -20.0
-offset_top = -68.0
-offset_right = 20.0
-offset_bottom = -42.0
+offset_left = -19.0
+offset_top = -110.0
+offset_right = 21.0
+offset_bottom = -84.0
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1

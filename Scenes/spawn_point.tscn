@@ -10,3 +10,9 @@ script = ExtResource("1_sdlso")
 self_modulate = Color(0, 0.333333, 0.203922, 1)
 scale = Vector2(50, 50)
 texture = ExtResource("2_ffouv")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+process_callback = 0
+autostart = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
