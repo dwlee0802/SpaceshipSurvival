@@ -225,7 +225,7 @@ func _process(delta):
 #endregion
 
 #region Nutrition
-	nutrition -= delta
+	nutrition -= delta * 2
 	if nutrition < 0:
 		nutrition = 0
 		
@@ -582,12 +582,6 @@ func _on_temperature_timer_timeout():
 	var diff = Spaceship.temperature - bodyTemperature
 	
 	bodyTemperature += 0.01 * diff
-		
-		
-func _on_nutrition_timer_timeout():
-	# consume food
-	if Spaceship.ConsumeFood(1):
-		nutrition += 30
 
 
 func AddItemByIndex(type, id):

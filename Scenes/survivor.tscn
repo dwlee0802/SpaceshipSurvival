@@ -207,10 +207,6 @@ autostart = true
 [node name="TemperatureTimer" type="Timer" parent="."]
 autostart = true
 
-[node name="NutritionTimer" type="Timer" parent="."]
-wait_time = 30.0
-autostart = true
-
 [node name="NoAmmoLabel" type="Label" parent="."]
 visible = false
 self_modulate = Color(1, 0, 0, 1)
@@ -339,7 +335,6 @@ autostart = true
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
 [connection signal="timeout" from="OxygenTimer" to="." method="_on_oxygen_timer_timeout"]
 [connection signal="timeout" from="TemperatureTimer" to="." method="_on_temperature_timer_timeout"]
-[connection signal="timeout" from="NutritionTimer" to="." method="_on_nutrition_timer_timeout"]
 [connection signal="timeout" from="SkillCooldownTimer1" to="." method="_on_skill_cooldown_timer_timeout" binds= [0]]
 [connection signal="timeout" from="SkillCooldownTimer2" to="." method="_on_skill_cooldown_timer_timeout" binds= [1]]
 [connection signal="timeout" from="SkillCooldownTimer3" to="." method="_on_skill_cooldown_timer_timeout" binds= [2]]

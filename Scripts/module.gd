@@ -2,7 +2,7 @@ extends Node2D
 
 class_name Module
 
-static var errorRate: float = 0.5
+static var errorRate: float = 0.1
 
 var interactablesNode
 
@@ -61,7 +61,7 @@ func GenerateErrors():
 			if randf() < errorRate:
 				item.timeToFix = randi_range(3, 10)
 	
-	recentlyHadError = true
+	#recentlyHadError = true
 	
 
 func _on_error_cooldown_timer_timeout():

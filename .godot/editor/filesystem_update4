@@ -29,3 +29,6 @@ res://Scenes/plumbing_station.gd
 res://Scripts/module.gd
 res://Scripts/spawn_point.gd
 res://Scripts/game.gd
+res://Scripts/survivor.gd
+res://Data/Status_Effect_Buffs/0_Suffocation.tres
+res://Data/Status_Effect_Buffs/1_Starvation.tres
