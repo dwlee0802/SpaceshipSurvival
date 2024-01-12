@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://bub7ow8c286kq"]
+[gd_scene load_steps=67 format=3 uid="uid://bub7ow8c286kq"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_gh626"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="2_42p05"]
@@ -22,7 +22,9 @@
 [ext_resource type="Texture2D" uid="uid://qlq07octvqqp" path="res://Art/spaceship status icons/temp_icon_y.png" id="20_yv6md"]
 [ext_resource type="Texture2D" uid="uid://b37kuce675u7v" path="res://Art/spaceship status icons/plumbing_status_g.png" id="21_66sud"]
 [ext_resource type="Texture2D" uid="uid://ddgm7rgp5c517" path="res://Art/spaceship_image.png" id="21_ah7y8"]
+[ext_resource type="Texture2D" uid="uid://cuk5h40utiw13" path="res://Art/spaceship status icons/plumbing_status_r.png" id="21_ukfg1"]
 [ext_resource type="Script" path="res://Scripts/draggable_window.gd" id="22_kxhjh"]
+[ext_resource type="Texture2D" uid="uid://dlx48u0wik0yr" path="res://Art/spaceship status icons/plumbing_status_y.png" id="23_7msjr"]
 [ext_resource type="Shortcut" uid="uid://bcj08ui1vldhx" path="res://Scripts/close_button.tres" id="23_8sx1y"]
 [ext_resource type="PackedScene" uid="uid://co0ec0725c4fq" path="res://Scenes/draggable_item_slot.tscn" id="24_rmaqr"]
 [ext_resource type="Script" path="res://Scripts/drop_item_slot.gd" id="25_kji2c"]
@@ -570,6 +572,9 @@ nuclear_y = ExtResource("17_evuap")
 temp_r = ExtResource("18_m7iqn")
 temp_g = ExtResource("19_lwxyv")
 temp_y = ExtResource("20_yv6md")
+water_r = ExtResource("21_ukfg1")
+water_g = ExtResource("21_66sud")
+water_y = ExtResource("23_7msjr")
 
 [node name="OxygenGeneratorStatus" type="TextureRect" parent="Camera/Canvas/TravelProgressUI/SpaceshipStatusUI"]
 layout_mode = 1
@@ -1491,6 +1496,7 @@ offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("29_cr0dt")
+expand_mode = 1
 
 [node name="OxygenBar" type="Control" parent="Camera/Canvas/RadialStatusUI"]
 layout_mode = 1
@@ -1625,12 +1631,15 @@ offset_right = 68.0
 offset_bottom = 97.0
 
 [node name="Panel" type="Panel" parent="Camera/Canvas/ResourcesUI"]
+visible = false
 self_modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_right = 185.0
-offset_bottom = 70.0
+offset_left = -6.0
+offset_right = 186.0
+offset_bottom = 25.0
 
 [node name="FoodStockLabel" type="Label" parent="Camera/Canvas/ResourcesUI"]
+visible = false
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
@@ -1639,6 +1648,7 @@ offset_bottom = 30.0
 text = "Food: 00/20"
 
 [node name="AmmoStockLabel" type="Label" parent="Camera/Canvas/ResourcesUI"]
+visible = false
 layout_mode = 0
 offset_left = 4.0
 offset_top = 23.0
@@ -1647,11 +1657,10 @@ offset_bottom = 49.0
 text = "Ammo: 000/200"
 
 [node name="ComponentsStockLabel" type="Label" parent="Camera/Canvas/ResourcesUI"]
+self_modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 3.0
-offset_top = 42.0
-offset_right = 172.0
-offset_bottom = 68.0
+offset_right = 169.0
+offset_bottom = 26.0
 text = "Components: 000/100"
 
 [node name="InformationButton" type="Button" parent="Camera/Canvas"]

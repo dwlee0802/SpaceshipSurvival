@@ -56,7 +56,7 @@ func GenerateErrors():
 	for item in interactables:
 		if item.timeToFix <= 0:
 			if randf() < errorRate:
-				item.timeToFix = randi_range(5, 15)
+				item.timeToFix = randi_range(3, 10)
 	
 	recentlyHadError = true
 	$ErrorCooldownTimer.start()

@@ -51,19 +51,19 @@ var inventoryCapacity: int = 20
 # unit stats
 
 # oxygen level in body. Starts to lose health when it reaches zero
-var oxygen: float = 10
+var oxygen: float = 100
 var suffocating: bool = false
 
 var bodyTemperature: float = 36.5
 
-var nutrition: float = 1
+var nutrition: float = 60
 var starving: bool = false
 
 # how strong this person is. Affects melee damage and inventory capacity
 # 2 inventory cap for 1 strength
 var strength: int = 10
 
-var sleep: float = 5
+var sleep: float = 80
 var sleepy: bool = false
 
 var isDead: bool = false
@@ -142,7 +142,7 @@ var sleepingCooldown: bool = false
 var sleepGainModifier: float = 4
 
 # thirst
-var water: float = 2
+var water: float = 80
 var thirsty: bool = false
 
 

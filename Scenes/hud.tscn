@@ -1590,10 +1590,12 @@ offset_bottom = 97.0
 [node name="Panel" type="Panel" parent="ResourcesUI"]
 self_modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_right = 185.0
-offset_bottom = 70.0
+offset_left = -5.0
+offset_right = 175.0
+offset_bottom = 29.0
 
 [node name="FoodStockLabel" type="Label" parent="ResourcesUI"]
+visible = false
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
@@ -1602,6 +1604,7 @@ offset_bottom = 30.0
 text = "Food: 00/20"
 
 [node name="AmmoStockLabel" type="Label" parent="ResourcesUI"]
+visible = false
 layout_mode = 0
 offset_left = 4.0
 offset_top = 23.0
@@ -1611,11 +1614,11 @@ text = "Ammo: 000/200"
 
 [node name="ComponentsStockLabel" type="Label" parent="ResourcesUI"]
 layout_mode = 0
-offset_left = 3.0
-offset_top = 42.0
-offset_right = 172.0
-offset_bottom = 68.0
+offset_right = 169.0
+offset_bottom = 26.0
 text = "Components: 000/100"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="InformationButton" type="Button" parent="."]
 offset_left = 327.0
