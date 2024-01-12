@@ -41,6 +41,7 @@ func _process(delta):
 		tempIcon.texture = temp_r
 	else:
 		tempIcon.texture = temp_g
+	tempLabel.text = str(int(Spaceship.temperature * 10) / 10.0) + "ºC"
 		
 	if not DrinkingStation.plumbingOperational:
 		waterIcon.texture = water_r
