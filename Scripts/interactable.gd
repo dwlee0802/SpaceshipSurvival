@@ -13,6 +13,8 @@ var available: bool = false
 
 var isOperational: bool = true
 
+static var errorRate: float = 0.5
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

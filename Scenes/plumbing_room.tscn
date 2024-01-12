@@ -39,3 +39,16 @@ visible = false
 position = Vector2(0, 53)
 scale = Vector2(0.0859375, 0.0859375)
 texture = ExtResource("4_8bbmx")
+
+[node name="ErrorSpawnTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 10.0
+autostart = true
+
+[node name="ErrorCooldownTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 20.0
+one_shot = true
+
+[connection signal="timeout" from="ErrorSpawnTimer" to="." method="_on_error_spawn_timer_timeout"]
+[connection signal="timeout" from="ErrorCooldownTimer" to="." method="_on_error_cooldown_timer_timeout"]

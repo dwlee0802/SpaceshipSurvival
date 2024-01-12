@@ -45,7 +45,10 @@ func CheckOperational():
 	for item in interactables:
 		if item.timeToFix > 0:
 			return false
-	
+			
+	if isOperational == false:
+		isOperational = true
+		
 	return true
 
 
@@ -59,7 +62,6 @@ func GenerateErrors():
 				item.timeToFix = randi_range(3, 10)
 	
 	recentlyHadError = true
-	$ErrorCooldownTimer.start()
 	
 
 func _on_error_cooldown_timer_timeout():

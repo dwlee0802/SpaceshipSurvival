@@ -38,9 +38,7 @@ func _ready():
 	overviewMarker.self_modulate = Color.DARK_ORANGE
 	
 	target_position = global_position
-	
-	print(global_position)
-	
+
 
 # movement
 # if there is a direct path to target, update target position in realtime

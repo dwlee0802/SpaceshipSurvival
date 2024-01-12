@@ -1,14 +1,16 @@
 extends Node2D
 
-static var enemyScene = preload("res://Scenes/enemy.tscn")
+static var enemyScene = load("res://Scenes/enemy.tscn")
 
 # average amount of spawns per second
 static var spawnRate: float = 1
 
+@onready var spawnTimer = $SpawnTimer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	if spawnTimer.is_stopped():
+		spawnTimer.start()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,4 +30,4 @@ func _on_spawn_timer_timeout():
 		Game.gameScene.add_child(newUnit)
 		newUnit.reparent(Game.gameScene)
 		
-		#print(name + " spawned an enemy at " + str(newUnit.global_position))
+		print(name + " spawned an enemy at " + str(newUnit.global_position))

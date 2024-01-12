@@ -37,6 +37,7 @@ func _ready():
 	survivor = $Survivor
 	gameScene = self
 	spaceship = $Spaceship
+	Game.enemies = []
 	
 
 func _process(_delta):

@@ -14,6 +14,7 @@ process_callback = 0
 autostart = true
 
 [node name="ErrorCooldownTimer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 20.0
+one_shot = true
 
 [connection signal="timeout" from="ErrorCooldownTimer" to="." method="_on_error_cooldown_timer_timeout"]

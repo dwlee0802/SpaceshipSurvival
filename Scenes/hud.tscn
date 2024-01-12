@@ -592,6 +592,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="TravelProgressUI/SpaceshipStatusUI/TemperatureStatus"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = 40.0
 offset_right = 42.0

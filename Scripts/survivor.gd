@@ -567,7 +567,7 @@ func StartSleeping(modifier = 4):
 # simulates breathing in
 func _on_oxygen_timer_timeout():
 	# regain full oxygen in 10 seconds
-	oxygen += 20 * Spaceship.oxygenLevel / 100.0
+	oxygen += 7 * Spaceship.oxygenLevel / 100.0
 	if headSlot != null:
 		oxygen += headSlot.data.oxygenGeneration
 	
