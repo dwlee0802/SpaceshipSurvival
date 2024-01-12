@@ -41,7 +41,7 @@ static var DISTANCE_TO_DESTINATION: int = 60 * 30
 
 static var modules = {}
 
-enum ModuleName {Nuclear_Reactor, Oxygen_Generator, Temperature_Control, Infirmary, Kitchen, Bridge, Engine_Room, Electricity_Room}
+enum ModuleName {Nuclear_Reactor, Oxygen_Generator, Temperature_Control, Infirmary, Plumbing_Room, Bridge, Engine_Room, Electricity_Room}
 
 signal destination_reached
 
@@ -54,6 +54,7 @@ func _ready():
 	Spaceship.modules[ModuleName.Oxygen_Generator] = $Modules/OxygenGenerator
 	Spaceship.modules[ModuleName.Temperature_Control] = $Modules/TemperatureControl
 	Spaceship.modules[ModuleName.Nuclear_Reactor] = $Modules/NuclearReactor
+	Spaceship.modules[ModuleName.Plumbing_Room] = $Modules/PlumbingRoom
 	#modules[ModuleName.Infirmary] = $Modules/Infirmary
 	
 

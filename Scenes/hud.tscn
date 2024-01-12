@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://cqm1wa5t73skr"]
+[gd_scene load_steps=47 format=3 uid="uid://cqm1wa5t73skr"]
 
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="1_68gml"]
 [ext_resource type="Script" path="res://Scripts/UserInterfaceManager.gd" id="2_cfvxg"]
@@ -23,7 +23,10 @@
 [ext_resource type="Texture2D" uid="uid://dugwv0bcmg1yj" path="res://Art/oxygen_generator_icon.png" id="13_6hnan"]
 [ext_resource type="Texture2D" uid="uid://dmhu5o68cvax1" path="res://Art/spaceship status icons/temp_icon_r.png" id="13_6jgng"]
 [ext_resource type="Texture2D" uid="uid://bjl3wlb8vxpiu" path="res://Art/bed_temp.jpg" id="14_uov8j"]
+[ext_resource type="Texture2D" uid="uid://cuk5h40utiw13" path="res://Art/spaceship status icons/plumbing_status_r.png" id="15_bu1nj"]
 [ext_resource type="Texture2D" uid="uid://qlq07octvqqp" path="res://Art/spaceship status icons/temp_icon_y.png" id="15_f5q5i"]
+[ext_resource type="Texture2D" uid="uid://b37kuce675u7v" path="res://Art/spaceship status icons/plumbing_status_g.png" id="16_i7qfd"]
+[ext_resource type="Texture2D" uid="uid://dlx48u0wik0yr" path="res://Art/spaceship status icons/plumbing_status_y.png" id="17_d82bb"]
 [ext_resource type="Texture2D" uid="uid://bt2acio8mtfea" path="res://Art/temperature_icon.png" id="19_gf5eb"]
 [ext_resource type="Script" path="res://Scenes/RadialStatusUI.gd" id="22_bnhy5"]
 
@@ -522,15 +525,19 @@ nuclear_y = ExtResource("12_wonb0")
 temp_r = ExtResource("13_6jgng")
 temp_g = ExtResource("7_5kx04")
 temp_y = ExtResource("15_f5q5i")
+water_r = ExtResource("15_bu1nj")
+water_g = ExtResource("16_i7qfd")
+water_y = ExtResource("17_d82bb")
 
 [node name="OxygenGeneratorStatus" type="TextureRect" parent="TravelProgressUI/SpaceshipStatusUI"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 40.0
+offset_left = -51.0
+offset_top = -3.0
+offset_right = -11.0
+offset_bottom = 37.0
 grow_horizontal = 2
 texture = ExtResource("5_ek0cc")
 expand_mode = 1
@@ -541,9 +548,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -80.0
-offset_right = -40.0
-offset_bottom = 40.0
+offset_left = -111.0
+offset_top = -3.0
+offset_right = -71.0
+offset_bottom = 37.0
 grow_horizontal = 2
 texture = ExtResource("6_blnu8")
 expand_mode = 1
@@ -554,11 +562,26 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 40.0
-offset_right = 80.0
-offset_bottom = 40.0
+offset_left = 9.0
+offset_top = -3.0
+offset_right = 49.0
+offset_bottom = 37.0
 grow_horizontal = 2
 texture = ExtResource("7_5kx04")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="WaterStatus" type="TextureRect" parent="TravelProgressUI/SpaceshipStatusUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 69.0
+offset_top = -3.0
+offset_right = 109.0
+offset_bottom = 37.0
+grow_horizontal = 2
+texture = ExtResource("16_i7qfd")
 expand_mode = 1
 stretch_mode = 5
 

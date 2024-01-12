@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://c5nyr1fhytbkv"]
+[gd_scene load_steps=72 format=3 uid="uid://c5nyr1fhytbkv"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_8rs23"]
 [ext_resource type="PackedScene" uid="uid://bglyxpx5ldmya" path="res://Scenes/showcase_spaceship.tscn" id="2_cyxog"]
@@ -34,8 +34,11 @@
 [ext_resource type="Resource" uid="uid://dj20wnavxfafh" path="res://Data/Skills/2_Lob_Grenade.tres" id="17_glgvd"]
 [ext_resource type="PackedScene" uid="uid://du8uipcd8d8ow" path="res://Scenes/crosshair.tscn" id="19_5ra7j"]
 [ext_resource type="PackedScene" uid="uid://d0ywywvfjijmg" path="res://Scenes/placed_item.tscn" id="20_ym5kj"]
+[ext_resource type="Texture2D" uid="uid://b37kuce675u7v" path="res://Art/spaceship status icons/plumbing_status_g.png" id="21_0u4kx"]
 [ext_resource type="PackedScene" uid="uid://uncsu80dl4qi" path="res://Scenes/sleep_accelerator.tscn" id="21_a1al4"]
+[ext_resource type="Texture2D" uid="uid://cuk5h40utiw13" path="res://Art/spaceship status icons/plumbing_status_r.png" id="21_feoql"]
 [ext_resource type="PackedScene" uid="uid://cvuq64ejyylwr" path="res://Scenes/bed.tscn" id="21_rhvhl"]
+[ext_resource type="Texture2D" uid="uid://dlx48u0wik0yr" path="res://Art/spaceship status icons/plumbing_status_y.png" id="23_bpv84"]
 [ext_resource type="Script" path="res://Scenes/RadialStatusUI.gd" id="24_pj8yf"]
 [ext_resource type="Script" path="res://Addons/radial_progress/RadialProgress.gd" id="25_18ya2"]
 [ext_resource type="Texture2D" uid="uid://cq07ymw7mik3n" path="res://Art/nutrition_icon.png" id="26_hrgs8"]
@@ -574,14 +577,17 @@ nuclear_y = ExtResource("14_x5tam")
 temp_r = ExtResource("15_apnim")
 temp_g = ExtResource("16_47t5r")
 temp_y = ExtResource("17_4t6ek")
+water_r = ExtResource("21_feoql")
+water_g = ExtResource("21_0u4kx")
+water_y = ExtResource("23_bpv84")
 
 [node name="OxygenGeneratorStatus" type="TextureRect" parent="Camera/Canvas/TravelProgressUI/SpaceshipStatusUI"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
+offset_left = -51.0
+offset_right = -11.0
 offset_bottom = 40.0
 grow_horizontal = 2
 texture = ExtResource("10_hw46y")
@@ -593,8 +599,8 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -80.0
-offset_right = -40.0
+offset_left = -111.0
+offset_right = -71.0
 offset_bottom = 40.0
 grow_horizontal = 2
 texture = ExtResource("13_y7kgh")
@@ -606,11 +612,24 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 40.0
-offset_right = 80.0
+offset_left = 9.0
+offset_right = 49.0
 offset_bottom = 40.0
 grow_horizontal = 2
 texture = ExtResource("16_47t5r")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="WaterStatus" type="TextureRect" parent="Camera/Canvas/TravelProgressUI/SpaceshipStatusUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 69.0
+offset_right = 109.0
+offset_bottom = 40.0
+grow_horizontal = 2
+texture = ExtResource("21_0u4kx")
 expand_mode = 1
 stretch_mode = 5
 
@@ -1776,6 +1795,9 @@ accelerationAmount = 5.0
 
 [node name="SleepAccelerator" parent="." instance=ExtResource("21_a1al4")]
 position = Vector2(1068, -222)
+
+[node name="DrinkingStation2" parent="." instance=ExtResource("45_f7mxj")]
+position = Vector2(527, 178)
 
 [node name="DrinkingStation" parent="." instance=ExtResource("45_f7mxj")]
 position = Vector2(-456, -177)

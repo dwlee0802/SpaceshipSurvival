@@ -15,6 +15,11 @@ extends Control
 @export var temp_g: Texture2D
 @export var temp_y: Texture2D
 
+@onready var waterIcon = $WaterStatus
+@export var water_r: Texture2D
+@export var water_g: Texture2D
+@export var water_y: Texture2D
+
 
 # Update spaceship status UI color according to module status
 func _process(delta):
@@ -32,3 +37,8 @@ func _process(delta):
 		tempIcon.texture = temp_r
 	else:
 		tempIcon.texture = temp_g
+		
+	if not DrinkingStation.plumbingOperational:
+		waterIcon.texture = water_r
+	else:
+		waterIcon.texture = water_g
