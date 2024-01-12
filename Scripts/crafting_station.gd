@@ -1,8 +1,6 @@
 extends Interactable
 class_name CraftingStation
 
-var isOperational: bool = true
-
 var showUI: bool = false
 
 

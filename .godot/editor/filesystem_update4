@@ -33,3 +33,8 @@ res://Scripts/spawn_point.gd
 res://Scenes/spawn_point.tscn
 res://Scripts/enemy.gd
 res://Scripts/survivor.gd
+res://Scripts/portal.gd
+res://Scripts/interactable.gd
+res://Scripts/disassembly.gd
+res://Scripts/crafting_station.gd
+res://Scripts/game.gd

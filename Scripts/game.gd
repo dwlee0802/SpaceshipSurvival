@@ -39,6 +39,10 @@ func _ready():
 	spaceship = $Spaceship
 	
 
+func _process(delta):
+	MAX_ENEMY_COUNT = 10 * (int(100 * Spaceship.distanceTraveled / Spaceship.DISTANCE_TO_DESTINATION)/5)
+
+	
 static func UpdateEnemyTargetPosition():
 	for item in enemies:
 		if is_instance_valid(item):

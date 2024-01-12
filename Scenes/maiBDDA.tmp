@@ -588,17 +588,6 @@ grow_horizontal = 2
 texture = ExtResource("13_yp84b")
 expand_mode = 1
 stretch_mode = 5
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="Camera/Canvas/TravelProgressUI/SpaceshipStatusUI/OxygenGeneratorStatus"]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 40.0
-offset_right = 42.0
-offset_bottom = 63.0
-text = "00%"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="NuclearReactorStatus" type="TextureRect" parent="Camera/Canvas/TravelProgressUI/SpaceshipStatusUI"]
 layout_mode = 1
@@ -613,16 +602,6 @@ texture = ExtResource("16_a34m1")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Camera/Canvas/TravelProgressUI/SpaceshipStatusUI/NuclearReactorStatus"]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 40.0
-offset_right = 42.0
-offset_bottom = 63.0
-text = "0%"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="TemperatureStatus" type="TextureRect" parent="Camera/Canvas/TravelProgressUI/SpaceshipStatusUI"]
 layout_mode = 1
 anchors_preset = 5
@@ -635,16 +614,6 @@ grow_horizontal = 2
 texture = ExtResource("19_lwxyv")
 expand_mode = 1
 stretch_mode = 5
-
-[node name="Label" type="Label" parent="Camera/Canvas/TravelProgressUI/SpaceshipStatusUI/TemperatureStatus"]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 40.0
-offset_right = 42.0
-offset_bottom = 63.0
-text = "25C"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="WaterStatus" type="TextureRect" parent="Camera/Canvas/TravelProgressUI/SpaceshipStatusUI"]
 layout_mode = 1
@@ -1810,15 +1779,6 @@ skillSlot_1 = ExtResource("38_dk2qq")
 skillSlot_2 = ExtResource("39_ujnlw")
 skillSlot_3 = ExtResource("40_w8hr6")
 speed = 250
-
-[node name="Label" type="Label" parent="."]
-offset_left = 2.0
-offset_top = 40.0
-offset_right = 42.0
-offset_bottom = 63.0
-text = "00%"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [connection signal="pressed" from="Camera/Canvas/UnitUI/SkillButtons/SkillButton1" to="InputManager" method="_on_skill_button_pressed" binds= [0]]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/SkillButtons/SkillButton2" to="InputManager" method="_on_skill_button_pressed" binds= [1]]

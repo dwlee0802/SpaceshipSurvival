@@ -1,7 +1,6 @@
 extends Interactable
 class_name Disassembly
 
-var isOperational: bool = true
 
 var showUI: bool = false
 	

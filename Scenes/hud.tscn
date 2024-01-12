@@ -543,6 +543,16 @@ texture = ExtResource("5_ek0cc")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="Label" type="Label" parent="TravelProgressUI/SpaceshipStatusUI/OxygenGeneratorStatus"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 40.0
+offset_right = 42.0
+offset_bottom = 63.0
+text = "00%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="NuclearReactorStatus" type="TextureRect" parent="TravelProgressUI/SpaceshipStatusUI"]
 layout_mode = 1
 anchors_preset = 5
@@ -557,6 +567,16 @@ texture = ExtResource("6_blnu8")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="Label" type="Label" parent="TravelProgressUI/SpaceshipStatusUI/NuclearReactorStatus"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 40.0
+offset_right = 41.0
+offset_bottom = 63.0
+text = "0000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="TemperatureStatus" type="TextureRect" parent="TravelProgressUI/SpaceshipStatusUI"]
 layout_mode = 1
 anchors_preset = 5
@@ -570,6 +590,15 @@ grow_horizontal = 2
 texture = ExtResource("7_5kx04")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="Label" type="Label" parent="TravelProgressUI/SpaceshipStatusUI/TemperatureStatus"]
+offset_left = 2.0
+offset_top = 40.0
+offset_right = 42.0
+offset_bottom = 63.0
+text = "25C"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="WaterStatus" type="TextureRect" parent="TravelProgressUI/SpaceshipStatusUI"]
 layout_mode = 1

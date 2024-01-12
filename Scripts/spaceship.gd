@@ -6,7 +6,7 @@ class_name Spaceship
 # Affects how much oxygen is gained per breath
 # Might change this to module specific levels in the future
 # if a unit reaches zero oxygen, they take HP damage
-static var oxygenLevel: int = 0
+static var oxygenLevel: int = 100
 
 # temperature level of the ship
 # body temperature of survivors slowly change towards ship temperature
@@ -37,7 +37,7 @@ static var maxComponentStock: int = 400
 # added every second to distance traveled. When it reaches a certain amount, the player wins
 static var shipSpeed: int = 1
 static var distanceTraveled: int = 0
-static var DISTANCE_TO_DESTINATION: int = 60 * 30
+static var DISTANCE_TO_DESTINATION: int = 60 * 20
 
 static var modules = {}
 
@@ -146,7 +146,7 @@ static func ConsumeComponents(amount):
 
 static func PrintModuleStatus():
 	var output = "Modules\n"
-	
+	return output
 	for module in Spaceship.spaceship.get_node("Modules").get_children():
 		output += module.name + ": "
 		if module.isOperational:

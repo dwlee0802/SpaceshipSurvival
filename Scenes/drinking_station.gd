@@ -1,8 +1,6 @@
 extends Interactable
 class_name DrinkingStation
 
-var isOperational: bool = true
-
 @onready var drinkSoundPlayer = $DrinkSoundPlayer
 
 static var plumbingOperational: bool = true

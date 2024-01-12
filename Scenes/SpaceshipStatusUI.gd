@@ -1,16 +1,19 @@
 extends Control
 
 @onready var oxygenIcon = $OxygenGeneratorStatus
+@onready var oxygenLabel = $OxygenGeneratorStatus/Label
 @export var oxygen_r: Texture2D
 @export var oxygen_g: Texture2D
 @export var oxygen_y: Texture2D
 
 @onready var nuclearIcon = $NuclearReactorStatus
+@onready var nuclearLabel = $NuclearReactorStatus/Label
 @export var nuclear_r: Texture2D
 @export var nuclear_g: Texture2D
 @export var nuclear_y: Texture2D
 
 @onready var tempIcon = $TemperatureStatus
+@onready var tempLabel = $TemperatureStatus/Label
 @export var temp_r: Texture2D
 @export var temp_g: Texture2D
 @export var temp_y: Texture2D
@@ -32,6 +35,7 @@ func _process(delta):
 		oxygenIcon.texture = oxygen_r
 	else:
 		oxygenIcon.texture = oxygen_g
+	oxygenLabel.text = str(Spaceship.oxygenLevel) + "%"
 		
 	if not Spaceship.modules[Spaceship.ModuleName.Temperature_Control].isOperational:
 		tempIcon.texture = temp_r
