@@ -39,7 +39,7 @@ func _ready():
 	spaceship = $Spaceship
 	
 
-func _process(delta):
+func _process(_delta):
 	MAX_ENEMY_COUNT = 10 + 10 * (int(100 * Spaceship.distanceTraveled / Spaceship.DISTANCE_TO_DESTINATION)/5)
 
 	

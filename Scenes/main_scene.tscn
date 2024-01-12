@@ -1814,15 +1814,6 @@ skillSlot_2 = ExtResource("39_ujnlw")
 skillSlot_3 = ExtResource("40_w8hr6")
 speed = 250
 
-[node name="Label" type="Label" parent="."]
-offset_left = 2.0
-offset_top = 40.0
-offset_right = 42.0
-offset_bottom = 63.0
-text = "00%"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [connection signal="pressed" from="Camera/Canvas/UnitUI/SkillButtons/SkillButton1" to="InputManager" method="_on_skill_button_pressed" binds= [0]]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/SkillButtons/SkillButton2" to="InputManager" method="_on_skill_button_pressed" binds= [1]]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/SkillButtons/SkillButton3" to="InputManager" method="_on_skill_button_pressed" binds= [2]]

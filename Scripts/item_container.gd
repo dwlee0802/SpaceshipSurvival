@@ -103,7 +103,7 @@ func _on_timer_timeout():
 	FillContentsRandomly()
 
 
-func Fix(delta):
+func Fix(_delta):
 	if opened == false:
 		$Sprite2D.texture = opened_texture
 		opened = true

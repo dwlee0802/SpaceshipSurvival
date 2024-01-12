@@ -28,4 +28,4 @@ func _on_spawn_timer_timeout():
 		Game.gameScene.add_child(newUnit)
 		newUnit.reparent(Game.gameScene)
 		
-		print(name + " spawned an enemy at " + str(newUnit.global_position))
+		#print(name + " spawned an enemy at " + str(newUnit.global_position))

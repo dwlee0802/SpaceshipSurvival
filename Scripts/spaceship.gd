@@ -29,7 +29,7 @@ static var maxAmmoStock: int = 1000
 # component stock of the survivors
 # components are used to make gear and fix modules
 # components are earned by dismantling gear or looting
-static var componentStock: int = 150
+static var componentStock: int = 0
 static var maxComponentStock: int = 400
 
 # the travel speed of the ship

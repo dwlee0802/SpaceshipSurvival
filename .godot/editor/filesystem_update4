@@ -38,3 +38,6 @@ res://Scripts/interactable.gd
 res://Scripts/disassembly.gd
 res://Scripts/crafting_station.gd
 res://Scripts/game.gd
+res://Scenes/HealthBar.gd
+res://Scripts/buff_icon.gd
+res://Scripts/item_container.gd

@@ -7,7 +7,7 @@ var data: BuffSkill
 @onready var cooldownIcon = $Cooldown
 
 
-func _process(delta):
+func _process(_delta):
 	cooldownIcon.size = Vector2(size.x, (timer.wait_time - timer.time_left) / timer.wait_time * size.x)
 	#cooldownIcon.position = size
 	
