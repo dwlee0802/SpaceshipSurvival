@@ -40,7 +40,7 @@ func _ready():
 	
 
 func _process(delta):
-	MAX_ENEMY_COUNT = 10 * (int(100 * Spaceship.distanceTraveled / Spaceship.DISTANCE_TO_DESTINATION)/5)
+	MAX_ENEMY_COUNT = 10 + 10 * (int(100 * Spaceship.distanceTraveled / Spaceship.DISTANCE_TO_DESTINATION)/5)
 
 	
 static func UpdateEnemyTargetPosition():
