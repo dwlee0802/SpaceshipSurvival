@@ -74,8 +74,9 @@ func _physics_process(delta):
 	if not isMoving:
 		if roamTimer.is_stopped():
 			roamTimer.start()
-		if audioPlayer.playing:
-			audioPlayer.stop()
+		# move sound disabled due to lag
+		#if audioPlayer.playing:
+			#audioPlayer.stop()
 		
 	if true:
 		if isMoving and position.distance_to(target_position) < STOP_DIST:
@@ -93,9 +94,6 @@ func _physics_process(delta):
 			ChangeTargetPosition(target_position)
 			if navUpdateTimer.is_stopped():
 				navUpdateTimer.start()
-
-		if not audioPlayer.playing:
-			audioPlayer.play()
 						
 		move_and_slide()
 	

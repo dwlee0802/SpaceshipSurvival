@@ -57,6 +57,8 @@ func _ready():
 	Spaceship.modules[ModuleName.Plumbing_Room] = $Modules/PlumbingRoom
 	#modules[ModuleName.Infirmary] = $Modules/Infirmary
 	
+	UserInterfaceManager.UpdateTravelProgressUI(distanceTraveled, DISTANCE_TO_DESTINATION)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
