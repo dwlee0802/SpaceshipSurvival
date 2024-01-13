@@ -25,6 +25,9 @@ var resourceDropProbability: float = 0.5
 @onready var audioPlayer = $AudioStreamPlayer2D
 @onready var hitSoundPlayer = $HitSoundEffectPlayer
 
+var rangedAttack: bool = false
+static var bulletScene = load("res://Scenes/enemy_bullet.tscn")
+
 
 func _ready():
 	super._ready()
@@ -40,6 +43,10 @@ func _ready():
 	target_position = global_position
 
 
+func SetAttackRange(amount):
+	attackArea.get_node("CollisionShape2D").shape.set_radius(amount)
+	
+	
 # movement
 # if there is a direct path to target, update target position in realtime
 # else, update it every second
@@ -197,6 +204,14 @@ func AlertOthers(survivor: Survivor):
 			item.attackTarget = survivor
 
 
+func RangedAttack(to_pos):
+	var newBullet = bulletScene.instantiate()
+	Game.gameScene.add_child(newBullet)
+	newBullet.from = self
+	newBullet.position = global_position
+	newBullet.rotation = global_position.angle_to_point(to_pos)
+	
+	
 func _on_detection_area_body_exited(body):
 	_on_detection_update_timer_timeout()
 
@@ -218,5 +233,9 @@ func _on_roam_timer_timeout():
 func _on_attack_timer_timeout():
 	var results = attackArea.get_overlapping_bodies()
 	if len(results) > 0:
-		var target : Survivor = results[0]
-		target.ReceiveHit(self, randi_range(5,15), 0)
+		if rangedAttack:
+			if CheckLineOfSight(global_position, results[0].position):
+				RangedAttack(results[0].global_position)
+		else:
+			var target : Survivor = results[0]
+			target.ReceiveHit(self, randi_range(5,15), 0)

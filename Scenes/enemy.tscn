@@ -162,7 +162,6 @@ collision_layer = 0
 shape = SubResource("CircleShape2D_vxpih")
 
 [node name="AttackArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
