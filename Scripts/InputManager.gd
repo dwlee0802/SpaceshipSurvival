@@ -8,9 +8,11 @@ static var InputManagerInstance
 var currentSkillObject = null
 
 
-func _ready():
+func _init():
 	InputManagerInstance = self
 	
+	
+func _ready():
 	# connect slots
 	var inventoryGrid = UserInterfaceManager.inventoryGrid
 	var containerGrid = UserInterfaceManager.containerGrid

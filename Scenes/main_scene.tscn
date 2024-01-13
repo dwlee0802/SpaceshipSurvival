@@ -1813,9 +1813,6 @@ skillSlot_2 = ExtResource("39_ujnlw")
 skillSlot_3 = ExtResource("40_w8hr6")
 speed = 250
 
-[connection signal="pressed" from="Camera/Canvas/UnitUI/SkillButtons/SkillButton1" to="InputManager" method="_on_skill_button_pressed" binds= [0]]
-[connection signal="pressed" from="Camera/Canvas/UnitUI/SkillButtons/SkillButton2" to="InputManager" method="_on_skill_button_pressed" binds= [1]]
-[connection signal="pressed" from="Camera/Canvas/UnitUI/SkillButtons/SkillButton3" to="InputManager" method="_on_skill_button_pressed" binds= [2]]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InformationButton" to="InputManager" method="_on_information_button_pressed"]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InventoryButton" to="InputManager" method="_on_inventory_button_pressed"]
 [connection signal="pressed" from="Camera/Canvas/UnitUI/InteractionButton" to="InputManager" method="_on_interaction_button_pressed"]

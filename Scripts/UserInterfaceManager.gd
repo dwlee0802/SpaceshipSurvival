@@ -128,6 +128,12 @@ func _ready():
 	skillButton_cd_2 = skillButtons.get_node("SkillButton2/Cooldown")
 	skillButton_cd_3 = skillButtons.get_node("SkillButton3/Cooldown")
 	
+	# connect signals from hud buttons to input manager
+	# assume that input manager exists
+	skillButton_1.pressed.connect(InputManager.InputManagerInstance._on_skill_button_pressed.bind(0))
+	skillButton_2.pressed.connect(InputManager.InputManagerInstance._on_skill_button_pressed.bind(1))
+	skillButton_3.pressed.connect(InputManager.InputManagerInstance._on_skill_button_pressed.bind(2))
+
 
 # change scale x of progress bar based on progress
 static func UpdateTravelProgressUI(cur, maxVal):

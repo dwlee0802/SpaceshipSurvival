@@ -31,3 +31,5 @@ res://Scripts/enemy.gd
 res://Scenes/bullet.tscn
 res://Scenes/enemy_bullet.tscn
 res://Scenes/enemy_bullet.gd
+res://Scripts/UserInterfaceManager.gd
+res://Scripts/InputManager.gd
