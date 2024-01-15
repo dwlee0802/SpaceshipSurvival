@@ -38,6 +38,7 @@ static var baseGenome = []
 static var nextMutationChoiceWeights = []
 enum GeneName {HP, Speed, Defense, Damage, Penetration, RadiationDefense, AttackRange, Explosive}
 
+
 func _ready():
 	super._ready()
 	
