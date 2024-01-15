@@ -31,3 +31,4 @@ res://Scenes/bullet.tscn
 res://Scripts/spaceship.gd
 res://Scripts/module.gd
 res://Scenes/plumbing_station.gd
+res://Scripts/enemy.gd

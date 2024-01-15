@@ -28,6 +28,15 @@ var resourceDropProbability: float = 0.5
 var rangedAttack: bool = false
 static var bulletScene = load("res://Scenes/enemy_bullet.tscn")
 
+# Enemy Mutation System
+# the standard distribution of mutation points of all enemies
+# it is updated when enemies deal damage to survivor
+# amount of damage dealt is added to weights array
+# next mutation of the base Genome is weighted random
+var mutationChoice: GeneName
+static var baseGenome = []
+static var nextMutationChoiceWeights = []
+enum GeneName {HP, Speed, Defense, Damage, Penetration, RadiationDefense, AttackRange, Explosive}
 
 func _ready():
 	super._ready()
