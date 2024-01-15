@@ -14,7 +14,7 @@ process_callback = 0
 autostart = true
 
 [node name="ErrorCooldownTimer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 10.0
 one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

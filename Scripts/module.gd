@@ -16,6 +16,8 @@ var overviewMarker
 
 var recentlyHadError: bool = false
 
+@onready var errorCooldownTimer: Timer = $ErrorCooldownTimer
+
 
 func _ready():
 	interactablesNode = get_node_or_null("Interactables")
@@ -45,9 +47,11 @@ func CheckOperational():
 	for item in interactables:
 		if item.timeToFix > 0:
 			return false
-			
+	
+	# interactables got fixed and operational status changed
 	if isOperational == false:
 		isOperational = true
+		errorCooldownTimer.start()
 		
 	return true
 
@@ -59,10 +63,11 @@ func GenerateErrors():
 	for item in interactables:
 		if item.timeToFix <= 0:
 			if randf() < errorRate:
-				item.timeToFix = randi_range(3, 10)
+				item.timeToFix = randi_range(3, 6)
 	
-	#recentlyHadError = true
+				recentlyHadError = true
 	
 
 func _on_error_cooldown_timer_timeout():
+	print(name + "'s error spawn cd is done.")
 	recentlyHadError = false

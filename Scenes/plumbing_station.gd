@@ -36,7 +36,7 @@ func GenerateErrors():
 		if randf() < Interactable.errorRate:
 			timeToFix = randi_range(3, 10)
 	
-	recentlyHadError = true
+			recentlyHadError = true
 	
 	
 func _on_error_spawn_timer_timeout():

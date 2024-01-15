@@ -39,6 +39,7 @@ autostart = true
 
 [node name="ErrorCooldownTimer" type="Timer" parent="."]
 wait_time = 30.0
+one_shot = true
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -49,3 +50,4 @@ texture_filter = 1
 texture = ExtResource("4_6k41x")
 
 [connection signal="timeout" from="RadiationDamageTimer" to="." method="_on_radiation_damage_timer_timeout"]
+[connection signal="timeout" from="ErrorCooldownTimer" to="." method="_on_error_cooldown_timer_timeout"]
