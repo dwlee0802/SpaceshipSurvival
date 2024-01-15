@@ -25,11 +25,7 @@ res://Scenes/crafting_station.tscn
 res://Scenes/spawn_point.tscn
 res://Scenes/module.tscn
 res://Scenes/damage_popup.tscn
-res://Scripts/spawn_point.gd
 res://Scenes/interactable.tscn
-res://Scripts/enemy.gd
 res://Scenes/bullet.tscn
 res://Scenes/enemy_bullet.tscn
-res://Scenes/enemy_bullet.gd
-res://Scripts/UserInterfaceManager.gd
-res://Scripts/InputManager.gd
+res://Scripts/unit.gd

@@ -136,13 +136,14 @@ func ReceiveHit(from, amount, penetration = 0, isRadiationDamage = false, knockB
 	UpdateHealthBar()
 	
 	# apply knockback
-	if from is Survivor:
-		if knockBackAmount != 0:
-			knockBack += -1 * global_position.direction_to(from.global_position) * knockBackAmount
-		else:
-			knockBack += -1 * global_position.direction_to(from.global_position) * from.primarySlot.data.knockBack
-	elif from is AreaEffect:
-		knockBack += -1 * global_position.direction_to(from.global_position) * from.data.knockBack
+	if is_instance_valid(from):
+		if from is Survivor:
+			if knockBackAmount != 0:
+				knockBack += -1 * global_position.direction_to(from.global_position) * knockBackAmount
+			else:
+				knockBack += -1 * global_position.direction_to(from.global_position) * from.primarySlot.data.knockBack
+		elif from is AreaEffect:
+			knockBack += -1 * global_position.direction_to(from.global_position) * from.data.knockBack
 
 	animationPlayer.play("hit_animation")
 	
