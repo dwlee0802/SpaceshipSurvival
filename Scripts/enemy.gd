@@ -29,13 +29,14 @@ var rangedAttack: bool = false
 static var bulletScene = load("res://Scenes/enemy_bullet.tscn")
 
 # Enemy Mutation System
-# the standard distribution of mutation points of all enemies
-# it is updated when enemies deal damage to survivor
-# amount of damage dealt is added to weights array
-# next mutation of the base Genome is weighted random
-var mutationChoice: GeneName
-static var baseGenome = []
-static var nextMutationChoiceWeights = []
+# The genome determine the individual enemy unit's stats
+# It is determined by distributing mutation points to genes
+# Distribution is weighted randomized
+# The weights for each gene is increased when an enemy deals damage to the survivor
+var genome = []
+# increases over time
+static var mutationPoints: int = 1
+static var mutationChoiceWeights = []
 enum GeneName {HP, Speed, Defense, Damage, Penetration, RadiationDefense, AttackRange, Explosive}
 
 
@@ -53,6 +54,21 @@ func _ready():
 	target_position = global_position
 
 
+# distributes mutation points to each genes randomly
+func GenerateGenome():
+	pass
+	
+
+# add to mutation weights based on amount of damage dealt
+static func AddMutatoinWeights(type: GeneName, amount: int):
+	pass
+	
+
+# modify this unit's stats based on its genome and buffs
+func UpdateStats():
+	pass
+	
+	
 func SetAttackRange(amount):
 	attackArea.get_node("CollisionShape2D").shape.set_radius(amount)
 	
