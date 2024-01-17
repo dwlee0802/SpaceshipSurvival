@@ -62,8 +62,9 @@ radius = 150.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_vxpih"]
 radius = 600.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4iqyk"]
-radius = 50.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_3p2bp"]
+resource_local_to_scene = true
+radius = 100.0
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 2
@@ -165,7 +166,7 @@ shape = SubResource("CircleShape2D_vxpih")
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-shape = SubResource("CircleShape2D_4iqyk")
+shape = SubResource("CircleShape2D_3p2bp")
 debug_color = Color(1, 0.121569, 0.105882, 0.419608)
 
 [node name="DetectionUpdateTimer" type="Timer" parent="."]

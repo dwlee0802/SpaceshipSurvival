@@ -28,6 +28,11 @@ var resourceDropProbability: float = 0.5
 var rangedAttack: bool = false
 static var bulletScene = load("res://Scenes/enemy_bullet.tscn")
 
+var minDamage: int = 5
+var maxDamage: int = 15
+
+
+# ****************************************************
 # Enemy Mutation System
 # The genome determine the individual enemy unit's stats
 # It is determined by distributing mutation points to genes
@@ -36,41 +41,87 @@ static var bulletScene = load("res://Scenes/enemy_bullet.tscn")
 var genome = []
 # increases over time
 static var mutationPoints: int = 1
-static var mutationChoiceWeights = []
-enum GeneName {HP, Speed, Defense, Damage, Penetration, RadiationDefense, AttackRange, Explosive}
+static var mutationChoiceWeights = [0, 0, 0, 0, 0, 0, 0]
+# when weights reach a certain point, a ball of that type is added to the basket
+# units pick balls from the basket as many times as the mutation points
+# the chosen ball's type determines which area the mutation point is spent on
+static var mutationBasket = [GeneName.HP, GeneName.Speed, GeneName.Defense, GeneName.Damage, GeneName.Penetration, GeneName.RadiationDefense, GeneName.AttackRange]
+static var ballCounts = []
+
+# adding genes checklist
+# add it in the enum
+# change gene count
+# add it to the initial basket
+enum GeneName {HP, Speed, Defense, Damage, Penetration, RadiationDefense, AttackRange}
+static var GENE_COUNT: int = 7
+
+static var variety: float = 0.5
+static var maxBallCount: int = -1
+
 
 
 func _ready():
 	super._ready()
-	
 	STOP_DIST = 60
 	
-	defense = 0.5
-	
-	evasion = 0.1
-	
 	overviewMarker.self_modulate = Color.DARK_ORANGE
-	
 	target_position = global_position
+	
+	GenerateGenome()
+	UpdateStats()
 
 
 # distributes mutation points to each genes randomly
 func GenerateGenome():
-	pass
+	# initialize new genome array
+	genome.resize(Enemy.GENE_COUNT)
+	genome.fill(0)
+	
+	# pick from mutation basket
+	for i in range(Enemy.mutationPoints):
+		var choice = Enemy.mutationBasket.pick_random()
+		genome[choice] += 1
+	
+	print(genome)
 	
 
 # add to mutation weights based on amount of damage dealt
-static func AddMutatoinWeights(type: GeneName, amount: int):
-	pass
+# add a ball and subtract from weights if above threshold
+static func AddMutatoinWeights(genome, amount: int):
+	for i in range(Enemy.GENE_COUNT):
+		mutationChoiceWeights[i] += float(genome[i]) / Enemy.mutationPoints * amount
+		if mutationChoiceWeights[i] > 50:
+			mutationBasket.append(i)
+			mutationChoiceWeights[i] -= 50
+			
+		print("weights: ", mutationChoiceWeights)
+		print("basket: ", mutationBasket)
 	
 
 # modify this unit's stats based on its genome and buffs
 func UpdateStats():
-	pass
+	# update health
+	SetMaxHealth(100 + 25 * genome[Enemy.GeneName.HP])
+	
+	# update speed
+	speed = 80 + genome[Enemy.GeneName.Speed] * 25
+	
+	# update defense
+	defense = genome[Enemy.GeneName.Defense] * 0.1
+	
+	# update damage
+	
+	
+	# update radiation defense
+	radiationDefense = genome[Enemy.GeneName.RadiationDefense] * 0.2
+	
+	# update attack range
+	SetAttackRange(100 + genome[Enemy.GeneName.AttackRange] * 100)
 	
 	
 func SetAttackRange(amount):
 	attackArea.get_node("CollisionShape2D").shape.set_radius(amount)
+	print(amount)
 	
 	
 # movement

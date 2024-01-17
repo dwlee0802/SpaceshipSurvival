@@ -1,6 +1,5 @@
 extends "res://Scripts/bullet.gd"
 
-
 func _on_body_entered(body):
 	if penetrationCount < 1:
 		queue_free()
@@ -8,7 +7,9 @@ func _on_body_entered(body):
 		
 	if body is Survivor:
 		penetrationCount -= 1
-		body.ReceiveHit(from, randi_range(5, 15), 0)
+		var amount = randi_range(from.minDamage, from.maxDamage)
+		body.ReceiveHit(from, amount, 0)
+		Enemy.AddMutatoinWeights(from.genome, amount)
 		queue_free()
 	
 	if not body is Enemy:

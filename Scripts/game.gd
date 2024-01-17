@@ -42,6 +42,7 @@ func _ready():
 
 func _process(_delta):
 	MAX_ENEMY_COUNT = 10 + 10 * (Spaceship.difficulty / 5)
+	Enemy.mutationPoints = 1 + (Spaceship.difficulty) / 5
 
 	
 static func UpdateEnemyTargetPosition():
