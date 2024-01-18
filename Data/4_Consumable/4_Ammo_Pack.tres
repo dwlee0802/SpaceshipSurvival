@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Consumable" load_steps=3 format=3 uid="uid://bpndokmf2wf6y"]
 
 [ext_resource type="Script" path="res://Data/consumable_data.gd" id="1_3fx1w"]
-[ext_resource type="Texture2D" uid="uid://b3d3n0begk0ab" path="res://Art/water_bottle_icon.png" id="2_waoyo"]
+[ext_resource type="Texture2D" uid="uid://bpcs75sw5ebvm" path="res://Art/ammo_pack_icon.png" id="2_ehnnq"]
 
 [resource]
 script = ExtResource("1_3fx1w")
@@ -10,6 +10,6 @@ type = 4
 name = "Ammo Pack"
 ID = 4
 description = "Bit of ammo."
-texture = ExtResource("2_waoyo")
+texture = ExtResource("2_ehnnq")
 componentValue = 20
 weight = 3

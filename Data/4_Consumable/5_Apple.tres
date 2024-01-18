@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Consumable" load_steps=3 format=3 uid="uid://cm8dp8buvo0r5"]
 
 [ext_resource type="Script" path="res://Data/consumable_data.gd" id="1_unis2"]
-[ext_resource type="Texture2D" uid="uid://b3d3n0begk0ab" path="res://Art/water_bottle_icon.png" id="2_ywi21"]
+[ext_resource type="Texture2D" uid="uid://cq07ymw7mik3n" path="res://Art/nutrition_icon.png" id="2_3hnlr"]
 
 [resource]
 script = ExtResource("1_unis2")
@@ -10,6 +10,6 @@ type = 4
 name = "Apple"
 ID = 5
 description = "Tasty"
-texture = ExtResource("2_ywi21")
+texture = ExtResource("2_3hnlr")
 componentValue = 20
 weight = 3

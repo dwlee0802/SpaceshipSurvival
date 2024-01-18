@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Consumable" load_steps=2 format=3 uid="uid://d34kmfbv04ia"]
+[gd_resource type="Resource" script_class="Consumable" load_steps=3 format=3 uid="uid://d34kmfbv04ia"]
 
 [ext_resource type="Script" path="res://Data/consumable_data.gd" id="1_8iosb"]
+[ext_resource type="Texture2D" uid="uid://ch2jmjqhe3ctq" path="res://Art/oxygen_can_icon.png" id="2_5xexe"]
 
 [resource]
 script = ExtResource("1_8iosb")
@@ -9,5 +10,6 @@ type = 4
 name = "Oxygen Inhaler"
 ID = 1
 description = "Refreshing Oxygen in a can."
+texture = ExtResource("2_5xexe")
 componentValue = 30
 weight = 3

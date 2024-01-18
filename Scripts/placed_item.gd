@@ -9,7 +9,7 @@ var item: Item
 
 
 func _ready():
-	if itemType < 0 or itemID < 0:
+	if item == null and (itemType < 0 or itemID < 0):
 		print("Placed item's type and index invalid!")
 		queue_free()
 		

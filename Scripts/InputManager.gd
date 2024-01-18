@@ -162,6 +162,15 @@ static func UseInventoryItem(draggable):
 					unit.water = 100
 				else:
 					unit.water += item.data.amount
+			# Ammo pack
+			if item.data.ID == 4:
+				unit.primarySlot.RefillAmmo()
+			# Apple
+			if item.data.ID == 5:
+				if unit.nutrition + item.data.amount > 100:
+					unit.nutrition = 100
+				else:
+					unit.nutrition += item.data.amount
 		# equip gear
 		if item.data.type == ItemType.Head:
 			# check if slot is empty

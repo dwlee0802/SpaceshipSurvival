@@ -359,7 +359,7 @@ func _physics_process(delta):
 		Reload()
 		
 	# Shot input
-	if attacking and attackCooldown == false and reloading == false and not usingSkill and not sleeping:
+	if attacking and attackCooldown == false and reloading == false and not usingSkill and not sleeping and primarySlot != null:
 		attackTimer.start(1/primarySlot.data.attacksPerSecond)
 		attackCooldown = true
 		Attack()

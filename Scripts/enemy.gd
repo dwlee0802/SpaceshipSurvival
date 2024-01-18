@@ -217,8 +217,9 @@ func ReceiveHit(from, amount, penetration = 0, isRadiationDamage = false, knockB
 				MakeExpOrb(from)
 			elif from is AreaEffect:
 				MakeExpOrb(from.get_parent())
-				
-	hitSoundPlayer.play()
+	
+	if not isRadiationDamage:
+		hitSoundPlayer.play()
 	
 
 func DropItem():
