@@ -5,11 +5,11 @@
 
 [resource]
 script = ExtResource("1_3fx1w")
-amount = 25.0
+amount = 20.0
 type = 4
-name = "Water Bottle"
-ID = 3
-description = "Water in a bottle."
+name = "Ammo Pack"
+ID = 4
+description = "Bit of ammo."
 texture = ExtResource("2_waoyo")
 componentValue = 20
 weight = 3

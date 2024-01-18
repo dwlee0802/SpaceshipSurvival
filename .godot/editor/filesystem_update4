@@ -32,3 +32,5 @@ res://Scenes/enemy_bullet.tscn
 res://Scenes/plumbing_station.gd
 res://Scenes/enemy_bullet.gd
 res://Scripts/bullet.gd
+res://Data/4_Consumable/4_Ammo_Pack.tres
+res://Data/4_Consumable/5_Apple.tres
