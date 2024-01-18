@@ -41,19 +41,19 @@ var maxDamage: int = 15
 var genome = []
 # increases over time
 static var mutationPoints: int = 1
-static var mutationChoiceWeights = [0, 0, 0, 0, 0, 0, 0]
+static var mutationChoiceWeights = [0, 0, 0, 0, 0, 0, 0, 0]
 # when weights reach a certain point, a ball of that type is added to the basket
 # units pick balls from the basket as many times as the mutation points
 # the chosen ball's type determines which area the mutation point is spent on
-static var mutationBasket = [GeneName.HP, GeneName.Speed, GeneName.Defense, GeneName.Damage, GeneName.Penetration, GeneName.RadiationDefense, GeneName.AttackRange]
+static var mutationBasket = [GeneName.HP, GeneName.Speed, GeneName.Defense, GeneName.Damage, GeneName.Penetration, GeneName.RadiationDefense, GeneName.AttackRange, GeneName.AttackSpeed]
 static var ballCounts = []
 
 # adding genes checklist
 # add it in the enum
 # change gene count
 # add it to the initial basket
-enum GeneName {HP, Speed, Defense, Damage, Penetration, RadiationDefense, AttackRange}
-static var GENE_COUNT: int = 7
+enum GeneName {HP, Speed, Defense, Damage, Penetration, RadiationDefense, AttackRange, AttackSpeed}
+static var GENE_COUNT: int = 8
 
 static var variety: float = 0.5
 static var maxBallCount: int = -1
@@ -82,7 +82,7 @@ func GenerateGenome():
 		var choice = Enemy.mutationBasket.pick_random()
 		genome[choice] += 1
 	
-	print(genome)
+	$GenomeLabel.text = str(genome)
 	
 
 # add to mutation weights based on amount of damage dealt
@@ -102,6 +102,9 @@ static func AddMutatoinWeights(genome, amount: int):
 func UpdateStats():
 	# update health
 	SetMaxHealth(100 + 25 * genome[Enemy.GeneName.HP])
+	# change size
+	$BodySprite.scale = Vector2(1 + 0.2 * genome[Enemy.GeneName.HP], 1 + 0.2 * genome[Enemy.GeneName.HP])
+	$BodyCollisionShape.shape.size = 40 * $BodySprite.scale
 	
 	# update speed
 	speed = 80 + genome[Enemy.GeneName.Speed] * 25
@@ -110,7 +113,8 @@ func UpdateStats():
 	defense = genome[Enemy.GeneName.Defense] * 0.1
 	
 	# update damage
-	
+	minDamage = 5 + 5 * genome[Enemy.GeneName.Damage]
+	maxDamage = 10 + 5 * genome[Enemy.GeneName.Damage]
 	
 	# update radiation defense
 	radiationDefense = genome[Enemy.GeneName.RadiationDefense] * 0.2

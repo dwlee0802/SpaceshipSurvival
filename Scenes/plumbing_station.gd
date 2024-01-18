@@ -34,7 +34,7 @@ func GenerateErrors():
 		
 	if timeToFix <= 0:
 		if randf() < Interactable.errorRate:
-			timeToFix = randi_range(3, 10)
+			timeToFix = randi_range(3, 5)
 	
 			recentlyHadError = true
 	
