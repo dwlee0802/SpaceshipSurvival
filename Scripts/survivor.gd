@@ -4,6 +4,8 @@ class_name Survivor
 
 @export var survivorData: SurvivorData
 
+@onready var bodySprite = $BodySprite
+
 var endAccuracy: float = 0
 
 @onready var bulletScene = preload("res://Scenes/bullet.tscn")
@@ -534,7 +536,11 @@ func PointArmAt(pos):
 		
 	# turn towards target
 	armSprite.rotation = global_position.angle_to_point(pos)
-
+	if pos.x > global_position.x:
+		bodySprite.flip_h = false
+	else:
+		bodySprite.flip_h = true
+		
 
 func OnDeath():
 	if isDead:
