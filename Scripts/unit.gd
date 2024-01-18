@@ -39,7 +39,7 @@ var navRaycast5
 
 var isMoving: bool = false
 
-var STOP_DIST = 5
+var STOP_DIST = 10
 
 var radiationDamageTimeHolder = 2
 

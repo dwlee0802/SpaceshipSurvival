@@ -139,7 +139,7 @@ func _physics_process(delta):
 	overviewMarker.visible = true
 	
 	# knock back damping
-	if knockBack.length() > 0:
+	if knockBack.length() > 1:
 		knockBack = knockBack.normalized() * (knockBack.length() - delta * 800)
 	else:
 		knockBack = Vector2.ZERO
@@ -170,21 +170,27 @@ func _physics_process(delta):
 	if true:
 		if isMoving and position.distance_to(target_position) < STOP_DIST:
 			velocity = Vector2.ZERO
+			target_position = position
 			isMoving = false
+			print("1")
 			return
-				
-		# direct path exists to target
-		if CheckDirectPath(target_position):
-			# update target position realtime
-			navUpdateTimer.stop()
-			velocity = position.direction_to(target_position) * speed * speedModifier + knockBack
 		else:
-			# if not, pathfinding.
-			ChangeTargetPosition(target_position)
-			if navUpdateTimer.is_stopped():
-				navUpdateTimer.start()
-						
-		move_and_slide()
+			# direct path exists to target
+			if CheckDirectPath(target_position):
+				print("2")
+				# update target position realtime
+				if not navUpdateTimer.is_stopped():
+					navUpdateTimer.stop()
+					
+				velocity = position.direction_to(target_position) * speed * speedModifier + knockBack
+			else:
+				print("3")
+				# if not, pathfinding.
+				ChangeTargetPosition(target_position)
+				if navUpdateTimer.is_stopped():
+					navUpdateTimer.start()
+							
+			move_and_slide()
 	
 
 func OnDeath():
