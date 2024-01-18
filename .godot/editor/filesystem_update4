@@ -37,3 +37,6 @@ res://Scenes/PrimaryWeaponUI.gd
 res://Scripts/survivor.gd
 res://Scripts/drop_item_slot.gd
 res://Scripts/placed_item.gd
+res://Data/Survivors/0_Veteran.tres
+res://Data/1_Ranged/3_Laser_Rifle.tres
+res://Data/1_Ranged/2_Auto_Rifle.tres
