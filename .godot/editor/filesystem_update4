@@ -30,3 +30,5 @@ res://Scenes/interactable.tscn
 res://Scenes/bullet.tscn
 res://Scenes/enemy_bullet.tscn
 res://Scenes/plumbing_station.gd
+res://Scenes/enemy_bullet.gd
+res://Scripts/bullet.gd

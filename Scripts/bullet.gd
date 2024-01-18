@@ -12,8 +12,10 @@ var from
 func _physics_process(delta):
 	position += transform.x * speed * delta
 
+
 func setup(trans: Transform2D):
 	transform = trans
+
 
 func _on_body_entered(body):
 	if penetrationCount < 1:

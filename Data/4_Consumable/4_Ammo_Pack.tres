@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Consumable" load_steps=3 format=3 uid="uid://bpndokmf2wf6y"]
+
+[ext_resource type="Script" path="res://Data/consumable_data.gd" id="1_3fx1w"]
+[ext_resource type="Texture2D" uid="uid://b3d3n0begk0ab" path="res://Art/water_bottle_icon.png" id="2_waoyo"]
+
+[resource]
+script = ExtResource("1_3fx1w")
+amount = 25.0
+type = 4
+name = "Water Bottle"
+ID = 3
+description = "Water in a bottle."
+texture = ExtResource("2_waoyo")
+componentValue = 20
+weight = 3

@@ -122,6 +122,9 @@ func UpdateStats():
 	# update attack range
 	SetAttackRange(100 + genome[Enemy.GeneName.AttackRange] * 100)
 	
+	# update attack speed
+	$AttackTimer.wait_time = 1.0 / (1 + genome[Enemy.GeneName.AttackSpeed])
+	
 	
 func SetAttackRange(amount):
 	attackArea.get_node("CollisionShape2D").shape.set_radius(amount)
@@ -289,6 +292,9 @@ func RangedAttack(to_pos):
 	var newBullet = bulletScene.instantiate()
 	Game.gameScene.add_child(newBullet)
 	newBullet.from = self
+	newBullet.minDamage = minDamage
+	newBullet.maxDamage = maxDamage
+	newBullet.genome = genome
 	newBullet.position = global_position
 	newBullet.rotation = global_position.angle_to_point(to_pos)
 	

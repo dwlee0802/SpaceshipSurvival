@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://d3nmtkd24vtdp" path="res://Audio/slime_hit.ogg" id="8_mhdnr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ashq5"]
+resource_local_to_scene = true
 size = Vector2(40, 40)
 
 [sub_resource type="Animation" id="Animation_cymjo"]
