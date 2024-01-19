@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://dlx48u0wik0yr" path="res://Art/spaceship status icons/plumbing_status_y.png" id="17_d82bb"]
 [ext_resource type="Texture2D" uid="uid://bt2acio8mtfea" path="res://Art/temperature_icon.png" id="19_gf5eb"]
 [ext_resource type="Script" path="res://Scenes/RadialStatusUI.gd" id="22_bnhy5"]
+[ext_resource type="Script" path="res://Scenes/LevelupUI.gd" id="22_y5f1a"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_f6pi5"]
 keycode = 49
@@ -103,8 +104,6 @@ _data = {
 }
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_7n5p2"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_t3pin"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_see1r"]
 
@@ -905,72 +904,6 @@ theme_override_font_sizes/font_size = 10
 shortcut = ExtResource("7_5st57")
 text = "Close"
 
-[node name="ModifierUI" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_left = 560.0
-offset_top = 223.0
-offset_right = 858.0
-offset_bottom = 543.0
-
-[node name="Background" type="Panel" parent="ModifierUI"]
-layout_mode = 0
-offset_right = 300.0
-offset_bottom = 319.0
-
-[node name="Title" type="Label" parent="ModifierUI"]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 10.0
-offset_right = 100.0
-offset_bottom = 33.0
-text = "Modifier"
-
-[node name="TargetItemIcon" type="TextureRect" parent="ModifierUI"]
-layout_mode = 0
-offset_left = 100.0
-offset_top = 68.0
-offset_right = 190.0
-offset_bottom = 158.0
-texture = SubResource("PlaceholderTexture2D_t3pin")
-
-[node name="DisassemblyInfoLabel" type="Label" parent="ModifierUI"]
-layout_mode = 0
-offset_left = -15.0
-offset_top = 187.0
-offset_right = 299.0
-offset_bottom = 236.0
-text = "Required Component Cost: 0000"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="DisassembleButton" type="Button" parent="ModifierUI"]
-layout_mode = 0
-offset_left = 92.0
-offset_top = 245.0
-offset_right = 198.0
-offset_bottom = 276.0
-text = "Upgrade"
-
-[node name="ResultLabel" type="Label" parent="ModifierUI"]
-visible = false
-layout_mode = 0
-offset_left = 60.0
-offset_top = 283.0
-offset_right = 238.0
-offset_bottom = 306.0
-text = "Result: 00 Components"
-
-[node name="Closebutton" type="Button" parent="ModifierUI"]
-layout_mode = 0
-offset_left = 263.0
-offset_top = 4.0
-offset_right = 297.0
-offset_bottom = 26.0
-theme_override_font_sizes/font_size = 10
-text = "Close"
-
 [node name="ContainerUI" type="Button" parent="."]
 visible = false
 offset_left = 734.0
@@ -1169,13 +1102,12 @@ Level: 00
 EXP: 0000/0000"
 
 [node name="LevelupUI" type="Button" parent="."]
-visible = false
-offset_left = 360.0
-offset_top = 249.0
-offset_right = 712.0
-offset_bottom = 535.0
+offset_left = 508.0
+offset_top = 220.0
+offset_right = 860.0
+offset_bottom = 506.0
 flat = true
-script = ExtResource("6_nvp05")
+script = ExtResource("22_y5f1a")
 
 [node name="Background" type="Panel" parent="LevelupUI"]
 layout_mode = 0
@@ -1679,6 +1611,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GameOverScreen" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -1751,6 +1684,10 @@ text = "Main Menu"
 [connection signal="button_up" from="InformationUI" to="InformationUI" method="_on_button_up"]
 [connection signal="button_down" from="LevelupUI" to="LevelupUI" method="_on_button_down"]
 [connection signal="button_up" from="LevelupUI" to="LevelupUI" method="_on_button_up"]
+[connection signal="pressed" from="LevelupUI/PassButton" to="LevelupUI" method="_on_pass_button_pressed"]
+[connection signal="pressed" from="LevelupUI/Option1" to="LevelupUI" method="_upgrade_option_selected" binds= [0]]
+[connection signal="pressed" from="LevelupUI/Option2" to="LevelupUI" method="_upgrade_option_selected" binds= [1]]
+[connection signal="pressed" from="LevelupUI/Option3" to="LevelupUI" method="_upgrade_option_selected" binds= [2]]
 [connection signal="button_down" from="InventoryUI" to="InventoryUI" method="_on_button_down"]
 [connection signal="button_up" from="InventoryUI" to="InventoryUI" method="_on_button_up"]
 [connection signal="pressed" from="GameOverScreen/RestartButton" to="." method="_on_restart_button_pressed"]

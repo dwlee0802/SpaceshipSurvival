@@ -90,6 +90,7 @@ var level: int = 1
 # required exp to level up. Increases 50 percent each level
 var requiredEXP: int = 500
 @onready var levelUpEffect = $LevelUpEffect/AnimationPlayer
+signal level_up
 
 
 # skill related stuff
