@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SurvivorUpgrade" load_steps=2 format=3 uid="uid://dixjpoooqy5ru"]
+
+[ext_resource type="Script" path="res://Data/survivor_upgrade_data.gd" id="1_wjdgg"]
+
+[resource]
+script = ExtResource("1_wjdgg")
+health = 0
+speed = 0
+defense = 0.0
+radiationDefense = 0.0
+accuracyModifier = 1.0
+attackSpeedModifier = 1.0
+runningSpeedModifier = 1.0
+nutritionConsumptionModifier = 1.0
+waterConsumptionModifier = 1.0
+oxygenConsumptionModifier = 1.0
+sleepConsumptionModifier = 1.0
+luck = 5
+name = "Lucky"
+ID = 5
+description = "Chance of drops increased slightly."

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SurvivorUpgrade" load_steps=2 format=3 uid="uid://clxgtpu5b33va"]
+
+[ext_resource type="Script" path="res://Data/survivor_upgrade_data.gd" id="1_dnj1t"]
+
+[resource]
+script = ExtResource("1_dnj1t")
+health = 0
+speed = 0
+defense = 0.0
+radiationDefense = 0.0
+accuracyModifier = 1.2
+attackSpeedModifier = 1.0
+runningSpeedModifier = 1.0
+nutritionConsumptionModifier = 1.0
+waterConsumptionModifier = 1.0
+oxygenConsumptionModifier = 1.0
+sleepConsumptionModifier = 1.1
+luck = 0
+name = "Concentration"
+ID = 6
+description = "Higher concentration. Improved accuracy. Increased Sleep need."

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="SurvivorUpgrade" load_steps=2 format=3 uid="uid://ba3m6mbqxq6x"]
+
+[ext_resource type="Script" path="res://Data/survivor_upgrade_data.gd" id="1_1i4l1"]
+
+[resource]
+script = ExtResource("1_1i4l1")
+health = 0
+speed = 25
+defense = 0.0
+radiationDefense = 0.0
+accuracyModifier = 1.0
+attackSpeedModifier = 1.0
+runningSpeedModifier = 1.0
+nutritionConsumptionModifier = 1.2
+waterConsumptionModifier = 1.0
+oxygenConsumptionModifier = 0.9
+sleepConsumptionModifier = 1.0
+luck = 0
+inventoryCapIncrease = 2
+name = "Fitness"
+ID = 0
+description = "Higher physical performance at the cost of increased consumption."

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="WeaponUpgrade" load_steps=2 format=3 uid="uid://c8wc2poi4ri50"]
+
+[ext_resource type="Script" path="res://Data/weapon_upgrade_data.gd" id="1_r6qoc"]
+
+[resource]
+script = ExtResource("1_r6qoc")
+damage = 0
+range = 0
+piercing = 1
+attackSpeedModifier = 1.0
+projectileCount = 0
+penetration = 0.0
+accuracyModifier = 1.0
+projectileSpeed = 0
+name = "Piercing Rounds"
+ID = 4
+description = "Rounds go through targets, allowing to hit those behind it."

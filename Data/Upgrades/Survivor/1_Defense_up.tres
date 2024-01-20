@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SurvivorUpgrade" load_steps=2 format=3 uid="uid://df3ma2otpw5ic"]
+
+[ext_resource type="Script" path="res://Data/survivor_upgrade_data.gd" id="1_g8k8h"]
+
+[resource]
+script = ExtResource("1_g8k8h")
+health = 0
+speed = 0
+defense = 0.2
+radiationDefense = 0
+accuracyModifier = 1.0
+attackSpeedModifier = 1.0
+runningSpeedModifier = 0.9
+nutritionConsumptionModifier = 1.0
+waterConsumptionModifier = 1.0
+oxygenConsumptionModifier = 1.0
+sleepConsumptionModifier = 1.0
+luck = 0
+name = "Faster_Running"
+ID = 1
+description = "Increase defense. Lower running speed."

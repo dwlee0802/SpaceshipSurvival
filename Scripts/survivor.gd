@@ -629,15 +629,20 @@ func RemoveByIndex(index):
 func AddExperiencePoints(amount):
 	experiencePoints += amount
 	if experiencePoints >= requiredEXP:
-		level += 1
-		requiredEXP  *= 1.5
-		experiencePoints = 0
 		levelUpEffect.play("level_up_anim")
 		level_up.emit()
+	if experiencePoints < 0:
+		experiencePoints = 0
 	
 	UpdateExpBar()
 	
 
+func LevelUp():
+	level += 1
+	requiredEXP  *= 1.5
+	experiencePoints = 0
+	
+	
 func UpdateExpBar():
 	expBar.size.x = experiencePoints/float(requiredEXP) * healthBarSize
 

@@ -1239,14 +1239,6 @@ offset_right = 135.0
 offset_bottom = 28.0
 text = "Level Up!"
 
-[node name="UnitPortrait" type="TextureRect" parent="Camera/Canvas/LevelupUI"]
-layout_mode = 0
-offset_left = 144.0
-offset_top = 55.0
-offset_right = 204.0
-offset_bottom = 115.0
-texture = SubResource("PlaceholderTexture2D_see1r")
-
 [node name="PassButton" type="Button" parent="Camera/Canvas/LevelupUI"]
 layout_mode = 0
 offset_left = 243.0
@@ -1839,6 +1831,9 @@ speed = 250
 [connection signal="pressed" from="Camera/Canvas/InformationUI/Closebutton" to="InputManager" method="_on_info_closebutton_pressed"]
 [connection signal="button_down" from="Camera/Canvas/LevelupUI" to="Camera/Canvas/LevelupUI" method="_on_button_down"]
 [connection signal="button_up" from="Camera/Canvas/LevelupUI" to="Camera/Canvas/LevelupUI" method="_on_button_up"]
+[connection signal="pressed" from="Camera/Canvas/LevelupUI/Option1" to="Camera/Canvas/LevelupUI" method="_upgrade_option_selected" binds= [0]]
+[connection signal="pressed" from="Camera/Canvas/LevelupUI/Option2" to="Camera/Canvas/LevelupUI" method="_upgrade_option_selected" binds= [1]]
+[connection signal="pressed" from="Camera/Canvas/LevelupUI/Option3" to="Camera/Canvas/LevelupUI" method="_upgrade_option_selected" binds= [2]]
 [connection signal="button_down" from="Camera/Canvas/InventoryUI" to="Camera/Canvas/InventoryUI" method="_on_button_down"]
 [connection signal="button_up" from="Camera/Canvas/InventoryUI" to="Camera/Canvas/InventoryUI" method="_on_button_up"]
 [connection signal="pressed" from="Camera/Canvas/InventoryUI/Closebutton" to="InputManager" method="_on_inventory_closebutton_pressed"]

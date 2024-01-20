@@ -128,7 +128,6 @@ func UpdateStats():
 	
 func SetAttackRange(amount):
 	attackArea.get_node("CollisionShape2D").shape.set_radius(amount)
-	print(amount)
 	
 	
 # movement
@@ -172,19 +171,16 @@ func _physics_process(delta):
 			velocity = Vector2.ZERO
 			target_position = position
 			isMoving = false
-			print("1")
 			return
 		else:
 			# direct path exists to target
 			if CheckDirectPath(target_position):
-				print("2")
 				# update target position realtime
 				if not navUpdateTimer.is_stopped():
 					navUpdateTimer.stop()
 					
 				velocity = position.direction_to(target_position) * speed * speedModifier + knockBack
 			else:
-				print("3")
 				# if not, pathfinding.
 				ChangeTargetPosition(target_position)
 				if navUpdateTimer.is_stopped():

@@ -1103,7 +1103,6 @@ EXP: 0000/0000"
 
 [node name="LevelupUI" type="Button" parent="."]
 process_priority = 10
-visible = false
 offset_left = 508.0
 offset_top = 220.0
 offset_right = 860.0
@@ -1113,8 +1112,10 @@ script = ExtResource("22_y5f1a")
 
 [node name="Background" type="Panel" parent="LevelupUI"]
 layout_mode = 0
-offset_right = 354.0
-offset_bottom = 289.0
+offset_left = -57.0
+offset_top = -23.0
+offset_right = 410.0
+offset_bottom = 274.0
 mouse_filter = 2
 
 [node name="Title" type="Label" parent="LevelupUI"]
@@ -1125,30 +1126,22 @@ offset_right = 135.0
 offset_bottom = 28.0
 text = "Level Up!"
 
-[node name="UnitPortrait" type="TextureRect" parent="LevelupUI"]
-layout_mode = 0
-offset_left = 144.0
-offset_top = 55.0
-offset_right = 204.0
-offset_bottom = 115.0
-texture = SubResource("PlaceholderTexture2D_see1r")
-
 [node name="PassButton" type="Button" parent="LevelupUI"]
 layout_mode = 0
-offset_left = 243.0
-offset_top = 10.0
-offset_right = 347.0
-offset_bottom = 32.0
+offset_left = 285.0
+offset_top = -9.0
+offset_right = 389.0
+offset_bottom = 13.0
 theme_override_font_sizes/font_size = 10
 shortcut = ExtResource("7_5st57")
-text = "Pass (Lose 20% EXP)"
+text = "Pass (Lose 50% EXP)"
 
 [node name="Option1" type="Button" parent="LevelupUI"]
 layout_mode = 0
-offset_left = 20.0
-offset_top = 137.0
-offset_right = 95.0
-offset_bottom = 168.0
+offset_left = -9.0
+offset_top = 53.0
+offset_right = 66.0
+offset_bottom = 84.0
 theme_override_font_sizes/font_size = 15
 text = "Option 1"
 
@@ -1165,10 +1158,10 @@ autowrap_mode = 3
 
 [node name="Option2" type="Button" parent="LevelupUI"]
 layout_mode = 0
-offset_left = 136.0
-offset_top = 137.0
-offset_right = 211.0
-offset_bottom = 168.0
+offset_left = 135.0
+offset_top = 53.0
+offset_right = 210.0
+offset_bottom = 84.0
 theme_override_font_sizes/font_size = 15
 text = "Option 2"
 
@@ -1185,10 +1178,10 @@ autowrap_mode = 3
 
 [node name="Option3" type="Button" parent="LevelupUI"]
 layout_mode = 0
-offset_left = 254.0
-offset_top = 137.0
-offset_right = 329.0
-offset_bottom = 168.0
+offset_left = 279.0
+offset_top = 54.0
+offset_right = 354.0
+offset_bottom = 85.0
 theme_override_font_sizes/font_size = 15
 text = "Option 3"
 

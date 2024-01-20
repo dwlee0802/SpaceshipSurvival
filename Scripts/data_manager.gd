@@ -64,3 +64,27 @@ func _ready():
 		filename = dir.get_next()
 	
 	print("Imported " + str(statusEffectResources.size()) + " status effect resources.")
+	
+
+	dir = DirAccess.open(survivorUpgradePath)
+	dir.list_dir_begin()
+	filename = dir.get_next()
+	
+	while filename != "":
+		var fullpath = survivorUpgradePath + filename
+		survivorUpgradeResources.append(load(fullpath))
+		filename = dir.get_next()
+	
+	print("Imported " + str(survivorUpgradeResources.size()) + " survivor upgrade resources.")
+	
+	
+	dir = DirAccess.open(weaponUpgradePath)
+	dir.list_dir_begin()
+	filename = dir.get_next()
+	
+	while filename != "":
+		var fullpath = weaponUpgradePath + filename
+		weaponUpgradeResources.append(load(fullpath))
+		filename = dir.get_next()
+	
+	print("Imported " + str(weaponUpgradeResources.size()) + " weapon upgrade resources.")

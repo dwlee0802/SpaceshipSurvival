@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="SurvivorUpgrade" load_steps=2 format=3 uid="uid://dts1sy4fxmy04"]
+
+[ext_resource type="Script" path="res://Data/survivor_upgrade_data.gd" id="1_pm3ow"]
+
+[resource]
+script = ExtResource("1_pm3ow")
+health = 0
+speed = 25
+defense = 0.0
+radiationDefense = 0.0
+accuracyModifier = 1.0
+attackSpeedModifier = 1.0
+runningSpeedModifier = 1.0
+nutritionConsumptionModifier = 1.0
+waterConsumptionModifier = 1.0
+oxygenConsumptionModifier = 1.0
+sleepConsumptionModifier = 1.0
+luck = 0
+inventoryCapIncrease = -2
+name = "Agility"
+ID = 8
+description = "Speed increased. Can carry less items."

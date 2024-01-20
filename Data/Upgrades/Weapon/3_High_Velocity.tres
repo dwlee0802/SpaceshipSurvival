@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="WeaponUpgrade" load_steps=2 format=3 uid="uid://c10dd2woex0ki"]
+
+[ext_resource type="Script" path="res://Data/weapon_upgrade_data.gd" id="1_hcbow"]
+
+[resource]
+script = ExtResource("1_hcbow")
+damage = 0
+range = 0
+piercing = 0
+attackSpeedModifier = 1.0
+projectileCount = 0
+penetration = 0.0
+accuracyModifier = 1.0
+projectileSpeed = 100
+name = "High Velocity"
+ID = 3
+description = "Rounds travel at a higher speed."

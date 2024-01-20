@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="WeaponUpgrade" load_steps=2 format=3 uid="uid://dedljumfg76n1"]
+
+[ext_resource type="Script" path="res://Data/weapon_upgrade_data.gd" id="1_f4u4o"]
+
+[resource]
+script = ExtResource("1_f4u4o")
+damage = 0
+range = 0
+piercing = 0
+attackSpeedModifier = 1.0
+projectileCount = 1
+penetration = 0.0
+accuracyModifier = 0.5
+projectileSpeed = 0
+name = "Piercing Rounds"
+ID = 3
+description = "Increase projectiles spawned per shot by 1. Lower accuracy."

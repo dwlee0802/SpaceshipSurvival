@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="SurvivorUpgrade" load_steps=2 format=3 uid="uid://2c1jmq1ke1on"]
+
+[ext_resource type="Script" path="res://Data/survivor_upgrade_data.gd" id="1_57tm2"]
+
+[resource]
+script = ExtResource("1_57tm2")
+health = 0
+speed = 0
+defense = 0.1
+radiationDefense = 0.1
+accuracyModifier = 1.0
+attackSpeedModifier = 1.0
+runningSpeedModifier = 1.0
+nutritionConsumptionModifier = 1.0
+waterConsumptionModifier = 1.0
+oxygenConsumptionModifier = 1.0
+sleepConsumptionModifier = 1.0
+luck = 0
+inventoryCapIncrease = 0
+name = "Tough It Out"
+ID = 3
+description = "Just tough it out bro."

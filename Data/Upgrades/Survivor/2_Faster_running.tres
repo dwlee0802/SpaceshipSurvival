@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SurvivorUpgrade" load_steps=2 format=3 uid="uid://blalanp5u3hj5"]
+
+[ext_resource type="Script" path="res://Data/survivor_upgrade_data.gd" id="1_csaqc"]
+
+[resource]
+script = ExtResource("1_csaqc")
+health = 0
+speed = 0
+defense = 0.0
+radiationDefense = 0.0
+accuracyModifier = 1.0
+attackSpeedModifier = 1.0
+runningSpeedModifier = 1.25
+nutritionConsumptionModifier = 1.0
+waterConsumptionModifier = 1.2
+oxygenConsumptionModifier = 1.0
+sleepConsumptionModifier = 1.0
+luck = 0
+name = "Faster Running"
+ID = 2
+description = "25% Faster running. Increase water consumption."

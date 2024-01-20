@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="WeaponUpgrade" load_steps=2 format=3 uid="uid://36ittgx0nga1"]
+
+[ext_resource type="Script" path="res://Data/weapon_upgrade_data.gd" id="1_35bjw"]
+
+[resource]
+script = ExtResource("1_35bjw")
+damage = 10
+range = -100
+piercing = 0
+attackSpeedModifier = 1.0
+projectileCount = 0
+penetration = 0.0
+accuracyModifier = 1.0
+name = "Heavy Rounds"
+ID = 1
+description = "Higher damage but less accurate over long distances."
