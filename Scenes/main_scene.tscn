@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://bub7ow8c286kq"]
+[gd_scene load_steps=68 format=3 uid="uid://bub7ow8c286kq"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_gh626"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="2_42p05"]
@@ -30,6 +30,7 @@
 [ext_resource type="Script" path="res://Scripts/drop_item_slot.gd" id="25_kji2c"]
 [ext_resource type="PackedScene" uid="uid://du8uipcd8d8ow" path="res://Scenes/crosshair.tscn" id="26_3nxfe"]
 [ext_resource type="Script" path="res://Scenes/RadialStatusUI.gd" id="27_d5bko"]
+[ext_resource type="Script" path="res://Scenes/LevelupUI.gd" id="28_70pvg"]
 [ext_resource type="Script" path="res://Addons/radial_progress/RadialProgress.gd" id="28_u5je6"]
 [ext_resource type="Texture2D" uid="uid://cq07ymw7mik3n" path="res://Art/nutrition_icon.png" id="29_cr0dt"]
 [ext_resource type="Texture2D" uid="uid://dugwv0bcmg1yj" path="res://Art/oxygen_generator_icon.png" id="30_es6kk"]
@@ -818,6 +819,7 @@ offset_bottom = -136.0
 stretch_mode = 2
 
 [node name="CraftingStationUI" type="Button" parent="Camera/Canvas"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1221,7 +1223,7 @@ offset_top = 249.0
 offset_right = 712.0
 offset_bottom = 535.0
 flat = true
-script = ExtResource("22_kxhjh")
+script = ExtResource("28_70pvg")
 
 [node name="Background" type="Panel" parent="Camera/Canvas/LevelupUI"]
 layout_mode = 0

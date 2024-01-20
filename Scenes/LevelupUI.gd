@@ -8,14 +8,22 @@ extends "res://Scripts/draggable_window.gd"
 # assume size is 3
 var options = []
 
+var connected: bool = false
 
-func _ready():
-	Game.survivor.level_up.connect(on_level_up)
+
+func _process(delta):
+	super._process(delta)
 	
+	if connected == false:
+		Game.survivor.level_up.connect(on_level_up)
+		connected = true
+		
 
 func on_level_up():
 	# show this window
+	visible = true
 	# stop time
+	#Engine.time_scale = 0
 	# generate upgrade options
 	# update ui
 	pass

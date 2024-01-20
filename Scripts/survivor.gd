@@ -633,6 +633,7 @@ func AddExperiencePoints(amount):
 		requiredEXP  *= 1.5
 		experiencePoints = 0
 		levelUpEffect.play("level_up_anim")
+		level_up.emit()
 	
 	UpdateExpBar()
 	

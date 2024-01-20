@@ -18,6 +18,12 @@ static var skillPath = "res://Data/Skills/"
 static var statusEffectResources = []
 static var statusPath = "res://Data/Status_Effect_Buffs/"
 
+static var survivorUpgradeResources = []
+static var survivorUpgradePath = "res://Data/Upgrades/Survivor/"
+
+static var weaponUpgradeResources = []
+static var weaponUpgradePath = "res://Data/Upgrades/Weapon/"
+
 
 # populate data by reading files
 func _ready():
