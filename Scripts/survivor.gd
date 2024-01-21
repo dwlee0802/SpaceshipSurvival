@@ -721,7 +721,13 @@ func ApplyUpdates():
 		# currently disabled due to conflict with UpdateStats()
 		attackSpeedModifier += upgrade.attackSpeedModifier
 		
-		
+
+# changes Upgrade Icons UI to show currently selected upgrades for survivor
+# called when new upgrade is taken
+func UpdateUpgradeIcons():
+	pass
+	
+	
 func UpdateExpBar():
 	expBar.size.x = experiencePoints/float(requiredEXP) * healthBarSize
 
