@@ -88,7 +88,7 @@ signal update_interaction_ui
 var experiencePoints: int = 0
 var level: int = 1
 # required exp to level up. Increases 50 percent each level
-var requiredEXP: int = 500
+var requiredEXP: int = 1
 @onready var levelUpEffect = $LevelUpEffect/AnimationPlayer
 signal level_up
 
@@ -116,6 +116,8 @@ var push_timer: float = 0.0
 @export var rotate_flag: bool = true # Enable body rotation 
 
 var isRunning: bool = false
+var runningSpeedBonus: float = 1.5
+
 var attacking: bool = false
 
 var spread: float = 0
@@ -147,6 +149,32 @@ var sleepGainModifier: float = 4
 # thirst
 var water: float = 80
 var thirsty: bool = false
+
+# upgrades
+var upgrades = []
+
+const nutritionConsumption: float = 1
+var nutritionConsumptionModifier: float = 1
+
+const oxygenConsumption: float = 2
+var oxygenConsumptionModifier: float = 1
+const runningOxygenConsumption: float = 4
+var runningOxygenConsumptionModifier: float = 1
+
+const waterConsumption: float = 1
+var waterConsumptionModifier: float = 1
+const runningWaterConsumption: float = 2
+var runningWaterConsumptionModifier: float = 1
+
+const sleepConsumption: float = 0.1
+var sleepConsumptionModifier: float = 1
+
+var inventoryCapDiff: int = 0
+
+var luck: int = 0
+
+var accuracyModifier: float = 1
+var movingAccuracyModifier: float = 1
 
 
 func _ready():
@@ -182,9 +210,9 @@ func _process(delta):
 #region Oxygen
 	# natural oxygen consumption
 	if isRunning:
-		oxygen -= delta * 4
+		oxygen -= delta * runningOxygenConsumption * runningOxygenConsumptionModifier
 	else:
-		oxygen -= delta * 2
+		oxygen -= delta * oxygenConsumption * oxygenConsumptionModifier
 		
 	if oxygen < 0:
 		oxygen = 0
@@ -205,7 +233,7 @@ func _process(delta):
 #endregion
 		
 #region Sleep
-	sleep -= delta * 0.1
+	sleep -= delta * sleepConsumption * sleepConsumptionModifier
 	
 	if sleep < 10:
 		if sleepy == false:
@@ -228,7 +256,7 @@ func _process(delta):
 #endregion
 
 #region Nutrition
-	nutrition -= delta * 1
+	nutrition -= delta * nutritionConsumption * nutritionConsumptionModifier
 	if nutrition < 0:
 		nutrition = 0
 		
@@ -246,9 +274,9 @@ func _process(delta):
 	
 #region thirst
 	if isRunning:
-		water -= 2 * delta
+		water -= delta * runningWaterConsumption * runningWaterConsumptionModifier
 	else:
-		water -= delta
+		water -= delta * waterConsumption * waterConsumptionModifier
 		
 	if water < 0:
 		water = 0
@@ -478,7 +506,7 @@ func UpdateStats(delta = 0):
 		defense += body.data.defense
 		radiationDefense += body.data.radiationDefense
 	
-	inventoryCapacity = strength * 2
+	inventoryCapacity = strength * 2 + inventoryCapDiff
 	inventoryWeight = 0
 	# recalculate inventory weight
 	for item: Item in inventory:
@@ -506,7 +534,7 @@ func UpdateStats(delta = 0):
 	speed *= speedModifier
 	
 	if isRunning:
-		speed *= 1.5
+		speed *= runningSpeedBonus
 	
 	self.attackSpeedModifier = 1
 	self.defenseModifier = 1
@@ -522,11 +550,12 @@ func UpdateStats(delta = 0):
 		endAccuracy = accuracy + primary.data.accuracy
 	
 	# update weapon bullet spread
-	spread = 2 * atan(25.0/primary.data.range)
+	spread = 2 * atan(25.0/primary.data.range) * accuracyModifier
 	
 	if primary is RangedWeapon:
 		if isRunning:
 			spread *= 2
+		# if just moving and not running
 		elif velocity != Vector2.ZERO:
 			spread *= primary.data.movementPenalty
 		
@@ -642,7 +671,57 @@ func LevelUp():
 	requiredEXP  *= 1.5
 	experiencePoints = 0
 	
+
+func AddUpgrade(newUpgrade: SurvivorUpgrade):
+	print("Survivor gained " + newUpgrade.name + " upgrade!")
+	upgrades.append(newUpgrade)
+	ApplyUpdates()
 	
+
+# TODO Need to make aura effects
+# apply the effects of updates
+func ApplyUpdates():
+	for upgrade: SurvivorUpgrade in upgrades:
+		# max health
+		maxHealth += upgrade.health
+		
+		# speed
+		survivorData.speed += upgrade.speed
+		
+		# defense
+		defense += upgrade.defense
+		
+		# radiation defenses
+		radiationDefense += upgrade.radiationDefense
+		
+		# consumptions
+		nutritionConsumptionModifier += upgrade.nutritionConsumptionModifier
+		waterConsumptionModifier += upgrade.waterConsumptionModifier
+		oxygenConsumptionModifier += upgrade.oxygenConsumptionModifier
+		sleepConsumptionModifier += upgrade.sleepConsumptionModifier
+		runningOxygenConsumptionModifier += upgrade.runningOxygenConsumptionModifier
+		runningWaterConsumptionModifier += upgrade.runningWaterConsumptionModifier
+		
+		# running speed
+		runningSpeedBonus += upgrade.runningSpeedModifier
+		
+		# inven cap
+		inventoryCapDiff += upgrade.inventoryCapIncrease
+		
+		# luck
+		luck += upgrade.luck
+		
+		if upgrade.ID == 4:
+			print("Threatening Aura enabled")
+			
+		# accuracy
+		accuracyModifier += upgrade.accuracyModifier
+		
+		# attack speed
+		# currently disabled due to conflict with UpdateStats()
+		attackSpeedModifier += upgrade.attackSpeedModifier
+		
+		
 func UpdateExpBar():
 	expBar.size.x = experiencePoints/float(requiredEXP) * healthBarSize
 

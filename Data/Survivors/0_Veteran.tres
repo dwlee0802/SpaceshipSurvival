@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://i7dglcx22nnc" path="res://Data/1_Ranged/0_Handgun.tres" id="3_6qb6f"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_mp5xf")
 name = "Veteran"
 profileTexture = ExtResource("1_cndn7")

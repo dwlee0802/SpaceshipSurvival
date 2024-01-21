@@ -53,6 +53,7 @@ func _upgrade_option_selected(num):
 	Engine.time_scale = 1
 	Game.survivor.LevelUp()
 	print("Upgrade " + options[num].name + " selected!")
+	Game.survivor.AddUpgrade(options[num])
 
 
 func _on_pass_button_pressed():
