@@ -11,7 +11,6 @@ var running: bool = false
 @export var defense: float = 0
 var defenseModifier: float = 0
 @export var radiationDefense: float = 0
-@export var evasion: float = 0
 # how well this person can hit targets with a ranged weapon
 # added with weapon accuracy to get total accuracy
 @export var accuracy: float = 0

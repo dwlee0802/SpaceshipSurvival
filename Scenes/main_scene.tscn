@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://bub7ow8c286kq"]
+[gd_scene load_steps=71 format=3 uid="uid://bub7ow8c286kq"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_gh626"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="2_42p05"]
@@ -41,10 +41,12 @@
 [ext_resource type="PackedScene" uid="uid://cbkwj1bwfbsuj" path="res://Scenes/spaceship_v1.tscn" id="35_fp47c"]
 [ext_resource type="Script" path="res://Scripts/InputManager.gd" id="35_qx4ch"]
 [ext_resource type="PackedScene" uid="uid://crk54pclkvhi" path="res://Scenes/survivor.tscn" id="36_62t7b"]
-[ext_resource type="Resource" uid="uid://d51whjtkivtv" path="res://Data/Survivors/0_Veteran.tres" id="37_3ivte"]
 [ext_resource type="Resource" uid="uid://bnncpbvnspnx5" path="res://Data/Skills/0_Adrenalin_Rush.tres" id="38_dk2qq"]
 [ext_resource type="Resource" uid="uid://dj20wnavxfafh" path="res://Data/Skills/2_Lob_Grenade.tres" id="39_ujnlw"]
 [ext_resource type="Resource" uid="uid://wcnoearsoegm" path="res://Data/Skills/5_Defensive_Stance.tres" id="40_w8hr6"]
+[ext_resource type="Texture2D" uid="uid://bphgupljd61uk" path="res://Art/ump45_temp_sprite.png" id="42_lmn3d"]
+[ext_resource type="Script" path="res://Data/survivor_data.gd" id="43_ylt7f"]
+[ext_resource type="Resource" uid="uid://i7dglcx22nnc" path="res://Data/1_Ranged/0_Handgun.tres" id="44_xfe51"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_f6pi5"]
 keycode = 49
@@ -144,6 +146,25 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vbgc8"]
 size = Vector2(100, 100)
+
+[sub_resource type="Resource" id="Resource_40dfp"]
+resource_local_to_scene = true
+script = ExtResource("43_ylt7f")
+name = "Veteran"
+profileTexture = ExtResource("42_lmn3d")
+spriteTexture = ExtResource("42_lmn3d")
+speed = 300.0
+accuracy = 0.0
+strength = 0.0
+maxHealth = 250.0
+defense = 0.0
+radiationDefense = 0.0
+luck = 0
+maxOxygen = 100
+maxNutrition = 100
+maxSleep = 100
+maxWater = 100
+startingPrimary = ExtResource("44_xfe51")
 
 [node name="ShowcaseGame" type="Node2D"]
 script = ExtResource("1_gh626")
@@ -1801,7 +1822,7 @@ shape = SubResource("RectangleShape2D_vbgc8")
 
 [node name="Survivor" parent="." instance=ExtResource("36_62t7b")]
 position = Vector2(-139, 266)
-survivorData = ExtResource("37_3ivte")
+survivorData = SubResource("Resource_40dfp")
 skillSlot_1 = ExtResource("38_dk2qq")
 skillSlot_2 = ExtResource("39_ujnlw")
 skillSlot_3 = ExtResource("40_w8hr6")

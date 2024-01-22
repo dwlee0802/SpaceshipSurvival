@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://c5nyr1fhytbkv"]
+[gd_scene load_steps=75 format=3 uid="uid://c5nyr1fhytbkv"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_8rs23"]
 [ext_resource type="PackedScene" uid="uid://bglyxpx5ldmya" path="res://Scenes/showcase_spaceship.tscn" id="2_cyxog"]
@@ -29,7 +29,6 @@
 [ext_resource type="Texture2D" uid="uid://dmhu5o68cvax1" path="res://Art/spaceship status icons/temp_icon_r.png" id="15_apnim"]
 [ext_resource type="Texture2D" uid="uid://d3vbcqlfmqiuj" path="res://Art/spaceship status icons/temp_icon_g.png" id="16_47t5r"]
 [ext_resource type="Resource" uid="uid://bnncpbvnspnx5" path="res://Data/Skills/0_Adrenalin_Rush.tres" id="16_atbyv"]
-[ext_resource type="Resource" uid="uid://d51whjtkivtv" path="res://Data/Survivors/0_Veteran.tres" id="16_fioqq"]
 [ext_resource type="Texture2D" uid="uid://qlq07octvqqp" path="res://Art/spaceship status icons/temp_icon_y.png" id="17_4t6ek"]
 [ext_resource type="Resource" uid="uid://dj20wnavxfafh" path="res://Data/Skills/2_Lob_Grenade.tres" id="17_glgvd"]
 [ext_resource type="PackedScene" uid="uid://du8uipcd8d8ow" path="res://Scenes/crosshair.tscn" id="19_5ra7j"]
@@ -47,6 +46,9 @@
 [ext_resource type="Texture2D" uid="uid://bt2acio8mtfea" path="res://Art/temperature_icon.png" id="29_y62vi"]
 [ext_resource type="Texture2D" uid="uid://d2e68au5mf60e" path="res://Art/thirsty_icon.PNG" id="33_7t1wb"]
 [ext_resource type="Resource" uid="uid://wcnoearsoegm" path="res://Data/Skills/5_Defensive_Stance.tres" id="40_p3srw"]
+[ext_resource type="Texture2D" uid="uid://bphgupljd61uk" path="res://Art/ump45_temp_sprite.png" id="41_lfr58"]
+[ext_resource type="Script" path="res://Data/survivor_data.gd" id="42_sp50g"]
+[ext_resource type="Resource" uid="uid://i7dglcx22nnc" path="res://Data/1_Ranged/0_Handgun.tres" id="43_mchbn"]
 [ext_resource type="PackedScene" uid="uid://coruw3cfxiam0" path="res://Scenes/drinking_station.tscn" id="45_f7mxj"]
 [ext_resource type="PackedScene" uid="uid://dsrtahkje07ui" path="res://Scenes/dispenser.tscn" id="46_o86eg"]
 
@@ -148,6 +150,25 @@ events = [SubResource("InputEventKey_ca4cy"), SubResource("InputEventKey_3xrmd")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vbgc8"]
 size = Vector2(100, 100)
+
+[sub_resource type="Resource" id="Resource_tume4"]
+resource_local_to_scene = true
+script = ExtResource("42_sp50g")
+name = "Veteran"
+profileTexture = ExtResource("41_lfr58")
+spriteTexture = ExtResource("41_lfr58")
+speed = 300.0
+accuracy = 0.0
+strength = 0.0
+maxHealth = 250.0
+defense = 0.0
+radiationDefense = 0.0
+luck = 0
+maxOxygen = 100
+maxNutrition = 100
+maxSleep = 100
+maxWater = 100
+startingPrimary = ExtResource("43_mchbn")
 
 [node name="ShowcaseGame" type="Node2D"]
 script = ExtResource("1_8rs23")
@@ -1778,7 +1799,7 @@ shape = SubResource("RectangleShape2D_vbgc8")
 
 [node name="Survivor" parent="." instance=ExtResource("15_4sls7")]
 position = Vector2(-162, 54)
-survivorData = ExtResource("16_fioqq")
+survivorData = SubResource("Resource_tume4")
 skillSlot_1 = ExtResource("16_atbyv")
 skillSlot_2 = ExtResource("17_glgvd")
 skillSlot_3 = ExtResource("40_p3srw")

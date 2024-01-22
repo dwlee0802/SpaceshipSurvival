@@ -116,7 +116,7 @@ var push_timer: float = 0.0
 @export var rotate_flag: bool = true # Enable body rotation 
 
 var isRunning: bool = false
-var runningSpeedBonus: float = 1.5
+var runningSpeedBonus: float = 0.5
 
 var attacking: bool = false
 
@@ -175,6 +175,8 @@ var luck: int = 0
 
 var accuracyModifier: float = 1
 var movingAccuracyModifier: float = 1
+
+var attackSpeed: float = 1
 
 
 func _ready():
@@ -391,7 +393,7 @@ func _physics_process(delta):
 		
 	# Shot input
 	if attacking and attackCooldown == false and reloading == false and not usingSkill and not sleeping and primarySlot != null:
-		attackTimer.start(1/primarySlot.data.attacksPerSecond)
+		attackTimer.start(attackSpeed)
 		attackCooldown = true
 		Attack()
 		
@@ -482,7 +484,7 @@ func EquipNewItem(item: Item, where: int):
 	UpdateStats()
 
 
-func UpdateStats(delta = 0):
+func _UpdateStats(delta = 0):
 	# equip fists as default
 	var primary = Item.new(0,0)
 	
@@ -560,6 +562,128 @@ func UpdateStats(delta = 0):
 			spread *= primary.data.movementPenalty
 		
 
+# Updates survivor's stats
+# set the values
+# calculate modifiers
+# apply modifiers
+func UpdateStats(delta = 0):
+	# set stats to base stat
+	maxHealth = survivorData.maxHealth
+	speed = survivorData.speed
+	defense = survivorData.defense
+	radiationDefense = survivorData.radiationDefense
+	luck = survivorData.luck
+	
+	# apply survivor upgrades
+	for upgrade: SurvivorUpgrade in upgrades:
+		# health
+		maxHealth += upgrade.health
+		# speed
+		survivorData.speed += upgrade.speed
+		# defense
+		defense += upgrade.defense
+		# radiation defenses
+		radiationDefense += upgrade.radiationDefense
+		# luck
+		luck += upgrade.luck
+	
+	# apply weapon stats
+	if primarySlot.data is RangedWeapon:
+		if magazineCount > primarySlot.data.magazineCapacity:
+			magazineCount = primarySlot.data.magazineCapacity
+	
+	# apply weapon upgrades
+	
+	
+	# apply equipment stats
+	if headSlot != null:
+		defense += headSlot.data.defense
+		radiationDefense += headSlot.data.radiationDefense
+	
+	if bodySlot != null:
+		defense += bodySlot.data.defense
+		radiationDefense += bodySlot.data.radiationDefense
+	
+	# update inventory weight
+	inventoryWeight = 0
+	# recalculate inventory weight
+	for item: Item in inventory:
+		if item != null:
+			inventoryWeight += item.data.weight
+	
+	if headSlot != null:
+		inventoryWeight += headSlot.data.weight
+	if bodySlot != null:
+		inventoryWeight += bodySlot.data.weight
+	if primarySlot != null:
+		inventoryWeight += primarySlot.data.weight
+		
+	
+	# reset modifiers to 1
+	# combat modifiers
+	speedModifier = 1
+	runningSpeedBonus = 1
+	accuracyModifier = 1
+	attackSpeedModifier = 1
+	
+	# need modifiers
+	nutritionConsumptionModifier = 1
+	waterConsumptionModifier = 1
+	oxygenConsumptionModifier = 1
+	sleepConsumptionModifier = 1
+	runningOxygenConsumptionModifier = 1
+	runningWaterConsumptionModifier = 1
+	
+	# update modifiers
+	# upgrades
+	for upgrade: SurvivorUpgrade in upgrades:
+		# consumptions
+		nutritionConsumptionModifier += upgrade.nutritionConsumptionModifier
+		waterConsumptionModifier += upgrade.waterConsumptionModifier
+		oxygenConsumptionModifier += upgrade.oxygenConsumptionModifier
+		sleepConsumptionModifier += upgrade.sleepConsumptionModifier
+		runningOxygenConsumptionModifier += upgrade.runningOxygenConsumptionModifier
+		runningWaterConsumptionModifier += upgrade.runningWaterConsumptionModifier
+		
+		# combat modifiers
+		# running speed
+		runningSpeedBonus += upgrade.runningSpeedModifier
+		# accuracy
+		accuracyModifier += upgrade.accuracyModifier
+		# attack speed
+		attackSpeedModifier += upgrade.attackSpeedModifier
+		# speed
+		speedModifier += upgrade.speedModifier
+	
+	# Buffs
+	for item: BuffIcon in UserInterfaceManager.buffIconUI.get_children():
+		speedModifier += item.data.speedModifer
+		attackSpeedModifier += item.data.attackSpeedModifier
+		defense += item.data.defenseAmount
+	
+	# other
+	if isRunning:
+		speedModifier += runningSpeedBonus
+		
+	# apply modifiers
+	speed *= speedModifier
+	
+	# update weapon bullet spread
+	spread = 2 * atan(25.0/primarySlot.data.range) * accuracyModifier
+	
+	if primarySlot.data is RangedWeapon:
+		if isRunning:
+			spread *= 2
+		# if just moving and not running
+		elif velocity != Vector2.ZERO:
+			spread *= primarySlot.data.movementPenalty
+			
+	# update weapon attack speed
+	if primarySlot != null:
+		attackSpeed = (1 / primarySlot.data.attacksPerSecond + randf_range(-0.01,0.01)) / attackSpeedModifier
+		attackTimer.wait_time = attackSpeed
+		
+	
 func PointArmAt(pos):
 	if sleeping:
 		return

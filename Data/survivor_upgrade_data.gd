@@ -9,6 +9,7 @@ class_name SurvivorUpgrade
 @export var accuracyModifier: float = 0
 @export var attackSpeedModifier: float = 0
 @export var runningSpeedModifier: float = 0
+@export var speedModifier: float = 0
 
 # needs parameters
 # added to unit's modifier
