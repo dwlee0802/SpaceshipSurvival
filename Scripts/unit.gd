@@ -5,7 +5,7 @@ class_name Unit
 @export var health: float = 50
 @export var maxHealth: int = 100
 @export var speed: int = 100
-var speedModifier: float = 1
+var speedModifier: float = 1.0
 var running: bool = false
 # how much damage is reduced when this unit is hit.
 @export var defense: float = 0

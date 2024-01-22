@@ -579,7 +579,7 @@ func UpdateStats(delta = 0):
 		# health
 		maxHealth += upgrade.health
 		# speed
-		survivorData.speed += upgrade.speed
+		speed += upgrade.speed
 		# defense
 		defense += upgrade.defense
 		# radiation defenses
@@ -622,7 +622,7 @@ func UpdateStats(delta = 0):
 	# reset modifiers to 1
 	# combat modifiers
 	speedModifier = 1
-	runningSpeedBonus = 1
+	runningSpeedBonus = 0.5
 	accuracyModifier = 1
 	attackSpeedModifier = 1
 	
@@ -799,7 +799,6 @@ func LevelUp():
 func AddUpgrade(newUpgrade: SurvivorUpgrade):
 	print("Survivor gained " + newUpgrade.name + " upgrade!")
 	upgrades.append(newUpgrade)
-	ApplyUpdates()
 	
 
 # TODO Need to make aura effects
