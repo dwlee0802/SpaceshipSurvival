@@ -88,7 +88,7 @@ signal update_interaction_ui
 var experiencePoints: int = 0
 var level: int = 1
 # required exp to level up. Increases 50 percent each level
-var requiredEXP: int = 1
+var requiredEXP: int = 100
 @onready var levelUpEffect = $LevelUpEffect/AnimationPlayer
 signal level_up
 
@@ -567,6 +567,11 @@ func _UpdateStats(delta = 0):
 # calculate modifiers
 # apply modifiers
 func UpdateStats(delta = 0):
+	# set default weapon to fists
+	var primary = Item.new(0,0)
+	if primarySlot != null:
+		primary = primarySlot
+		
 	# set stats to base stat
 	maxHealth = survivorData.maxHealth
 	speed = survivorData.speed
@@ -588,9 +593,9 @@ func UpdateStats(delta = 0):
 		luck += upgrade.luck
 	
 	# apply weapon stats
-	if primarySlot.data is RangedWeapon:
-		if magazineCount > primarySlot.data.magazineCapacity:
-			magazineCount = primarySlot.data.magazineCapacity
+	if primary.data is RangedWeapon:
+		if magazineCount > primary.data.magazineCapacity:
+			magazineCount = primary.data.magazineCapacity
 	
 	# apply weapon upgrades
 	
@@ -669,18 +674,18 @@ func UpdateStats(delta = 0):
 	speed *= speedModifier
 	
 	# update weapon bullet spread
-	spread = 2 * atan(25.0/primarySlot.data.range) * accuracyModifier
+	spread = 2 * atan(25.0/primary.data.range) * accuracyModifier
 	
-	if primarySlot.data is RangedWeapon:
+	if primary.data is RangedWeapon:
 		if isRunning:
 			spread *= 2
 		# if just moving and not running
 		elif velocity != Vector2.ZERO:
-			spread *= primarySlot.data.movementPenalty
+			spread *= primary.data.movementPenalty
 			
 	# update weapon attack speed
-	if primarySlot != null:
-		attackSpeed = (1 / primarySlot.data.attacksPerSecond + randf_range(-0.01,0.01)) / attackSpeedModifier
+	if primary != null:
+		attackSpeed = (1.0 / primary.data.attacksPerSecond + randf_range(-0.01,0.01)) / attackSpeedModifier
 		attackTimer.wait_time = attackSpeed
 		
 	
@@ -961,6 +966,7 @@ func PrintCombatStats() -> String:
 	output += "Accuracy: " + str(int(endAccuracy * 100) / 100) + "%\n"
 	output += "Defense: " + str(int(defense * 100)) + "%\n"
 	output += "Rad. Defense: " + str(int(radiationDefense * 100) / 100) + "%\n"
+	output += "Attack Speed: " + str(int(attackSpeed * 100) / 100.0) + " seconds\n"
 	
 	return output
 	
