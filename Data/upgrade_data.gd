@@ -5,3 +5,4 @@ class_name Upgrade
 @export var ID: int
 @export_multiline var description: String
 @export var texture: Texture2D
+@export var disabled: bool = false

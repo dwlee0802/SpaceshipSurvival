@@ -72,7 +72,9 @@ func _ready():
 	
 	while filename != "":
 		var fullpath = survivorUpgradePath + filename
-		survivorUpgradeResources.append(load(fullpath))
+		var newthing = load(fullpath)
+		if newthing.disabled != true:
+			survivorUpgradeResources.append(newthing)
 		filename = dir.get_next()
 	
 	print("Imported " + str(survivorUpgradeResources.size()) + " survivor upgrade resources.")
@@ -84,7 +86,9 @@ func _ready():
 	
 	while filename != "":
 		var fullpath = weaponUpgradePath + filename
-		weaponUpgradeResources.append(load(fullpath))
+		var newthing = load(fullpath)
+		if newthing.disabled != true:
+			weaponUpgradeResources.append(newthing)
 		filename = dir.get_next()
 	
 	print("Imported " + str(weaponUpgradeResources.size()) + " weapon upgrade resources.")

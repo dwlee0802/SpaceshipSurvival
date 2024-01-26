@@ -10,3 +10,5 @@ class_name Weapon
 @export var knockBack: int
 
 @export var attack_sound: AudioStream
+
+@export var upgradeBaseCost: int = 100
