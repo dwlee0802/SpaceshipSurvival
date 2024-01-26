@@ -147,7 +147,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vbgc8"]
 size = Vector2(100, 100)
 
-[sub_resource type="Resource" id="Resource_vv23g"]
+[sub_resource type="Resource" id="Resource_enjbk"]
 resource_local_to_scene = true
 script = ExtResource("43_ylt7f")
 name = "Veteran"
@@ -1822,7 +1822,7 @@ shape = SubResource("RectangleShape2D_vbgc8")
 
 [node name="Survivor" parent="." instance=ExtResource("36_62t7b")]
 position = Vector2(-139, 266)
-survivorData = SubResource("Resource_vv23g")
+survivorData = SubResource("Resource_enjbk")
 skillSlot_1 = ExtResource("38_dk2qq")
 skillSlot_2 = ExtResource("39_ujnlw")
 skillSlot_3 = ExtResource("40_w8hr6")

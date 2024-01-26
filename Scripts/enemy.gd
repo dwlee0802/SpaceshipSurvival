@@ -120,7 +120,7 @@ func UpdateStats():
 	radiationDefense = genome[Enemy.GeneName.RadiationDefense] * 0.2
 	
 	# update attack range
-	SetAttackRange(100 + genome[Enemy.GeneName.AttackRange] * 100)
+	SetAttackRange(200 + genome[Enemy.GeneName.AttackRange] * 100)
 	
 	# update attack speed
 	$AttackTimer.wait_time = 1.0 / (1 + genome[Enemy.GeneName.AttackSpeed])
