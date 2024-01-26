@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="WeaponUpgrade" load_steps=2 format=3 uid="uid://yfmeafrmwuri"]
+
+[ext_resource type="Script" path="res://Data/weapon_upgrade_data.gd" id="1_qs8sp"]
+
+[resource]
+script = ExtResource("1_qs8sp")
+damage = 0
+range = 0
+piercing = 0
+attackSpeedModifier = 0.0
+projectileCount = 0
+penetration = 0.0
+accuracyModifier = 0.0
+projectileSpeed = 0
+reloadSpeedModifier = 0.2
+totalAmmo = 0
+magazineCapacity = 0
+name = "Improved Magazine"
+ID = 7
+description = "20% Faster reloading."
+disabled = false

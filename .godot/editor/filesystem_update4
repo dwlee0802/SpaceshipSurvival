@@ -9,3 +9,13 @@ res://Scenes/main_scene.tscn
 res://Scenes/survivor.tscn
 res://Data/Upgrades/Survivor/4_Threatening_Aura.tres
 res://Data/Upgrades/Survivor/5_Lucky.tres
+res://Data/upgrade_tree.gd
+res://Data/Upgrades/Trees/Shock.tres
+res://Data/Upgrades/Weapon/7_Improved_Magazine.tres
+res://Data/weapon_upgrade_data.gd
+res://Data/Upgrades/Weapon/8_Tactical_Roll.tres
+res://Data/Upgrades/Weapon/9_Impact_Rounds.tres
+res://Data/Upgrades/Weapon/10_Adaptive_Stabilizer.tres
+res://Data/1_Ranged/1_Submachine_Gun.tres
+res://Scenes/LevelupUI.gd
+res://Scenes/WeaponUpgradeUI.gd

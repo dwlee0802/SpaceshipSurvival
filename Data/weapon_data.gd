@@ -12,3 +12,8 @@ class_name Weapon
 @export var attack_sound: AudioStream
 
 @export var upgradeBaseCost: int = 100
+
+# upgrade tress
+@export var upgradeTree_1: UpgradeTree
+@export var upgradeTree_2: UpgradeTree
+@export var upgradeTree_3: UpgradeTree

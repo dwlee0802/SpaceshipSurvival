@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="WeaponUpgrade" load_steps=2 format=3 uid="uid://nivxe8cp1dac"]
+
+[ext_resource type="Script" path="res://Data/weapon_upgrade_data.gd" id="1_hbxqd"]
+
+[resource]
+script = ExtResource("1_hbxqd")
+damage = 0
+range = 0
+piercing = 0
+attackSpeedModifier = 0.0
+projectileCount = 0
+penetration = 0.0
+accuracyModifier = 0.0
+runningAccuracyModifier = 0.5
+projectileSpeed = 0
+reloadSpeedModifier = 0.0
+totalAmmo = 0
+magazineCapacity = 0
+knockBack = 100
+name = "Impact Rounds"
+ID = 9
+description = "Stronger knock back"
+disabled = false

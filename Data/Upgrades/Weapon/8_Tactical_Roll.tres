@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="WeaponUpgrade" load_steps=2 format=3 uid="uid://d0uvvlqtrp254"]
+
+[ext_resource type="Script" path="res://Data/weapon_upgrade_data.gd" id="1_dgnxa"]
+
+[resource]
+script = ExtResource("1_dgnxa")
+damage = 0
+range = 0
+piercing = 0
+attackSpeedModifier = 0.0
+projectileCount = 0
+penetration = 0.0
+accuracyModifier = 0.0
+projectileSpeed = 0
+reloadSpeedModifier = 0.0
+totalAmmo = 0
+magazineCapacity = 0
+name = "Tactical Roll"
+ID = 8
+description = "Tactical repositioning."
+disabled = false

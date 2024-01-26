@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="UpgradeTree" load_steps=7 format=3 uid="uid://clc135g0tk74d"]
+
+[ext_resource type="Script" path="res://Data/upgrade_tree.gd" id="1_owj6r"]
+[ext_resource type="Resource" uid="uid://nivxe8cp1dac" path="res://Data/Upgrades/Weapon/9_Impact_Rounds.tres" id="2_5ljc8"]
+[ext_resource type="Resource" uid="uid://bgc1nfcdrhrh7" path="res://Data/Upgrades/Weapon/2_Hollow_Point.tres" id="2_7e3jd"]
+[ext_resource type="Resource" uid="uid://dd6yagy5skr5b" path="res://Data/Upgrades/Weapon/10_Adaptive_Stabilizer.tres" id="2_uxjfe"]
+[ext_resource type="Resource" uid="uid://d0uvvlqtrp254" path="res://Data/Upgrades/Weapon/8_Tactical_Roll.tres" id="2_wuoa2"]
+[ext_resource type="Resource" uid="uid://yfmeafrmwuri" path="res://Data/Upgrades/Weapon/7_Improved_Magazine.tres" id="3_f4v74"]
+
+[resource]
+script = ExtResource("1_owj6r")
+name = "Shock"
+ID = 0
+description = "Allows weapon to be more effective when being used while moving."
+tier_4 = [ExtResource("2_7e3jd"), ExtResource("3_f4v74")]
+tier_3 = [ExtResource("2_wuoa2")]
+tier_2 = [ExtResource("2_5ljc8"), ExtResource("2_7e3jd")]
+tier_1 = [ExtResource("2_uxjfe")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://cqm1wa5t73skr"]
+[gd_scene load_steps=54 format=3 uid="uid://cqm1wa5t73skr"]
 
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="1_68gml"]
 [ext_resource type="Script" path="res://Scripts/UserInterfaceManager.gd" id="2_cfvxg"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://bt2acio8mtfea" path="res://Art/temperature_icon.png" id="19_gf5eb"]
 [ext_resource type="Script" path="res://Scenes/RadialStatusUI.gd" id="22_bnhy5"]
 [ext_resource type="Script" path="res://Scenes/LevelupUI.gd" id="22_y5f1a"]
+[ext_resource type="Script" path="res://Scenes/WeaponUpgradeUI.gd" id="25_p70xv"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_f6pi5"]
 keycode = 49
@@ -147,6 +148,9 @@ _data = {
 [sub_resource type="ButtonGroup" id="ButtonGroup_7n5p2"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_see1r"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ood6a"]
+size = Vector2(50, 50)
 
 [node name="Canvas" type="CanvasLayer"]
 script = ExtResource("2_cfvxg")
@@ -1165,6 +1169,7 @@ EXP: 0000/0000"
 
 [node name="LevelupUI" type="Button" parent="."]
 process_priority = 10
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1262,6 +1267,226 @@ theme_override_font_sizes/font_size = 12
 text = "Description
 asdfasdfasdfwdsfafsadfasdq"
 autowrap_mode = 3
+
+[node name="WeaponUpgradeUI" type="Button" parent="."]
+process_priority = 10
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -342.0
+offset_top = -228.0
+offset_right = 355.0
+offset_bottom = 177.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+script = ExtResource("25_p70xv")
+
+[node name="Background" type="Panel" parent="WeaponUpgradeUI"]
+layout_mode = 0
+offset_right = 693.0
+offset_bottom = 406.0
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="WeaponUpgradeUI"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 135.0
+offset_bottom = 28.0
+text = "Weapon Upgrade"
+
+[node name="CloseButton" type="Button" parent="WeaponUpgradeUI"]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 4.0
+offset_right = 690.0
+offset_bottom = 35.0
+text = "Close"
+
+[node name="Tree_1" type="Control" parent="WeaponUpgradeUI"]
+anchors_preset = 0
+offset_left = 108.0
+offset_top = 81.0
+offset_right = 148.0
+offset_bottom = 121.0
+
+[node name="Label" type="Label" parent="WeaponUpgradeUI/Tree_1"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -3.0
+offset_right = 47.0
+offset_bottom = 20.0
+text = "tree 1"
+
+[node name="TextureButton" type="TextureButton" parent="WeaponUpgradeUI/Tree_1"]
+layout_mode = 0
+offset_left = -43.0
+offset_top = 43.0
+offset_right = -3.0
+offset_bottom = 83.0
+texture_normal = SubResource("PlaceholderTexture2D_ood6a")
+
+[node name="TextureButton2" type="TextureButton" parent="WeaponUpgradeUI/Tree_1"]
+offset_left = 30.0
+offset_top = 44.0
+offset_right = 80.0
+offset_bottom = 94.0
+texture_normal = SubResource("PlaceholderTexture2D_ood6a")
+
+[node name="TextureButton3" type="TextureButton" parent="WeaponUpgradeUI/Tree_1"]
+offset_left = -9.0
+offset_top = 111.0
+offset_right = 41.0
+offset_bottom = 161.0
+texture_normal = SubResource("PlaceholderTexture2D_ood6a")
+
+[node name="TextureButton4" type="TextureButton" parent="WeaponUpgradeUI/Tree_1"]
+offset_left = -44.0
+offset_top = 179.0
+offset_right = 6.0
+offset_bottom = 229.0
+texture_normal = SubResource("PlaceholderTexture2D_ood6a")
+
+[node name="TextureButton5" type="TextureButton" parent="WeaponUpgradeUI/Tree_1"]
+offset_left = 29.0
+offset_top = 180.0
+offset_right = 79.0
+offset_bottom = 230.0
+texture_normal = SubResource("PlaceholderTexture2D_ood6a")
+
+[node name="TextureButton6" type="TextureButton" parent="WeaponUpgradeUI/Tree_1"]
+offset_left = -9.0
+offset_top = 246.0
+offset_right = 41.0
+offset_bottom = 296.0
+texture_normal = SubResource("PlaceholderTexture2D_ood6a")
+
+[node name="Tree_2" type="Control" parent="WeaponUpgradeUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -29.5
+offset_top = 81.0
+offset_right = 10.5
+offset_bottom = 121.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="WeaponUpgradeUI/Tree_2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -3.0
+offset_right = 47.0
+offset_bottom = 20.0
+text = "tree 2"
+
+[node name="TextureButton" type="TextureButton" parent="WeaponUpgradeUI/Tree_2"]
+layout_mode = 0
+offset_left = -43.0
+offset_top = 43.0
+offset_right = -3.0
+offset_bottom = 83.0
+texture_normal = SubResource("PlaceholderTexture2D_ood6a")
+
+[node name="TextureButton2" type="TextureButton" parent="WeaponUpgradeUI/Tree_2"]
+offset_left = 30.0
+offset_top = 44.0
+offset_right = 80.0
+offset_bottom = 94.0
+texture_normal = SubResource("PlaceholderTexture2D_ood6a")
+
+[node name="TextureButton3" type="TextureButton" parent="WeaponUpgradeUI/Tree_2"]
+offset_left = -9.0
+offset_top = 111.0
+offset_right = 41.0
+offset_bottom = 161.0
+texture_normal = SubResource("PlaceholderTexture2D_ood6a")
+
+[node name="TextureButton4" type="TextureButton" parent="WeaponUpgradeUI/Tree_2"]
+offset_left = -44.0
+offset_top = 179.0
+offset_right = 6.0
+offset_bottom = 229.0
+texture_normal = SubResource("PlaceholderTexture2D_ood6a")
+
+[node name="TextureButton5" type="TextureButton" parent="WeaponUpgradeUI/Tree_2"]
+offset_left = 29.0
+offset_top = 180.0
+offset_right = 79.0
+offset_bottom = 230.0
+texture_normal = SubResource("PlaceholderTexture2D_ood6a")
+
+[node name="TextureButton6" type="TextureButton" parent="WeaponUpgradeUI/Tree_2"]
+offset_left = -9.0
+offset_top = 246.0
+offset_right = 41.0
+offset_bottom = 296.0
+texture_normal = SubResource("PlaceholderTexture2D_ood6a")
+
+[node name="Tree_3" type="Control" parent="WeaponUpgradeUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -155.0
+offset_top = 82.0
+offset_right = -115.0
+offset_bottom = 122.0
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="WeaponUpgradeUI/Tree_3"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -3.0
+offset_right = 47.0
+offset_bottom = 20.0
+text = "tree 3"
+
+[node name="TextureButton" type="TextureButton" parent="WeaponUpgradeUI/Tree_3"]
+layout_mode = 0
+offset_left = -43.0
+offset_top = 43.0
+offset_right = -3.0
+offset_bottom = 83.0
+texture_normal = SubResource("PlaceholderTexture2D_ood6a")
+
+[node name="TextureButton2" type="TextureButton" parent="WeaponUpgradeUI/Tree_3"]
+offset_left = 30.0
+offset_top = 44.0
+offset_right = 80.0
+offset_bottom = 94.0
+texture_normal = SubResource("PlaceholderTexture2D_ood6a")
+
+[node name="TextureButton3" type="TextureButton" parent="WeaponUpgradeUI/Tree_3"]
+offset_left = -9.0
+offset_top = 111.0
+offset_right = 41.0
+offset_bottom = 161.0
+texture_normal = SubResource("PlaceholderTexture2D_ood6a")
+
+[node name="TextureButton4" type="TextureButton" parent="WeaponUpgradeUI/Tree_3"]
+offset_left = -44.0
+offset_top = 179.0
+offset_right = 6.0
+offset_bottom = 229.0
+texture_normal = SubResource("PlaceholderTexture2D_ood6a")
+
+[node name="TextureButton5" type="TextureButton" parent="WeaponUpgradeUI/Tree_3"]
+offset_left = 29.0
+offset_top = 180.0
+offset_right = 79.0
+offset_bottom = 230.0
+texture_normal = SubResource("PlaceholderTexture2D_ood6a")
+
+[node name="TextureButton6" type="TextureButton" parent="WeaponUpgradeUI/Tree_3"]
+offset_left = -9.0
+offset_top = 246.0
+offset_right = 41.0
+offset_bottom = 296.0
+texture_normal = SubResource("PlaceholderTexture2D_ood6a")
 
 [node name="InventoryUI" type="Button" parent="."]
 visible = false
@@ -1750,6 +1975,8 @@ text = "Main Menu"
 [connection signal="pressed" from="LevelupUI/Option1" to="LevelupUI" method="_upgrade_option_selected" binds= [0]]
 [connection signal="pressed" from="LevelupUI/Option2" to="LevelupUI" method="_upgrade_option_selected" binds= [1]]
 [connection signal="pressed" from="LevelupUI/Option3" to="LevelupUI" method="_upgrade_option_selected" binds= [2]]
+[connection signal="button_down" from="WeaponUpgradeUI" to="WeaponUpgradeUI" method="_on_button_down"]
+[connection signal="button_up" from="WeaponUpgradeUI" to="WeaponUpgradeUI" method="_on_button_up"]
 [connection signal="button_down" from="InventoryUI" to="InventoryUI" method="_on_button_down"]
 [connection signal="button_up" from="InventoryUI" to="InventoryUI" method="_on_button_up"]
 [connection signal="pressed" from="GameOverScreen/RestartButton" to="." method="_on_restart_button_pressed"]
