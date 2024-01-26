@@ -2,6 +2,8 @@ extends Panel
 class_name WeaponUI
 
 @onready var ammoLabel = $AmmoCountLabel
+@onready var upgradeAvailableIndicator = $UpgradeAvailableIndicator
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -10,3 +12,5 @@ func _process(delta):
 		ammoLabel.text = str(Game.survivor.primarySlot.currentAmmo) + " / " + str(Game.survivor.primarySlot.data.magazineCapacity) + " (" + str(Game.survivor.primarySlot.totalAmmo) + ")"
 	else:
 		ammoLabel.visible = false
+		
+	# at least one upgrade available

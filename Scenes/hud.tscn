@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://cqm1wa5t73skr"]
+[gd_scene load_steps=52 format=3 uid="uid://cqm1wa5t73skr"]
 
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="1_68gml"]
 [ext_resource type="Script" path="res://Scripts/UserInterfaceManager.gd" id="2_cfvxg"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bexkhiplgn4sy" path="res://Art/crowbar_placeholder.png" id="4_bt76j"]
 [ext_resource type="Texture2D" uid="uid://ddgm7rgp5c517" path="res://Art/spaceship_image.png" id="5_c1t43"]
 [ext_resource type="Texture2D" uid="uid://c3rnfyrad7eem" path="res://Art/spaceship status icons/oxygen_icon_g.png" id="5_ek0cc"]
+[ext_resource type="Texture2D" uid="uid://c053pv22n4yys" path="res://Art/hollow_arrow.png" id="5_fpn8c"]
 [ext_resource type="Script" path="res://Scenes/SpaceshipStatusUI.gd" id="6_8d314"]
 [ext_resource type="Texture2D" uid="uid://budtyhboo41qt" path="res://Art/spaceship status icons/nuclear_icon_g.png" id="6_blnu8"]
 [ext_resource type="Script" path="res://Scripts/draggable_window.gd" id="6_nvp05"]
@@ -80,6 +81,44 @@ unicode = 69
 
 [sub_resource type="Shortcut" id="Shortcut_n1o74"]
 events = [SubResource("InputEventKey_ca4cy"), SubResource("InputEventKey_3xrmd")]
+
+[sub_resource type="Animation" id="Animation_xsx3i"]
+resource_name = "upgrade_available_animation"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5)]
+}
+
+[sub_resource type="Animation" id="Animation_xb4u4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ho4rh"]
+_data = {
+"RESET": SubResource("Animation_xb4u4"),
+"upgrade_available_animation": SubResource("Animation_xsx3i")
+}
 
 [sub_resource type="Animation" id="Animation_ahy6d"]
 resource_name = "spaceship_flame_animation"
@@ -417,17 +456,17 @@ offset_bottom = 748.0
 shortcut = SubResource("Shortcut_n1o74")
 text = "Interaction"
 
-[node name="PrimaryWeaponUI" type="Panel" parent="."]
+[node name="PrimaryWeaponUI" type="Button" parent="."]
 texture_filter = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -193.0
-offset_top = -92.0
-offset_right = -75.0
-offset_bottom = -11.0
+offset_left = -138.0
+offset_top = -95.0
+offset_right = -20.0
+offset_bottom = -14.0
 grow_horizontal = 0
 grow_vertical = 0
 script = ExtResource("3_n6v2u")
@@ -448,27 +487,40 @@ grow_vertical = 2
 texture = ExtResource("4_bt76j")
 expand_mode = 1
 
+[node name="Panel" type="Panel" parent="PrimaryWeaponUI"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = -32.0
+offset_right = 116.0
+offset_bottom = -3.0
+
 [node name="AmmoCountLabel" type="Label" parent="PrimaryWeaponUI"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 4.0
-offset_top = 1.0
-offset_right = 58.0
-offset_bottom = 29.0
+offset_left = -63.0
+offset_top = -32.0
+offset_right = -9.0
+offset_bottom = -4.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 20
 text = "00/00"
 
-[node name="UpgradeButton" type="Button" parent="PrimaryWeaponUI"]
-offset_left = 120.0
-offset_top = 52.0
-offset_right = 186.0
-offset_bottom = 80.0
-theme_override_font_sizes/font_size = 14
-text = "Upgrade"
+[node name="UpgradeAvailableIndicator" type="TextureRect" parent="PrimaryWeaponUI"]
+visible = false
+self_modulate = Color(1, 1, 0, 0.603922)
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 30.0
+texture = ExtResource("5_fpn8c")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PrimaryWeaponUI/UpgradeAvailableIndicator"]
+libraries = {
+"": SubResource("AnimationLibrary_ho4rh")
+}
 
 [node name="TravelProgressUI" type="Control" parent="."]
 layout_mode = 3

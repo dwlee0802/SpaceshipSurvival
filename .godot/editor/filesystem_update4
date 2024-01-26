@@ -8,3 +8,4 @@ res://Data/Status_Effect_Buffs/1_Starvation.tres
 res://Data/Status_Effect_Buffs/2_Sleep_Deprived.tres
 res://Data/Status_Effect_Buffs/3_Dehydrated.tres
 res://Data/Status_Effect_Buffs/4_Recently_Slept.tres
+res://Scenes/survivor.tscn
