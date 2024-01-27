@@ -178,6 +178,8 @@ var movingAccuracyModifier: float = 1
 
 var attackSpeed: float = 1
 
+var components: int = 1500
+
 
 func _ready():
 	super._ready()
@@ -907,6 +909,15 @@ func ApplySkillCooldown(skill: Skill):
 	elif skill == skillSlot_4:
 		skillCooldownTimer4.start(skill.cooldownTime)
 		skillReady_4 = false
+	
+	
+func ChangeComponents(amount) -> bool:
+	if components + amount >= 0:
+		components += amount
+		
+		return true
+	else:
+		return false
 	
 	
 func _to_string():

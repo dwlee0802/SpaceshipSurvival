@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://cqm1wa5t73skr"]
+[gd_scene load_steps=56 format=3 uid="uid://cqm1wa5t73skr"]
 
 [ext_resource type="Texture2D" uid="uid://8x1ll54gtflu" path="res://Art/single_white_pixel.png" id="1_68gml"]
 [ext_resource type="Script" path="res://Scripts/UserInterfaceManager.gd" id="2_cfvxg"]
@@ -33,6 +33,7 @@
 [ext_resource type="Script" path="res://Scenes/RadialStatusUI.gd" id="22_bnhy5"]
 [ext_resource type="Script" path="res://Scenes/LevelupUI.gd" id="22_y5f1a"]
 [ext_resource type="Script" path="res://Scenes/WeaponUpgradeUI.gd" id="25_p70xv"]
+[ext_resource type="Script" path="res://Scenes/UpgradeTreeNode.gd" id="26_jjcqi"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_f6pi5"]
 keycode = 49
@@ -151,6 +152,9 @@ _data = {
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ood6a"]
 size = Vector2(50, 50)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_r8h47"]
+size = Vector2(50, 20)
 
 [node name="Canvas" type="CanvasLayer"]
 script = ExtResource("2_cfvxg")
@@ -1306,14 +1310,14 @@ offset_right = 690.0
 offset_bottom = 35.0
 text = "Close"
 
-[node name="Tree_1" type="Control" parent="WeaponUpgradeUI"]
+[node name="Tree_0" type="Control" parent="WeaponUpgradeUI"]
 anchors_preset = 0
-offset_left = 108.0
-offset_top = 81.0
-offset_right = 148.0
-offset_bottom = 121.0
+offset_left = 110.0
+offset_top = 84.0
+offset_right = 150.0
+offset_bottom = 124.0
 
-[node name="Label" type="Label" parent="WeaponUpgradeUI/Tree_1"]
+[node name="Label" type="Label" parent="WeaponUpgradeUI/Tree_0"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = -3.0
@@ -1321,50 +1325,72 @@ offset_right = 47.0
 offset_bottom = 20.0
 text = "tree 1"
 
-[node name="TextureButton" type="TextureButton" parent="WeaponUpgradeUI/Tree_1"]
+[node name="TextureButton" type="TextureButton" parent="WeaponUpgradeUI/Tree_0"]
 layout_mode = 0
 offset_left = -43.0
 offset_top = 43.0
 offset_right = -3.0
 offset_bottom = 83.0
 texture_normal = SubResource("PlaceholderTexture2D_ood6a")
+texture_disabled = SubResource("PlaceholderTexture2D_r8h47")
+script = ExtResource("26_jjcqi")
 
-[node name="TextureButton2" type="TextureButton" parent="WeaponUpgradeUI/Tree_1"]
+[node name="TextureButton1" type="TextureButton" parent="WeaponUpgradeUI/Tree_0"]
+layout_mode = 0
 offset_left = 30.0
 offset_top = 44.0
 offset_right = 80.0
 offset_bottom = 94.0
 texture_normal = SubResource("PlaceholderTexture2D_ood6a")
+texture_disabled = SubResource("PlaceholderTexture2D_r8h47")
+script = ExtResource("26_jjcqi")
+node = 1
 
-[node name="TextureButton3" type="TextureButton" parent="WeaponUpgradeUI/Tree_1"]
+[node name="TextureButton2" type="TextureButton" parent="WeaponUpgradeUI/Tree_0"]
+layout_mode = 0
 offset_left = -9.0
 offset_top = 111.0
 offset_right = 41.0
 offset_bottom = 161.0
 texture_normal = SubResource("PlaceholderTexture2D_ood6a")
+texture_disabled = SubResource("PlaceholderTexture2D_r8h47")
+script = ExtResource("26_jjcqi")
+node = 2
 
-[node name="TextureButton4" type="TextureButton" parent="WeaponUpgradeUI/Tree_1"]
+[node name="TextureButton3" type="TextureButton" parent="WeaponUpgradeUI/Tree_0"]
+layout_mode = 0
 offset_left = -44.0
 offset_top = 179.0
 offset_right = 6.0
 offset_bottom = 229.0
 texture_normal = SubResource("PlaceholderTexture2D_ood6a")
+texture_disabled = SubResource("PlaceholderTexture2D_r8h47")
+script = ExtResource("26_jjcqi")
+node = 3
 
-[node name="TextureButton5" type="TextureButton" parent="WeaponUpgradeUI/Tree_1"]
+[node name="TextureButton4" type="TextureButton" parent="WeaponUpgradeUI/Tree_0"]
+layout_mode = 0
 offset_left = 29.0
 offset_top = 180.0
 offset_right = 79.0
 offset_bottom = 230.0
 texture_normal = SubResource("PlaceholderTexture2D_ood6a")
+texture_disabled = SubResource("PlaceholderTexture2D_r8h47")
+script = ExtResource("26_jjcqi")
+node = 4
 
-[node name="TextureButton6" type="TextureButton" parent="WeaponUpgradeUI/Tree_1"]
+[node name="TextureButton5" type="TextureButton" parent="WeaponUpgradeUI/Tree_0"]
+layout_mode = 0
 offset_left = -9.0
 offset_top = 246.0
 offset_right = 41.0
 offset_bottom = 296.0
 texture_normal = SubResource("PlaceholderTexture2D_ood6a")
+texture_disabled = SubResource("PlaceholderTexture2D_r8h47")
+script = ExtResource("26_jjcqi")
+node = 5
 
-[node name="Tree_2" type="Control" parent="WeaponUpgradeUI"]
+[node name="Tree_1" type="Control" parent="WeaponUpgradeUI"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -1375,7 +1401,7 @@ offset_right = 10.5
 offset_bottom = 121.0
 grow_horizontal = 2
 
-[node name="Label" type="Label" parent="WeaponUpgradeUI/Tree_2"]
+[node name="Label" type="Label" parent="WeaponUpgradeUI/Tree_1"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = -3.0
@@ -1383,7 +1409,7 @@ offset_right = 47.0
 offset_bottom = 20.0
 text = "tree 2"
 
-[node name="TextureButton" type="TextureButton" parent="WeaponUpgradeUI/Tree_2"]
+[node name="TextureButton" type="TextureButton" parent="WeaponUpgradeUI/Tree_1"]
 layout_mode = 0
 offset_left = -43.0
 offset_top = 43.0
@@ -1391,42 +1417,47 @@ offset_right = -3.0
 offset_bottom = 83.0
 texture_normal = SubResource("PlaceholderTexture2D_ood6a")
 
-[node name="TextureButton2" type="TextureButton" parent="WeaponUpgradeUI/Tree_2"]
+[node name="TextureButton2" type="TextureButton" parent="WeaponUpgradeUI/Tree_1"]
+layout_mode = 0
 offset_left = 30.0
 offset_top = 44.0
 offset_right = 80.0
 offset_bottom = 94.0
 texture_normal = SubResource("PlaceholderTexture2D_ood6a")
 
-[node name="TextureButton3" type="TextureButton" parent="WeaponUpgradeUI/Tree_2"]
+[node name="TextureButton3" type="TextureButton" parent="WeaponUpgradeUI/Tree_1"]
+layout_mode = 0
 offset_left = -9.0
 offset_top = 111.0
 offset_right = 41.0
 offset_bottom = 161.0
 texture_normal = SubResource("PlaceholderTexture2D_ood6a")
 
-[node name="TextureButton4" type="TextureButton" parent="WeaponUpgradeUI/Tree_2"]
+[node name="TextureButton4" type="TextureButton" parent="WeaponUpgradeUI/Tree_1"]
+layout_mode = 0
 offset_left = -44.0
 offset_top = 179.0
 offset_right = 6.0
 offset_bottom = 229.0
 texture_normal = SubResource("PlaceholderTexture2D_ood6a")
 
-[node name="TextureButton5" type="TextureButton" parent="WeaponUpgradeUI/Tree_2"]
+[node name="TextureButton5" type="TextureButton" parent="WeaponUpgradeUI/Tree_1"]
+layout_mode = 0
 offset_left = 29.0
 offset_top = 180.0
 offset_right = 79.0
 offset_bottom = 230.0
 texture_normal = SubResource("PlaceholderTexture2D_ood6a")
 
-[node name="TextureButton6" type="TextureButton" parent="WeaponUpgradeUI/Tree_2"]
+[node name="TextureButton6" type="TextureButton" parent="WeaponUpgradeUI/Tree_1"]
+layout_mode = 0
 offset_left = -9.0
 offset_top = 246.0
 offset_right = 41.0
 offset_bottom = 296.0
 texture_normal = SubResource("PlaceholderTexture2D_ood6a")
 
-[node name="Tree_3" type="Control" parent="WeaponUpgradeUI"]
+[node name="Tree_2" type="Control" parent="WeaponUpgradeUI"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -1437,7 +1468,7 @@ offset_right = -115.0
 offset_bottom = 122.0
 grow_horizontal = 0
 
-[node name="Label" type="Label" parent="WeaponUpgradeUI/Tree_3"]
+[node name="Label" type="Label" parent="WeaponUpgradeUI/Tree_2"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = -3.0
@@ -1445,7 +1476,7 @@ offset_right = 47.0
 offset_bottom = 20.0
 text = "tree 3"
 
-[node name="TextureButton" type="TextureButton" parent="WeaponUpgradeUI/Tree_3"]
+[node name="TextureButton" type="TextureButton" parent="WeaponUpgradeUI/Tree_2"]
 layout_mode = 0
 offset_left = -43.0
 offset_top = 43.0
@@ -1453,35 +1484,40 @@ offset_right = -3.0
 offset_bottom = 83.0
 texture_normal = SubResource("PlaceholderTexture2D_ood6a")
 
-[node name="TextureButton2" type="TextureButton" parent="WeaponUpgradeUI/Tree_3"]
+[node name="TextureButton2" type="TextureButton" parent="WeaponUpgradeUI/Tree_2"]
+layout_mode = 0
 offset_left = 30.0
 offset_top = 44.0
 offset_right = 80.0
 offset_bottom = 94.0
 texture_normal = SubResource("PlaceholderTexture2D_ood6a")
 
-[node name="TextureButton3" type="TextureButton" parent="WeaponUpgradeUI/Tree_3"]
+[node name="TextureButton3" type="TextureButton" parent="WeaponUpgradeUI/Tree_2"]
+layout_mode = 0
 offset_left = -9.0
 offset_top = 111.0
 offset_right = 41.0
 offset_bottom = 161.0
 texture_normal = SubResource("PlaceholderTexture2D_ood6a")
 
-[node name="TextureButton4" type="TextureButton" parent="WeaponUpgradeUI/Tree_3"]
+[node name="TextureButton4" type="TextureButton" parent="WeaponUpgradeUI/Tree_2"]
+layout_mode = 0
 offset_left = -44.0
 offset_top = 179.0
 offset_right = 6.0
 offset_bottom = 229.0
 texture_normal = SubResource("PlaceholderTexture2D_ood6a")
 
-[node name="TextureButton5" type="TextureButton" parent="WeaponUpgradeUI/Tree_3"]
+[node name="TextureButton5" type="TextureButton" parent="WeaponUpgradeUI/Tree_2"]
+layout_mode = 0
 offset_left = 29.0
 offset_top = 180.0
 offset_right = 79.0
 offset_bottom = 230.0
 texture_normal = SubResource("PlaceholderTexture2D_ood6a")
 
-[node name="TextureButton6" type="TextureButton" parent="WeaponUpgradeUI/Tree_3"]
+[node name="TextureButton6" type="TextureButton" parent="WeaponUpgradeUI/Tree_2"]
+layout_mode = 0
 offset_left = -9.0
 offset_top = 246.0
 offset_right = 41.0

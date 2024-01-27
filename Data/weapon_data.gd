@@ -14,6 +14,9 @@ class_name Weapon
 @export var upgradeBaseCost: int = 100
 
 # upgrade tress
+@export var upgradeTree_0: UpgradeTree
+var upgradeTree_0_selected = [false, false, false, false, false, false]
 @export var upgradeTree_1: UpgradeTree
+var upgradeTree_1_selected = [false, false, false, false, false, false]
 @export var upgradeTree_2: UpgradeTree
-@export var upgradeTree_3: UpgradeTree
+var upgradeTree_2_selected = [false, false, false, false, false, false]

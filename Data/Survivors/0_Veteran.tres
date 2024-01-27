@@ -2,10 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://bphgupljd61uk" path="res://Art/ump45_temp_sprite.png" id="1_cndn7"]
 [ext_resource type="Script" path="res://Data/survivor_data.gd" id="1_mp5xf"]
-[ext_resource type="Resource" uid="uid://i7dglcx22nnc" path="res://Data/1_Ranged/0_Handgun.tres" id="3_6qb6f"]
+[ext_resource type="Resource" uid="uid://ba3pvdqw5wfbu" path="res://Data/1_Ranged/1_Submachine_Gun.tres" id="3_n5c7v"]
 
 [resource]
-resource_local_to_scene = true
 script = ExtResource("1_mp5xf")
 name = "Veteran"
 profileTexture = ExtResource("1_cndn7")
@@ -14,4 +13,11 @@ speed = 300.0
 accuracy = 0.0
 strength = 0.0
 maxHealth = 250.0
-startingPrimary = ExtResource("3_6qb6f")
+defense = 0.0
+radiationDefense = 0.0
+luck = 0
+maxOxygen = 100
+maxNutrition = 100
+maxSleep = 100
+maxWater = 100
+startingPrimary = ExtResource("3_n5c7v")

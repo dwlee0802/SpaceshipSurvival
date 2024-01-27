@@ -7,8 +7,5 @@ class_name UpgradeTree
 @export var texture: Texture2D
 
 # upgrade nodes
-@export var tier_4 = []
-@export var tier_3 = []
-@export var tier_2 = []
-@export var tier_1 = []
-
+# nodes are ordered top left to bottom right
+@export var upgradeNodes = []

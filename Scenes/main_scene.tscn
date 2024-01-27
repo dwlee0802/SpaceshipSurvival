@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://bub7ow8c286kq"]
+[gd_scene load_steps=72 format=3 uid="uid://bub7ow8c286kq"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_gh626"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="2_42p05"]
@@ -42,11 +42,11 @@
 [ext_resource type="Script" path="res://Scripts/InputManager.gd" id="35_qx4ch"]
 [ext_resource type="PackedScene" uid="uid://crk54pclkvhi" path="res://Scenes/survivor.tscn" id="36_62t7b"]
 [ext_resource type="Resource" uid="uid://bnncpbvnspnx5" path="res://Data/Skills/0_Adrenalin_Rush.tres" id="38_dk2qq"]
+[ext_resource type="Script" path="res://Scenes/WeaponUpgradeUI.gd" id="38_njmww"]
+[ext_resource type="Script" path="res://Scenes/UpgradeTreeNode.gd" id="39_e5pho"]
 [ext_resource type="Resource" uid="uid://dj20wnavxfafh" path="res://Data/Skills/2_Lob_Grenade.tres" id="39_ujnlw"]
 [ext_resource type="Resource" uid="uid://wcnoearsoegm" path="res://Data/Skills/5_Defensive_Stance.tres" id="40_w8hr6"]
-[ext_resource type="Texture2D" uid="uid://bphgupljd61uk" path="res://Art/ump45_temp_sprite.png" id="42_lmn3d"]
-[ext_resource type="Script" path="res://Data/survivor_data.gd" id="43_ylt7f"]
-[ext_resource type="Resource" uid="uid://i7dglcx22nnc" path="res://Data/1_Ranged/0_Handgun.tres" id="44_xfe51"]
+[ext_resource type="Resource" uid="uid://d51whjtkivtv" path="res://Data/Survivors/0_Veteran.tres" id="44_wfnh1"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_f6pi5"]
 keycode = 49
@@ -144,27 +144,14 @@ _data = {
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_t3pin"]
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2bnf2"]
+size = Vector2(50, 50)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mm72t"]
+size = Vector2(50, 20)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vbgc8"]
 size = Vector2(100, 100)
-
-[sub_resource type="Resource" id="Resource_ux6ew"]
-resource_local_to_scene = true
-script = ExtResource("43_ylt7f")
-name = "Veteran"
-profileTexture = ExtResource("42_lmn3d")
-spriteTexture = ExtResource("42_lmn3d")
-speed = 300.0
-accuracy = 0.0
-strength = 0.0
-maxHealth = 250.0
-defense = 0.0
-radiationDefense = 0.0
-luck = 0
-maxOxygen = 100
-maxNutrition = 100
-maxSleep = 100
-maxWater = 100
-startingPrimary = ExtResource("44_xfe51")
 
 [node name="ShowcaseGame" type="Node2D"]
 script = ExtResource("1_gh626")
@@ -1800,6 +1787,258 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Main Menu"
 
+[node name="WeaponUpgradeUI" type="Button" parent="Camera/Canvas"]
+process_priority = 10
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -342.0
+offset_top = -228.0
+offset_right = 355.0
+offset_bottom = 177.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+script = ExtResource("38_njmww")
+
+[node name="Background" type="Panel" parent="Camera/Canvas/WeaponUpgradeUI"]
+layout_mode = 0
+offset_right = 693.0
+offset_bottom = 406.0
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="Camera/Canvas/WeaponUpgradeUI"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 135.0
+offset_bottom = 28.0
+text = "Weapon Upgrade"
+
+[node name="CloseButton" type="Button" parent="Camera/Canvas/WeaponUpgradeUI"]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 4.0
+offset_right = 690.0
+offset_bottom = 35.0
+text = "Close"
+
+[node name="Tree_0" type="Control" parent="Camera/Canvas/WeaponUpgradeUI"]
+anchors_preset = 0
+offset_left = 110.0
+offset_top = 84.0
+offset_right = 150.0
+offset_bottom = 124.0
+
+[node name="Label" type="Label" parent="Camera/Canvas/WeaponUpgradeUI/Tree_0"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -3.0
+offset_right = 47.0
+offset_bottom = 20.0
+text = "tree 1"
+
+[node name="TextureButton" type="TextureButton" parent="Camera/Canvas/WeaponUpgradeUI/Tree_0"]
+layout_mode = 0
+offset_left = -43.0
+offset_top = 43.0
+offset_right = -3.0
+offset_bottom = 83.0
+texture_normal = SubResource("PlaceholderTexture2D_2bnf2")
+texture_disabled = SubResource("PlaceholderTexture2D_mm72t")
+script = ExtResource("39_e5pho")
+
+[node name="TextureButton1" type="TextureButton" parent="Camera/Canvas/WeaponUpgradeUI/Tree_0"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 44.0
+offset_right = 80.0
+offset_bottom = 94.0
+texture_normal = SubResource("PlaceholderTexture2D_2bnf2")
+texture_disabled = SubResource("PlaceholderTexture2D_mm72t")
+script = ExtResource("39_e5pho")
+node = 1
+
+[node name="TextureButton2" type="TextureButton" parent="Camera/Canvas/WeaponUpgradeUI/Tree_0"]
+layout_mode = 0
+offset_left = -9.0
+offset_top = 111.0
+offset_right = 41.0
+offset_bottom = 161.0
+texture_normal = SubResource("PlaceholderTexture2D_2bnf2")
+texture_disabled = SubResource("PlaceholderTexture2D_mm72t")
+script = ExtResource("39_e5pho")
+node = 2
+
+[node name="TextureButton3" type="TextureButton" parent="Camera/Canvas/WeaponUpgradeUI/Tree_0"]
+layout_mode = 0
+offset_left = -44.0
+offset_top = 179.0
+offset_right = 6.0
+offset_bottom = 229.0
+texture_normal = SubResource("PlaceholderTexture2D_2bnf2")
+texture_disabled = SubResource("PlaceholderTexture2D_mm72t")
+script = ExtResource("39_e5pho")
+node = 3
+
+[node name="TextureButton4" type="TextureButton" parent="Camera/Canvas/WeaponUpgradeUI/Tree_0"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 180.0
+offset_right = 79.0
+offset_bottom = 230.0
+texture_normal = SubResource("PlaceholderTexture2D_2bnf2")
+texture_disabled = SubResource("PlaceholderTexture2D_mm72t")
+script = ExtResource("39_e5pho")
+node = 4
+
+[node name="TextureButton5" type="TextureButton" parent="Camera/Canvas/WeaponUpgradeUI/Tree_0"]
+layout_mode = 0
+offset_left = -9.0
+offset_top = 246.0
+offset_right = 41.0
+offset_bottom = 296.0
+texture_normal = SubResource("PlaceholderTexture2D_2bnf2")
+texture_disabled = SubResource("PlaceholderTexture2D_mm72t")
+script = ExtResource("39_e5pho")
+node = 5
+
+[node name="Tree_1" type="Control" parent="Camera/Canvas/WeaponUpgradeUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -29.5
+offset_top = 81.0
+offset_right = 10.5
+offset_bottom = 121.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Camera/Canvas/WeaponUpgradeUI/Tree_1"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -3.0
+offset_right = 47.0
+offset_bottom = 20.0
+text = "tree 2"
+
+[node name="TextureButton" type="TextureButton" parent="Camera/Canvas/WeaponUpgradeUI/Tree_1"]
+layout_mode = 0
+offset_left = -43.0
+offset_top = 43.0
+offset_right = -3.0
+offset_bottom = 83.0
+texture_normal = SubResource("PlaceholderTexture2D_2bnf2")
+
+[node name="TextureButton2" type="TextureButton" parent="Camera/Canvas/WeaponUpgradeUI/Tree_1"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 44.0
+offset_right = 80.0
+offset_bottom = 94.0
+texture_normal = SubResource("PlaceholderTexture2D_2bnf2")
+
+[node name="TextureButton3" type="TextureButton" parent="Camera/Canvas/WeaponUpgradeUI/Tree_1"]
+layout_mode = 0
+offset_left = -9.0
+offset_top = 111.0
+offset_right = 41.0
+offset_bottom = 161.0
+texture_normal = SubResource("PlaceholderTexture2D_2bnf2")
+
+[node name="TextureButton4" type="TextureButton" parent="Camera/Canvas/WeaponUpgradeUI/Tree_1"]
+layout_mode = 0
+offset_left = -44.0
+offset_top = 179.0
+offset_right = 6.0
+offset_bottom = 229.0
+texture_normal = SubResource("PlaceholderTexture2D_2bnf2")
+
+[node name="TextureButton5" type="TextureButton" parent="Camera/Canvas/WeaponUpgradeUI/Tree_1"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 180.0
+offset_right = 79.0
+offset_bottom = 230.0
+texture_normal = SubResource("PlaceholderTexture2D_2bnf2")
+
+[node name="TextureButton6" type="TextureButton" parent="Camera/Canvas/WeaponUpgradeUI/Tree_1"]
+layout_mode = 0
+offset_left = -9.0
+offset_top = 246.0
+offset_right = 41.0
+offset_bottom = 296.0
+texture_normal = SubResource("PlaceholderTexture2D_2bnf2")
+
+[node name="Tree_2" type="Control" parent="Camera/Canvas/WeaponUpgradeUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -155.0
+offset_top = 82.0
+offset_right = -115.0
+offset_bottom = 122.0
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="Camera/Canvas/WeaponUpgradeUI/Tree_2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -3.0
+offset_right = 47.0
+offset_bottom = 20.0
+text = "tree 3"
+
+[node name="TextureButton" type="TextureButton" parent="Camera/Canvas/WeaponUpgradeUI/Tree_2"]
+layout_mode = 0
+offset_left = -43.0
+offset_top = 43.0
+offset_right = -3.0
+offset_bottom = 83.0
+texture_normal = SubResource("PlaceholderTexture2D_2bnf2")
+
+[node name="TextureButton2" type="TextureButton" parent="Camera/Canvas/WeaponUpgradeUI/Tree_2"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 44.0
+offset_right = 80.0
+offset_bottom = 94.0
+texture_normal = SubResource("PlaceholderTexture2D_2bnf2")
+
+[node name="TextureButton3" type="TextureButton" parent="Camera/Canvas/WeaponUpgradeUI/Tree_2"]
+layout_mode = 0
+offset_left = -9.0
+offset_top = 111.0
+offset_right = 41.0
+offset_bottom = 161.0
+texture_normal = SubResource("PlaceholderTexture2D_2bnf2")
+
+[node name="TextureButton4" type="TextureButton" parent="Camera/Canvas/WeaponUpgradeUI/Tree_2"]
+layout_mode = 0
+offset_left = -44.0
+offset_top = 179.0
+offset_right = 6.0
+offset_bottom = 229.0
+texture_normal = SubResource("PlaceholderTexture2D_2bnf2")
+
+[node name="TextureButton5" type="TextureButton" parent="Camera/Canvas/WeaponUpgradeUI/Tree_2"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 180.0
+offset_right = 79.0
+offset_bottom = 230.0
+texture_normal = SubResource("PlaceholderTexture2D_2bnf2")
+
+[node name="TextureButton6" type="TextureButton" parent="Camera/Canvas/WeaponUpgradeUI/Tree_2"]
+layout_mode = 0
+offset_left = -9.0
+offset_top = 246.0
+offset_right = 41.0
+offset_bottom = 296.0
+texture_normal = SubResource("PlaceholderTexture2D_2bnf2")
+
 [node name="Spaceship" parent="." instance=ExtResource("35_fp47c")]
 
 [node name="DataManager" type="Node" parent="."]
@@ -1822,7 +2061,7 @@ shape = SubResource("RectangleShape2D_vbgc8")
 
 [node name="Survivor" parent="." instance=ExtResource("36_62t7b")]
 position = Vector2(-139, 266)
-survivorData = SubResource("Resource_ux6ew")
+survivorData = ExtResource("44_wfnh1")
 skillSlot_1 = ExtResource("38_dk2qq")
 skillSlot_2 = ExtResource("39_ujnlw")
 skillSlot_3 = ExtResource("40_w8hr6")
@@ -1859,3 +2098,5 @@ speed = 250
 [connection signal="button_up" from="Camera/Canvas/InventoryUI" to="Camera/Canvas/InventoryUI" method="_on_button_up"]
 [connection signal="pressed" from="Camera/Canvas/InventoryUI/Closebutton" to="InputManager" method="_on_inventory_closebutton_pressed"]
 [connection signal="pressed" from="Camera/Canvas/GameOverScreen/RestartButton" to="Camera/Canvas" method="_on_restart_button_pressed"]
+[connection signal="button_down" from="Camera/Canvas/WeaponUpgradeUI" to="Camera/Canvas/WeaponUpgradeUI" method="_on_button_down"]
+[connection signal="button_up" from="Camera/Canvas/WeaponUpgradeUI" to="Camera/Canvas/WeaponUpgradeUI" method="_on_button_up"]
