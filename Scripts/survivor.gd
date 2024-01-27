@@ -932,7 +932,7 @@ func ApplySkillCooldown(skill: Skill):
 func ChangeComponents(amount) -> bool:
 	if components + amount >= 0:
 		components += amount
-		
+		UserInterfaceManager.weaponUpgradeUI.UpdateUI()
 		return true
 	else:
 		return false
