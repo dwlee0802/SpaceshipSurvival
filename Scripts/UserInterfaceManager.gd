@@ -83,6 +83,8 @@ static var buffIconScene = load("res://Scenes/buff_icon.tscn")
 
 static var gameOverScreen
 
+static var weaponUpgradeUI
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -119,6 +121,7 @@ func _ready():
 	nutritionBar = $RadialStatusUI/NutritionBar
 	buffIconUI = $UnitUI/BuffIconContainer
 	gameOverScreen = $GameOverScreen
+	weaponUpgradeUI = $WeaponUpgradeUI
 	
 	skillButtons = unitUI.get_node("SkillButtons")
 	skillButton_1 = skillButtons.get_node("SkillButton1")

@@ -178,7 +178,7 @@ var movingAccuracyModifier: float = 1
 
 var attackSpeed: float = 1
 
-var components: int = 1500
+var components: int = 50
 
 
 func _ready():
@@ -573,7 +573,7 @@ func UpdateStats(delta = 0):
 	var primary = Item.new(0,0)
 	if primarySlot != null:
 		primary = primarySlot
-		
+	
 	# set stats to base stat
 	maxHealth = survivorData.maxHealth
 	speed = survivorData.speed

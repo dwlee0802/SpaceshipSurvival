@@ -1,4 +1,4 @@
-extends Panel
+extends Button
 class_name WeaponUI
 
 @onready var ammoLabel = $AmmoCountLabel
@@ -14,3 +14,14 @@ func _process(delta):
 		ammoLabel.visible = false
 		
 	# at least one upgrade available
+	upgradeAvailableIndicator.visible = WeaponUpgradeUI.upgradeAvailable
+
+
+
+func _pressed():
+	if UserInterfaceManager.weaponUpgradeUI.visible == true:
+		UserInterfaceManager.weaponUpgradeUI.visible = false
+	else:
+		# open ui menu	
+		UserInterfaceManager.weaponUpgradeUI.visible = true
+		UserInterfaceManager.weaponUpgradeUI.UpdateUI()

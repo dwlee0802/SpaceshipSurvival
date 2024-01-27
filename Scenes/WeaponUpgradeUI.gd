@@ -10,6 +10,8 @@ var tree_2_nodes = []
 
 var initialized: bool = false
 
+static var upgradeAvailable: bool = false
+
 
 # make references to the nodes in the tree
 func _ready():
@@ -38,6 +40,11 @@ func UpdateUI():
 	var currentWeaponUpgrades
 	
 	# update tree 0 if it exists
+	tree_0.visible = true
+	tree_1.visible = true
+	tree_2.visible = true
+	upgradeAvailable = false
+	
 	if currentWeapon is Weapon:
 		if currentWeapon.upgradeTree_0 != null:
 			for i in range(len(tree_0_nodes)):
@@ -56,37 +63,45 @@ func UpdateUI():
 				if i == 0 or i == 1:
 					if Game.survivor.components >= currentWeapon.upgradeBaseCost:
 						tree_0_nodes[i].disabled = false
+						upgradeAvailable = true
 				
 				if i == 2:
 					tree_0_nodes[i].componentCost = currentWeapon.upgradeBaseCost * 1.5
 					if Game.survivor.components >= tree_0_nodes[i].componentCost:
 						if currentWeapon.upgradeTree_0_selected[0] or  currentWeapon.upgradeTree_0_selected[1]:
 							tree_0_nodes[i].disabled = false
+							upgradeAvailable = true
 						
 				if i == 3 or i == 4:
 					tree_0_nodes[i].componentCost = currentWeapon.upgradeBaseCost * 2
 					if Game.survivor.components >= currentWeapon.upgradeBaseCost * 2:
 						if currentWeapon.upgradeTree_0_selected[2]:
 							tree_0_nodes[i].disabled = false
+							upgradeAvailable = true
 						
 				if i == 5:
 					tree_0_nodes[i].componentCost = currentWeapon.upgradeBaseCost * 2.5
 					if Game.survivor.components >= currentWeapon.upgradeBaseCost * 2.5:
 						if currentWeapon.upgradeTree_0_selected[3] or currentWeapon.upgradeTree_0_selected[4]:
 							tree_0_nodes[i].disabled = false
-				
+							upgradeAvailable = true
+		else:
+			tree_0.visible = false
 					
 		if currentWeapon.upgradeTree_1 != null:
 			for i in range(len(tree_1_nodes)):
 				#tree_0_nodes[i].texture_normal = currentWeapon.upgradeTree_0.upgradeNodes[i].texture
 				tree_1_nodes[i].tooltip_text = str(currentWeapon.upgradeTree_1.upgradeNodes[i])
 				tree_1_nodes[i].disabled = true
+		else:
+			tree_1.visible = false
 		if currentWeapon.upgradeTree_2 != null:
 			for i in range(len(tree_2_nodes)):
 				#tree_0_nodes[i].texture_normal = currentWeapon.upgradeTree_0.upgradeNodes[i].texture
 				tree_2_nodes[i].tooltip_text = str(currentWeapon.upgradeTree_2.upgradeNodes[i])
 				tree_2_nodes[i].disabled = true
-				
+		else:
+			tree_2.visible = false
 	
 
 func UpgradeSelected(tree, num):
@@ -95,3 +110,7 @@ func UpgradeSelected(tree, num):
 	if tree == 0:
 		currentWeapon.upgradeTree_0_selected[num] = true
 	UpdateUI()
+
+
+func _on_close_button_pressed():
+	visible = false

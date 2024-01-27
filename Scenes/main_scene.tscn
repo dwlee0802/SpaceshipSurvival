@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://bub7ow8c286kq"]
+[gd_scene load_steps=76 format=3 uid="uid://bub7ow8c286kq"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_gh626"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="2_42p05"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Scenes/ExperienceBar.gd" id="7_g4kuf"]
 [ext_resource type="Script" path="res://Scenes/PrimaryWeaponUI.gd" id="8_8gkk3"]
 [ext_resource type="Texture2D" uid="uid://bexkhiplgn4sy" path="res://Art/crowbar_placeholder.png" id="9_rlg1c"]
+[ext_resource type="Texture2D" uid="uid://c053pv22n4yys" path="res://Art/hollow_arrow.png" id="10_6rmol"]
 [ext_resource type="Texture2D" uid="uid://2j00antvhw4x" path="res://Art/circle-256.png" id="10_ml6g8"]
 [ext_resource type="Script" path="res://Scenes/SpaceshipStatusUI.gd" id="11_0374k"]
 [ext_resource type="Texture2D" uid="uid://c5r8dyndrq0q1" path="res://Art/spaceship status icons/oxygen_icon_r.png" id="12_iae3l"]
@@ -114,6 +115,45 @@ unicode = 69
 
 [sub_resource type="Shortcut" id="Shortcut_n1o74"]
 events = [SubResource("InputEventKey_ca4cy"), SubResource("InputEventKey_3xrmd")]
+
+[sub_resource type="Animation" id="Animation_xb4u4"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xsx3i"]
+resource_name = "upgrade_available_animation"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ho4rh"]
+_data = {
+"RESET": SubResource("Animation_xb4u4"),
+"upgrade_available_animation": SubResource("Animation_xsx3i")
+}
 
 [sub_resource type="Animation" id="Animation_ahy6d"]
 resource_name = "spaceship_flame_animation"
@@ -470,7 +510,7 @@ offset_bottom = 150.0
 shortcut = SubResource("Shortcut_n1o74")
 text = "Interaction"
 
-[node name="PrimaryWeaponUI" type="Panel" parent="Camera/Canvas"]
+[node name="PrimaryWeaponUI" type="Button" parent="Camera/Canvas"]
 texture_filter = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -515,6 +555,27 @@ offset_bottom = -1.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 20
 text = "00/00"
+
+[node name="Panel" type="Panel" parent="Camera/Canvas/PrimaryWeaponUI"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = -32.0
+offset_right = 116.0
+offset_bottom = -3.0
+
+[node name="UpgradeAvailableIndicator" type="TextureRect" parent="Camera/Canvas/PrimaryWeaponUI"]
+self_modulate = Color(1, 1, 0, 0.603922)
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 30.0
+texture = ExtResource("10_6rmol")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera/Canvas/PrimaryWeaponUI/UpgradeAvailableIndicator"]
+libraries = {
+"": SubResource("AnimationLibrary_ho4rh")
+}
+autoplay = "upgrade_available_animation"
 
 [node name="TravelProgressUI" type="Control" parent="Camera/Canvas"]
 layout_mode = 3
@@ -2100,3 +2161,4 @@ speed = 250
 [connection signal="pressed" from="Camera/Canvas/GameOverScreen/RestartButton" to="Camera/Canvas" method="_on_restart_button_pressed"]
 [connection signal="button_down" from="Camera/Canvas/WeaponUpgradeUI" to="Camera/Canvas/WeaponUpgradeUI" method="_on_button_down"]
 [connection signal="button_up" from="Camera/Canvas/WeaponUpgradeUI" to="Camera/Canvas/WeaponUpgradeUI" method="_on_button_up"]
+[connection signal="pressed" from="Camera/Canvas/WeaponUpgradeUI/CloseButton" to="Camera/Canvas/WeaponUpgradeUI" method="_on_close_button_pressed"]
