@@ -178,7 +178,7 @@ var movingAccuracyModifier: float = 1
 
 var attackSpeed: float = 1
 
-var components: int = 50
+var components: int = 150
 
 
 func _ready():
@@ -194,7 +194,7 @@ func _ready():
 	
 	# start with full health
 	health = maxHealth
-	
+
 
 # modifies starting stats based on the chosen survivor
 func LoadSurvivorData():
@@ -573,6 +573,23 @@ func UpdateStats(delta = 0):
 	var primary = Item.new(0,0)
 	if primarySlot != null:
 		primary = primarySlot
+	
+	# apply weapon upgrades
+	var upgradesToAdd = []
+	if primary.data.upgradeTree_0 != null: 
+		for i in range(len(primary.data.upgradeTree_0.upgradeNodes)):
+			if primary.data.upgradeTree_0_selected[i]:
+				upgradesToAdd.append(primary.data.upgradeTree_0.upgradeNodes[i])
+	if primary.data.upgradeTree_1 != null:
+		for i in range(len(primary.data.upgradeTree_1.upgradeNodes)):
+			if primary.data.upgradeTree_1_selected[i]:
+				upgradesToAdd.append(primary.data.upgradeTree_1.upgradeNodes[i])
+	if primary.data.upgradeTree_2 != null:
+		for i in range(len(primary.data.upgradeTree_2.upgradeNodes)):
+			if primary.data.upgradeTree_2_selected[i]:
+				upgradesToAdd.append(primary.data.upgradeTree_2.upgradeNodes[i])
+			
+	#print("total upgrades to apply: " + str(len(upgradesToAdd)))
 	
 	# set stats to base stat
 	maxHealth = survivorData.maxHealth

@@ -54,9 +54,11 @@ func UpdateUI():
 				
 				if currentWeapon.upgradeTree_0_selected[i]:
 					tree_0_nodes[i].disabled = true
+					tree_0_nodes[i].self_modulate = Color.YELLOW
 					continue
 					
 				tree_0_nodes[i].disabled = true
+				tree_0_nodes[i].self_modulate = Color.DIM_GRAY
 				
 				# enable nodes
 				# enable if has enough components to select it
@@ -64,6 +66,7 @@ func UpdateUI():
 				if i == 0 or i == 1:
 					if Game.survivor.components >= currentWeapon.upgradeBaseCost:
 						tree_0_nodes[i].disabled = false
+						tree_0_nodes[i].self_modulate = Color.WHITE
 						upgradeAvailable = true
 				
 				if i == 2:
@@ -71,6 +74,7 @@ func UpdateUI():
 					if Game.survivor.components >= tree_0_nodes[i].componentCost:
 						if currentWeapon.upgradeTree_0_selected[0] or  currentWeapon.upgradeTree_0_selected[1]:
 							tree_0_nodes[i].disabled = false
+							tree_0_nodes[i].self_modulate = Color.WHITE
 							upgradeAvailable = true
 						
 				if i == 3 or i == 4:
@@ -78,6 +82,7 @@ func UpdateUI():
 					if Game.survivor.components >= currentWeapon.upgradeBaseCost * 2:
 						if currentWeapon.upgradeTree_0_selected[2]:
 							tree_0_nodes[i].disabled = false
+							tree_0_nodes[i].self_modulate = Color.WHITE
 							upgradeAvailable = true
 						
 				if i == 5:
@@ -85,6 +90,7 @@ func UpdateUI():
 					if Game.survivor.components >= currentWeapon.upgradeBaseCost * 2.5:
 						if currentWeapon.upgradeTree_0_selected[3] or currentWeapon.upgradeTree_0_selected[4]:
 							tree_0_nodes[i].disabled = false
+							tree_0_nodes[i].self_modulate = Color.WHITE
 							upgradeAvailable = true
 		else:
 			tree_0.visible = false
