@@ -64,6 +64,7 @@ func UpdateUI():
 				# enable if has enough components to select it
 				# and previous node is selected
 				if i == 0 or i == 1:
+					tree_0_nodes[i].componentCost = currentWeapon.upgradeBaseCost
 					if Game.survivor.components >= currentWeapon.upgradeBaseCost:
 						tree_0_nodes[i].disabled = false
 						tree_0_nodes[i].self_modulate = Color.WHITE
@@ -116,6 +117,8 @@ func UpgradeSelected(tree, num):
 	print("upgrade tree " + str(tree) + "'s " + str(num) + " node selected")
 	if tree == 0:
 		currentWeapon.upgradeTree_0_selected[num] = true
+		Game.survivor.components -= tree_0_nodes[num].componentCost
+		
 	UpdateUI()
 
 
