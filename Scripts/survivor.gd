@@ -590,6 +590,19 @@ func UpdateStats(delta = 0):
 				upgradesToAdd.append(primary.data.upgradeTree_2.upgradeNodes[i])
 			
 	#print("total upgrades to apply: " + str(len(upgradesToAdd)))
+	for upgrade : WeaponUpgrade in upgradesToAdd:
+		primary.data.minDamage += upgrade.damage
+		primary.data.maxDamage += upgrade.damage
+		primary.data.range += upgrade.range
+		primary.data.penetration += upgrade.penetration
+		primary.data.knockBack += upgrade.knockBack
+		
+		if primary.data is RangedWeapon:
+			primary.data.projectileCount += upgrade.projectileCount
+			primary.data.projectileSpeed += upgrade.projectileSpeed
+			primary.data.movementPenalty *= 1 - upgrade.runningAccuracyModifier
+			primary.data.runningPenalty *= 1 - upgrade.runningAccuracyModifier
+			primary.data.reloadTime *= 1 + upgrade.reloadSpeedModifier
 	
 	# set stats to base stat
 	maxHealth = survivorData.maxHealth

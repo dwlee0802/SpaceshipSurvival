@@ -10,6 +10,8 @@ class_name RangedWeapon
 
 # modify spread by this amount if moving
 @export var movementPenalty: float = 1
+# modify spread by this amount if running
+@export var runningPenalty: float = 1
 
 @export var isLaserWeapon: bool = false
 
