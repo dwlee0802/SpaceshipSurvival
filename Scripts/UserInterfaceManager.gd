@@ -173,8 +173,7 @@ static func UpdateFoodStockLabel(amount):
 	
 	
 static func UpdateComponentStockLabel(amount):
-	componentsStockLabel.text = "Components: " + str(amount) + "/" + str(Spaceship.maxComponentStock)
-	
+	return
 	
 static func UpdateSpaceshipOverviewUI(val = true):
 	if val:

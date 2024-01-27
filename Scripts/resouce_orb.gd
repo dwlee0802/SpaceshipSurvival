@@ -12,6 +12,7 @@ var target_position: Vector2
 @onready var pickupTimer = $PickupTimer
 
 
+
 func _ready():
 	expAmount = 0
 	target_position = global_position
@@ -23,7 +24,7 @@ func SetType(random = true, type = 0):
 		rng = type
 		
 	if rng % 3 == 1:
-		componentAmount = randi_range(1, 10)
+		componentAmount = 1
 		$Sprite2D.self_modulate = Color.GOLD
 	elif rng % 3 == 2:
 		foodAmount = 1
@@ -38,7 +39,7 @@ func _physics_process(_delta):
 		global_position += global_position.direction_to(target.global_position) * FOLLOW_SPEED
 
 		if global_position.distance_to(target.global_position) < 5:
-			Spaceship.ConsumeComponents(-componentAmount)
+			Game.survivor.ChangeComponents(componentAmount)
 			Spaceship.ConsumeFood(-foodAmount)
 			Spaceship.ConsumeAmmo(-ammoAmount)
 			queue_free()

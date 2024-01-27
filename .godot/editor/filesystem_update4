@@ -6,3 +6,8 @@ res://Scenes/survivor.tscn
 res://Scenes/PrimaryWeaponUI.gd
 res://Scenes/WeaponUpgradeUI.gd
 res://Scripts/survivor.gd
+res://Scenes/ComponentsStockLabel.gd
+res://Scripts/UserInterfaceManager.gd
+res://Scenes/resouce_orb.tscn
+res://Scripts/resouce_orb.gd
+res://Scenes/RadialStatusUI.gd
