@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="WeaponUpgrade" load_steps=2 format=3 uid="uid://nivxe8cp1dac"]
+[gd_resource type="Resource" script_class="WeaponUpgrade" load_steps=3 format=3 uid="uid://nivxe8cp1dac"]
 
 [ext_resource type="Script" path="res://Data/weapon_upgrade_data.gd" id="1_hbxqd"]
+[ext_resource type="Texture2D" uid="uid://bku7sy38brgfd" path="res://Art/WeaponUpgrades/impact_bullet_icon.jpg" id="2_osumd"]
 
 [resource]
 script = ExtResource("1_hbxqd")
@@ -20,4 +21,5 @@ knockBack = 100
 name = "Impact Rounds"
 ID = 9
 description = "Stronger knock back"
+texture = ExtResource("2_osumd")
 disabled = false

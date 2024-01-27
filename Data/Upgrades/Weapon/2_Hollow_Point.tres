@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="WeaponUpgrade" load_steps=2 format=3 uid="uid://bgc1nfcdrhrh7"]
+[gd_resource type="Resource" script_class="WeaponUpgrade" load_steps=3 format=3 uid="uid://bgc1nfcdrhrh7"]
 
 [ext_resource type="Script" path="res://Data/weapon_upgrade_data.gd" id="1_p8qlb"]
+[ext_resource type="Texture2D" uid="uid://b67fdqfbmud7h" path="res://Art/WeaponUpgrades/hollow_point_icon.png" id="2_umkig"]
 
 [resource]
 script = ExtResource("1_p8qlb")
@@ -11,6 +12,14 @@ attackSpeedModifier = 1.0
 projectileCount = 0
 penetration = -0.1
 accuracyModifier = 1.0
+runningAccuracyModifier = 0.0
+projectileSpeed = 0
+reloadSpeedModifier = 0.0
+totalAmmo = 0
+magazineCapacity = 0
+knockBack = 0
 name = "Heavy Rounds"
 ID = 2
 description = "Higher damage at the cost of defense penetration."
+texture = ExtResource("2_umkig")
+disabled = false

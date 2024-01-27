@@ -48,7 +48,8 @@ func UpdateUI():
 	if currentWeapon is Weapon:
 		if currentWeapon.upgradeTree_0 != null:
 			for i in range(len(tree_0_nodes)):
-				#tree_0_nodes[i].texture_normal = currentWeapon.upgradeTree_0.upgradeNodes[i].texture
+				tree_0_nodes[i].texture_normal = currentWeapon.upgradeTree_0.upgradeNodes[i].texture
+				tree_0_nodes[i].texture_disabled = currentWeapon.upgradeTree_0.upgradeNodes[i].texture
 				tree_0_nodes[i].set_tooltip_text(str(currentWeapon.upgradeTree_0.upgradeNodes[i]))
 				
 				if currentWeapon.upgradeTree_0_selected[i]:

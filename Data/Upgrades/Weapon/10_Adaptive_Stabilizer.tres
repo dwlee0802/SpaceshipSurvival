@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="WeaponUpgrade" load_steps=2 format=3 uid="uid://dd6yagy5skr5b"]
+[gd_resource type="Resource" script_class="WeaponUpgrade" load_steps=3 format=3 uid="uid://dd6yagy5skr5b"]
 
 [ext_resource type="Script" path="res://Data/weapon_upgrade_data.gd" id="1_1ohos"]
+[ext_resource type="Texture2D" uid="uid://f4lv2fpue8wr" path="res://Art/WeaponUpgrades/adaptive_stabilizer_icon.png" id="2_8tkgc"]
 
 [resource]
 script = ExtResource("1_1ohos")
@@ -20,4 +21,5 @@ knockBack = 0
 name = "Adaptive Stabilizer"
 ID = 10
 description = "Greatly improve accuracy while moving."
+texture = ExtResource("2_8tkgc")
 disabled = false

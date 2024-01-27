@@ -11,3 +11,10 @@ res://Scripts/UserInterfaceManager.gd
 res://Scenes/resouce_orb.tscn
 res://Scripts/resouce_orb.gd
 res://Scenes/RadialStatusUI.gd
+res://Data/Upgrades/Weapon/10_Adaptive_Stabilizer.tres
+res://Data/Upgrades/Weapon/2_Hollow_Point.tres
+res://Data/Upgrades/Trees/Shock.tres
+res://Data/Upgrades/Weapon/9_Impact_Rounds.tres
+res://Data/Upgrades/Weapon/8_Tactical_Roll.tres
+res://Data/Upgrades/Weapon/7_Improved_Magazine.tres
+res://Data/1_Ranged/1_Submachine_Gun.tres

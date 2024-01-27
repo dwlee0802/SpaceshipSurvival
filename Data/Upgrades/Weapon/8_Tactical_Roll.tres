@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="WeaponUpgrade" load_steps=2 format=3 uid="uid://d0uvvlqtrp254"]
+[gd_resource type="Resource" script_class="WeaponUpgrade" load_steps=3 format=3 uid="uid://d0uvvlqtrp254"]
 
 [ext_resource type="Script" path="res://Data/weapon_upgrade_data.gd" id="1_dgnxa"]
+[ext_resource type="Texture2D" uid="uid://c8r7lr2o78va6" path="res://Art/WeaponUpgrades/roll_icon.png" id="2_bpatk"]
 
 [resource]
 script = ExtResource("1_dgnxa")
@@ -11,11 +12,14 @@ attackSpeedModifier = 0.0
 projectileCount = 0
 penetration = 0.0
 accuracyModifier = 0.0
+runningAccuracyModifier = 0.0
 projectileSpeed = 0
 reloadSpeedModifier = 0.0
 totalAmmo = 0
 magazineCapacity = 0
+knockBack = 0
 name = "Tactical Roll"
 ID = 8
 description = "Tactical repositioning."
+texture = ExtResource("2_bpatk")
 disabled = false
