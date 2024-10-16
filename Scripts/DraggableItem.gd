@@ -5,7 +5,7 @@ var mouse_offset: Vector2 = Vector2.ZERO
 
 var dragging: bool = false
 
-var item: Item
+var item
 
 var previousSlot
 

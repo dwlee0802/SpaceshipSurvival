@@ -3,7 +3,7 @@ extends Node
 class_name Item
 
 var type: int = -1
-var data: Weapon
+var data
 static var itemDict
 
 func _init(_type, _id):
